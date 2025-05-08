@@ -10,7 +10,10 @@ const app = express();
 
 // Enable CORS for frontend
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000',
+    'https://travel-tracker-enfv.vercel.app'
+  ],
   credentials: true,
 }));
 
