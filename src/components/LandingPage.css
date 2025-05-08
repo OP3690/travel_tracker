@@ -1,0 +1,72 @@
+.landing-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landing-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, rgba(32, 40, 80, 0.55) 0%, rgba(33, 203, 243, 0.25) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landing-hero-card {
+  background: rgba(255,255,255,0.92);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(33, 203, 243, 0.18);
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  max-width: 480px;
+  width: 90vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.landing-hero-card h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+}
+.landing-hero-card p {
+  font-size: 1.2rem;
+  color: #374151;
+  margin-bottom: 2rem;
+}
+.landing-actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.landing-actions button {
+  padding: 0.8rem 2.2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 2rem;
+  background: linear-gradient(90deg, #2196f3 0%, #21cbf3 100%);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(33, 203, 243, 0.15);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.landing-actions button:hover {
+  background: linear-gradient(90deg, #21cbf3 0%, #2196f3 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+@media (max-width: 600px) {
+  .landing-hero-card {
+    padding: 1.5rem 0.5rem;
+    max-width: 98vw;
+  }
+  .landing-hero-card h1 {
+    font-size: 1.5rem;
+  }
+} 

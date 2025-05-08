@@ -1,0 +1,133 @@
+.dashboard {
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: transparent;
+  min-height: unset;
+  width: 100%;
+  font-family: 'Inter', 'Roboto', 'Segoe UI', Arial, sans-serif;
+}
+
+.dashboard-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.stats-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.stat-card {
+  background: linear-gradient(120deg, #fff 70%, #f0f4ff 100%);
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(80, 120, 200, 0.10);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  border: none;
+  min-width: 0;
+  transition: transform 0.18s, box-shadow 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(80, 120, 200, 0.18);
+}
+
+.stat-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1rem;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(80, 120, 200, 0.10);
+  background: linear-gradient(135deg, #4CAF50 0%, #81c784 100%);
+}
+
+.stat-card:nth-child(2) .stat-icon {
+  background: linear-gradient(135deg, #2196F3 0%, #64b5f6 100%);
+}
+.stat-card:nth-child(3) .stat-icon {
+  background: linear-gradient(135deg, #FF9800 0%, #ffd54f 100%);
+}
+.stat-card:nth-child(4) .stat-icon {
+  background: linear-gradient(135deg, #F44336 0%, #ff8a65 100%);
+}
+
+.stat-content {
+  flex-grow: 1;
+}
+
+.stat-content h3 {
+  margin: 0 0 0.25rem 0;
+  color: #2c3e50;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.stat-numbers {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-count {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.stat-total {
+  font-size: 1.08rem;
+  color: #6c757d;
+}
+
+.progress-bar {
+  height: 7px;
+  background-color: #e9ecef;
+  border-radius: 3.5px;
+  overflow: hidden;
+  margin-top: 0.2rem;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 3.5px;
+  transition: width 0.3s cubic-bezier(.4,2,.6,1);
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 0.5rem;
+  }
+  .stats-grid {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .stat-card {
+    padding: 0.8rem 1rem;
+  }
+  .stat-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.3rem;
+  }
+  .stat-count {
+    font-size: 1.1rem;
+  }
+} 

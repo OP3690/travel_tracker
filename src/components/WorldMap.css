@@ -1,0 +1,255 @@
+.world-map-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 400px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+  display: block;
+}
+
+.svg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.world-map-container::before {
+  content: '';
+  display: block;
+  padding-top: 50%; /* 2:1 aspect ratio */
+}
+
+.world-map-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.world-map-svg:active {
+  cursor: grabbing;
+}
+
+.world-map-svg svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.world-map-svg path {
+  fill: #e0e0e0;
+  stroke: #fff;
+  stroke-width: 0.5;
+  transition: fill 0.3s ease;
+  cursor: pointer;
+}
+
+.world-map-svg path:hover {
+  fill: #bdbdbd;
+}
+
+.world-map-svg path.selected {
+  fill: #a5d6a7 !important;
+  stroke: #388e3c;
+  stroke-width: 1.2;
+}
+
+.world-map-svg path.selected:hover {
+  fill: #81c784 !important;
+}
+
+.world-map-svg circle {
+  fill: #e53935;
+  stroke: #b71c1c;
+  stroke-width: 1;
+  transition: all 0.3s ease;
+}
+
+.world-map-svg circle:hover {
+  fill: #f44336;
+  stroke: #d32f2f;
+}
+
+.world-map-tooltip {
+  position: fixed;
+  background: #222;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  pointer-events: none;
+  font-size: 14px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+}
+
+.world-map-pins {
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Zoom controls */
+.zoom-controls {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zoom-controls button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.zoom-controls button:hover {
+  background: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.visited-countries-card {
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  min-width: 320px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 24px 24px 16px 24px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.visited-countries-title {
+  font-size: 1.18rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #222;
+  letter-spacing: 0.01em;
+}
+
+.visited-countries-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: transparent;
+}
+
+.visited-countries-table th, .visited-countries-table td {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.visited-countries-table th {
+  background: #f5f5f5;
+  color: #666;
+  font-weight: 500;
+  font-size: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.visited-countries-table tr {
+  transition: background 0.2s;
+}
+
+.visited-countries-table tr:nth-child(even) {
+  background: #fafbfc;
+}
+
+.visited-countries-table tr:hover {
+  background: #e3f2fd;
+}
+
+.country-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.country-flag {
+  font-size: 1.4rem;
+  margin-right: 4px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
+}
+
+.tooltip {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translate(-50%, -100%);
+  margin-top: -8px;
+}
+
+.pin {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #e53935;
+  border: 2px solid #b71c1c;
+  border-radius: 50%;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+.pin::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #b71c1c;
+}
+
+/* Selected country styles */
+path.selected {
+  fill: #81c784 !important;
+  stroke: #4caf50 !important;
+  stroke-width: 1px !important;
+}
+
+/* Hover styles */
+g:hover path {
+  fill: #e8f5e9 !important;
+  stroke: #4caf50 !important;
+  stroke-width: 1px !important;
+  cursor: pointer;
+} 
