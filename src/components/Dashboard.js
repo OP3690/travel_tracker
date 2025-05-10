@@ -158,14 +158,6 @@ export default function Dashboard() {
     fetchSelected();
   }, []);
 
-  // Sync with backend whenever selectedLocations changes
-  useEffect(() => {
-    if (!selectedLocations) return;
-    // Send the full pin objects, not just names
-    API.post('/api/user/selected', { selectedLocations })
-      .catch(err => console.error('Failed to update selectedLocations:', err));
-  }, [selectedLocations]);
-
   const handleLocationClick = (event) => {
     const id = event.target.id;
     const name = event.target.getAttribute('name');
@@ -178,6 +170,18 @@ export default function Dashboard() {
         const label = event.target.getAttribute('data-label');
         updated = [...prev, { id, name, x: label ? label.x : 0, y: label ? label.y : 0 }];
       }
+      // Save to backend
+      API.post('/api/user/selected', { selectedLocations: updated })
+        .catch(err => console.error('Failed to update selectedLocations:', err));
+      return updated;
+    });
+  };
+
+  const handleDelete = (id) => {
+    setSelectedLocations(prev => {
+      const updated = prev.filter(loc => loc.id !== id);
+      API.post('/api/user/selected', { selectedLocations: updated })
+        .catch(err => console.error('Failed to update selectedLocations:', err));
       return updated;
     });
   };

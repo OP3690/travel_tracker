@@ -29,16 +29,10 @@ function WorldMapView() {
     fetchSelected();
   }, []);
 
-  // Sync selected locations to backend on change
-  useEffect(() => {
-    if (!selectedLocations) return;
-    API.post('/api/user/selected', { selectedLocations })
-      .catch(err => console.error('Failed to update selectedLocations:', err));
-  }, [selectedLocations]);
-
   function handleLocationClick(location) {
     // Optionally log or handle side effects, but do NOT update selectedLocations here
     // console.log('Location clicked:', location);
+    // If you want to update selectedLocations here, do so and POST to backend
   }
 
   function handleEdit(id, dateVisited, comment) {
@@ -48,16 +42,26 @@ function WorldMapView() {
   }
 
   function handleSave(id) {
-    setSelectedLocations(prev => prev.map(loc =>
-      loc.id === id ? { ...loc, dateVisited: editDate, comment: editComment } : loc
-    ));
+    setSelectedLocations(prev => {
+      const updated = prev.map(loc =>
+        loc.id === id ? { ...loc, dateVisited: editDate, comment: editComment } : loc
+      );
+      API.post('/api/user/selected', { selectedLocations: updated })
+        .catch(err => console.error('Failed to update selectedLocations:', err));
+      return updated;
+    });
     setEditId(null);
     setEditDate('');
     setEditComment('');
   }
 
   function handleDelete(id) {
-    setSelectedLocations(prev => prev.filter(loc => loc.id !== id));
+    setSelectedLocations(prev => {
+      const updated = prev.filter(loc => loc.id !== id);
+      API.post('/api/user/selected', { selectedLocations: updated })
+        .catch(err => console.error('Failed to update selectedLocations:', err));
+      return updated;
+    });
   }
 
   return (
