@@ -145,6 +145,7 @@ export function MapStatsRight({ selectedLocations = [] }) {
 
 export default function Dashboard() {
   const [selectedLocations, setSelectedLocations] = useState([]);
+  const [idToLabel, setIdToLabel] = useState({});
 
   useEffect(() => {
     async function fetchSelected() {
@@ -158,17 +159,32 @@ export default function Dashboard() {
     fetchSelected();
   }, []);
 
+  useEffect(() => {
+    setSelectedLocations(prev => prev.map(loc => {
+      if ((loc.x === undefined || loc.y === undefined) && idToLabel[loc.id]) {
+        return { ...loc, x: idToLabel[loc.id].x, y: idToLabel[loc.id].y };
+      }
+      return loc;
+    }));
+  }, []);
+
   const handleLocationClick = (event) => {
     const id = event.target.id;
     const name = event.target.getAttribute('name');
+    const label = idToLabel[id];
     setSelectedLocations(prev => {
       const exists = prev.find(s => s.id === id);
       let updated;
       if (exists) {
         updated = prev.filter(s => s.id !== id);
       } else {
-        const label = event.target.getAttribute('data-label');
-        updated = [...prev, { id, name, x: label ? label.x : 0, y: label ? label.y : 0 }];
+        // Always use correct centroid if available
+        let pin = { id, name, x: 0, y: 0 };
+        if (label) {
+          pin.x = label.x;
+          pin.y = label.y;
+        }
+        updated = [...prev, pin];
       }
       // Save to backend
       API.post('/api/user/selected', { selectedLocations: updated })
