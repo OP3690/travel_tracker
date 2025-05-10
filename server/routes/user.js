@@ -13,7 +13,13 @@ router.get('/selected', auth, async (req, res) => {
 router.post('/selected', auth, async (req, res) => {
   try {
     const { selectedLocations } = req.body;
-    await User.findByIdAndUpdate(req.userId, { selectedLocations });
+    console.log('Updating user:', req.userId, 'with:', selectedLocations);
+    const updatedUser = await User.findByIdAndUpdate(
+      req.userId,
+      { selectedLocations },
+      { new: true }
+    );
+    console.log('Updated user document:', updatedUser);
     res.json({ message: 'Updated' });
   } catch (err) {
     console.error('Error updating selectedLocations:', err);
