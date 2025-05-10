@@ -325,7 +325,6 @@ body, html, #root, .app {
   }
 }
 
-.worldmap-page,
 .worldmap-page .map-container {
   max-width: none !important;
   margin: 0 !important;
