@@ -16,7 +16,7 @@ router.post('/selected', auth, async (req, res) => {
     console.log('Updating user:', req.userId, 'with:', selectedLocations);
     const updatedUser = await User.findByIdAndUpdate(
       req.userId,
-      { selectedLocations },
+      { $set: { selectedLocations } },
       { new: true }
     );
     console.log('Updated user document:', updatedUser);
