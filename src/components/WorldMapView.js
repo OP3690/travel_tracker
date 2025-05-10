@@ -75,7 +75,7 @@ function WorldMapView() {
 
   return (
     <Layout>
-      <div className="dashboard-content" style={{ width: '100%', maxWidth: 'none', margin: 0, padding: 0 }}>
+      <div className="dashboard-content worldmap-page" style={{ width: '100%', maxWidth: 'none', margin: 0, padding: 0 }}>
         <h1>Interactive World Map</h1>
         <div className="map-container" style={{ width: '100%', maxWidth: 'none', margin: 0, padding: 0 }}>
           <WorldMap
