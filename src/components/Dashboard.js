@@ -159,6 +159,14 @@ export default function Dashboard() {
     fetchSelected();
   }, []);
 
+  // Always POST the latest selectedLocations to backend when it changes
+  useEffect(() => {
+    if (selectedLocations.length > 0) {
+      API.post('/api/user/selected', { selectedLocations })
+        .catch(err => console.error('Failed to update selectedLocations:', err));
+    }
+  }, [selectedLocations]);
+
   useEffect(() => {
     setSelectedLocations(prev => prev.map(loc => {
       if ((loc.x === undefined || loc.y === undefined) && idToLabel[loc.id]) {
@@ -186,20 +194,12 @@ export default function Dashboard() {
         }
         updated = [...prev, pin];
       }
-      // Save to backend
-      API.post('/api/user/selected', { selectedLocations: updated })
-        .catch(err => console.error('Failed to update selectedLocations:', err));
       return updated;
     });
   };
 
   const handleDelete = (id) => {
-    setSelectedLocations(prev => {
-      const updated = prev.filter(loc => loc.id !== id);
-      API.post('/api/user/selected', { selectedLocations: updated })
-        .catch(err => console.error('Failed to update selectedLocations:', err));
-      return updated;
-    });
+    setSelectedLocations(prev => prev.filter(loc => loc.id !== id));
   };
 
   const handlePinMove = (id, x, y) => {
