@@ -31,12 +31,12 @@ function WorldMapView() {
 
   function handleLocationClick(location) {
     setSelectedLocations(prev => {
-      const exists = prev.find(s => s.id === location.id);
+      const exists = prev.find(s => s.id === location.id && s.type === 'country');
       let updated;
       if (exists) {
-        updated = prev.filter(s => s.id !== location.id);
+        updated = prev.filter(s => !(s.id === location.id && s.type === 'country'));
       } else {
-        updated = [...prev, location];
+        updated = [...prev, { ...location, type: 'country' }];
       }
       API.post('/api/user/selected', { selectedLocations: updated })
         .catch(err => console.error('Failed to update selectedLocations:', err));
@@ -99,10 +99,10 @@ function WorldMapView() {
               </tr>
             </thead>
             <tbody>
-              {selectedLocations.length === 0 ? (
+              {selectedLocations.filter(loc => loc.type === 'country').length === 0 ? (
                 <tr><td colSpan={6} style={{ textAlign: 'center', color: '#aaa', padding: 24 }}>No countries selected yet.</td></tr>
               ) : (
-                selectedLocations.map(location => (
+                selectedLocations.filter(loc => loc.type === 'country').map(location => (
                   <tr key={location.id} style={{ borderBottom: '1px solid #f0f0f0', transition: 'background 0.2s' }}>
                     <td style={{ padding: '10px 12px', fontSize: '1.5rem' }}>{countryCodeToFlagEmoji(location.id?.slice(0,2))}</td>
                     <td style={{ padding: '10px 12px', fontWeight: 500 }}>{location.name}</td>
