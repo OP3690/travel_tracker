@@ -1,13 +1,35 @@
+.world-map-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
 .world-map-container {
   position: relative;
-  width: 100%;
-  height: 70vh;
-  min-height: 400px;
-  background: #f5f5f5;
-  border-radius: 8px;
+  width: 100vw;
+  height: 80vh;
+  min-height: 700px;
+  background: linear-gradient(120deg, #f5fafd 0%, #e3e9f7 100%);
+  border-radius: 0;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  max-width: none;
+  border: none;
+}
+
+.world-map-container svg {
+  width: 100% !important;
+  height: 100% !important;
   display: block;
+  object-fit: contain;
 }
 
 .svg-container {
@@ -23,9 +45,7 @@
 }
 
 .world-map-container::before {
-  content: '';
-  display: block;
-  padding-top: 50%; /* 2:1 aspect ratio */
+  display: none !important;
 }
 
 .world-map-svg {
@@ -102,34 +122,41 @@
 }
 
 /* Zoom controls */
-.zoom-controls {
+.world-map-controls.zoom-controls {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  z-index: 10;
+  top: 32px;
+  right: 48px;
+  z-index: 20;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(80,120,200,0.10);
+  padding: 12px 8px;
+  backdrop-filter: blur(4px);
 }
 
 .zoom-controls button {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-size: 18px;
+  background: linear-gradient(120deg, #f5fafd 0%, #e3e9f7 100%);
+  box-shadow: 0 2px 8px rgba(80,120,200,0.10);
+  font-size: 22px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(.4,2,.6,1);
+  color: #2a3a5e;
 }
 
 .zoom-controls button:hover {
-  background: #f0f0f0;
-  transform: scale(1.1);
+  background: #e3f2fd;
+  transform: scale(1.13);
+  color: #1976d2;
 }
 
 .visited-countries-card {
@@ -217,12 +244,9 @@
 
 .pin {
   position: absolute;
+  z-index: 10;
   width: 24px;
-  height: 24px;
-  background: #e53935;
-  border: 2px solid #b71c1c;
-  border-radius: 50%;
-  transform-origin: center center;
+  height: 36px;
   pointer-events: none;
 }
 
@@ -252,4 +276,53 @@ g:hover path {
   stroke: #4caf50 !important;
   stroke-width: 1px !important;
   cursor: pointer;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1200px) {
+  .world-map-container {
+    width: 100vw;
+    height: 50vh;
+    min-height: 340px;
+    aspect-ratio: unset;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+  .world-map-controls.zoom-controls {
+    top: 16px;
+    right: 12px;
+    padding: 8px 4px;
+    border-radius: 12px;
+  }
+  .zoom-controls button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  .world-map-container {
+    width: 100vw;
+    height: 32vh;
+    min-height: 180px;
+    border-radius: 0;
+    aspect-ratio: unset;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+  .world-map-controls.zoom-controls {
+    top: 8px;
+    right: 4px;
+    padding: 4px 2px;
+    border-radius: 8px;
+  }
+  .zoom-controls button {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
 } 

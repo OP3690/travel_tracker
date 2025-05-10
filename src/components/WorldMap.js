@@ -204,67 +204,99 @@ function WorldMap({ selectedLocations = [], setSelectedLocations = () => {}, onL
     setIsDragging(false);
   }
 
+  // Utility: Convert SVG coordinates to container coordinates
+  function svgCoordsToContainerCoords(x, y) {
+    const svgEl = svgContainerRef.current?.querySelector('svg');
+    const container = svgContainerRef.current;
+    if (!svgEl || !container) return { left: 0, top: 0 };
+    const viewBox = svgEl.viewBox.baseVal;
+    const rect = container.getBoundingClientRect();
+    const left = ((x - viewBox.x) / viewBox.width) * rect.width;
+    const top = ((y - viewBox.y) / viewBox.height) * rect.height;
+    return { left, top };
+  }
+
   return (
-    <div className="world-map-container">
-      <div className="zoom-controls">
+    <div className="world-map-outer" style={{ width: '100vw', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: 0, padding: 0 }}>
+      <div className="world-map-controls zoom-controls">
         <button onClick={handleZoomIn}>+</button>
         <button onClick={handleZoomOut}>-</button>
-        <button onClick={handleReset} title="Reset View">⟳</button>
+        <button onClick={handleReset}>&#8634;</button>
       </div>
-      <div 
-        className="svg-container"
+      <div
+        className="world-map-container"
         ref={svgContainerRef}
         onClick={handleLocationClick}
-        onMouseOver={onLocationMouseOver}
-        onMouseOut={onLocationMouseOut}
-        onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
+        onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        style={{
-          cursor: isDragging ? 'grabbing' : 'grab',
-          transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
-          transformOrigin: 'center center'
-        }}
-      />
+      >
+        {/* Apply transform to SVG for custom scaling and centering */}
+        {(() => {
+          const svgEl = svgContainerRef.current?.querySelector('svg');
+          if (svgEl) {
+            svgEl.style.transform = `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`;
+            svgEl.style.transformOrigin = '50% 50%';
+            svgEl.style.transition = 'transform 0.3s cubic-bezier(.4,2,.6,1)';
+            svgEl.style.display = 'block';
+            svgEl.style.margin = '0 auto';
+            svgEl.style.maxWidth = '100%';
+            svgEl.style.maxHeight = '100%';
+          }
+          return null;
+        })()}
+        {/* Render pins as absolutely positioned elements relative to the map container */}
+        {pinPositions.map((pin, index) => {
+          const { left, top } = svgCoordsToContainerCoords(pin.x, pin.y);
+          return (
+            <svg
+              key={index}
+              className="pin"
+              style={{
+                position: 'absolute',
+                left: left - 12,
+                top: top - 36,
+                zIndex: 10,
+                width: 24,
+                height: 36,
+                pointerEvents: 'none'
+              }}
+              viewBox="0 0 24 36"
+            >
+              <g>
+                <ellipse cx="12" cy="28" rx="6" ry="3" fill="#b71c1c" opacity="0.3" />
+                <path
+                  d="M12 2C7.03 2 3 6.03 3 11c0 5.25 7.5 17 8.13 18.02a1 1 0 0 0 1.74 0C13.5 28 21 16.25 21 11c0-4.97-4.03-9-9-9zm0 12.5A3.5 3.5 0 1 1 12 7a3.5 3.5 0 0 1 0 7.5z"
+                  fill="#ff0000"
+                  stroke="#b71c1c"
+                  strokeWidth="1"
+                />
+                <circle cx="12" cy="11" r="2" fill="#fff" />
+              </g>
+            </svg>
+          );
+        })}
+      </div>
       {hoveredName && (
-        <div 
-          className="tooltip"
+        <div
+          className="world-map-tooltip"
           style={{
-            left: mousePos.x + 10,
-            top: mousePos.y + 10,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            background: 'rgba(33, 33, 33, 0.95)',
+            position: 'fixed',
+            left: mousePos.x + 12,
+            top: mousePos.y + 12,
+            background: '#222',
             color: '#fff',
-            padding: '10px 16px',
-            borderRadius: '8px',
-            fontSize: '1.08rem',
-            fontWeight: 500,
-            boxShadow: '0 4px 16px rgba(0,0,0,0.18)',
+            padding: '4px 10px',
+            borderRadius: 4,
             pointerEvents: 'none',
+            fontSize: 14,
             zIndex: 1000,
-            minWidth: '120px'
+            boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
           }}
         >
-          <span style={{ fontSize: '1.6em', filter: 'drop-shadow(0 1px 2px #0002)' }}>
-            {countryCodeToFlagEmoji(hoveredId?.slice(0,2))}
-          </span>
-          <span>{countryCodeToName[hoveredId?.toLowerCase()] || hoveredName}</span>
+          {hoveredName}
         </div>
       )}
-      {pinPositions.map((pin, index) => (
-        <div
-          key={index}
-          className="pin"
-          style={{
-            left: `${pin.x}px`,
-            top: `${pin.y}px`,
-            transform: `translate(-50%, -50%) scale(${transform.scale})`
-          }}
-        />
-      ))}
     </div>
   );
 }
