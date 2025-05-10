@@ -8,12 +8,18 @@ const destinationsRoutes = require('./routes/destinations');
 
 const app = express();
 
-// Enable CORS for frontend
+const allowedOrigins = [
+  ...Array.from({length: 11}, (_, i) => `http://localhost:30${i}`),
+  'https://travel-tracker-enfv.vercel.app'
+];
 app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'https://travel-tracker-enfv.vercel.app'
-  ],
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
 
