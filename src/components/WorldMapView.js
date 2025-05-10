@@ -30,9 +30,18 @@ function WorldMapView() {
   }, []);
 
   function handleLocationClick(location) {
-    // Optionally log or handle side effects, but do NOT update selectedLocations here
-    // console.log('Location clicked:', location);
-    // If you want to update selectedLocations here, do so and POST to backend
+    setSelectedLocations(prev => {
+      const exists = prev.find(s => s.id === location.id);
+      let updated;
+      if (exists) {
+        updated = prev.filter(s => s.id !== location.id);
+      } else {
+        updated = [...prev, location];
+      }
+      API.post('/api/user/selected', { selectedLocations: updated })
+        .catch(err => console.error('Failed to update selectedLocations:', err));
+      return updated;
+    });
   }
 
   function handleEdit(id, dateVisited, comment) {
