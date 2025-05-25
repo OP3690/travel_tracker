@@ -210,20 +210,48 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="app">
-      <Layout>
-        <div className="map-section map-section-top-stats">
-          <MapStatsRow selectedLocations={selectedLocations} />
-          <div className="map-container">
-            <IndiaMap
-              selectedLocations={selectedLocations}
-              setSelectedLocations={setSelectedLocations}
-              onLocationClick={handleLocationClick}
-              onPinMove={handlePinMove}
-            />
+    <Layout>
+      <div className="dashboard-content">
+        <h1 className="dashboard-title">India Travel Dashboard</h1>
+        <div className="stats-row">
+          <div className="stat-card">
+            <div className="stat-icon">🏛️</div>
+            <div className="stat-content">
+              <h3>States Visited</h3>
+              <div className="stat-numbers">{visitedStates.length} / 28</div>
+            </div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-icon">🏢</div>
+            <div className="stat-content">
+              <h3>UTs Visited</h3>
+              <div className="stat-numbers">{visitedUTs.length} / 8</div>
+            </div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-icon">⏳</div>
+            <div className="stat-content">
+              <h3>States Pending</h3>
+              <div className="stat-numbers">{pendingStates.length} / 28</div>
+            </div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-icon">📝</div>
+            <div className="stat-content">
+              <h3>UTs Pending</h3>
+              <div className="stat-numbers">{pendingUTs.length} / 8</div>
+            </div>
           </div>
         </div>
-      </Layout>
-    </div>
+        <div className="map-section">
+          <IndiaMap
+            selectedStates={visitedStates}
+            selectedUTs={visitedUTs}
+            onStateClick={handleStateClick}
+            onUTClick={handleUTClick}
+          />
+        </div>
+      </div>
+    </Layout>
   );
 } 

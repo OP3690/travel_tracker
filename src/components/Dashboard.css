@@ -15,46 +15,118 @@
   letter-spacing: 0.01em;
 }
 
+.dashboard-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
 .stats-grid {
   display: flex;
   flex-direction: row;
-  gap: 1.2rem;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.map-stats-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
   width: 100%;
   justify-content: center;
 }
 
 .stat-card {
-  background: linear-gradient(120deg, #fff 70%, #f0f4ff 100%);
-  border-radius: 16px;
-  padding: 1.2rem 1.5rem;
-  box-shadow: 0 4px 16px rgba(80, 120, 200, 0.10);
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(33, 150, 243, 0.10);
+  padding: 2rem 2.5rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1.2rem;
-  border: none;
-  min-width: 0;
-  transition: transform 0.18s, box-shadow 0.18s;
-  position: relative;
-  overflow: hidden;
+  min-width: 180px;
+  max-width: 220px;
+  gap: 0.7rem;
+  transition: box-shadow 0.18s, transform 0.18s;
+  font-family: 'Inter', 'Nunito', Arial, sans-serif;
 }
 
 .stat-card:hover {
-  transform: translateY(-4px) scale(1.04);
-  box-shadow: 0 8px 24px rgba(80, 120, 200, 0.18);
+  box-shadow: 0 8px 32px rgba(33, 150, 243, 0.13);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.stat-card-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1;
 }
 
 .stat-icon {
-  width: 54px;
-  height: 54px;
-  border-radius: 12px;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #1976d2;
+  background: #e3f0ff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.1rem;
-  color: white;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(80, 120, 200, 0.10);
-  background: linear-gradient(135deg, #4CAF50 0%, #81c784 100%);
+}
+
+.stat-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.3rem 0;
+  color: #1976d2;
+  text-align: center;
+}
+
+.stat-numbers {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+
+.stat-count {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c3e50;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-total {
+  font-size: 0.95rem;
+  color: #6c757d;
 }
 
 .stat-card:nth-child(2) .stat-icon {
@@ -65,36 +137,6 @@
 }
 .stat-card:nth-child(4) .stat-icon {
   background: linear-gradient(135deg, #F44336 0%, #ff8a65 100%);
-}
-
-.stat-content {
-  flex-grow: 1;
-}
-
-.stat-content h3 {
-  margin: 0 0 0.25rem 0;
-  color: #2c3e50;
-  font-size: 1.08rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-.stat-numbers {
-  display: flex;
-  align-items: baseline;
-  gap: 0.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.stat-count {
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: #2c3e50;
-}
-
-.stat-total {
-  font-size: 1.08rem;
-  color: #6c757d;
 }
 
 .progress-bar {
@@ -109,6 +151,45 @@
   height: 100%;
   border-radius: 3.5px;
   transition: width 0.3s cubic-bezier(.4,2,.6,1);
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  padding-top: 0;
+  width: 100%;
+  max-width: 700px;
+  height: 48vh;
+  min-height: 260px;
+  max-height: 55vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.india-map-container {
+  width: 100%;
+  height: 100%;
+  max-width: 700px;
+  max-height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-section {
+  width: 100%;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(33, 150, 243, 0.08);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -129,5 +210,21 @@
   }
   .stat-count {
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .stats-row {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+  }
+  .stat-card {
+    width: 100%;
+    max-width: 350px;
+  }
+  .map-section {
+    padding: 1rem;
+    border-radius: 12px;
   }
 } 
