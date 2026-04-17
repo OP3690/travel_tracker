@@ -4,17 +4,32 @@ import "react-svg-map/lib/index.css";
 import WorldCountryMap from "./WorldCountryMap";
 import "./CountryMap.css";
 
-// Import all supported country maps
+// Import ALL available @svg-maps packages (27 countries)
 import India from "@svg-maps/india";
 import USA from "@svg-maps/usa";
 import Japan from "@svg-maps/japan";
 import Brazil from "@svg-maps/brazil";
 import Italy from "@svg-maps/italy";
-import France from "@svg-maps/france.regions";
+import FranceRegions from "@svg-maps/france.regions";
 import Germany from "@svg-maps/germany";
 import Canada from "@svg-maps/canada";
 import Spain from "@svg-maps/spain";
 import Mexico from "@svg-maps/mexico";
+import Nigeria from "@svg-maps/nigeria";
+import Romania from "@svg-maps/romania";
+import Taiwan from "@svg-maps/taiwan";
+import Thailand from "@svg-maps/thailand";
+import SouthKorea from "@svg-maps/south-korea";
+import Australia from "@svg-maps/australia";
+import China from "@svg-maps/china";
+import Vietnam from "@svg-maps/vietnam";
+import Ukraine from "@svg-maps/ukraine";
+import Denmark from "@svg-maps/denmark";
+import SaudiArabia from "@svg-maps/saudi-arabia";
+import Colombia from "@svg-maps/colombia";
+import Austria from "@svg-maps/austria";
+import Uzbekistan from "@svg-maps/uzbekistan";
+import Indonesia from "@svg-maps/indonesia";
 
 const countryMaps = {
   India: { map: India, regionLabel: 'States & UTs', regionType: 'state' },
@@ -22,11 +37,26 @@ const countryMaps = {
   Japan: { map: Japan, regionLabel: 'Prefectures', regionType: 'prefecture' },
   Brazil: { map: Brazil, regionLabel: 'States', regionType: 'state' },
   Italy: { map: Italy, regionLabel: 'Regions', regionType: 'region' },
-  France: { map: France, regionLabel: 'Regions', regionType: 'region' },
+  France: { map: FranceRegions, regionLabel: 'Regions', regionType: 'region' },
   Germany: { map: Germany, regionLabel: 'States', regionType: 'state' },
-  Canada: { map: Canada, regionLabel: 'Provinces', regionType: 'province' },
+  Canada: { map: Canada, regionLabel: 'Provinces & Territories', regionType: 'province' },
   Spain: { map: Spain, regionLabel: 'Communities', regionType: 'community' },
   Mexico: { map: Mexico, regionLabel: 'States', regionType: 'state' },
+  Nigeria: { map: Nigeria, regionLabel: 'States', regionType: 'state' },
+  Romania: { map: Romania, regionLabel: 'Counties', regionType: 'county' },
+  Taiwan: { map: Taiwan, regionLabel: 'Counties & Cities', regionType: 'county' },
+  Thailand: { map: Thailand, regionLabel: 'Provinces', regionType: 'province' },
+  'South Korea': { map: SouthKorea, regionLabel: 'Provinces & Cities', regionType: 'province' },
+  Australia: { map: Australia, regionLabel: 'States & Territories', regionType: 'state' },
+  China: { map: China, regionLabel: 'Provinces', regionType: 'province' },
+  Vietnam: { map: Vietnam, regionLabel: 'Provinces', regionType: 'province' },
+  Ukraine: { map: Ukraine, regionLabel: 'Oblasts', regionType: 'oblast' },
+  Denmark: { map: Denmark, regionLabel: 'Regions', regionType: 'region' },
+  'Saudi Arabia': { map: SaudiArabia, regionLabel: 'Provinces', regionType: 'province' },
+  Colombia: { map: Colombia, regionLabel: 'Departments', regionType: 'department' },
+  Austria: { map: Austria, regionLabel: 'States', regionType: 'state' },
+  Uzbekistan: { map: Uzbekistan, regionLabel: 'Regions', regionType: 'region' },
+  Indonesia: { map: Indonesia, regionLabel: 'Provinces', regionType: 'province' },
 };
 
 function CountryMap({ country = 'India', selectedLocations = [], setSelectedLocations = () => {} }) {
@@ -36,7 +66,6 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
 
   const mapData = countryMaps[country];
   const hasInteractiveMap = !!mapData;
-  const effectiveMap = mapData || countryMaps.India; // fallback
 
   function handleLocationClick(event) {
     const id = event.target.id;
@@ -73,7 +102,7 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
   return (
     <div className="country-map-container" ref={svgRef} onMouseMove={onMouseMove}>
       <SVGMap
-        map={effectiveMap.map}
+        map={mapData.map}
         onLocationClick={handleLocationClick}
         onLocationMouseOver={onLocationMouseOver}
         onLocationMouseOut={onLocationMouseOut}
