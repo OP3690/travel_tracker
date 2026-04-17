@@ -225,11 +225,8 @@ export default function WorldCountryMap({ country }) {
   }, [country]);
 
   return (
-    <div
-      className="country-map-container world-country-map"
-      ref={containerRef}
-      onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
-    >
+    <div className="country-map-container world-country-map" onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}>
+      <div ref={containerRef} style={{ width: '100%', height: '100%' }} />
       {hoveredName && (
         <div
           className="country-map-tooltip"
