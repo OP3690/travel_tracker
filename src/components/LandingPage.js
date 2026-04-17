@@ -4,18 +4,18 @@ import { FaMapMarkedAlt, FaGlobeAsia, FaBook, FaChartLine, FaArrowRight, FaPlane
 import './LandingPage.css';
 
 const features = [
-  { icon: <FaMapMarkedAlt />, title: 'India Map Dashboard', desc: 'Interactive SVG map — click any state or UT to mark it visited and watch India turn green.', color: '#10b981' },
-  { icon: <FaGlobeAsia />, title: 'World Map Explorer', desc: 'Zoom, pan, and pin countries worldwide. Add visit dates and travel notes.', color: '#3b82f6' },
-  { icon: <FaBook />, title: 'Destination Journal', desc: '1000+ destinations across India. Mark top spots, search, filter, and track progress.', color: '#8b5cf6' },
-  { icon: <FaChartLine />, title: 'Travel Analytics', desc: 'Beautiful donut charts and progress rings. See your India and world coverage at a glance.', color: '#f59e0b' },
-  { icon: <FaCalendarAlt />, title: 'Trip Planner', desc: 'Plan future adventures with dates, destinations, and notes. Never miss a detail.', color: '#ec4899' },
-  { icon: <FaCheckCircle />, title: 'Milestone Badges', desc: 'Unlock achievements — First Step, Explorer, Adventurer, Nomad, All India.', color: '#06b6d4' },
+  { icon: <FaMapMarkedAlt />, title: '195 Country Maps', desc: 'Every country. Every state. Every province. Click to mark visited and watch your map come alive.', color: '#10b981' },
+  { icon: <FaGlobeAsia />, title: 'World Map Explorer', desc: 'Zoom, pan, and pin countries across the globe. Animated flight arcs connect your journeys.', color: '#3b82f6' },
+  { icon: <FaBook />, title: 'Destination Journal', desc: 'Log 1000+ destinations. Mark favorites. Track progress by region. Your travel diary, digitized.', color: '#8b5cf6' },
+  { icon: <FaChartLine />, title: 'Travel Analytics', desc: 'See your coverage with donut charts, progress rings, and leaderboards. Data meets wanderlust.', color: '#f59e0b' },
+  { icon: <FaCalendarAlt />, title: 'Trip Planner', desc: 'Plan your next escape. Set dates, add notes, build checklists. Never forget a travel detail.', color: '#ec4899' },
+  { icon: <FaCheckCircle />, title: 'Milestone Badges', desc: 'Earn badges as you explore. First Step, Explorer, Adventurer, Nomad — collect them all.', color: '#06b6d4' },
 ];
 
 const testimonials = [
-  { text: 'Finally a beautiful way to see how much of India I have covered. The milestones keep me motivated!', name: 'Priya M.', role: 'Solo Traveler', stars: 5 },
-  { text: 'The world map with animated flight arcs is gorgeous. I share my stats with friends all the time.', name: 'Arjun K.', role: 'Backpacker', stars: 5 },
-  { text: 'Planning trips and tracking destinations in one place. Exactly what every traveler needs.', name: 'Sneha R.', role: 'Travel Blogger', stars: 5 },
+  { text: 'I can see every state I have visited on a beautiful map. The milestone badges keep me exploring!', name: 'Priya M.', role: 'Solo Traveler', stars: 5 },
+  { text: 'Switched from spreadsheets to this. The world map with flight arcs is just stunning.', name: 'Arjun K.', role: 'Digital Nomad', stars: 5 },
+  { text: '195 country maps with clickable states! I plan trips and track them all in one place. A must-have.', name: 'Sneha R.', role: 'Travel Blogger', stars: 5 },
 ];
 
 function CountUp({ target, suffix = '' }) {
@@ -179,13 +179,13 @@ export default function LandingPage() {
           <div className="hero-shape hero-shape-3" />
         </div>
         <div className="hero-content">
-          <div className="hero-badge"><FaPlane className="hero-badge-icon" /> Your Personal Travel Map</div>
+          <div className="hero-badge"><FaPlane className="hero-badge-icon" /> Free for 195 Countries</div>
           <h1 className="hero-title">
-            Every Journey<br /><span className="hero-gradient-text">Deserves a Glimpse</span>
+            Track Every Journey.<br /><span className="hero-gradient-text">Map Every Memory.</span>
           </h1>
           <p className="hero-subtitle">
-            Pin visited states on India's map. Track countries across the world.
-            Journal every destination. Watch your travel story come alive.
+            Interactive maps for 195 countries with clickable states and provinces.
+            Journal destinations, earn milestone badges, and see your travel story unfold beautifully.
           </p>
           <div className="hero-actions">
             <button className="hero-btn-primary" onClick={() => navigate('/signup')}>
@@ -226,8 +226,8 @@ export default function LandingPage() {
       <section className="landing-features" id="features">
         <div className="features-header">
           <div className="section-badge"><FaRoute /> Features</div>
-          <h2>Built for Travelers Who<br />Love to <span className="hero-gradient-text">Explore</span></h2>
-          <p>Every feature crafted around the joy of discovery</p>
+          <h2>One App. Every Country.<br /><span className="hero-gradient-text">Infinite Adventures.</span></h2>
+          <p>Six powerful features that turn your travels into a visual story</p>
         </div>
         <div className="features-grid">
           {features.map((f, i) => (
@@ -296,8 +296,8 @@ export default function LandingPage() {
       <section className="landing-cta">
         <div className="cta-content">
           <FaMountain className="cta-icon" />
-          <h2>Your Next Adventure Starts Here</h2>
-          <p>Join MyTravelGlimpse — it's free, forever</p>
+          <h2>Stop Forgetting Where You've Been</h2>
+          <p>Join thousands of travelers mapping their journeys. Free forever. 195 countries.</p>
           <button className="hero-btn-primary cta-btn" onClick={() => navigate('/signup')}>
             Create Free Account <FaArrowRight />
           </button>

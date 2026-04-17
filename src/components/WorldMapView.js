@@ -76,7 +76,7 @@ function WorldMapView() {
         <div className="page-header wm-header">
           <div>
             <h1 className="page-title">World Map Explorer</h1>
-            <p className="page-subtitle">Your glimpse across borders — click any country to pin it</p>
+            <p className="page-subtitle">The world is your canvas — click any country to paint it visited</p>
           </div>
           <div className="wm-counter">
             <FaGlobeAmericas />

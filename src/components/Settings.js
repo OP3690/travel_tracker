@@ -55,7 +55,7 @@ export default function Settings() {
         <div className="page-header">
           <div>
             <h1 className="page-title">Settings</h1>
-            <p className="page-subtitle">Manage your account and preferences</p>
+            <p className="page-subtitle">Your account, your rules</p>
           </div>
         </div>
 

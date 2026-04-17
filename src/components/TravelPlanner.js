@@ -49,7 +49,7 @@ export default function TravelPlanner() {
         <div className="page-header">
           <div>
             <h1 className="page-title">Travel Planner</h1>
-            <p className="page-subtitle">Plan and organize your upcoming trips</p>
+            <p className="page-subtitle">The best trips are the ones you actually plan</p>
           </div>
           <button className="planner-add-btn" onClick={() => setShowForm(!showForm)}>
             <FiPlus /> New Trip

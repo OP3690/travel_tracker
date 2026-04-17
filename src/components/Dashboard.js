@@ -139,8 +139,8 @@ export default function Dashboard() {
           <div className="welcome-banner">
             <button className="welcome-dismiss" onClick={dismissWelcome} aria-label="Dismiss"><FaTimes /></button>
             <div className="welcome-left">
-              <h2>Welcome, {user.name.split(' ')[0]}! 🧭</h2>
-              <p>Your journey across India starts here. Click any state on the map to mark it as visited.</p>
+              <h2>Hey {user.name.split(' ')[0]}, ready to explore? 🧭</h2>
+              <p>Your travel map is waiting. Click any region to mark it visited and watch your progress grow.</p>
               <div className="welcome-actions">
                 <Link to="/journal" className="welcome-link"><FaBook /> Journal</Link>
                 <Link to="/worldmap" className="welcome-link"><FaGlobeAsia /> World Map</Link>
@@ -243,7 +243,7 @@ export default function Dashboard() {
             <div className="info-card">
               <h3 className="info-card-title"><FaFlagCheckered className="ict-icon" /> Recent Visits</h3>
               {recentVisits.length === 0 ? (
-                <p className="info-empty">Click a state on the map to start your journey!</p>
+                <p className="info-empty">Tap a region on the map to begin your story!</p>
               ) : (
                 <div className="recent-list">
                   {recentVisits.map((loc, i) => (

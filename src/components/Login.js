@@ -40,7 +40,7 @@ export default function Login() {
           <div className="auth-visual-text">
             <FaMountain className="auth-visual-icon" />
             <h2>Welcome Back</h2>
-            <p>Log in to continue your journey on MyTravelGlimpse.</p>
+            <p>Your maps are waiting. Log in and keep exploring.</p>
           </div>
         </div>
       </div>

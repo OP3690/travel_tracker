@@ -194,7 +194,7 @@ const TravelJournal = () => {
         <div className="page-header journal-hdr">
           <div>
             <h1 className="page-title">Travel Journal</h1>
-            <p className="page-subtitle">Explore and track destinations across India</p>
+            <p className="page-subtitle">Every destination tells a story — track yours here</p>
           </div>
           <div className="journal-progress-card">
             <div className="journal-progress-bar-wrap">

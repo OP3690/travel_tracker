@@ -55,7 +55,7 @@ export default function Signup() {
           <div className="auth-visual-text">
             <FaMountain className="auth-visual-icon" />
             <h2>Start Your Journey</h2>
-            <p>Create your MyTravelGlimpse account and start mapping your adventures.</p>
+            <p>195 countries. Infinite adventures. Your travel map starts now.</p>
           </div>
         </div>
       </div>

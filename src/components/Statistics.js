@@ -117,7 +117,7 @@ export default function Statistics() {
         <div className="page-header">
           <div>
             <h1 className="page-title">Travel Statistics</h1>
-            <p className="page-subtitle">Your travel analytics at a glance</p>
+            <p className="page-subtitle">Numbers that prove you are not just dreaming about travel</p>
           </div>
         </div>
 
