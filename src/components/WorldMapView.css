@@ -1,0 +1,37 @@
+/* ===== Dark World Map View ===== */
+.worldmap-page { animation: fadeIn 0.4s ease; }
+.wm-header { padding: 1.5rem 1.75rem 0; }
+.wm-counter { display: flex; align-items: center; gap: 8px; background: var(--bg-active); color: var(--primary-400); padding: 7px 14px; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(99,102,241,0.2); }
+.wm-map-card { margin: 1.25rem 0; position: relative; overflow: hidden; background: var(--bg-input); border-top: 1px solid var(--border-default); border-bottom: 1px solid var(--border-default); }
+
+.wm-stats-bar { display: flex; align-items: center; justify-content: center; gap: 2rem; padding: 1rem 1.75rem; margin: 0 1.75rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-default); margin-bottom: 1.25rem; }
+.wm-stat-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.wm-stat-value { font-size: 1.3rem; font-weight: 800; color: var(--text-bright); }
+.wm-stat-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
+.wm-stat-divider { width: 1px; height: 32px; background: var(--border-default); }
+
+.wm-table-card { margin: 0 1.75rem 1.75rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-default); overflow: hidden; }
+.wm-table-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-default); }
+.wm-table-header h2 { font-size: 1rem; font-weight: 700; color: var(--text-bright); }
+.wm-table-count { font-size: 0.78rem; color: var(--text-muted); }
+.wm-table-wrap { overflow-x: auto; }
+.wm-table { width: 100%; border-collapse: collapse; }
+.wm-table th { padding: 10px 14px; text-align: left; font-size: 0.72rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; background: var(--bg-elevated); border-bottom: 1px solid var(--border-default); }
+.wm-table td { padding: 10px 14px; font-size: 0.85rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-default); }
+.wm-table tr:last-child td { border-bottom: none; }
+.wm-table tr:hover { background: var(--bg-hover); }
+.flag-cell { font-size: 1.4rem; width: 44px; }
+.country-cell { font-weight: 600; color: var(--text-primary); }
+.text-muted { color: var(--text-muted); }
+.wm-edit-input { padding: 6px 10px; border: 1.5px solid var(--border-default); border-radius: var(--radius-sm); font-size: 0.82rem; width: 100%; min-width: 90px; background: var(--bg-input); color: var(--text-primary); }
+.wm-edit-input:focus { outline: none; border-color: var(--primary-500); box-shadow: 0 0 0 2px var(--primary-glow); }
+.wm-actions { display: flex; gap: 4px; }
+.wm-action-btn { display: flex; align-items: center; gap: 4px; padding: 5px 8px; border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 500; transition: all var(--transition-base); }
+.wm-action-btn.edit { color: var(--primary-400); background: var(--bg-active); }
+.wm-action-btn.edit:hover { background: rgba(99,102,241,0.2); }
+.wm-action-btn.delete { color: var(--rose-400); background: rgba(244,63,94,0.08); }
+.wm-action-btn.delete:hover { background: rgba(244,63,94,0.15); }
+.wm-action-btn.save { color: #fff; background: var(--accent-500); }
+.wm-action-btn.cancel { color: var(--text-muted); background: var(--bg-elevated); }
+
+@media (max-width: 768px) { .wm-header { padding: 1rem; padding-top: 3.5rem; } .wm-table-card { margin: 0 1rem 1rem; } .wm-stats-bar { margin: 0 1rem; gap: 1rem; } }

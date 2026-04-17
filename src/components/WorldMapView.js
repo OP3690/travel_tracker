@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import WorldMap from './WorldMap';
-import { countryCodeToName } from '../utils/countryCodeToName';
-import API from '../api'; // <-- Make sure you have this axios instance
-import '../App.css';
+import API from '../api/api';
+import { FaEdit, FaTrash, FaSave, FaTimes, FaGlobeAmericas } from 'react-icons/fa';
+import './WorldMapView.css';
 
 function countryCodeToFlagEmoji(code) {
   if (!code || code.length !== 2) return '';
@@ -16,13 +16,12 @@ function WorldMapView() {
   const [editDate, setEditDate] = useState('');
   const [editComment, setEditComment] = useState('');
 
-  // Fetch selected locations from backend on mount
   useEffect(() => {
     async function fetchSelected() {
       try {
         const res = await API.get('/api/user/selected');
         setSelectedLocations(res.data.selectedLocations || []);
-      } catch (err) {
+      } catch {
         setSelectedLocations([]);
       }
     }
@@ -38,8 +37,7 @@ function WorldMapView() {
       } else {
         updated = [...prev, { ...location, type: 'country' }];
       }
-      API.post('/api/user/selected', { selectedLocations: updated })
-        .catch(err => console.error('Failed to update selectedLocations:', err));
+      API.post('/api/user/selected', { selectedLocations: updated }).catch(() => {});
       return updated;
     });
   }
@@ -55,105 +53,157 @@ function WorldMapView() {
       const updated = prev.map(loc =>
         loc.id === id ? { ...loc, dateVisited: editDate, comment: editComment } : loc
       );
-      API.post('/api/user/selected', { selectedLocations: updated })
-        .catch(err => console.error('Failed to update selectedLocations:', err));
+      API.post('/api/user/selected', { selectedLocations: updated }).catch(() => {});
       return updated;
     });
     setEditId(null);
-    setEditDate('');
-    setEditComment('');
   }
 
   function handleDelete(id) {
     setSelectedLocations(prev => {
       const updated = prev.filter(loc => loc.id !== id);
-      API.post('/api/user/selected', { selectedLocations: updated })
-        .catch(err => console.error('Failed to update selectedLocations:', err));
+      API.post('/api/user/selected', { selectedLocations: updated }).catch(() => {});
       return updated;
     });
   }
 
+  const countries = selectedLocations.filter(loc => loc.type === 'country');
+
   return (
     <Layout>
-      <div className="dashboard-content worldmap-page" style={{ width: '100%', maxWidth: 'none', margin: 0, padding: 0 }}>
-        <h1>Interactive World Map</h1>
-        <div className="map-container" style={{ width: '100%', maxWidth: 'none', margin: 0, padding: 0 }}>
+      <div className="worldmap-page">
+        {/* Header */}
+        <div className="page-header wm-header">
+          <div>
+            <h1 className="page-title">World Map Explorer</h1>
+            <p className="page-subtitle">Your glimpse across borders — click any country to pin it</p>
+          </div>
+          <div className="wm-counter">
+            <FaGlobeAmericas />
+            <span>{countries.length} countries visited</span>
+          </div>
+        </div>
+
+        {/* Map */}
+        <div className="wm-map-card">
           <WorldMap
             selectedLocations={selectedLocations}
             setSelectedLocations={setSelectedLocations}
             onLocationClick={handleLocationClick}
           />
         </div>
-        {/* List of Countries Visited Table */}
-        <div style={{ width: '100%', margin: '32px auto 0', maxWidth: 900 }}>
-          <h2 style={{ fontWeight: 600, fontSize: '1.18rem', marginBottom: 16 }}>List of Countries Visited</h2>
-          <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: 0, background: '#fff', borderRadius: 12, boxShadow: '0 2px 16px rgba(0,0,0,0.08)' }}>
-            <thead>
-              <tr style={{ background: '#f5f5f5', color: '#666', fontWeight: 500, fontSize: '1rem' }}>
-                <th style={{ padding: '10px 12px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>Flag</th>
-                <th style={{ padding: '10px 12px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>Country Name</th>
-                <th style={{ padding: '10px 12px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>Date Visited</th>
-                <th style={{ padding: '10px 12px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>Comment</th>
-                <th style={{ padding: '10px 12px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>Action</th>
-                <th style={{ padding: '10px 12px', textAlign: 'left', borderBottom: '2px solid #e0e0e0' }}>Code</th>
-              </tr>
-            </thead>
-            <tbody>
-              {selectedLocations.filter(loc => loc.type === 'country').length === 0 ? (
-                <tr><td colSpan={6} style={{ textAlign: 'center', color: '#aaa', padding: 24 }}>No countries selected yet.</td></tr>
-              ) : (
-                selectedLocations.filter(loc => loc.type === 'country').map(location => (
-                  <tr key={location.id} style={{ borderBottom: '1px solid #f0f0f0', transition: 'background 0.2s' }}>
-                    <td style={{ padding: '10px 12px', fontSize: '1.5rem' }}>{countryCodeToFlagEmoji(location.id?.slice(0,2))}</td>
-                    <td style={{ padding: '10px 12px', fontWeight: 500 }}>{location.name}</td>
-                    <td style={{ padding: '10px 12px' }}>
-                      {editId === location.id ? (
-                        <input
-                          type="date"
-                          value={editDate}
-                          onChange={e => setEditDate(e.target.value)}
-                          style={{ padding: '4px 8px', borderRadius: 4, border: '1px solid #ccc' }}
-                        />
-                      ) : (
-                        location.dateVisited || <span style={{ color: '#bbb' }}>—</span>
-                      )}
-                    </td>
-                    <td style={{ padding: '10px 12px' }}>
-                      {editId === location.id ? (
-                        <input
-                          type="text"
-                          value={editComment}
-                          onChange={e => setEditComment(e.target.value)}
-                          style={{ padding: '4px 8px', borderRadius: 4, border: '1px solid #ccc', width: 120 }}
-                          placeholder="Add comment"
-                        />
-                      ) : (
-                        location.comment || <span style={{ color: '#bbb' }}>—</span>
-                      )}
-                    </td>
-                    <td style={{ padding: '10px 12px' }}>
-                      {editId === location.id ? (
-                        <>
-                          <button onClick={() => handleSave(location.id)} style={{ marginRight: 8, padding: '4px 10px', borderRadius: 4, border: 'none', background: '#4caf50', color: '#fff', fontWeight: 500, cursor: 'pointer' }}>Save</button>
-                          <button onClick={() => setEditId(null)} style={{ padding: '4px 10px', borderRadius: 4, border: 'none', background: '#bbb', color: '#fff', fontWeight: 500, cursor: 'pointer' }}>Cancel</button>
-                        </>
-                      ) : (
-                        <>
-                          <button onClick={() => handleEdit(location.id, location.dateVisited, location.comment)} style={{ marginRight: 8, padding: '4px 10px', borderRadius: 4, border: 'none', background: '#1976d2', color: '#fff', fontWeight: 500, cursor: 'pointer' }}>Edit</button>
-                          <button onClick={() => handleDelete(location.id)} style={{ padding: '4px 10px', borderRadius: 4, border: 'none', background: '#e53935', color: '#fff', fontWeight: 500, cursor: 'pointer' }}>Delete</button>
-                        </>
-                      )}
-                    </td>
-                    <td style={{ padding: '10px 12px', color: '#888' }}>{location.id}</td>
+
+        {/* Stats Bar */}
+        <div className="wm-stats-bar">
+          <div className="wm-stat-item">
+            <span className="wm-stat-value">{countries.length}</span>
+            <span className="wm-stat-label">Countries Visited</span>
+          </div>
+          <div className="wm-stat-divider" />
+          <div className="wm-stat-item">
+            <span className="wm-stat-value">{Math.round((countries.length / 195) * 100)}%</span>
+            <span className="wm-stat-label">World Explored</span>
+          </div>
+          <div className="wm-stat-divider" />
+          <div className="wm-stat-item">
+            <span className="wm-stat-value">{195 - countries.length}</span>
+            <span className="wm-stat-label">Remaining</span>
+          </div>
+        </div>
+
+        {/* Countries Table */}
+        <div className="wm-table-card">
+          <div className="wm-table-header">
+            <h2>Countries Visited</h2>
+            <span className="wm-table-count">{countries.length} total</span>
+          </div>
+          {countries.length === 0 ? (
+            <div className="empty-state">
+              <div className="empty-state-icon">
+                <FaGlobeAmericas />
+              </div>
+              <h3>No countries selected yet</h3>
+              <p>Click on the map above to start tracking your travels</p>
+            </div>
+          ) : (
+            <div className="wm-table-wrap">
+              <table className="wm-table">
+                <thead>
+                  <tr>
+                    <th>Flag</th>
+                    <th>Country</th>
+                    <th>Date Visited</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+                </thead>
+                <tbody>
+                  {countries.map(location => (
+                    <tr key={location.id}>
+                      <td className="flag-cell">{countryCodeToFlagEmoji(location.id?.slice(0, 2))}</td>
+                      <td className="country-cell">{location.name}</td>
+                      <td>
+                        {editId === location.id ? (
+                          <input
+                            type="date"
+                            value={editDate}
+                            onChange={e => setEditDate(e.target.value)}
+                            className="wm-edit-input"
+                          />
+                        ) : (
+                          <span className={location.dateVisited ? '' : 'text-muted'}>
+                            {location.dateVisited || '---'}
+                          </span>
+                        )}
+                      </td>
+                      <td>
+                        {editId === location.id ? (
+                          <input
+                            type="text"
+                            value={editComment}
+                            onChange={e => setEditComment(e.target.value)}
+                            className="wm-edit-input"
+                            placeholder="Add a note..."
+                          />
+                        ) : (
+                          <span className={location.comment ? '' : 'text-muted'}>
+                            {location.comment || '---'}
+                          </span>
+                        )}
+                      </td>
+                      <td>
+                        <div className="wm-actions">
+                          {editId === location.id ? (
+                            <>
+                              <button className="wm-action-btn save" onClick={() => handleSave(location.id)}>
+                                <FaSave /> Save
+                              </button>
+                              <button className="wm-action-btn cancel" onClick={() => setEditId(null)}>
+                                <FaTimes />
+                              </button>
+                            </>
+                          ) : (
+                            <>
+                              <button className="wm-action-btn edit" onClick={() => handleEdit(location.id, location.dateVisited, location.comment)}>
+                                <FaEdit />
+                              </button>
+                              <button className="wm-action-btn delete" onClick={() => handleDelete(location.id)}>
+                                <FaTrash />
+                              </button>
+                            </>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </div>
     </Layout>
   );
 }
 
-export default WorldMapView; 
+export default WorldMapView;

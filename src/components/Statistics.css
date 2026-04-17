@@ -1,0 +1,50 @@
+/* ===== Dark Statistics ===== */
+.stats-page { padding: 1.5rem 1.75rem; max-width: 1200px; margin: 0 auto; animation: fadeIn 0.4s ease; }
+
+.stats-overview { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
+.so-card { background: var(--bg-card); border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: 1rem; display: flex; align-items: center; gap: 0.85rem; transition: all var(--transition-base); animation: fadeInUp 0.4s ease both; animation-delay: calc(var(--i, 0) * 80ms); }
+.so-card:hover { border-color: var(--border-bright); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.so-icon { width: 42px; height: 42px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.so-info { display: flex; flex-direction: column; }
+.so-value { font-size: 1.4rem; font-weight: 800; color: var(--text-bright); line-height: 1; }
+.so-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
+
+.stats-charts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.stats-chart-card { background: var(--bg-card); border: 1px solid var(--border-default); border-radius: var(--radius-xl); padding: 1.25rem; transition: all var(--transition-base); }
+.stats-chart-card:hover { border-color: var(--border-bright); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.stats-chart-card h3 { font-size: 0.92rem; font-weight: 700; color: var(--text-bright); margin-bottom: 1rem; }
+
+.stats-donut { width: 150px; height: 150px; margin: 0 auto 1rem; position: relative; }
+.stats-donut svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.donut-bg { fill: none; stroke: var(--border-default); stroke-width: 3; }
+.donut-fill { fill: none; stroke-width: 3; stroke-linecap: round; transition: stroke-dasharray 1s ease; }
+.donut-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+.donut-value { display: block; font-size: 1.4rem; font-weight: 800; color: var(--text-bright); }
+.donut-label { display: block; font-size: 0.68rem; color: var(--text-muted); }
+
+.stats-breakdown { display: flex; justify-content: center; gap: 1.25rem; }
+.sb-item { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; color: var(--text-secondary); font-weight: 500; }
+.sb-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+.top-states-list { display: flex; flex-direction: column; gap: 8px; }
+.top-state-item { display: flex; align-items: center; gap: 8px; }
+.top-state-rank { font-size: 0.72rem; font-weight: 700; color: var(--text-muted); width: 22px; }
+.top-state-name { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); width: 110px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.top-state-bar-wrap { flex: 1; height: 5px; background: var(--border-default); border-radius: var(--radius-full); overflow: hidden; }
+.top-state-bar { height: 100%; background: linear-gradient(90deg, var(--primary-400), var(--primary-500)); border-radius: var(--radius-full); transition: width 0.6s ease; }
+.top-state-count { font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); min-width: 18px; text-align: right; }
+
+.stats-milestones h3 { font-size: 1rem; font-weight: 700; color: var(--text-bright); margin-bottom: 0.85rem; }
+.milestones-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0.75rem; }
+.milestone-card { display: flex; align-items: center; gap: 10px; padding: 0.85rem 1rem; background: var(--bg-card); border: 1px solid var(--border-default); border-radius: var(--radius-lg); opacity: 0.4; transition: all var(--transition-base); animation: fadeInUp 0.3s ease both; animation-delay: calc(var(--i, 0) * 60ms); }
+.milestone-card.achieved { opacity: 1; border-color: var(--accent-500); background: rgba(16,185,129,0.06); box-shadow: var(--shadow-glow-accent); }
+.milestone-icon { font-size: 1.2rem; color: var(--text-muted); flex-shrink: 0; }
+.milestone-card.achieved .milestone-icon { color: var(--accent-400); }
+.milestone-info { flex: 1; }
+.milestone-label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-primary); }
+.milestone-desc { display: block; font-size: 0.72rem; color: var(--text-muted); }
+.milestone-check { color: var(--accent-400); font-size: 1rem; font-weight: 700; }
+
+@media (max-width: 1100px) { .stats-charts { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { .stats-page { padding: 1rem; padding-top: 3.5rem; } .stats-overview { grid-template-columns: 1fr 1fr; } .stats-charts { grid-template-columns: 1fr; } }
+@media (max-width: 500px) { .stats-overview { grid-template-columns: 1fr; } .milestones-grid { grid-template-columns: 1fr; } }

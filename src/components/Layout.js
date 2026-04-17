@@ -1,52 +1,99 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { FaMapMarkedAlt, FaGlobeAsia, FaCalendarAlt, FaBook, FaChartBar, FaCog, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaMapMarkedAlt, FaGlobeAsia, FaCalendarAlt, FaBook, FaChartBar, FaCog, FaSignOutAlt, FaMountain, FaBars, FaTimes } from 'react-icons/fa';
 import './Layout.css';
+
+const navItems = [
+  { path: '/dashboard', icon: <FaMapMarkedAlt />, label: 'India Map' },
+  { path: '/worldmap', icon: <FaGlobeAsia />, label: 'World Map' },
+  { path: '/journal', icon: <FaBook />, label: 'Journal' },
+  { path: '/planner', icon: <FaCalendarAlt />, label: 'Planner' },
+  { path: '/statistics', icon: <FaChartBar />, label: 'Statistics' },
+  { path: '/settings', icon: <FaCog />, label: 'Settings' },
+];
 
 export default function Layout({ children }) {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [user, setUser] = useState({ name: 'Traveler' });
+
+  useEffect(() => {
+    try {
+      const stored = JSON.parse(localStorage.getItem('user'));
+      if (stored?.name) setUser(stored);
+    } catch {}
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    navigate('/login');
+  };
+
+  const getInitials = (name) => {
+    return name
+      .split(' ')
+      .map(n => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
+  };
+
   return (
-    <div className="main-layout">
-      <aside className="sidebar">
-        <div className="sidebar-top">
-          <h2>India Travel</h2>
-          <nav>
-            <Link to="/dashboard" className={location.pathname === '/dashboard' ? 'active' : ''}>
-              <FaMapMarkedAlt className="sidebar-icon" /> Map Overview
-            </Link>
-            <Link to="/worldmap" className={location.pathname === '/worldmap' ? 'active' : ''}>
-              <FaGlobeAsia className="sidebar-icon" /> WorldMap View
-            </Link>
-            <Link to="/planner" className={location.pathname === '/planner' ? 'active' : ''}>
-              <FaCalendarAlt className="sidebar-icon" /> Travel Planner
-            </Link>
-            <Link to="/journal" className={location.pathname === '/journal' ? 'active' : ''}>
-              <FaBook className="sidebar-icon" /> Travel Journal
-            </Link>
-            <Link to="/statistics" className={location.pathname === '/statistics' ? 'active' : ''}>
-              <FaChartBar className="sidebar-icon" /> Statistics
-            </Link>
-            <Link to="/settings" className={location.pathname === '/settings' ? 'active' : ''}>
-              <FaCog className="sidebar-icon" /> Settings
-            </Link>
-          </nav>
-        </div>
-        <div className="sidebar-footer">
-          <div className="user-card">
-            <FaUserCircle className="user-avatar" />
-            <div className="user-details">
-              <div className="user-name">Omprakash Utaha</div>
-              <div className="user-status">Planning next trip</div>
-            </div>
+    <div className="app-layout">
+      {/* Mobile overlay */}
+      {mobileOpen && <div className="sidebar-overlay" onClick={() => setMobileOpen(false)} />}
+
+      {/* Mobile toggle */}
+      <button className="mobile-menu-btn" onClick={() => setMobileOpen(!mobileOpen)}>
+        {mobileOpen ? <FaTimes /> : <FaBars />}
+      </button>
+
+      <aside className={`sidebar ${mobileOpen ? 'open' : ''}`}>
+        <div className="sidebar-inner">
+          {/* Logo */}
+          <div className="sidebar-logo">
+            <FaMountain className="sidebar-logo-icon" />
+            <span className="sidebar-logo-text">MyTravelGlimpse</span>
           </div>
-          <Link to="/login" className="logout-btn">
-            <FaSignOutAlt style={{ marginRight: 8, fontSize: 18 }} /> Logout
-          </Link>
+
+          {/* Navigation */}
+          <nav className="sidebar-nav">
+            {navItems.map(item => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
+                onClick={() => setMobileOpen(false)}
+              >
+                <span className="nav-icon">{item.icon}</span>
+                <span className="nav-label">{item.label}</span>
+                {item.badge && <span className="nav-badge">{item.badge}</span>}
+              </Link>
+            ))}
+          </nav>
+
+          {/* User & Logout */}
+          <div className="sidebar-bottom">
+            <div className="sidebar-user">
+              <div className="sidebar-avatar">{getInitials(user.name)}</div>
+              <div className="sidebar-user-info">
+                <div className="sidebar-user-name">{user.name}</div>
+                <div className="sidebar-user-role">Explorer</div>
+              </div>
+            </div>
+            <button className="sidebar-logout" onClick={handleLogout}>
+              <FaSignOutAlt />
+              <span>Log Out</span>
+            </button>
+          </div>
         </div>
       </aside>
-      <div className="main-content">
+
+      <main className="main-content">
         {children}
-      </div>
+      </main>
     </div>
   );
-} 
+}

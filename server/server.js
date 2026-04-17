@@ -9,7 +9,7 @@ const destinationsRoutes = require('./routes/destinations');
 const app = express();
 
 const allowedOrigins = [
-  ...Array.from({length: 11}, (_, i) => `http://localhost:30${i}`),
+  ...Array.from({length: 11}, (_, i) => `http://localhost:${3000 + i}`),
   'https://travel-tracker-enfv.vercel.app'
 ];
 app.use(cors({

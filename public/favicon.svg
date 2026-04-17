@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Globe -->
+  <circle cx="50" cy="50" r="46" fill="#5BB8C4"/>
+  <circle cx="50" cy="50" r="46" fill="url(#globe)"/>
+  <defs>
+    <radialGradient id="globe" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#7DD8C4"/>
+      <stop offset="100%" stop-color="#3A9EAA"/>
+    </radialGradient>
+  </defs>
+  <!-- Continents -->
+  <ellipse cx="35" cy="38" rx="14" ry="10" fill="#F7CE6B" rx="12"/>
+  <ellipse cx="62" cy="45" rx="12" ry="16" fill="#F7CE6B"/>
+  <ellipse cx="30" cy="60" rx="8" ry="12" fill="#E8884F"/>
+  <ellipse cx="68" cy="32" rx="6" ry="5" fill="#E8884F"/>
+  <!-- Pin 1 (left) -->
+  <g transform="translate(22, 18)">
+    <ellipse cx="8" cy="24" rx="4" ry="1.5" fill="rgba(0,0,0,0.15)"/>
+    <path d="M8 2C4.7 2 2 4.7 2 8c0 4.2 6 14 6 14s6-9.8 6-14c0-3.3-2.7-6-6-6z" fill="#F25C6E"/>
+    <circle cx="8" cy="8" r="3" fill="white"/>
+  </g>
+  <!-- Pin 2 (right) -->
+  <g transform="translate(62, 42)">
+    <ellipse cx="8" cy="24" rx="4" ry="1.5" fill="rgba(0,0,0,0.15)"/>
+    <path d="M8 2C4.7 2 2 4.7 2 8c0 4.2 6 14 6 14s6-9.8 6-14c0-3.3-2.7-6-6-6z" fill="#F25C6E"/>
+    <circle cx="8" cy="8" r="3" fill="white"/>
+  </g>
+  <!-- Route line -->
+  <path d="M30 28 Q 50 20 70 52" stroke="#333" stroke-width="1.5" stroke-dasharray="3 2" fill="none" opacity="0.4"/>
+</svg>
