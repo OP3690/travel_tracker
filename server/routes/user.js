@@ -100,6 +100,24 @@ router.delete('/destination', auth, async (req, res) => {
   }
 });
 
+// Update user country (admin only)
+router.post('/country', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.userId);
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    // Only admin can change country
+    if (user.email !== 'global5665@gmail.com') {
+      return res.status(403).json({ error: 'Only admin can change country' });
+    }
+    const { country } = req.body;
+    if (!country) return res.status(400).json({ error: 'Country is required' });
+    await User.findByIdAndUpdate(req.userId, { $set: { country } });
+    res.json({ message: 'Country updated', country });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Test route to confirm router is mounted
 router.get('/test', (req, res) => {
   res.json({ msg: 'User route works!' });

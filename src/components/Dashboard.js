@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import CountryMap, { getCountryMapInfo } from './CountryMap';
 import Layout from './Layout';
 import API from '../api/api';
-import { FaBook, FaGlobeAsia, FaChartBar, FaTimes, FaMapMarkerAlt, FaRoute, FaCompass, FaStar, FaFlagCheckered, FaArrowRight } from 'react-icons/fa';
+import { FaBook, FaGlobeAsia, FaChartBar, FaTimes, FaMapMarkerAlt, FaRoute, FaCompass, FaStar, FaFlagCheckered, FaArrowRight, FaCrown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './Dashboard.css';
 
@@ -48,12 +48,32 @@ export default function Dashboard() {
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showWelcome, setShowWelcome] = useState(false);
-  const [user, setUser] = useState({ name: 'Explorer', country: 'India' });
+  const [user, setUser] = useState({ name: 'Explorer', country: 'India', email: '' });
+  const [adminCountry, setAdminCountry] = useState('');
+
+  const ADMIN_EMAIL = 'global5665@gmail.com';
+  const isAdmin = user.email === ADMIN_EMAIL;
+
+  const supportedCountries = [
+    { value: 'India', label: '🇮🇳 India' },
+    { value: 'USA', label: '🇺🇸 USA' },
+    { value: 'Japan', label: '🇯🇵 Japan' },
+    { value: 'Brazil', label: '🇧🇷 Brazil' },
+    { value: 'Italy', label: '🇮🇹 Italy' },
+    { value: 'France', label: '🇫🇷 France' },
+    { value: 'Germany', label: '🇩🇪 Germany' },
+    { value: 'Canada', label: '🇨🇦 Canada' },
+    { value: 'Spain', label: '🇪🇸 Spain' },
+    { value: 'Mexico', label: '🇲🇽 Mexico' },
+  ];
 
   useEffect(() => {
     try {
       const stored = JSON.parse(localStorage.getItem('user'));
-      if (stored?.name) setUser({ ...stored, country: stored.country || 'India' });
+      if (stored?.name) {
+        setUser({ ...stored, country: stored.country || 'India', email: stored.email || '' });
+        setAdminCountry(stored.country || 'India');
+      }
     } catch {}
     setShowWelcome(!localStorage.getItem('dashboard-welcome-dismissed'));
   }, []);
@@ -81,6 +101,21 @@ export default function Dashboard() {
   const dismissWelcome = () => {
     setShowWelcome(false);
     localStorage.setItem('dashboard-welcome-dismissed', 'true');
+  };
+
+  const handleAdminCountryChange = async (newCountry) => {
+    setAdminCountry(newCountry);
+    setUser(prev => ({ ...prev, country: newCountry }));
+    // Persist to localStorage
+    const stored = JSON.parse(localStorage.getItem('user') || '{}');
+    stored.country = newCountry;
+    localStorage.setItem('user', JSON.stringify(stored));
+    // Persist to backend
+    try {
+      await API.post('/api/user/country', { country: newCountry });
+    } catch {}
+    // Clear selected locations when switching country (fresh start)
+    setSelectedLocations([]);
   };
 
   // Dynamic country stats
@@ -154,6 +189,27 @@ export default function Dashboard() {
                 </div>
               ))}
             </div>
+
+            {/* Admin Country Switcher */}
+            {isAdmin && (
+              <div className="admin-switcher">
+                <div className="admin-badge"><FaCrown className="admin-crown" /> Admin Preview</div>
+                <div className="admin-controls">
+                  <span className="admin-label">Switch country map:</span>
+                  <div className="admin-country-pills">
+                    {supportedCountries.map(c => (
+                      <button
+                        key={c.value}
+                        className={`admin-pill ${adminCountry === c.value ? 'active' : ''}`}
+                        onClick={() => handleAdminCountryChange(c.value)}
+                      >
+                        {c.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Map Card */}
             <div className="map-card">

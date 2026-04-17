@@ -52,6 +52,32 @@
 .stat-card-bar { width: 100%; height: 3px; background: var(--border-default); border-radius: var(--radius-full); overflow: hidden; }
 .stat-card-bar-fill { height: 100%; border-radius: var(--radius-full); transition: width 0.8s cubic-bezier(0.34,1.56,0.64,1); }
 
+/* Admin Country Switcher */
+.admin-switcher {
+  background: var(--bg-card); border: 1px solid var(--amber-400); border-radius: var(--radius-xl);
+  padding: 1rem 1.25rem; margin-bottom: 1rem; animation: fadeIn 0.4s ease;
+}
+.admin-badge {
+  display: inline-flex; align-items: center; gap: 6px; padding: 3px 12px;
+  background: rgba(251,191,36,0.12); border-radius: var(--radius-full);
+  font-size: 0.72rem; font-weight: 700; color: var(--amber-400);
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;
+}
+.admin-crown { font-size: 0.7rem; }
+.admin-controls { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.admin-label { font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); white-space: nowrap; }
+.admin-country-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.admin-pill {
+  padding: 6px 14px; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 600;
+  background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border-default);
+  transition: all var(--transition-base); white-space: nowrap;
+}
+.admin-pill:hover { border-color: var(--primary-400); color: var(--primary-400); background: var(--bg-active); }
+.admin-pill.active {
+  background: var(--primary-500); color: #fff; border-color: var(--primary-500);
+  box-shadow: var(--shadow-glow-primary);
+}
+
 /* Map Card */
 .map-card { background: var(--bg-card); border-radius: var(--radius-xl); border: 1px solid var(--border-default); overflow: hidden; }
 .map-card-header { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border-default); }
