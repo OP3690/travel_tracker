@@ -12,6 +12,9 @@
 .svg-map__location.pending { fill: rgba(251, 191, 36, 0.15); stroke: rgba(251, 191, 36, 0.25); }
 .svg-map__location.pending:hover { fill: rgba(251, 191, 36, 0.35); stroke: var(--amber-400); stroke-width: 1.5; }
 
+/* World country map extracted view */
+.world-country-map svg path:hover { fill: var(--accent-500) !important; filter: brightness(1.2); }
+
 /* Fallback for countries without SVG maps */
 .country-map-fallback { justify-content: center; align-items: center; }
 .fallback-content { text-align: center; padding: 2rem; }

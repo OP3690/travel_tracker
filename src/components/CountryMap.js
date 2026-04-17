@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
+import WorldCountryMap from "./WorldCountryMap";
 import "./CountryMap.css";
 
 // Import all supported country maps
@@ -66,16 +67,7 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
   }
 
   if (!hasInteractiveMap) {
-    return (
-      <div className="country-map-container country-map-fallback" ref={svgRef}>
-        <div className="fallback-content">
-          <div className="fallback-flag">{(require('../utils/countries').default.find(c => c.value === country) || {}).label || '🌍'}</div>
-          <h3>{country}</h3>
-          <p>Interactive region map coming soon!</p>
-          <p className="fallback-hint">Use the <strong>World Map</strong> page to track {country} on the globe.</p>
-        </div>
-      </div>
-    );
+    return <WorldCountryMap country={country} />;
   }
 
   return (
