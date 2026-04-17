@@ -1,0 +1,16 @@
+/* ===== Country Map ===== */
+.country-map-container { width: 100%; height: 510px; position: relative; display: flex; align-items: center; justify-content: center; padding: 0.25rem; box-sizing: border-box; }
+.country-map-container svg { max-width: 100%; max-height: 100%; width: auto; height: 100%; object-fit: contain; display: block; margin: 0 auto; }
+
+.svg-map__location { stroke: var(--border-muted); stroke-width: 1; transition: fill var(--transition-base), stroke var(--transition-base); cursor: pointer; paint-order: stroke; }
+
+/* Visited — green */
+.svg-map__location.selected { fill: var(--accent-400); stroke: var(--accent-500); }
+.svg-map__location.selected:hover { fill: var(--accent-500); stroke: #fff; stroke-width: 1.5; }
+
+/* Pending — light amber */
+.svg-map__location.pending { fill: rgba(251, 191, 36, 0.15); stroke: rgba(251, 191, 36, 0.25); }
+.svg-map__location.pending:hover { fill: rgba(251, 191, 36, 0.35); stroke: var(--amber-400); stroke-width: 1.5; }
+
+/* Tooltip */
+.country-map-tooltip { position: fixed; background: var(--bg-elevated); color: var(--text-bright); padding: 6px 12px; border-radius: var(--radius-sm); pointer-events: none; font-size: 0.78rem; font-weight: 500; z-index: 1000; box-shadow: var(--shadow-lg); border: 1px solid var(--border-muted); }

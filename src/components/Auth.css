@@ -27,6 +27,9 @@
 .input-wrapper input { width: 100%; padding: 11px 12px 11px 38px; border: 1.5px solid var(--border-default); border-radius: var(--radius-md); font-size: 0.9rem; color: var(--text-primary); background: var(--bg-input); transition: all var(--transition-base); }
 .input-wrapper input:focus { outline: none; border-color: var(--primary-500); box-shadow: 0 0 0 3px var(--primary-glow); }
 .input-wrapper input::placeholder { color: var(--text-muted); }
+.input-select { width: 100%; padding: 11px 12px 11px 38px; border: 1.5px solid var(--border-default); border-radius: var(--radius-md); font-size: 0.9rem; color: var(--text-primary); background: var(--bg-input); appearance: none; cursor: pointer; }
+.input-select:focus { outline: none; border-color: var(--primary-500); box-shadow: 0 0 0 3px var(--primary-glow); }
+
 .input-toggle { position: absolute; right: 10px; color: var(--text-muted); font-size: 0.9rem; padding: 4px; }
 .input-toggle:hover { color: var(--text-secondary); }
 

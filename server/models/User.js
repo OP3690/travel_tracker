@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   mobile: String,
   email: { type: String, unique: true },
   password: String,
+  country: { type: String, default: 'India' },
   selectedLocations: [mongoose.Schema.Types.Mixed],
   visitedDestinations: [{
     state: String,

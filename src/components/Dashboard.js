@@ -1,35 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import IndiaMap from './IndiaMap';
+import CountryMap, { getCountryMapInfo } from './CountryMap';
 import Layout from './Layout';
 import API from '../api/api';
 import { FaBook, FaGlobeAsia, FaChartBar, FaTimes, FaMapMarkerAlt, FaRoute, FaCompass, FaStar, FaFlagCheckered, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './Dashboard.css';
 
-const stateAndUTData = {
-  states: [
-    'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh',
-    'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka',
-    'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya',
-    'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim',
-    'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand',
-    'West Bengal'
+// Country-specific suggestions
+const countrySuggestions = {
+  India: [
+    { name: 'Ladakh', why: 'Pangong Lake & Nubra Valley', icon: '🏔️' },
+    { name: 'Kerala', why: 'Backwaters & Ayurveda', icon: '🌴' },
+    { name: 'Rajasthan', why: 'Forts & Desert Safari', icon: '🏜️' },
+    { name: 'Goa', why: 'Beaches & Nightlife', icon: '🏖️' },
+    { name: 'Meghalaya', why: 'Living Root Bridges', icon: '🌿' },
   ],
-  unionTerritories: [
-    'Andaman and Nicobar Islands', 'Chandigarh',
-    'Dadra and Nagar Haveli and Daman and Diu',
-    'Delhi', 'Jammu and Kashmir', 'Ladakh', 'Lakshadweep', 'Puducherry'
-  ]
+  USA: [
+    { name: 'California', why: 'Golden Gate & Yosemite', icon: '🌉' },
+    { name: 'New York', why: 'Times Square & Central Park', icon: '🗽' },
+    { name: 'Hawaii', why: 'Volcanoes & Beaches', icon: '🌺' },
+    { name: 'Colorado', why: 'Rocky Mountains', icon: '⛰️' },
+    { name: 'Florida', why: 'Everglades & Theme Parks', icon: '🐊' },
+  ],
+  Japan: [
+    { name: 'Tokyo', why: 'Shibuya & Akihabara', icon: '🗼' },
+    { name: 'Kyoto', why: 'Temples & Cherry Blossoms', icon: '🌸' },
+    { name: 'Osaka', why: 'Street Food Capital', icon: '🍜' },
+    { name: 'Hokkaido', why: 'Skiing & Nature', icon: '❄️' },
+  ],
+  default: [
+    { name: 'Explore your map!', why: 'Click regions to mark visited', icon: '🗺️' },
+  ],
 };
-
-const nextDestinations = [
-  { name: 'Ladakh', why: 'Pangong Lake & Nubra Valley', icon: '🏔️' },
-  { name: 'Kerala', why: 'Backwaters & Ayurveda', icon: '🌴' },
-  { name: 'Rajasthan', why: 'Forts & Desert Safari', icon: '🏜️' },
-  { name: 'Goa', why: 'Beaches & Nightlife', icon: '🏖️' },
-  { name: 'Meghalaya', why: 'Living Root Bridges', icon: '🌿' },
-  { name: 'Sikkim', why: 'Monasteries & Mountains', icon: '🏯' },
-];
 
 const travelQuotes = [
   '"The world is a book, and those who do not travel read only one page." — Saint Augustine',
@@ -42,28 +44,16 @@ const travelQuotes = [
   '"Travel far enough, you meet yourself." — David Mitchell',
 ];
 
-function normalizeWords(name) {
-  return name.toLowerCase().replace(/[^a-z0-9 ]/g, '').split(' ').filter(Boolean);
-}
-
-function fuzzyIncludes(list, name) {
-  const nameWords = normalizeWords(name);
-  return list.some(item => {
-    const itemWords = normalizeWords(item);
-    return nameWords.every(w => itemWords.includes(w)) || itemWords.every(w => nameWords.includes(w));
-  });
-}
-
 export default function Dashboard() {
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showWelcome, setShowWelcome] = useState(false);
-  const [user, setUser] = useState({ name: 'Explorer' });
+  const [user, setUser] = useState({ name: 'Explorer', country: 'India' });
 
   useEffect(() => {
     try {
       const stored = JSON.parse(localStorage.getItem('user'));
-      if (stored?.name) setUser(stored);
+      if (stored?.name) setUser({ ...stored, country: stored.country || 'India' });
     } catch {}
     setShowWelcome(!localStorage.getItem('dashboard-welcome-dismissed'));
   }, []);
@@ -93,40 +83,29 @@ export default function Dashboard() {
     localStorage.setItem('dashboard-welcome-dismissed', 'true');
   };
 
-  // Stats
-  const indiaLocations = selectedLocations.filter(loc => !loc.type || loc.type !== 'country');
-  const visitedStatesCount = indiaLocations.filter(loc => fuzzyIncludes(stateAndUTData.states, loc.name || '')).length;
-  const visitedUTsCount = stateAndUTData.unionTerritories.filter(ut => {
-    if (ut === 'Dadra and Nagar Haveli and Daman and Diu') {
-      return indiaLocations.some(sel =>
-        fuzzyIncludes(['Dadra and Nagar Haveli and Daman and Diu', 'Daman and Diu', 'Dadra and Nagar Haveli'], sel.name || '')
-      );
-    }
-    return indiaLocations.some(sel => fuzzyIncludes([ut], sel.name || ''));
-  }).length;
-
-  const totalStates = stateAndUTData.states.length;
-  const totalUTs = stateAndUTData.unionTerritories.length;
-  const totalPlaces = totalStates + totalUTs;
-  const totalVisited = visitedStatesCount + visitedUTsCount;
-  const overallPercent = totalPlaces > 0 ? Math.round((totalVisited / totalPlaces) * 100) : 0;
+  // Dynamic country stats
+  const userCountry = user.country || 'India';
+  const countryInfo = getCountryMapInfo(userCountry);
+  const countryLocations = selectedLocations.filter(loc => !loc.type || loc.type !== 'country');
+  const visitedCount = countryLocations.length;
+  const totalRegions = countryInfo.totalRegions;
+  const pendingCount = totalRegions - visitedCount;
+  const overallPercent = totalRegions > 0 ? Math.round((visitedCount / totalRegions) * 100) : 0;
 
   const todayQuote = travelQuotes[new Date().getDate() % travelQuotes.length];
 
-  // Get unvisited state names for suggestions
-  const visitedNames = new Set(indiaLocations.map(l => (l.name || '').toLowerCase()));
-  const suggestedNext = nextDestinations.filter(d =>
-    !visitedNames.has(d.name.toLowerCase())
-  ).slice(0, 3);
+  // Suggestions based on country
+  const visitedNames = new Set(countryLocations.map(l => (l.name || '').toLowerCase()));
+  const suggestions = countrySuggestions[userCountry] || countrySuggestions.default;
+  const suggestedNext = suggestions.filter(d => !visitedNames.has(d.name.toLowerCase())).slice(0, 3);
 
   // Recently visited (last 5)
-  const recentVisits = indiaLocations.slice(-5).reverse();
+  const recentVisits = countryLocations.slice(-5).reverse();
 
+  const regionLabel = countryInfo.regionLabel;
   const statCards = [
-    { label: 'States Visited', count: visitedStatesCount, total: totalStates, color: 'var(--accent-400)', bg: 'rgba(52,211,153,0.12)' },
-    { label: 'UTs Visited', count: visitedUTsCount, total: totalUTs, color: 'var(--primary-400)', bg: 'rgba(129,140,248,0.12)' },
-    { label: 'States Pending', count: totalStates - visitedStatesCount, total: totalStates, color: 'var(--amber-400)', bg: 'rgba(251,191,36,0.12)' },
-    { label: 'UTs Pending', count: totalUTs - visitedUTsCount, total: totalUTs, color: 'var(--rose-400)', bg: 'rgba(251,113,133,0.12)' },
+    { label: `${regionLabel} Visited`, count: visitedCount, total: totalRegions, color: 'var(--accent-400)', bg: 'rgba(52,211,153,0.12)' },
+    { label: `${regionLabel} Pending`, count: pendingCount, total: totalRegions, color: 'var(--amber-400)', bg: 'rgba(251,191,36,0.12)' },
   ];
 
   return (
@@ -179,18 +158,17 @@ export default function Dashboard() {
             {/* Map Card */}
             <div className="map-card">
               <div className="map-card-header">
-                <h2><FaMapMarkerAlt className="map-title-icon" /> Interactive India Map</h2>
+                <h2><FaMapMarkerAlt className="map-title-icon" /> {userCountry} Map</h2>
                 <div className="map-legend">
                   <span className="legend-item"><span className="legend-dot visited" /> Visited</span>
-                  <span className="legend-item"><span className="legend-dot state" /> State</span>
-                  <span className="legend-item"><span className="legend-dot ut" /> UT</span>
+                  <span className="legend-item"><span className="legend-dot state" /> Pending</span>
                 </div>
               </div>
               <div className="map-card-body">
                 {loading ? (
                   <div className="skeleton" style={{ width: '80%', height: '300px', margin: '2rem auto' }} />
                 ) : (
-                  <IndiaMap selectedLocations={indiaLocations} setSelectedLocations={setSelectedLocations} />
+                  <CountryMap country={userCountry} selectedLocations={countryLocations} setSelectedLocations={setSelectedLocations} />
                 )}
               </div>
             </div>
@@ -208,11 +186,10 @@ export default function Dashboard() {
                 <span className="pc-ring-text">{overallPercent}%</span>
               </div>
               <div className="pc-info">
-                <h3>India Coverage</h3>
-                <p>{totalVisited} of {totalPlaces} explored</p>
+                <h3>{userCountry} Coverage</h3>
+                <p>{visitedCount} of {totalRegions} {countryInfo.regionLabel.toLowerCase()} explored</p>
                 <div className="pc-breakdown">
-                  <span><strong>{visitedStatesCount}</strong>/{totalStates} States</span>
-                  <span><strong>{visitedUTsCount}</strong>/{totalUTs} UTs</span>
+                  <span><strong>{visitedCount}</strong>/{totalRegions} {countryInfo.regionLabel}</span>
                 </div>
               </div>
             </div>
