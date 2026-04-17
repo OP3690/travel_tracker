@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
-import WorldCountryMap from "./WorldCountryMap";
+import DynamicCountryMap from "./DynamicCountryMap";
+import countryToCode from "../utils/countryCodeMap";
 import "./CountryMap.css";
 
 // Import ALL available @svg-maps packages (27 countries)
@@ -96,7 +97,7 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
   }
 
   if (!hasInteractiveMap) {
-    return <WorldCountryMap country={country} />;
+    return <DynamicCountryMap country={country} selectedLocations={selectedLocations} setSelectedLocations={setSelectedLocations} />;
   }
 
   return (
@@ -127,21 +128,39 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
 // Export map metadata for Dashboard stats
 export function getCountryMapInfo(country) {
   const data = countryMaps[country];
-  if (!data) {
+  if (data) {
     return {
-      totalRegions: 0,
-      regionLabel: 'Regions',
-      regionType: 'region',
-      regionNames: [],
-      hasMap: false,
+      totalRegions: data.map.locations.length,
+      regionLabel: data.regionLabel,
+      regionType: data.regionType,
+      regionNames: data.map.locations.map(l => l.name),
+      hasMap: true,
     };
   }
+
+  // Check dynamic maps
+  const code = countryToCode[country];
+  if (code) {
+    try {
+      const mapJson = require(`../assets/maps/${code}.json`);
+      if (mapJson && mapJson.locations) {
+        return {
+          totalRegions: mapJson.locations.length,
+          regionLabel: 'Regions',
+          regionType: 'region',
+          regionNames: mapJson.locations.map(l => l.name),
+          hasMap: true,
+        };
+      }
+    } catch {}
+  }
+
   return {
-    totalRegions: data.map.locations.length,
-    regionLabel: data.regionLabel,
-    regionType: data.regionType,
-    regionNames: data.map.locations.map(l => l.name),
-    hasMap: true,
+    totalRegions: 0,
+    regionLabel: 'Regions',
+    regionType: 'region',
+    regionNames: [],
+    hasMap: false,
   };
 }
 
