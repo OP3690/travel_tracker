@@ -2,23 +2,11 @@ import React, { useState } from 'react';
 import API from '../api/api';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaMountain, FaUser, FaPhone, FaEnvelope, FaLock, FaArrowRight, FaEye, FaEyeSlash, FaGlobeAsia } from 'react-icons/fa';
+import allCountries from '../utils/countries';
 import './Auth.css';
 
 export default function Signup() {
   const [form, setForm] = useState({ name: '', mobile: '', email: '', password: '', confirmPassword: '', country: 'India' });
-
-  const supportedCountries = [
-    { value: 'India', label: '🇮🇳 India' },
-    { value: 'USA', label: '🇺🇸 United States' },
-    { value: 'Japan', label: '🇯🇵 Japan' },
-    { value: 'Brazil', label: '🇧🇷 Brazil' },
-    { value: 'Italy', label: '🇮🇹 Italy' },
-    { value: 'France', label: '🇫🇷 France' },
-    { value: 'Germany', label: '🇩🇪 Germany' },
-    { value: 'Canada', label: '🇨🇦 Canada' },
-    { value: 'Spain', label: '🇪🇸 Spain' },
-    { value: 'Mexico', label: '🇲🇽 Mexico' },
-  ];
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -116,7 +104,7 @@ export default function Signup() {
                 <div className="input-wrapper">
                   <FaGlobeAsia className="input-icon" />
                   <select name="country" value={form.country} onChange={handleChange} className="input-select">
-                    {supportedCountries.map(c => (
+                    {allCountries.map(c => (
                       <option key={c.value} value={c.value}>{c.label}</option>
                     ))}
                   </select>

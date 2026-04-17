@@ -4,6 +4,7 @@ import Layout from './Layout';
 import API from '../api/api';
 import { FaBook, FaGlobeAsia, FaChartBar, FaTimes, FaMapMarkerAlt, FaRoute, FaCompass, FaStar, FaFlagCheckered, FaArrowRight, FaCrown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import allCountries from '../utils/countries';
 import './Dashboard.css';
 
 // Country-specific suggestions
@@ -53,19 +54,6 @@ export default function Dashboard() {
 
   const ADMIN_EMAIL = 'global5665@gmail.com';
   const isAdmin = user.email === ADMIN_EMAIL;
-
-  const supportedCountries = [
-    { value: 'India', label: '🇮🇳 India' },
-    { value: 'USA', label: '🇺🇸 USA' },
-    { value: 'Japan', label: '🇯🇵 Japan' },
-    { value: 'Brazil', label: '🇧🇷 Brazil' },
-    { value: 'Italy', label: '🇮🇹 Italy' },
-    { value: 'France', label: '🇫🇷 France' },
-    { value: 'Germany', label: '🇩🇪 Germany' },
-    { value: 'Canada', label: '🇨🇦 Canada' },
-    { value: 'Spain', label: '🇪🇸 Spain' },
-    { value: 'Mexico', label: '🇲🇽 Mexico' },
-  ];
 
   useEffect(() => {
     try {
@@ -196,17 +184,18 @@ export default function Dashboard() {
                 <div className="admin-badge"><FaCrown className="admin-crown" /> Admin Preview</div>
                 <div className="admin-controls">
                   <span className="admin-label">Switch country map:</span>
-                  <div className="admin-country-pills">
-                    {supportedCountries.map(c => (
-                      <button
-                        key={c.value}
-                        className={`admin-pill ${adminCountry === c.value ? 'active' : ''}`}
-                        onClick={() => handleAdminCountryChange(c.value)}
-                      >
-                        {c.label}
-                      </button>
+                  <select
+                    className="admin-select"
+                    value={adminCountry}
+                    onChange={e => handleAdminCountryChange(e.target.value)}
+                  >
+                    {allCountries.map(c => (
+                      <option key={c.value} value={c.value}>
+                        {c.label}{c.hasMap ? ' ★' : ''}
+                      </option>
                     ))}
-                  </div>
+                  </select>
+                  <span className="admin-hint">★ = Interactive region map available</span>
                 </div>
               </div>
             )}

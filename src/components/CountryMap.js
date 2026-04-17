@@ -33,7 +33,9 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const svgRef = useRef();
 
-  const mapData = countryMaps[country] || countryMaps.India;
+  const mapData = countryMaps[country];
+  const hasInteractiveMap = !!mapData;
+  const effectiveMap = mapData || countryMaps.India; // fallback
 
   function handleLocationClick(event) {
     const id = event.target.id;
@@ -63,10 +65,23 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
     return "svg-map__location pending";
   }
 
+  if (!hasInteractiveMap) {
+    return (
+      <div className="country-map-container country-map-fallback" ref={svgRef}>
+        <div className="fallback-content">
+          <div className="fallback-flag">{(require('../utils/countries').default.find(c => c.value === country) || {}).label || '🌍'}</div>
+          <h3>{country}</h3>
+          <p>Interactive region map coming soon!</p>
+          <p className="fallback-hint">Use the <strong>World Map</strong> page to track {country} on the globe.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="country-map-container" ref={svgRef} onMouseMove={onMouseMove}>
       <SVGMap
-        map={mapData.map}
+        map={effectiveMap.map}
         onLocationClick={handleLocationClick}
         onLocationMouseOver={onLocationMouseOver}
         onLocationMouseOut={onLocationMouseOut}
@@ -90,12 +105,22 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
 
 // Export map metadata for Dashboard stats
 export function getCountryMapInfo(country) {
-  const data = countryMaps[country] || countryMaps.India;
+  const data = countryMaps[country];
+  if (!data) {
+    return {
+      totalRegions: 0,
+      regionLabel: 'Regions',
+      regionType: 'region',
+      regionNames: [],
+      hasMap: false,
+    };
+  }
   return {
     totalRegions: data.map.locations.length,
     regionLabel: data.regionLabel,
     regionType: data.regionType,
     regionNames: data.map.locations.map(l => l.name),
+    hasMap: true,
   };
 }
 

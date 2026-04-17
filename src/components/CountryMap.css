@@ -12,5 +12,13 @@
 .svg-map__location.pending { fill: rgba(251, 191, 36, 0.15); stroke: rgba(251, 191, 36, 0.25); }
 .svg-map__location.pending:hover { fill: rgba(251, 191, 36, 0.35); stroke: var(--amber-400); stroke-width: 1.5; }
 
+/* Fallback for countries without SVG maps */
+.country-map-fallback { justify-content: center; align-items: center; }
+.fallback-content { text-align: center; padding: 2rem; }
+.fallback-flag { font-size: 4rem; margin-bottom: 1rem; }
+.fallback-content h3 { font-size: 1.3rem; font-weight: 700; color: var(--text-bright); margin-bottom: 0.5rem; }
+.fallback-content p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.25rem; }
+.fallback-hint { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.75rem; }
+
 /* Tooltip */
 .country-map-tooltip { position: fixed; background: var(--bg-elevated); color: var(--text-bright); padding: 6px 12px; border-radius: var(--radius-sm); pointer-events: none; font-size: 0.78rem; font-weight: 500; z-index: 1000; box-shadow: var(--shadow-lg); border: 1px solid var(--border-muted); }

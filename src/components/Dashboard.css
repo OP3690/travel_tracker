@@ -66,17 +66,13 @@
 .admin-crown { font-size: 0.7rem; }
 .admin-controls { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
 .admin-label { font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); white-space: nowrap; }
-.admin-country-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-.admin-pill {
-  padding: 6px 14px; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 600;
-  background: var(--bg-elevated); color: var(--text-secondary); border: 1px solid var(--border-default);
-  transition: all var(--transition-base); white-space: nowrap;
+.admin-select {
+  padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600;
+  background: var(--bg-input); color: var(--text-primary); border: 1px solid var(--primary-400);
+  min-width: 220px; cursor: pointer; transition: all var(--transition-base);
 }
-.admin-pill:hover { border-color: var(--primary-400); color: var(--primary-400); background: var(--bg-active); }
-.admin-pill.active {
-  background: var(--primary-500); color: #fff; border-color: var(--primary-500);
-  box-shadow: var(--shadow-glow-primary);
-}
+.admin-select:focus { outline: none; border-color: var(--primary-400); box-shadow: var(--shadow-glow-primary); }
+.admin-hint { font-size: 0.68rem; color: var(--text-muted); font-style: italic; }
 
 /* Map Card */
 .map-card { background: var(--bg-card); border-radius: var(--radius-xl); border: 1px solid var(--border-default); overflow: hidden; }
