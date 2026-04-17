@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import IndiaMap from './IndiaMap';
 import Layout from './Layout';
 import API from '../api/api';
-import { FaBook, FaGlobeAsia, FaChartBar, FaLightbulb, FaTimes, FaMapMarkerAlt, FaRoute, FaCompass, FaStar, FaFlagCheckered, FaArrowRight } from 'react-icons/fa';
+import { FaBook, FaGlobeAsia, FaChartBar, FaTimes, FaMapMarkerAlt, FaRoute, FaCompass, FaStar, FaFlagCheckered, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './Dashboard.css';
 
