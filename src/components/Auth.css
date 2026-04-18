@@ -37,6 +37,21 @@
 .input-wrapper input { width: 100%; padding: 11px 12px 11px 38px; border: 1.5px solid var(--border-default); border-radius: var(--radius-md); font-size: 0.9rem; color: var(--text-primary); background: var(--bg-input); transition: all var(--transition-base); }
 .input-wrapper input:focus { outline: none; border-color: var(--primary-500); box-shadow: 0 0 0 3px var(--primary-glow); }
 .input-wrapper input::placeholder { color: var(--text-muted); }
+/* Phone input row */
+.phone-input-row {
+  display: flex; gap: 8px; align-items: stretch;
+}
+.phone-code-select {
+  width: 110px; flex-shrink: 0; padding: 11px 8px; border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-md); font-size: 0.85rem; color: var(--text-primary);
+  background: var(--bg-input); appearance: none; cursor: pointer;
+  text-align: center; font-weight: 600;
+}
+.phone-code-select:focus { outline: none; border-color: var(--primary-500); box-shadow: 0 0 0 3px var(--primary-glow); }
+.phone-input-wrapper { flex: 1; }
+.phone-input-wrapper input { padding-left: 12px !important; }
+.phone-number-input { width: 100%; }
+
 .input-select { width: 100%; padding: 11px 12px 11px 38px; border: 1.5px solid var(--border-default); border-radius: var(--radius-md); font-size: 0.9rem; color: var(--text-primary); background: var(--bg-input); appearance: none; cursor: pointer; }
 .input-select:focus { outline: none; border-color: var(--primary-500); box-shadow: 0 0 0 3px var(--primary-glow); }
 
