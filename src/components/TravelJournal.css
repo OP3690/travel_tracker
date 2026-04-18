@@ -87,4 +87,23 @@
 
 .journal-toast { position: fixed; bottom: 90px; right: 28px; background: var(--bg-elevated); color: var(--text-primary); padding: 10px 20px; border-radius: var(--radius-lg); font-size: 0.85rem; font-weight: 600; box-shadow: var(--shadow-xl); border: 1px solid var(--border-muted); z-index: 3000; animation: slideInRight 0.3s ease, fadeOut 0.3s ease 2s forwards; }
 
-@media (max-width: 768px) { .journal-page { padding: 1rem; padding-top: 3.5rem; } .journal-toolbar { flex-direction: column; } .journal-grid { grid-template-columns: 1fr; } .journal-dest-actions { opacity: 1; } .journal-fab { bottom: 18px; right: 18px; } }
+@media (max-width: 768px) {
+  .journal-page { padding: 0.85rem; padding-top: 3.5rem; }
+  .journal-toolbar { flex-direction: column; }
+  .journal-grid { grid-template-columns: 1fr; }
+  .journal-dest-actions { opacity: 1; }
+  .journal-fab { bottom: 18px; right: 18px; width: 44px; height: 44px; font-size: 1.1rem; }
+  .page-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .page-title { font-size: 1.2rem; }
+  .journal-progress-card { min-width: 0; width: 100%; }
+  .journal-card-head { padding: 0.75rem; }
+  .journal-card-info h3 { font-size: 0.85rem; }
+  .jcs-item { font-size: 0.68rem; }
+  .tj-modal { padding: 1.25rem; max-width: 92vw; }
+}
+
+@media (max-width: 400px) {
+  .journal-page { padding: 0.5rem; padding-top: 3.5rem; }
+  .journal-search input { font-size: 0.82rem; }
+  .journal-card-stats { gap: 6px; }
+}

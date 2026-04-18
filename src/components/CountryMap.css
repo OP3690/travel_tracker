@@ -23,5 +23,13 @@
 .fallback-content p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.25rem; }
 .fallback-hint { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.75rem; }
 
+@media (max-width: 768px) {
+  .country-map-container { height: 380px; }
+}
+
+@media (max-width: 400px) {
+  .country-map-container { height: 300px; }
+}
+
 /* Tooltip */
 .country-map-tooltip { position: fixed; background: var(--bg-elevated); color: var(--text-bright); padding: 6px 12px; border-radius: var(--radius-sm); pointer-events: none; font-size: 0.78rem; font-weight: 500; z-index: 1000; box-shadow: var(--shadow-lg); border: 1px solid var(--border-muted); }

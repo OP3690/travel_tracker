@@ -71,4 +71,11 @@
   .sidebar.open { transform: translateX(0); }
   .mobile-menu-btn { display: flex; }
   .sidebar-overlay { display: block; position: fixed; inset: 0; background: var(--bg-overlay); z-index: 40; animation: fadeIn 0.2s ease; }
+  .main-content { padding-top: 0; }
+}
+
+@media (max-width: 400px) {
+  .sidebar { width: 220px; min-width: 220px; }
+  .sidebar-logo-text { font-size: 0.9rem; }
+  .nav-item { font-size: 0.82rem; padding: 8px 10px; }
 }

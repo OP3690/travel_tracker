@@ -42,4 +42,18 @@
 .pc-dates { display: flex; align-items: center; gap: 5px; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.35rem; background: var(--bg-elevated); padding: 3px 8px; border-radius: var(--radius-sm); width: fit-content; }
 .pc-notes { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; padding-top: 0.4rem; border-top: 1px solid var(--border-default); margin-top: 0.35rem; }
 
-@media (max-width: 768px) { .planner-page { padding: 1rem; padding-top: 3.5rem; } .pf-row { grid-template-columns: 1fr; } .planner-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) {
+  .planner-page { padding: 0.85rem; padding-top: 3.5rem; }
+  .page-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .page-title { font-size: 1.2rem; }
+  .planner-add-btn { width: 100%; justify-content: center; }
+  .pf-row { grid-template-columns: 1fr; }
+  .planner-grid { grid-template-columns: 1fr; }
+  .planner-form-card { padding: 1rem; }
+  .planner-card { padding: 0.85rem; }
+  .pc-header h3 { font-size: 0.85rem; }
+}
+
+@media (max-width: 400px) {
+  .planner-page { padding: 0.5rem; padding-top: 3.5rem; }
+}

@@ -48,8 +48,21 @@
 
 @media (max-width: 900px) {
   .auth-page { flex-direction: column; }
-  .auth-visual { flex: 0 0 auto; padding: 2.5rem 2rem; min-height: 220px; }
-  .auth-visual-text h2 { font-size: 1.5rem; }
-  .auth-form-section { padding: 2rem 1.5rem; }
+  .auth-visual { flex: 0 0 auto; padding: 2rem 1.5rem; min-height: 180px; }
+  .auth-visual-text h2 { font-size: 1.4rem; }
+  .auth-visual-text p { font-size: 0.88rem; }
+  .auth-form-section { padding: 1.5rem 1.25rem; }
   .input-row { grid-template-columns: 1fr; }
+  .auth-title { font-size: 1.5rem; }
+}
+
+@media (max-width: 400px) {
+  .auth-visual { padding: 1.5rem 1rem; min-height: 140px; }
+  .auth-visual-icon { font-size: 2rem; }
+  .auth-visual-text h2 { font-size: 1.2rem; }
+  .auth-form-section { padding: 1.25rem 1rem; }
+  .auth-title { font-size: 1.3rem; }
+  .auth-form { gap: 0.85rem; }
+  .input-wrapper input, .input-select { padding: 10px 10px 10px 36px; font-size: 0.85rem; }
+  .auth-submit { padding: 11px 16px; font-size: 0.88rem; }
 }
