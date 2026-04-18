@@ -5,6 +5,7 @@ import { getCountryMapInfo } from './CountryMap';
 import countryToCode from '../utils/countryCodeMap';
 import './TravelJournal.css';
 import { FiPlus, FiTrash2, FiStar, FiCheckCircle, FiSearch, FiFilter, FiX, FiChevronDown, FiChevronUp, FiMapPin, FiGlobe } from 'react-icons/fi';
+import builtInDestinations from '../assets/destinations';
 
 function getAuthHeader() {
   const token = localStorage.getItem('token');
@@ -111,21 +112,43 @@ const TravelJournal = () => {
     }
   };
 
-  // Build merged region list: country regions + backend destinations + user destinations
+  // Build merged region list: country regions + built-in destinations + backend + user destinations
   const mergedRegions = React.useMemo(() => {
     const regionMap = new Map();
+    const builtIn = builtInDestinations[userCountry] || {};
 
     // Add all country regions first
     countryRegions.forEach(name => {
-      regionMap.set(name, { state: name, destinations: [], topDestinations: [], _id: 'region-' + name.replace(/\s/g, '-') });
+      const preloaded = builtIn[name] || [];
+      regionMap.set(name, {
+        state: name,
+        destinations: [...preloaded],
+        topDestinations: preloaded.slice(0, 3),
+        _id: 'region-' + name.replace(/\s/g, '-'),
+      });
     });
 
-    // Merge backend destinations (if matching country — mainly for India)
+    // Also add built-in regions that might not be in map data (fuzzy names)
+    Object.entries(builtIn).forEach(([region, dests]) => {
+      if (!regionMap.has(region)) {
+        // Try partial match
+        const match = countryRegions.find(r => r.includes(region) || region.includes(r));
+        if (match && regionMap.has(match)) {
+          const existing = regionMap.get(match);
+          existing.destinations = [...new Set([...existing.destinations, ...dests])];
+          if (existing.topDestinations.length === 0) existing.topDestinations = dests.slice(0, 3);
+        } else {
+          regionMap.set(region, { state: region, destinations: dests, topDestinations: dests.slice(0, 3), _id: 'built-' + region.replace(/\s/g, '-') });
+        }
+      }
+    });
+
+    // Merge backend destinations (mainly for India)
     destinations.forEach(d => {
       if (regionMap.has(d.state)) {
         const existing = regionMap.get(d.state);
         existing.destinations = [...new Set([...existing.destinations, ...d.destinations])];
-        existing.topDestinations = d.topDestinations || [];
+        if (d.topDestinations?.length) existing.topDestinations = d.topDestinations;
         existing._id = d._id;
       } else {
         regionMap.set(d.state, { ...d });
@@ -145,7 +168,7 @@ const TravelJournal = () => {
     });
 
     return Array.from(regionMap.values());
-  }, [countryRegions, destinations, userDestinations]);
+  }, [countryRegions, destinations, userDestinations, userCountry]);
 
   // Filtering
   const filteredRegions = mergedRegions.filter(r => {
