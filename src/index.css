@@ -221,3 +221,53 @@ button:active:not(:disabled) { transform: scale(0.97) !important; }
   display: flex; align-items: center; gap: 8px; box-shadow: var(--shadow-lg);
   background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-default);
 }
+
+/* =============================================================
+   MOBILE — global safety rails
+   ============================================================= */
+@media (max-width: 900px) {
+  /* Any existing page container falls back to 16px gutters on mobile
+     if it doesn't already define its own responsive padding */
+  .dashboard-page, .memories-page, .planner-page, .stats-page, .ad-page,
+  .worldmap-page, .friends-page, .friend-profile-page, .settings-page,
+  .tj-page, .profile-page, .community-page {
+    padding: 12px;
+    max-width: 100%;
+  }
+
+  /* Page-title gradient text becomes scale-appropriate on mobile */
+  .page-title, .planner-title, .mem-page-title, .sp-title, .ad-title {
+    font-size: 1.35rem !important;
+  }
+  .page-subtitle, .planner-subtitle, .mem-page-subtitle, .sp-subtitle, .ad-subtitle {
+    font-size: 0.82rem !important;
+  }
+
+  /* Any table that forgot to wrap itself gets an automatic scroll container */
+  table { max-width: 100%; display: block; overflow-x: auto; }
+  .wm-table-wrap, .ad-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Modals — ensure edges never touch the viewport on small phones */
+  .mem-modal, .tp-modal, .ad-modal, .smp-modal, .mem-viewer, .mem-confirm,
+  .tj-modal, .friend-modal, .smp-modal {
+    width: calc(100vw - 20px) !important;
+    max-width: 100% !important;
+  }
+
+  /* Buttons / CTAs: minimum 40px tap target */
+  button, .nav-btn-primary, .nav-btn-ghost { min-height: 40px; }
+
+  /* Reduce any desktop-only fixed widths to be responsive */
+  .dash-right, .dash-left, .dash-columns {
+    grid-template-columns: 1fr !important;
+    display: block !important;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Tighten further on really narrow phones */
+  .dashboard-page, .memories-page, .planner-page, .stats-page,
+  .worldmap-page, .friends-page, .settings-page {
+    padding: 10px;
+  }
+}
