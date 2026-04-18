@@ -1,30 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Globe -->
-  <circle cx="50" cy="50" r="46" fill="#5BB8C4"/>
-  <circle cx="50" cy="50" r="46" fill="url(#globe)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <radialGradient id="globe" cx="40%" cy="35%" r="60%">
-      <stop offset="0%" stop-color="#7DD8C4"/>
-      <stop offset="100%" stop-color="#3A9EAA"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#6366f1"/>
+      <stop offset="55%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <radialGradient id="globe" cx="40%" cy="35%" r="70%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="60%"  stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
     </radialGradient>
+    <radialGradient id="pin" cx="35%" cy="30%" r="70%">
+      <stop offset="0%"   stop-color="#fecaca"/>
+      <stop offset="40%"  stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </radialGradient>
+    <radialGradient id="gloss" cx="30%" cy="20%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="pinShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="8" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <!-- Continents -->
-  <ellipse cx="35" cy="38" rx="14" ry="10" fill="#F7CE6B" rx="12"/>
-  <ellipse cx="62" cy="45" rx="12" ry="16" fill="#F7CE6B"/>
-  <ellipse cx="30" cy="60" rx="8" ry="12" fill="#E8884F"/>
-  <ellipse cx="68" cy="32" rx="6" ry="5" fill="#E8884F"/>
-  <!-- Pin 1 (left) -->
-  <g transform="translate(22, 18)">
-    <ellipse cx="8" cy="24" rx="4" ry="1.5" fill="rgba(0,0,0,0.15)"/>
-    <path d="M8 2C4.7 2 2 4.7 2 8c0 4.2 6 14 6 14s6-9.8 6-14c0-3.3-2.7-6-6-6z" fill="#F25C6E"/>
-    <circle cx="8" cy="8" r="3" fill="white"/>
+
+  <rect x="0" y="0" width="512" height="512" rx="112" ry="112" fill="url(#bg)"/>
+  <rect x="0" y="0" width="512" height="512" rx="112" ry="112" fill="url(#gloss)"/>
+
+  <circle cx="256" cy="256" r="158" fill="url(#globe)"/>
+
+  <g fill="#818cf8" opacity="0.85">
+    <path d="M 150 180 C 145 175, 160 168, 175 172 C 190 176, 200 190, 205 205 C 210 220, 198 232, 185 230 C 170 228, 155 215, 148 200 C 144 192, 146 184, 150 180 Z"/>
+    <path d="M 175 255 C 182 248, 195 248, 202 258 C 210 272, 210 290, 202 308 C 196 320, 185 322, 178 312 C 172 300, 170 280, 172 268 C 173 263, 174 259, 175 255 Z"/>
+    <path d="M 255 170 C 268 165, 285 168, 295 180 C 305 195, 305 220, 295 240 C 285 260, 275 275, 268 285 C 262 295, 258 300, 253 295 C 248 288, 245 270, 248 250 C 250 230, 252 200, 255 170 Z"/>
+    <path d="M 320 175 C 335 170, 355 175, 365 190 C 370 200, 368 215, 360 222 C 350 230, 335 230, 325 224 C 315 218, 310 205, 312 192 C 314 185, 317 180, 320 175 Z"/>
+    <path d="M 340 290 C 352 285, 368 288, 375 300 C 380 308, 378 318, 368 322 C 355 326, 342 322, 336 312 C 332 305, 334 296, 340 290 Z"/>
   </g>
-  <!-- Pin 2 (right) -->
-  <g transform="translate(62, 42)">
-    <ellipse cx="8" cy="24" rx="4" ry="1.5" fill="rgba(0,0,0,0.15)"/>
-    <path d="M8 2C4.7 2 2 4.7 2 8c0 4.2 6 14 6 14s6-9.8 6-14c0-3.3-2.7-6-6-6z" fill="#F25C6E"/>
-    <circle cx="8" cy="8" r="3" fill="white"/>
+
+  <g fill="#a5b4fc" opacity="0.35">
+    <circle cx="130" cy="250" r="3"/>
+    <circle cx="225" cy="155" r="2.5"/>
+    <circle cx="380" cy="240" r="3"/>
+    <circle cx="410" cy="195" r="2"/>
+    <circle cx="240" cy="370" r="2.5"/>
   </g>
-  <!-- Route line -->
-  <path d="M30 28 Q 50 20 70 52" stroke="#333" stroke-width="1.5" stroke-dasharray="3 2" fill="none" opacity="0.4"/>
+
+  <circle cx="256" cy="256" r="158" fill="none" stroke="#4f46e5" stroke-width="4" stroke-opacity="0.25"/>
+
+  <g filter="url(#pinShadow)">
+    <path d="M 256 165 C 222 165, 195 192, 195 226 C 195 268, 256 360, 256 360 C 256 360, 317 268, 317 226 C 317 192, 290 165, 256 165 Z" fill="url(#pin)"/>
+    <path d="M 256 165 C 222 165, 195 192, 195 226 C 195 268, 256 360, 256 360 C 256 360, 317 268, 317 226 C 317 192, 290 165, 256 165 Z" fill="none" stroke="#fca5a5" stroke-width="1.5" stroke-opacity="0.4"/>
+    <circle cx="256" cy="220" r="18" fill="#ffffff"/>
+    <circle cx="256" cy="220" r="10" fill="#7f1d1d" opacity="0.8"/>
+  </g>
+
+  <ellipse cx="232" cy="195" rx="14" ry="7" fill="#ffffff" opacity="0.45" transform="rotate(-28 232 195)"/>
 </svg>
