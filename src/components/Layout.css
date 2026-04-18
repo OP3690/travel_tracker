@@ -1,7 +1,9 @@
-/* ===== Dark Layout ===== */
+/* ===== Layout — desktop sidebar + native-feel mobile app shell ===== */
 .app-layout { display: flex; min-height: 100vh; background: var(--bg-primary); }
 
-/* Sidebar */
+/* ============================================================
+   DESKTOP SIDEBAR (≥901px)
+   ============================================================ */
 .sidebar {
   width: var(--sidebar-width); min-width: var(--sidebar-width); height: 100vh;
   position: sticky; top: 0; background: var(--bg-sidebar);
@@ -10,12 +12,10 @@
 }
 .sidebar-inner { display: flex; flex-direction: column; height: 100%; padding: 1rem 0.65rem; overflow-y: auto; }
 
-/* Logo */
 .sidebar-logo { display: flex; align-items: center; gap: 10px; padding: 0.35rem 0.75rem; margin-bottom: 1.75rem; }
 .sidebar-logo-icon { color: var(--primary-400); font-size: 1.3rem; }
 .sidebar-logo-text { font-size: 1rem; font-weight: 800; color: var(--text-bright); letter-spacing: -0.01em; }
 
-/* Nav */
 .sidebar-nav { flex: 1; display: flex; flex-direction: column; gap: 2px; }
 .nav-item {
   display: flex; align-items: center; gap: 12px; padding: 9px 12px;
@@ -36,7 +36,6 @@
   text-transform: uppercase; letter-spacing: 0.04em;
 }
 
-/* Bottom */
 .sidebar-bottom { border-top: 1px solid var(--border-default); padding-top: 0.75rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
 .sidebar-user { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: var(--radius-md); background: var(--bg-card); }
 .sidebar-avatar {
@@ -54,33 +53,9 @@
 }
 .sidebar-logout:hover { background: rgba(244, 63, 94, 0.1); color: var(--rose-400); }
 
-/* Main */
 .main-content { flex: 1; min-width: 0; min-height: 100vh; overflow-x: hidden; }
 
-/* Mobile */
-.mobile-menu-btn {
-  display: none; position: fixed; top: 12px; left: 12px; z-index: 60;
-  width: 36px; height: 36px; border-radius: var(--radius-md);
-  background: var(--bg-card); box-shadow: var(--shadow-md); border: 1px solid var(--border-default);
-  align-items: center; justify-content: center; font-size: 1rem; color: var(--text-primary);
-}
-.sidebar-overlay { display: none; }
-
-@media (max-width: 900px) {
-  .sidebar { position: fixed; left: 0; top: 0; transform: translateX(-100%); box-shadow: var(--shadow-xl); }
-  .sidebar.open { transform: translateX(0); }
-  .mobile-menu-btn { display: flex; }
-  .sidebar-overlay { display: block; position: fixed; inset: 0; background: var(--bg-overlay); z-index: 40; animation: fadeIn 0.2s ease; }
-  .main-content { padding-top: 0; }
-}
-
-@media (max-width: 400px) {
-  .sidebar { width: 220px; min-width: 220px; }
-  .sidebar-logo-text { font-size: 0.9rem; }
-  .nav-item { font-size: 0.82rem; padding: 8px 10px; }
-}
-
-/* Admin nav item accent */
+/* Admin nav accent */
 .nav-item-admin {
   margin-top: 4px;
   border-top: 1px solid var(--border-default);
@@ -99,4 +74,212 @@
 .nav-item-admin.active .nav-icon { color: #f59e0b !important; }
 .nav-item-admin.active {
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(245, 158, 11, 0.06));
+}
+
+/* Hide mobile-only shell on desktop */
+.m-topbar, .m-tabbar, .m-sheet-overlay { display: none; }
+.sidebar-overlay { display: none; }
+
+/* ============================================================
+   MOBILE APP SHELL (≤900px)
+   Native-feel top bar + bottom tab bar + slide-up More drawer
+   ============================================================ */
+@media (max-width: 900px) {
+  /* Stop the sidebar from taking any space; it becomes a side-drawer
+     triggered only from the top-bar avatar */
+  .app-layout { flex-direction: column; }
+  .sidebar {
+    position: fixed; left: 0; top: 0; transform: translateX(-100%);
+    box-shadow: var(--shadow-xl);
+    height: 100dvh;
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-overlay {
+    display: block; position: fixed; inset: 0; background: var(--bg-overlay);
+    z-index: 40; animation: fadeIn 0.2s ease;
+  }
+
+  /* ===== Top bar (sticky header) ===== */
+  .m-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 40;
+    height: 56px; padding: 0 12px;
+    padding-top: calc(env(safe-area-inset-top, 0px));
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-default);
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+  }
+  .m-topbar-brand {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.95rem; font-weight: 800; color: var(--text-primary);
+    letter-spacing: -0.01em; flex-shrink: 0;
+  }
+  .m-topbar-brand svg { color: var(--primary-500); font-size: 1.1rem; }
+  .m-topbar-title {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    font-size: 0.88rem; font-weight: 700; color: var(--text-primary);
+    max-width: 50%; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    pointer-events: none;
+  }
+  .m-topbar-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: transparent; border: none; padding: 0; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .m-topbar-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-500), var(--accent-500));
+    color: #fff; font-size: 0.72rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Shorter variant — hide centred title on very narrow phones so brand fits */
+  @media (max-width: 380px) {
+    .m-topbar-title { display: none; }
+  }
+
+  /* Main content gets padded for top bar + bottom bar + safe area */
+  .main-content {
+    min-height: calc(100dvh - 56px - 60px);
+    padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* ===== Bottom tab bar (5 tabs: 4 primary + More) ===== */
+  .m-tabbar {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-default);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.06);
+  }
+  .m-tab {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2px; padding: 9px 4px 7px;
+    background: transparent; border: none; cursor: pointer;
+    color: var(--text-tertiary); text-decoration: none;
+    position: relative;
+    font-family: inherit;
+    min-height: 56px;
+    transition: color var(--transition-fast);
+  }
+  .m-tab:active { background: var(--bg-hover); }
+  .m-tab-icon {
+    font-size: 1.15rem; line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 10px;
+    transition: all var(--transition-base);
+  }
+  .m-tab-label {
+    font-size: 0.64rem; font-weight: 600; letter-spacing: 0.01em;
+    max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .m-tab.active { color: var(--primary-600); }
+  [data-theme="dark"] .m-tab.active { color: var(--primary-300); }
+  .m-tab.active .m-tab-icon {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(124, 58, 237, 0.12));
+    color: var(--primary-600);
+    transform: translateY(-1px);
+  }
+  [data-theme="dark"] .m-tab.active .m-tab-icon { color: var(--primary-300); }
+  .m-tab.active::before {
+    content: ''; position: absolute; top: 0; left: 30%; right: 30%;
+    height: 3px; border-radius: 0 0 3px 3px;
+    background: linear-gradient(90deg, var(--primary-500), var(--accent-500));
+  }
+
+  /* ===== More bottom-sheet drawer ===== */
+  .m-sheet-overlay {
+    display: flex; align-items: flex-end;
+    position: fixed; inset: 0; z-index: 110;
+    background: rgba(15, 23, 42, 0.45); backdrop-filter: blur(6px);
+    animation: fadeIn 0.2s ease;
+  }
+  .m-sheet {
+    width: 100%; background: var(--bg-card);
+    border-top-left-radius: 22px; border-top-right-radius: 22px;
+    padding: 10px 16px calc(24px + env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 -12px 36px rgba(15, 23, 42, 0.22);
+    animation: sheetUp 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 85dvh; overflow-y: auto;
+  }
+  @keyframes sheetUp { from { transform: translateY(40%); } to { transform: translateY(0); } }
+  .m-sheet-handle {
+    width: 36px; height: 4px; border-radius: 4px;
+    background: var(--border-muted); margin: 0 auto 14px;
+  }
+  .m-sheet-header {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 2px 2px 14px;
+    border-bottom: 1px solid var(--border-default); margin-bottom: 14px;
+  }
+  .m-sheet-user { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .m-sheet-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-500), var(--accent-500));
+    color: #fff; font-weight: 800; font-size: 0.95rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .m-sheet-name { font-weight: 700; color: var(--text-primary); font-size: 0.95rem; }
+  .m-sheet-role { font-size: 0.76rem; color: var(--text-secondary); }
+  .m-sheet-close {
+    width: 36px; height: 36px; border-radius: 10px; border: none;
+    background: var(--bg-input); color: var(--text-secondary);
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+  }
+
+  .m-sheet-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    margin-bottom: 14px;
+  }
+  .m-sheet-tile {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    padding: 16px 8px;
+    background: var(--bg-input); border: 1px solid var(--border-default);
+    border-radius: 14px;
+    color: var(--text-primary); text-decoration: none;
+    transition: all var(--transition-base);
+    min-height: 82px;
+  }
+  .m-sheet-tile:active { transform: scale(0.97); background: var(--bg-hover); }
+  .m-sheet-tile-icon {
+    font-size: 1.25rem; color: var(--primary-500);
+    width: 40px; height: 40px; border-radius: 12px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(124, 58, 237, 0.08));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .m-sheet-tile-label { font-size: 0.76rem; font-weight: 600; text-align: center; line-height: 1.2; }
+  .m-sheet-tile.admin .m-sheet-tile-icon {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.12));
+    color: #f59e0b;
+  }
+
+  .m-sheet-logout {
+    width: 100%; padding: 13px; border: 1px solid rgba(239, 68, 68, 0.3);
+    background: rgba(239, 68, 68, 0.06); color: #ef4444;
+    border-radius: 12px; font-weight: 700; font-size: 0.9rem; cursor: pointer;
+    font-family: inherit;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .m-sheet-logout:active { background: rgba(239, 68, 68, 0.1); }
+
+  /* ===== Top-bar + bottom-bar also apply their safe padding to every
+         app page so content never hides behind fixed chrome ===== */
+  .dashboard-page, .memories-page, .planner-page, .stats-page, .ad-page,
+  .worldmap-page, .friends-page, .friend-profile-page, .settings-page,
+  .tj-page {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 12px !important;
+  }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+  .m-tab-label { font-size: 0.6rem; }
+  .m-sheet-grid { grid-template-columns: repeat(2, 1fr); }
+  .m-topbar-brand span { display: none; }
 }

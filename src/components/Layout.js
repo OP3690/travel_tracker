@@ -1,26 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaMapMarkedAlt, FaGlobeAsia, FaCalendarAlt, FaCompass, FaChartBar, FaCog, FaSignOutAlt, FaMountain, FaBars, FaTimes, FaHeart, FaUserFriends, FaCrown } from 'react-icons/fa';
+import {
+  FaMapMarkedAlt, FaGlobeAsia, FaCalendarAlt, FaCompass, FaChartBar, FaCog,
+  FaSignOutAlt, FaMountain, FaTimes, FaHeart, FaUserFriends, FaCrown,
+  FaEllipsisH,
+} from 'react-icons/fa';
 import './Layout.css';
 
+// Full nav (shown in desktop sidebar + mobile More-drawer)
 const navItems = [
-  { path: '/dashboard', icon: <FaMapMarkedAlt />, label: 'My Map' },
-  { path: '/worldmap', icon: <FaGlobeAsia />, label: 'World Map' },
-  { path: '/memories', icon: <FaHeart />, label: 'Memory Wall' },
-  { path: '/friends', icon: <FaUserFriends />, label: 'Friends' },
-  { path: '/discover', icon: <FaCompass />, label: 'Discover' },
-  { path: '/planner', icon: <FaCalendarAlt />, label: 'Trip Planner' },
-  { path: '/statistics', icon: <FaChartBar />, label: 'Statistics' },
-  { path: '/settings', icon: <FaCog />, label: 'Settings' },
+  { path: '/dashboard',   icon: <FaMapMarkedAlt />, label: 'My Map' },
+  { path: '/worldmap',    icon: <FaGlobeAsia />,    label: 'World Map' },
+  { path: '/memories',    icon: <FaHeart />,        label: 'Memory Wall' },
+  { path: '/friends',     icon: <FaUserFriends />,  label: 'Friends' },
+  { path: '/discover',    icon: <FaCompass />,      label: 'Discover' },
+  { path: '/planner',     icon: <FaCalendarAlt />,  label: 'Trip Planner' },
+  { path: '/statistics',  icon: <FaChartBar />,     label: 'Statistics' },
+  { path: '/settings',    icon: <FaCog />,          label: 'Settings' },
 ];
 
+// Primary 4 tabs shown on the mobile bottom tab bar (+ "More" as the 5th)
+const bottomTabs = [
+  { path: '/dashboard',   icon: <FaMapMarkedAlt />, label: 'Map' },
+  { path: '/worldmap',    icon: <FaGlobeAsia />,    label: 'World' },
+  { path: '/memories',    icon: <FaHeart />,        label: 'Memories' },
+  { path: '/friends',     icon: <FaUserFriends />,  label: 'Friends' },
+];
+const morePaths = new Set(['/discover', '/planner', '/statistics', '/settings', '/admin']);
+
 const ADMIN_EMAIL = 'global5665@gmail.com';
-const adminNavItem = { path: '/admin', icon: <FaCrown />, label: 'Admin', adminOnly: true };
 
 export default function Layout({ children }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const [user, setUser] = useState({ name: 'Traveler' });
 
   useEffect(() => {
@@ -30,71 +44,86 @@ export default function Layout({ children }) {
     } catch {}
   }, []);
 
+  // Close drawers on navigation
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMoreOpen(false);
+  }, [location.pathname]);
+
+  const isAdmin = (user.email || '').toLowerCase() === ADMIN_EMAIL;
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     navigate('/login');
   };
 
-  const getInitials = (name) => {
-    return name
-      .split(' ')
-      .map(n => n[0])
-      .join('')
-      .toUpperCase()
-      .slice(0, 2);
-  };
+  const initials = (user.name || '?').split(' ').map(n => n[0]).filter(Boolean).join('').toUpperCase().slice(0, 2);
+
+  // Current page label (for mobile top bar)
+  const currentNav = [...navItems, { path: '/admin', label: 'Admin' }].find(n => n.path === location.pathname);
+  const pageTitle = currentNav?.label || 'StampYourMap';
+
+  // Is "More" considered the active tab?
+  const moreActive = morePaths.has(location.pathname);
 
   return (
     <div className="app-layout">
-      {/* Mobile overlay */}
-      {mobileOpen && <div className="sidebar-overlay" onClick={() => setMobileOpen(false)} />}
+      {/* ============ MOBILE TOP BAR ============ */}
+      <header className="m-topbar">
+        <Link to="/dashboard" className="m-topbar-brand" aria-label="Home">
+          <FaMountain />
+          <span>StampYourMap</span>
+        </Link>
+        <div className="m-topbar-title">{pageTitle}</div>
+        <button
+          className="m-topbar-btn"
+          onClick={() => setMobileMenuOpen(true)}
+          aria-label="Menu"
+        >
+          <div className="m-topbar-avatar">{initials}</div>
+        </button>
+      </header>
 
-      {/* Mobile toggle */}
-      <button className="mobile-menu-btn" onClick={() => setMobileOpen(!mobileOpen)}>
-        {mobileOpen ? <FaTimes /> : <FaBars />}
-      </button>
+      {/* ============ DESKTOP SIDEBAR ============ */}
+      {mobileMenuOpen && <div className="sidebar-overlay" onClick={() => setMobileMenuOpen(false)} />}
 
-      <aside className={`sidebar ${mobileOpen ? 'open' : ''}`}>
+      <aside className={`sidebar ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="sidebar-inner">
-          {/* Logo */}
           <div className="sidebar-logo">
             <FaMountain className="sidebar-logo-icon" />
             <span className="sidebar-logo-text">StampYourMap</span>
           </div>
 
-          {/* Navigation */}
           <nav className="sidebar-nav">
             {navItems.map(item => (
               <Link
                 key={item.path}
                 to={item.path}
                 className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
-                onClick={() => setMobileOpen(false)}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="nav-icon">{item.icon}</span>
                 <span className="nav-label">{item.label}</span>
                 {item.badge && <span className="nav-badge">{item.badge}</span>}
               </Link>
             ))}
-            {(user.email || '').toLowerCase() === ADMIN_EMAIL && (
+            {isAdmin && (
               <Link
-                key={adminNavItem.path}
-                to={adminNavItem.path}
-                className={`nav-item nav-item-admin ${location.pathname === adminNavItem.path ? 'active' : ''}`}
-                onClick={() => setMobileOpen(false)}
+                to="/admin"
+                className={`nav-item nav-item-admin ${location.pathname === '/admin' ? 'active' : ''}`}
+                onClick={() => setMobileMenuOpen(false)}
               >
-                <span className="nav-icon">{adminNavItem.icon}</span>
-                <span className="nav-label">{adminNavItem.label}</span>
+                <span className="nav-icon"><FaCrown /></span>
+                <span className="nav-label">Admin</span>
                 <span className="nav-admin-chip">ADMIN</span>
               </Link>
             )}
           </nav>
 
-          {/* User & Logout */}
           <div className="sidebar-bottom">
             <div className="sidebar-user">
-              <div className="sidebar-avatar">{getInitials(user.name)}</div>
+              <div className="sidebar-avatar">{initials}</div>
               <div className="sidebar-user-info">
                 <div className="sidebar-user-name">{user.name}</div>
                 <div className="sidebar-user-role">Explorer</div>
@@ -108,9 +137,79 @@ export default function Layout({ children }) {
         </div>
       </aside>
 
+      {/* ============ MAIN CONTENT ============ */}
       <main className="main-content">
         {children}
       </main>
+
+      {/* ============ MOBILE BOTTOM TAB BAR ============ */}
+      <nav className="m-tabbar" aria-label="Primary">
+        {bottomTabs.map(tab => {
+          const active = location.pathname === tab.path;
+          return (
+            <Link
+              key={tab.path}
+              to={tab.path}
+              className={`m-tab ${active ? 'active' : ''}`}
+              aria-current={active ? 'page' : undefined}
+            >
+              <span className="m-tab-icon">{tab.icon}</span>
+              <span className="m-tab-label">{tab.label}</span>
+            </Link>
+          );
+        })}
+        <button
+          className={`m-tab ${moreActive || moreOpen ? 'active' : ''}`}
+          onClick={() => setMoreOpen(true)}
+          aria-label="More"
+        >
+          <span className="m-tab-icon"><FaEllipsisH /></span>
+          <span className="m-tab-label">More</span>
+        </button>
+      </nav>
+
+      {/* ============ MORE BOTTOM-SHEET DRAWER ============ */}
+      {moreOpen && (
+        <div className="m-sheet-overlay" onClick={() => setMoreOpen(false)}>
+          <div className="m-sheet" onClick={e => e.stopPropagation()}>
+            <div className="m-sheet-handle" />
+            <div className="m-sheet-header">
+              <div className="m-sheet-user">
+                <div className="m-sheet-avatar">{initials}</div>
+                <div>
+                  <div className="m-sheet-name">{user.name}</div>
+                  <div className="m-sheet-role">Explorer</div>
+                </div>
+              </div>
+              <button className="m-sheet-close" onClick={() => setMoreOpen(false)} aria-label="Close">
+                <FaTimes />
+              </button>
+            </div>
+            <div className="m-sheet-grid">
+              {[
+                { path: '/discover',   icon: <FaCompass />,     label: 'Discover' },
+                { path: '/planner',    icon: <FaCalendarAlt />, label: 'Trip Planner' },
+                { path: '/statistics', icon: <FaChartBar />,    label: 'Statistics' },
+                { path: '/settings',   icon: <FaCog />,         label: 'Settings' },
+                ...(isAdmin ? [{ path: '/admin', icon: <FaCrown />, label: 'Admin', admin: true }] : []),
+              ].map(item => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`m-sheet-tile ${item.admin ? 'admin' : ''}`}
+                  onClick={() => setMoreOpen(false)}
+                >
+                  <span className="m-sheet-tile-icon">{item.icon}</span>
+                  <span className="m-sheet-tile-label">{item.label}</span>
+                </Link>
+              ))}
+            </div>
+            <button className="m-sheet-logout" onClick={handleLogout}>
+              <FaSignOutAlt /> Log out
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
