@@ -12,7 +12,16 @@ export default function Signup() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [countrySearch, setCountrySearch] = useState('');
+  const [showCountryDropdown, setShowCountryDropdown] = useState(false);
   const navigate = useNavigate();
+
+  const filteredCountries = countrySearch
+    ? allCountries.filter(c => c.value.toLowerCase().includes(countrySearch.toLowerCase()) || c.label.toLowerCase().includes(countrySearch.toLowerCase()))
+    : allCountries;
+
+  const selectedCountryObj = allCountries.find(c => c.value === form.country);
+  const selectedCountryLabel = selectedCountryObj ? selectedCountryObj.label : form.country;
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -73,8 +82,8 @@ export default function Signup() {
           <Link to="/" className="auth-back-link">
             <FaArrowRight style={{ transform: 'rotate(180deg)' }} /> Back to home
           </Link>
-          <h1 className="auth-title">Create Account</h1>
-          <p className="auth-desc">Fill in your details to start mapping your travels</p>
+          <h1 className="auth-title">Join the Adventure</h1>
+          <p className="auth-desc">One account. 195 countries. Your journey begins here.</p>
 
           {error && <div className="auth-error"><span>{error}</span></div>}
 
@@ -88,16 +97,48 @@ export default function Signup() {
               </div>
             </div>
 
-            {/* Country */}
+            {/* Country - Smart Search Dropdown */}
             <div className="input-group">
-              <label>Your Country</label>
-              <div className="input-wrapper">
-                <FaGlobeAsia className="input-icon" />
-                <select name="country" value={form.country} onChange={handleCountryChange} className="input-select">
-                  {allCountries.map(c => (
-                    <option key={c.value} value={c.value}>{c.label}</option>
-                  ))}
-                </select>
+              <label>Your Home Country</label>
+              <div className="country-dropdown-wrap">
+                <div
+                  className="country-dropdown-trigger"
+                  onClick={() => setShowCountryDropdown(!showCountryDropdown)}
+                >
+                  <FaGlobeAsia className="input-icon" />
+                  <span className="country-selected">{selectedCountryLabel}</span>
+                  <span className="country-chevron">{showCountryDropdown ? '▲' : '▼'}</span>
+                </div>
+                {showCountryDropdown && (
+                  <div className="country-dropdown-menu">
+                    <input
+                      className="country-search-input"
+                      placeholder="Search country..."
+                      value={countrySearch}
+                      onChange={e => setCountrySearch(e.target.value)}
+                      autoFocus
+                    />
+                    <div className="country-dropdown-list">
+                      {filteredCountries.length === 0 ? (
+                        <div className="country-dropdown-empty">No countries found</div>
+                      ) : (
+                        filteredCountries.map(c => (
+                          <div
+                            key={c.value}
+                            className={`country-dropdown-item ${form.country === c.value ? 'active' : ''}`}
+                            onClick={() => {
+                              handleCountryChange({ target: { value: c.value } });
+                              setShowCountryDropdown(false);
+                              setCountrySearch('');
+                            }}
+                          >
+                            {c.label}
+                          </div>
+                        ))
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
