@@ -16,6 +16,23 @@
       gtag('js', new Date());
       gtag('config', 'G-QG1S9ETRH6');        // GA4 property
       gtag('config', 'AW-17984277661');      // Google Ads
+
+      // Fire "About Us" page-load conversion once every pageview
+      gtag('event', 'ads_conversion_About_Us_1', {});
+
+      // Delayed-navigation helper for click conversions.
+      // Usage on any link/button:
+      //   <a href="/signup" onclick="return gtagSendEvent('/signup')">Sign up</a>
+      window.gtagSendEvent = function (url) {
+        var callback = function () {
+          if (typeof url === 'string') window.location = url;
+        };
+        gtag('event', 'ads_conversion_About_Us_1', {
+          event_callback: callback,
+          event_timeout: 2000
+        });
+        return false;
+      };
     </script>
 
     <!-- Google AdSense -->
