@@ -8,7 +8,7 @@ import signupBg from '../assets/signup-travel-map.jpg';
 import './Auth.css';
 
 export default function Signup() {
-  const [form, setForm] = useState({ name: '', mobile: '', email: '', password: '', confirmPassword: '', country: 'USA', phoneCode: '+1' });
+  const [form, setForm] = useState({ name: '', mobile: '', email: '', password: '', confirmPassword: '', country: 'USA', phoneCode: '+1|USA' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -43,7 +43,8 @@ export default function Signup() {
   const handleCountryChange = (e) => {
     const country = e.target.value;
     const match = countryCodes.find(c => c.country === country);
-    setForm({ ...form, country, phoneCode: match ? match.code : '+1' });
+    // Store "code|country" so we can show the correct flag for shared codes like +1
+    setForm({ ...form, country, phoneCode: match ? `${match.code}|${match.country}` : '+1|USA' });
   };
 
   const handleSubmit = async e => {
@@ -53,7 +54,8 @@ export default function Signup() {
     if (form.password.length < 6) return setError('Password must be at least 6 characters');
     setLoading(true);
     try {
-      await API.post('/api/auth/signup', { ...form, mobile: form.phoneCode + ' ' + form.mobile });
+      const actualCode = form.phoneCode.split('|')[0];
+      await API.post('/api/auth/signup', { ...form, mobile: actualCode + ' ' + form.mobile });
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.error || 'Signup failed. Please try again.');
@@ -153,7 +155,7 @@ export default function Signup() {
                   className="phone-code-select"
                 >
                   {countryCodes.map((c, i) => (
-                    <option key={i} value={c.code}>{c.label}</option>
+                    <option key={i} value={`${c.code}|${c.country}`}>{c.flag} {c.code}</option>
                   ))}
                 </select>
                 <div className="input-wrapper phone-input-wrapper">
