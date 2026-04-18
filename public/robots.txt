@@ -1,0 +1,20 @@
+# StampYourMap — robots.txt
+# https://stampyourmap.com
+
+User-agent: *
+Allow: /
+
+# Keep crawlers out of auth-gated app routes (they'd just see the SPA shell)
+Disallow: /dashboard
+Disallow: /worldmap
+Disallow: /memories
+Disallow: /friends
+Disallow: /discover
+Disallow: /planner
+Disallow: /statistics
+Disallow: /settings
+Disallow: /admin
+Disallow: /passport
+Disallow: /journal
+
+Sitemap: https://stampyourmap.com/sitemap.xml
