@@ -15,12 +15,13 @@ export default function ForgotPassword() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [info, setInfo] = useState('');
+  const [notRegistered, setNotRegistered] = useState(false);
   const otpRefs = useRef([]);
 
   useEffect(() => { if (step === 2) otpRefs.current[0]?.focus(); }, [step]);
 
   const requestOtp = async () => {
-    setError(''); setInfo('');
+    setError(''); setInfo(''); setNotRegistered(false);
     if (!emailAddr || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddr)) {
       setError('Please enter a valid email'); return;
     }
@@ -30,7 +31,12 @@ export default function ForgotPassword() {
       setInfo(res.data.message || 'Check your email for the code.');
       setStep(2);
     } catch (err) {
-      setError(err?.response?.data?.error || 'Something went wrong');
+      const data = err?.response?.data;
+      if (err?.response?.status === 404 || data?.error === 'email_not_registered') {
+        setNotRegistered(true);
+      } else {
+        setError(data?.message || data?.error || 'Something went wrong');
+      }
     } finally {
       setLoading(false);
     }
@@ -111,11 +117,27 @@ export default function ForgotPassword() {
                 type="email" autoFocus
                 placeholder="you@example.com"
                 value={emailAddr}
-                onChange={e => setEmailAddr(e.target.value)}
+                onChange={e => { setEmailAddr(e.target.value); setNotRegistered(false); }}
                 onKeyDown={e => e.key === 'Enter' && requestOtp()}
               />
             </div>
             {error && <div className="auth-error">{error}</div>}
+            {notRegistered && (
+              <div className="auth-not-registered">
+                <div className="anr-icon">🙁</div>
+                <div className="anr-body">
+                  <strong>This email isn't registered with StampYourMap.</strong>
+                  <p>Double-check for typos, or create a new account to start stamping your world.</p>
+                  <button
+                    type="button"
+                    className="anr-cta"
+                    onClick={() => navigate(`/signup?email=${encodeURIComponent(emailAddr)}`)}
+                  >
+                    Create an account →
+                  </button>
+                </div>
+              </div>
+            )}
             <button className="auth-primary-btn" onClick={requestOtp} disabled={loading}>
               {loading ? 'Sending…' : 'Send 6-Digit Code'}
             </button>

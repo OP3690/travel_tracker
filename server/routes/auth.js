@@ -172,18 +172,22 @@ router.post('/forgot-password', async (req, res) => {
     const { email: emailAddr } = req.body;
     if (!emailAddr) return res.status(400).json({ error: 'Email is required' });
 
-    // Always respond success to avoid leaking whether an email is registered
     const user = await User.findOne({ email: emailAddr.toLowerCase() });
-    if (user && !user.isDeleted) {
-      const otp = genOtp();
-      user.resetOtp = otp;
-      user.resetOtpExpires = new Date(Date.now() + OTP_TTL_MS);
-      user.resetOtpAttempts = 0;
-      await user.save();
-
-      email.sendOtpEmail(user, otp).catch(err => console.error('otp email failed:', err.message));
+    if (!user || user.isDeleted) {
+      return res.status(404).json({
+        error: 'email_not_registered',
+        message: "This email isn't registered with StampYourMap. Create a new account to get started.",
+      });
     }
-    res.json({ message: 'If that email is registered, a 6-digit code has been sent.' });
+
+    const otp = genOtp();
+    user.resetOtp = otp;
+    user.resetOtpExpires = new Date(Date.now() + OTP_TTL_MS);
+    user.resetOtpAttempts = 0;
+    await user.save();
+
+    email.sendOtpEmail(user, otp).catch(err => console.error('otp email failed:', err.message));
+    res.json({ message: "We've sent a 6-digit code to your email." });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
