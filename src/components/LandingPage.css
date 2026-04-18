@@ -326,7 +326,17 @@
   .hms { justify-content: center; padding: 8px 16px; }
   .hms-dot { width: 100%; height: 1px; }
   .features-grid, .testimonials-grid { grid-template-columns: 1fr; }
-  .nav-btn-ghost { display: none; }
+  /* Mobile nav: show only "Log in" — hide the primary "Start stamping"
+     since the page already has large signup CTAs in the hero + footer */
+  .nav-btn-primary { display: none; }
+  .nav-btn-ghost {
+    padding: 8px 16px;
+    background: var(--primary-500);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+  }
+  .nav-btn-ghost:hover { background: var(--primary-600); color: #fff; }
   .how-timeline { padding-left: 32px; }
   .how-timeline-dot { left: -32px; width: 28px; height: 28px; font-size: 0.7rem; }
 }
