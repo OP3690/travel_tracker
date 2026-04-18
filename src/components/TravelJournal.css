@@ -61,6 +61,16 @@
 .jda-btn.delete { color: var(--rose-400); }
 .jda-btn.delete:hover { background: rgba(244,63,94,0.1); }
 
+/* Inline add button */
+.journal-inline-add {
+  display: flex; align-items: center; gap: 6px; width: 100%; padding: 8px 1rem;
+  font-size: 0.78rem; font-weight: 500; color: var(--primary-400);
+  transition: all var(--transition-base); border-top: 1px dashed var(--border-default);
+}
+.journal-inline-add:hover { background: var(--bg-active); }
+.journal-pin { color: var(--accent-400); font-size: 0.82rem; flex-shrink: 0; }
+.journal-card-empty { font-size: 0.7rem; color: var(--text-muted); font-style: italic; display: block; }
+
 .journal-fab { position: fixed; bottom: 28px; right: 28px; width: 48px; height: 48px; border-radius: var(--radius-full); background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); color: #fff; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-glow-primary); transition: all var(--transition-base); z-index: 100; }
 .journal-fab:hover { transform: scale(1.08); box-shadow: 0 0 28px var(--primary-glow); }
 
