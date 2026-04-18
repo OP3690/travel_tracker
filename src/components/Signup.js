@@ -99,7 +99,7 @@ export default function Signup() {
           <form onSubmit={handleSubmit} className="auth-form">
             {/* Name */}
             <div className="input-group">
-              <label>Full Name</label>
+              <label>What's Your Name, Buddy?</label>
               <div className="input-wrapper">
                 <FaUser className="input-icon" />
                 <input name="name" placeholder="John Doe" value={form.name} onChange={handleChange} required />
@@ -181,7 +181,7 @@ export default function Signup() {
 
             {/* Email */}
             <div className="input-group">
-              <label>Email Address</label>
+              <label>Email Address <span className="label-funny">— we won't spam, we can't even afford a marketing budget</span></label>
               <div className="input-wrapper">
                 <FaEnvelope className="input-icon" />
                 <input name="email" type="email" placeholder="you@example.com" value={form.email} onChange={handleChange} required />
