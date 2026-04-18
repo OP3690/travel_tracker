@@ -181,7 +181,7 @@ export default function Signup() {
 
             {/* Email */}
             <div className="input-group">
-              <label>Email Address <span className="label-funny">— we won't spam, we can't even afford a marketing budget</span></label>
+              <label>Email Address <span className="label-funny">— We won't spam, We can't even afford a marketing budget ;)</span></label>
               <div className="input-wrapper">
                 <FaEnvelope className="input-icon" />
                 <input name="email" type="email" placeholder="you@example.com" value={form.email} onChange={handleChange} required />
