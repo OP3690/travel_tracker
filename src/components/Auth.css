@@ -108,38 +108,76 @@
 .auth-switch a { color: var(--primary-400); font-weight: 600; }
 .auth-switch a:hover { text-decoration: underline; }
 
+/* =============================================================
+   MOBILE & M-WEB — strictly symmetric, centred layout
+   ============================================================= */
 @media (max-width: 900px) {
-  .auth-page { flex-direction: column; }
-  .auth-visual { flex: 0 0 auto; padding: 2rem 1.5rem; min-height: 180px; }
-  .auth-visual-text h2 { font-size: 1.4rem; }
-  .auth-visual-text p { font-size: 0.88rem; }
-  .auth-form-section { padding: 1.5rem 1.25rem; }
-  .input-row { grid-template-columns: 1fr; }
-  .auth-title { font-size: 1.5rem; }
+  .auth-page {
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f6f7fb 0%, #eceefc 60%, #f6f7fb 100%);
+  }
+  [data-theme="dark"] .auth-page {
+    background: linear-gradient(180deg, #0b0e14 0%, #1a1633 60%, #0b0e14 100%);
+  }
+  .auth-visual {
+    flex: 0 0 auto;
+    padding: 2.2rem 1.5rem 2rem;
+    min-height: 180px;
+    border-radius: 0 0 28px 28px;
+  }
+  .auth-visual-text h2 { font-size: 1.5rem; line-height: 1.15; }
+  .auth-visual-text p { font-size: 0.9rem; max-width: 320px; margin: 0.5rem auto 0; }
+  .auth-form-section {
+    padding: 1.75rem 1.25rem 2.5rem;
+    background: transparent;
+  }
+  .auth-form-wrapper {
+    width: 100%; max-width: 420px; margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: 20px;
+    padding: 1.75rem 1.25rem;
+    box-shadow: var(--shadow-md);
+  }
+  .auth-back-link { justify-content: center; display: inline-flex; margin: 0 auto 1.2rem; }
+  .auth-title { font-size: 1.5rem; text-align: center; }
+  .auth-desc { text-align: center; }
+  .input-row { grid-template-columns: 1fr; gap: 0.75rem; }
+  .auth-switch { text-align: center; }
+}
+
+@media (max-width: 640px) {
+  .auth-visual { padding: 1.75rem 1rem 1.5rem; min-height: 160px; }
+  .auth-visual-text h2 { font-size: 1.35rem; }
+  .auth-visual-text p { font-size: 0.85rem; }
+  .auth-form-section { padding: 1.25rem 0.75rem 2rem; }
+  .auth-form-wrapper { padding: 1.5rem 1.1rem; border-radius: 18px; }
+  .auth-title { font-size: 1.35rem; }
+  .auth-desc { font-size: 0.85rem; margin-bottom: 1.25rem; }
+  .auth-form { gap: 0.9rem; }
+  /* 16px inputs = prevents iOS zoom on focus */
+  .input-wrapper input, .input-select, .phone-code-select {
+    font-size: 16px !important;
+    padding: 12px 12px 12px 40px;
+  }
+  .phone-input-row { gap: 8px; }
+  .phone-code-select { width: 108px; padding-left: 12px; }
+  .auth-submit {
+    padding: 14px 18px; font-size: 1rem; width: 100%;
+  }
+  .country-dropdown-menu { max-height: 260px; }
 }
 
 @media (max-width: 400px) {
-  .auth-visual { padding: 1.5rem 1rem; min-height: 140px; }
-  .auth-visual-icon { font-size: 2rem; }
+  .auth-visual { padding: 1.3rem 0.9rem 1.25rem; min-height: 140px; }
+  .auth-visual-icon { font-size: 1.85rem; }
   .auth-visual-text h2 { font-size: 1.2rem; }
-  .auth-form-section { padding: 1.25rem 1rem; }
-  .auth-title { font-size: 1.3rem; }
-  .auth-form { gap: 0.85rem; }
-  .input-wrapper input, .input-select { padding: 10px 10px 10px 36px; font-size: 0.85rem; }
-  .auth-submit { padding: 11px 16px; font-size: 0.88rem; }
-}
-
-/* Mobile polish — tighter padding + legible inputs on small screens */
-@media (max-width: 640px) {
-  .auth-page { flex-direction: column; }
-  .auth-visual { flex: 0 0 auto; padding: 1.5rem 1rem; min-height: 160px; }
-  .auth-visual-text h2 { font-size: 1.25rem; }
-  .auth-visual-text p { font-size: 0.85rem; }
-  .auth-form-section { padding: 1.25rem 1rem; }
-  .auth-title { font-size: 1.35rem; }
-  .input-row { grid-template-columns: 1fr; }
-  .input-wrapper input, .input-select, .phone-code-select {
-    font-size: 16px; /* prevents iOS zoom on focus */
-  }
-  .auth-submit { padding: 14px 18px; font-size: 0.95rem; }
+  .auth-visual-text p { font-size: 0.8rem; }
+  .auth-form-section { padding: 1rem 0.6rem 1.5rem; }
+  .auth-form-wrapper { padding: 1.25rem 1rem; border-radius: 16px; }
+  .auth-title { font-size: 1.2rem; }
+  .auth-form { gap: 0.75rem; }
+  .input-wrapper input, .input-select { padding: 11px 11px 11px 38px; }
+  .input-icon { left: 13px; font-size: 0.88rem; }
 }
