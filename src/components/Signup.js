@@ -3,6 +3,7 @@ import API from '../api/api';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaMountain, FaUser, FaPhone, FaEnvelope, FaLock, FaArrowRight, FaEye, FaEyeSlash, FaGlobeAsia } from 'react-icons/fa';
 import allCountries from '../utils/countries';
+import loginBg from '../assets/login-travel-map.jpg';
 import './Auth.css';
 
 export default function Signup() {
@@ -46,7 +47,7 @@ export default function Signup() {
 
   return (
     <div className="auth-page">
-      <div className="auth-visual">
+      <div className="auth-visual" style={{ backgroundImage: `url(${loginBg})` }}>
         <div className="auth-visual-content">
           <div className="auth-visual-shapes">
             <div className="auth-shape auth-shape-1" />

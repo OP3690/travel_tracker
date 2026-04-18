@@ -1,8 +1,18 @@
 /* ===== Dark Auth ===== */
 .auth-page { display: flex; min-height: 100vh; background: var(--bg-root); }
 
-.auth-visual { flex: 0 0 45%; background: linear-gradient(135deg, var(--primary-600), #7c3aed, var(--primary-700)); display: flex; align-items: center; justify-content: center; padding: 3rem; position: relative; overflow: hidden; }
-.auth-visual-content { position: relative; z-index: 1; text-align: center; }
+.auth-visual {
+  flex: 0 0 45%; display: flex; align-items: center; justify-content: center;
+  padding: 3rem; position: relative; overflow: hidden;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  background-color: #0a192f;
+}
+.auth-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(79,70,229,0.75), rgba(124,58,237,0.65));
+  z-index: 0;
+}
+.auth-visual-content { position: relative; z-index: 2; text-align: center; }
 .auth-visual-shapes { position: absolute; inset: 0; pointer-events: none; }
 .auth-shape { position: absolute; border-radius: 50%; opacity: 0.08; background: #fff; }
 .auth-shape-1 { width: 400px; height: 400px; top: -100px; right: -100px; }
