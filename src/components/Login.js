@@ -97,6 +97,12 @@ export default function Login() {
               </div>
             </div>
 
+            <div style={{ textAlign: 'right', marginTop: '-0.5rem', marginBottom: '0.5rem' }}>
+              <Link to="/forgot-password" style={{ fontSize: '0.82rem', color: 'var(--primary-400)', textDecoration: 'none', fontWeight: 600 }}>
+                Forgot password?
+              </Link>
+            </div>
+
             <button type="submit" className="auth-submit" disabled={loading}>
               {loading ? (
                 <span className="auth-spinner" />

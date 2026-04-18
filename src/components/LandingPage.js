@@ -1,23 +1,107 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaMapMarkedAlt, FaGlobeAsia, FaBook, FaChartLine, FaArrowRight, FaPlane, FaRoute, FaCalendarAlt, FaCheckCircle, FaMountain, FaPassport, FaSuitcaseRolling, FaCamera, FaMapPin, FaStar, FaHeart } from 'react-icons/fa';
+import {
+  FaGlobeAsia, FaArrowRight, FaPlane, FaRoute, FaCalendarAlt,
+  FaCheckCircle, FaMountain, FaSuitcaseRolling, FaCamera, FaMapPin, FaUserPlus,
+  FaStar, FaHeart, FaShareAlt, FaUserFriends, FaDownload, FaLock, FaBolt,
+  FaChartLine, FaImages, FaQuestionCircle
+} from 'react-icons/fa';
 import './LandingPage.css';
 
+/* ========================================================================
+   FEATURES — benefit-led copy that maps to the real product
+   ======================================================================== */
 const features = [
-  { icon: <FaMapMarkedAlt />, title: '195 Country Maps', desc: 'Every country. Every state. Every province. Click to mark visited and watch your map come alive.', color: '#10b981' },
-  { icon: <FaGlobeAsia />, title: 'World Map Explorer', desc: 'Zoom, pan, and pin countries across the globe. Animated flight arcs connect your journeys.', color: '#3b82f6' },
-  { icon: <FaBook />, title: 'Destination Journal', desc: 'Log 1000+ destinations. Mark favorites. Track progress by region. Your travel diary, digitized.', color: '#8b5cf6' },
-  { icon: <FaChartLine />, title: 'Travel Analytics', desc: 'See your coverage with donut charts, progress rings, and leaderboards. Data meets wanderlust.', color: '#f59e0b' },
-  { icon: <FaCalendarAlt />, title: 'Trip Planner', desc: 'Plan your next escape. Set dates, add notes, build checklists. Never forget a travel detail.', color: '#ec4899' },
-  { icon: <FaCheckCircle />, title: 'Milestone Badges', desc: 'Earn badges as you explore. First Step, Explorer, Adventurer, Nomad — collect them all.', color: '#06b6d4' },
+  {
+    icon: <FaGlobeAsia />,
+    title: 'Interactive world & country maps',
+    desc: 'Stamp 195 countries and drill into states, provinces, or prefectures. Your travel map, rendered beautifully in seconds.',
+    color: '#6366f1',
+  },
+  {
+    icon: <FaImages />,
+    title: 'Memory Wall',
+    desc: 'Upload photos, write your story, and revisit every place you\'ve been. Up to 4 photos per memory, 1,000-word journals.',
+    color: '#ec4899',
+  },
+  {
+    icon: <FaShareAlt />,
+    title: 'Shareable HD travel cards',
+    desc: '12 designer templates. One click downloads a gorgeous Instagram-ready card with your map, photos, and story. Built to go viral.',
+    color: '#f59e0b',
+  },
+  {
+    icon: <FaCalendarAlt />,
+    title: 'Advanced trip planner',
+    desc: 'Dates, cities, budget, day-by-day itinerary, bookings, smart checklists — and invite friends as co-travelers in one click.',
+    color: '#10b981',
+  },
+  {
+    icon: <FaUserFriends />,
+    title: 'Travel friends & community',
+    desc: 'Follow friends, compare maps, see where they\'ve been. Travel is better when it\'s shared.',
+    color: '#8b5cf6',
+  },
+  {
+    icon: <FaChartLine />,
+    title: 'Stats, badges & insights',
+    desc: 'Domestic vs international breakdown, continent coverage, travel DNA, milestone badges from First Flight to Century Club.',
+    color: '#06b6d4',
+  },
 ];
 
+/* ========================================================================
+   WHY — unique value pillars
+   ======================================================================== */
+const pillars = [
+  { icon: <FaBolt />,      title: 'Built for speed',    desc: 'From signup to first stamp in under 30 seconds. No credit card, no onboarding maze.' },
+  { icon: <FaLock />,      title: 'Your data, private', desc: 'Every memory is public, friends-only, or private. You control who sees what, every time.' },
+  { icon: <FaDownload />,  title: 'Export anything',    desc: 'Download your world map, travel cards, or stats as HD images. Yours to keep, forever.' },
+  { icon: <FaHeart />,     title: 'Free forever',       desc: 'All 195 countries, all features, no ads, no paywalls. Truly free — built by travelers, for travelers.' },
+];
+
+/* ========================================================================
+   TESTIMONIALS
+   ======================================================================== */
 const testimonials = [
-  { text: 'I can see every state I have visited on a beautiful map. The milestone badges keep me exploring!', name: 'Priya M.', role: 'Solo Traveler', stars: 5 },
-  { text: 'Switched from spreadsheets to this. The world map with flight arcs is just stunning.', name: 'Arjun K.', role: 'Digital Nomad', stars: 5 },
-  { text: '195 country maps with clickable states! I plan trips and track them all in one place. A must-have.', name: 'Sneha R.', role: 'Travel Blogger', stars: 5 },
+  { text: 'I used to keep a messy spreadsheet of trips. Now my world map is a stunning visual I actually want to share.', name: 'Priya M.',  role: 'Solo Traveler',  stars: 5 },
+  { text: 'The shareable card templates are genuinely beautiful. My Instagram followers ask how I made them every single time.', name: 'Arjun K.',   role: 'Digital Nomad',  stars: 5 },
+  { text: 'Planning our anniversary trip with checklists + budget + itinerary in one place was a game-changer. Plus my husband actually used it.', name: 'Sneha R.',   role: 'Travel Blogger', stars: 5 },
 ];
 
+/* ========================================================================
+   FAQ — also mirrored into JSON-LD for SEO
+   ======================================================================== */
+const faqs = [
+  {
+    q: 'Is StampYourMap really free?',
+    a: 'Yes — completely free. All 195 countries, the full Memory Wall, unlimited trip plans, shareable card templates, and analytics are free forever. No credit card required, no paywalls, no ads.',
+  },
+  {
+    q: 'How many countries and regions does it support?',
+    a: 'StampYourMap includes interactive maps for all 195 UN-recognized countries, plus drill-down into 5,000+ states, provinces, prefectures, and territories — the biggest interactive travel map collection on the web.',
+  },
+  {
+    q: 'Can I share my travel map on Instagram, WhatsApp, or Facebook?',
+    a: 'Absolutely. Download a high-resolution travel card in one click — 12 designer templates including Midnight, Polaroid, Sunset, Minimal, Neon, and more. Perfect for Instagram Stories, WhatsApp Status, Facebook posts, or Pinterest pins.',
+  },
+  {
+    q: 'Do I need an account to use StampYourMap?',
+    a: 'Yes — a free account lets us save your travel map, memories, trip plans, and friends across all your devices. Signup takes about 30 seconds with just an email.',
+  },
+  {
+    q: 'Is my travel data private?',
+    a: 'Your data is yours. Every memory has three visibility levels — Public, Friends-only, or Private — and you choose per memory. We never sell or share your data with third parties.',
+  },
+  {
+    q: 'Can I plan trips and invite friends?',
+    a: 'Yes. The Trip Planner includes dates, cities, budget tracking, day-by-day itineraries, smart packing checklists, and a built-in friend invite system so your travel buddies get automatic updates as you plan together.',
+  },
+];
+
+/* ========================================================================
+   ANIMATED COUNTER
+   ======================================================================== */
 function CountUp({ target, suffix = '' }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -45,6 +129,25 @@ function CountUp({ target, suffix = '' }) {
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
+/* ========================================================================
+   FAQ ACCORDION ITEM
+   ======================================================================== */
+function FaqItem({ q, a, defaultOpen }) {
+  const [open, setOpen] = useState(!!defaultOpen);
+  return (
+    <div className={`faq-item ${open ? 'open' : ''}`}>
+      <button className="faq-q" onClick={() => setOpen(o => !o)} aria-expanded={open}>
+        <span>{q}</span>
+        <span className="faq-chevron">{open ? '−' : '+'}</span>
+      </button>
+      {open && <div className="faq-a">{a}</div>}
+    </div>
+  );
+}
+
+/* ========================================================================
+   MAIN LANDING PAGE
+   ======================================================================== */
 export default function LandingPage() {
   const navigate = useNavigate();
   const [scrollY, setScrollY] = useState(0);
@@ -55,7 +158,51 @@ export default function LandingPage() {
     if (token) navigate('/dashboard');
   }, [navigate]);
 
-  // Load world map SVG
+  // Inject JSON-LD structured data for SEO (FAQ + Organization + WebSite)
+  useEffect(() => {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(f => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    };
+    const orgSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'StampYourMap',
+      url: 'https://stampyourmap.com',
+      logo: 'https://stampyourmap.com/favicon.png',
+      sameAs: [],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'support@stampyourmap.com',
+        contactType: 'customer support',
+      },
+    };
+    const addScript = (id, data) => {
+      let el = document.getElementById(id);
+      if (!el) {
+        el = document.createElement('script');
+        el.type = 'application/ld+json';
+        el.id = id;
+        document.head.appendChild(el);
+      }
+      el.textContent = JSON.stringify(data);
+    };
+    addScript('ld-faq', faqSchema);
+    addScript('ld-org', orgSchema);
+    return () => {
+      ['ld-faq', 'ld-org'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+      });
+    };
+  }, []);
+
+  // Load interactive world map with flight arcs
   useEffect(() => {
     if (!mapRef.current) return;
     fetch('/WorldMap_SVG_Source.normalized.svg')
@@ -155,166 +302,270 @@ export default function LandingPage() {
 
   return (
     <div className="landing">
-      {/* Nav */}
-      <nav className={`landing-nav ${scrollY > 50 ? 'scrolled' : ''}`}>
-        <div className="landing-nav-inner">
-          <div className="landing-logo"><FaMountain className="landing-logo-icon" /><span>MyTravelGlimpse</span></div>
-          <div className="landing-nav-links">
-            <a href="#features" className="nav-link-text">Features</a>
-            <a href="#how" className="nav-link-text">How It Works</a>
-            <a href="#reviews" className="nav-link-text">Reviews</a>
-          </div>
-          <div className="landing-nav-actions">
-            <button className="nav-btn-ghost" onClick={() => navigate('/login')}>Log In</button>
-            <button className="nav-btn-primary" onClick={() => navigate('/signup')}>Start Free <FaArrowRight /></button>
-          </div>
-        </div>
-      </nav>
-
-      {/* ===== HERO ===== */}
-      <section className="landing-hero">
-        <div className="hero-bg-shapes">
-          <div className="hero-shape hero-shape-1" />
-          <div className="hero-shape hero-shape-2" />
-          <div className="hero-shape hero-shape-3" />
-        </div>
-        <div className="hero-content">
-          <div className="hero-badge"><FaPlane className="hero-badge-icon" /> Free Travel Tracker for 195 Countries</div>
-          <h1 className="hero-title">
-            Your Travels.<br />Beautifully <span className="hero-gradient-text">Mapped.</span>
-          </h1>
-          <p className="hero-subtitle">
-            Click states. Pin countries. Journal destinations. Earn badges.
-            The most visual way to track where you have been — and dream about where to go next.
-          </p>
-          <div className="hero-actions">
-            <button className="hero-btn-primary" onClick={() => navigate('/signup')}>
-              <FaSuitcaseRolling /> Start Your Map — Free
-            </button>
-            <button className="hero-btn-secondary" onClick={() => navigate('/login')}>
-              <FaPassport /> Log In
-            </button>
-          </div>
-          <div className="hero-mini-stats">
-            <div className="hms"><strong><CountUp target="195" /></strong> Countries</div>
-            <div className="hms-dot" />
-            <div className="hms"><strong><CountUp target="5000" suffix="+" /></strong> Regions</div>
-            <div className="hms-dot" />
-            <div className="hms"><strong>100</strong>% Free</div>
-          </div>
-        </div>
-        <div className="hero-visual">
-          <div className="hero-map-real">
-            <div className="hero-map-container" ref={mapRef} />
-          </div>
-          <div className="hero-float-icon fi-1"><FaPlane /></div>
-          <div className="hero-float-icon fi-2"><FaCamera /></div>
-          <div className="hero-float-icon fi-3"><FaMapPin /></div>
-        </div>
-      </section>
-
-      {/* Marquee */}
-      <section className="travel-marquee">
-        <div className="marquee-track">
-          {['Goa', 'Paris', 'Tokyo', 'Kerala', 'Sydney', 'New York', 'Jaipur', 'London', 'Bali', 'Dubai', 'Manali', 'Rome', 'Ladakh', 'Bangkok', 'Maldives', 'Goa', 'Paris', 'Tokyo', 'Kerala', 'Sydney', 'New York', 'Jaipur', 'London', 'Bali', 'Dubai', 'Manali', 'Rome', 'Ladakh', 'Bangkok', 'Maldives'].map((city, i) => (
-            <span key={i} className="marquee-item"><FaMapPin className="marquee-pin" /> {city}</span>
-          ))}
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="landing-features" id="features">
-        <div className="features-header">
-          <div className="section-badge"><FaRoute /> Features</div>
-          <h2>One App. Every Country.<br /><span className="hero-gradient-text">Infinite Adventures.</span></h2>
-          <p>Six powerful features that turn your travels into a visual story</p>
-        </div>
-        <div className="features-grid">
-          {features.map((f, i) => (
-            <div key={i} className="feature-card" style={{ '--fc': f.color, animationDelay: `${i * 0.08}s` }}>
-              <div className="feature-icon" style={{ background: `${f.color}15`, color: f.color }}>{f.icon}</div>
-              <h3>{f.title}</h3>
-              <p>{f.desc}</p>
-              <div className="feature-line" style={{ background: f.color }} />
+      {/* NAV */}
+      <header>
+        <nav className={`landing-nav ${scrollY > 50 ? 'scrolled' : ''}`} aria-label="Primary">
+          <div className="landing-nav-inner">
+            <a href="/" className="landing-logo" aria-label="StampYourMap home">
+              <FaMountain className="landing-logo-icon" />
+              <span>StampYourMap</span>
+            </a>
+            <div className="landing-nav-links">
+              <a href="#features" className="nav-link-text">Features</a>
+              <a href="#how" className="nav-link-text">How it works</a>
+              <a href="#reviews" className="nav-link-text">Reviews</a>
+              <a href="#faq" className="nav-link-text">FAQ</a>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="landing-how" id="how">
-        <div className="how-header">
-          <div className="section-badge"><FaSuitcaseRolling /> How It Works</div>
-          <h2>Start in <span className="hero-gradient-text">60 Seconds</span></h2>
-          <p>Three simple steps to begin your travel story</p>
-        </div>
-        <div className="how-timeline">
-          <div className="how-timeline-line" />
-          {[
-            { num: '1', title: 'Create Free Account', desc: 'Sign up with email. No credit card. Takes 10 seconds.', icon: <FaPassport /> },
-            { num: '2', title: 'Pin Your Travels', desc: 'Click states on India map. Click countries on world map. Done.', icon: <FaMapPin /> },
-            { num: '3', title: 'Watch Your Story', desc: 'See charts, unlock badges, plan next trips, share your stats.', icon: <FaChartLine /> },
-          ].map((step, i) => (
-            <div key={i} className="how-timeline-item" style={{ animationDelay: `${i * 0.15}s` }}>
-              <div className="how-timeline-dot">{step.icon}</div>
-              <div className="how-timeline-content">
-                <span className="how-timeline-num">Step {step.num}</span>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
-              </div>
+            <div className="landing-nav-actions">
+              <button className="nav-btn-ghost" onClick={() => navigate('/login')}>Log in</button>
+              <button className="nav-btn-primary" onClick={() => navigate('/signup')}>
+                Start stamping <FaArrowRight />
+              </button>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </nav>
+      </header>
 
-      {/* Testimonials */}
-      <section className="landing-testimonials" id="reviews">
-        <div className="testimonials-header">
-          <div className="section-badge"><FaHeart /> Reviews</div>
-          <h2>Loved by <span className="hero-gradient-text">Travelers</span></h2>
-        </div>
-        <div className="testimonials-grid">
-          {testimonials.map((t, i) => (
-            <div key={i} className="testimonial-card" style={{ animationDelay: `${i * 0.1}s` }}>
-              <div className="testimonial-stars">
-                {Array(t.stars).fill(0).map((_, j) => <FaStar key={j} />)}
-              </div>
-              <p className="testimonial-text">"{t.text}"</p>
-              <div className="testimonial-author">
-                <div className="testimonial-avatar">{t.name[0]}</div>
-                <div>
-                  <div className="testimonial-name">{t.name}</div>
-                  <div className="testimonial-role">{t.role}</div>
+      <main>
+        {/* ===== HERO ===== */}
+        <section className="landing-hero" aria-labelledby="hero-heading">
+          <div className="hero-bg-shapes">
+            <div className="hero-shape hero-shape-1" />
+            <div className="hero-shape hero-shape-2" />
+            <div className="hero-shape hero-shape-3" />
+          </div>
+          <div className="hero-content">
+            <div className="hero-badge">
+              <FaPlane className="hero-badge-icon" /> The free travel tracker for 195 countries
+            </div>
+            <h1 className="hero-title" id="hero-heading">
+              Stamp every country you've visited.
+              <br />
+              <span className="hero-gradient-text">Share the story.</span>
+            </h1>
+            <p className="hero-subtitle">
+              Your <strong>free travel tracker</strong> for all 195 countries.
+              Pin every place you've been, capture memories with photos and stories,
+              plan adventures with friends, and download
+              {' '}<strong>Instagram-ready travel cards</strong> in one tap.
+            </p>
+            <div className="hero-actions">
+              <button className="hero-btn-primary" onClick={() => navigate('/signup')}>
+                <FaSuitcaseRolling /> Stamp your first country
+              </button>
+              <a href="#features" className="hero-btn-secondary">
+                See how it works <FaArrowRight />
+              </a>
+            </div>
+            <ul className="hero-bullets" aria-label="Key numbers">
+              <li><FaCheckCircle /> <CountUp target="195" /> countries &amp; 5,000+ regions</li>
+              <li><FaCheckCircle /> 12 designer card templates</li>
+              <li><FaCheckCircle /> Trip planner, friends &amp; memory wall</li>
+              <li><FaCheckCircle /> Free forever — no credit card</li>
+            </ul>
+          </div>
+          <div className="hero-visual" aria-hidden="true">
+            <div className="hero-map-real">
+              <div className="hero-map-container" ref={mapRef} />
+            </div>
+            <div className="hero-float-icon fi-1"><FaPlane /></div>
+            <div className="hero-float-icon fi-2"><FaCamera /></div>
+            <div className="hero-float-icon fi-3"><FaMapPin /></div>
+          </div>
+        </section>
+
+        {/* MARQUEE */}
+        <section className="travel-marquee" aria-hidden="true">
+          <div className="marquee-track">
+            {['Goa', 'Paris', 'Tokyo', 'Kerala', 'Sydney', 'New York', 'Jaipur', 'London', 'Bali', 'Dubai', 'Manali', 'Rome', 'Ladakh', 'Bangkok', 'Maldives', 'Goa', 'Paris', 'Tokyo', 'Kerala', 'Sydney', 'New York', 'Jaipur', 'London', 'Bali', 'Dubai', 'Manali', 'Rome', 'Ladakh', 'Bangkok', 'Maldives'].map((city, i) => (
+              <span key={i} className="marquee-item"><FaMapPin className="marquee-pin" /> {city}</span>
+            ))}
+          </div>
+        </section>
+
+        {/* FEATURES */}
+        <section className="landing-features" id="features" aria-labelledby="features-heading">
+          <div className="features-header">
+            <div className="section-badge"><FaRoute /> Everything you need</div>
+            <h2 id="features-heading">
+              One app. Every country.
+              <br />
+              <span className="hero-gradient-text">Every memory, mapped.</span>
+            </h2>
+            <p>
+              Six powerful features that turn scattered travel memories into a beautiful, shareable story.
+            </p>
+          </div>
+          <div className="features-grid">
+            {features.map((f, i) => (
+              <article key={i} className="feature-card" style={{ '--fc': f.color, animationDelay: `${i * 0.08}s` }}>
+                <div className="feature-icon" style={{ background: `${f.color}15`, color: f.color }}>{f.icon}</div>
+                <h3>{f.title}</h3>
+                <p>{f.desc}</p>
+                <div className="feature-line" style={{ background: f.color }} />
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* WHY / PILLARS */}
+        <section className="landing-why" aria-labelledby="why-heading">
+          <div className="why-inner">
+            <div className="why-header">
+              <div className="section-badge"><FaCheckCircle /> Why StampYourMap</div>
+              <h2 id="why-heading">
+                Built for real travelers.
+                <br />
+                <span className="hero-gradient-text">Not for spreadsheet warriors.</span>
+              </h2>
+            </div>
+            <div className="why-grid">
+              {pillars.map((p, i) => (
+                <div key={i} className="why-card" style={{ animationDelay: `${i * 0.1}s` }}>
+                  <div className="why-icon">{p.icon}</div>
+                  <h3>{p.title}</h3>
+                  <p>{p.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* HOW IT WORKS */}
+        <section className="landing-how" id="how" aria-labelledby="how-heading">
+          <div className="how-header">
+            <div className="section-badge"><FaSuitcaseRolling /> Get started</div>
+            <h2 id="how-heading">
+              From signup to first stamp in
+              {' '}<span className="hero-gradient-text">30 seconds</span>.
+            </h2>
+            <p>Three simple steps to unlock your travel story.</p>
+          </div>
+          <div className="how-timeline">
+            <div className="how-timeline-line" />
+            {[
+              { num: '1', title: 'Sign up free', desc: 'Quick signup with just an email — no credit card, no onboarding maze. You\'re in.', icon: <FaUserPlus /> },
+              { num: '2', title: 'Stamp your map', desc: 'Click countries on the world map. Drill into states. Upload photos and write the story.', icon: <FaMapPin /> },
+              { num: '3', title: 'Share the story', desc: 'Download a beautiful HD travel card. Post it to Instagram, WhatsApp, or Facebook in one click.', icon: <FaShareAlt /> },
+            ].map((step, i) => (
+              <div key={i} className="how-timeline-item" style={{ animationDelay: `${i * 0.15}s` }}>
+                <div className="how-timeline-dot">{step.icon}</div>
+                <div className="how-timeline-content">
+                  <span className="how-timeline-num">Step {step.num}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.desc}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section className="landing-testimonials" id="reviews" aria-labelledby="reviews-heading">
+          <div className="testimonials-header">
+            <div className="section-badge"><FaHeart /> Loved by travelers</div>
+            <h2 id="reviews-heading">Real travelers. <span className="hero-gradient-text">Real stories.</span></h2>
+          </div>
+          <div className="testimonials-grid">
+            {testimonials.map((t, i) => (
+              <figure key={i} className="testimonial-card" style={{ animationDelay: `${i * 0.1}s` }}>
+                <div className="testimonial-stars" aria-label={`${t.stars} out of 5 stars`}>
+                  {Array(t.stars).fill(0).map((_, j) => <FaStar key={j} />)}
+                </div>
+                <blockquote className="testimonial-text">"{t.text}"</blockquote>
+                <figcaption className="testimonial-author">
+                  <div className="testimonial-avatar">{t.name[0]}</div>
+                  <div>
+                    <div className="testimonial-name">{t.name}</div>
+                    <div className="testimonial-role">{t.role}</div>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="landing-faq" id="faq" aria-labelledby="faq-heading">
+          <div className="faq-inner">
+            <div className="faq-header">
+              <div className="section-badge"><FaQuestionCircle /> FAQ</div>
+              <h2 id="faq-heading">Questions? <span className="hero-gradient-text">We've got answers.</span></h2>
+              <p>Everything you need to know before you stamp your first country.</p>
             </div>
-          ))}
-        </div>
-      </section>
+            <div className="faq-list">
+              {faqs.map((f, i) => (
+                <FaqItem key={i} q={f.q} a={f.a} defaultOpen={i === 0} />
+              ))}
+            </div>
+          </div>
+        </section>
 
-      {/* CTA */}
-      <section className="landing-cta">
-        <div className="cta-content">
-          <FaMountain className="cta-icon" />
-          <h2>Stop Forgetting Where You've Been</h2>
-          <p>Join thousands of travelers mapping their journeys. Free forever. 195 countries.</p>
-          <button className="hero-btn-primary cta-btn" onClick={() => navigate('/signup')}>
-            Create Free Account <FaArrowRight />
-          </button>
-        </div>
-      </section>
+        {/* CTA */}
+        <section className="landing-cta" aria-labelledby="cta-heading">
+          <div className="cta-content">
+            <FaMountain className="cta-icon" />
+            <h2 id="cta-heading">Your world is waiting. Start mapping it.</h2>
+            <p>
+              Join thousands of travelers turning scattered trips into a beautiful, shareable story.
+              Free forever. 195 countries. Takes 30 seconds.
+            </p>
+            <button className="hero-btn-primary cta-btn" onClick={() => navigate('/signup')}>
+              Start stamping — it's free forever <FaArrowRight />
+            </button>
+            <div className="cta-reassure">
+              <FaCheckCircle /> No credit card
+              <FaCheckCircle /> No ads
+              <FaCheckCircle /> Data stays yours
+            </div>
+          </div>
+        </section>
 
-      {/* Footer */}
+        {/* ABOUT + CONTACT */}
+        <section id="about" className="landing-about" aria-labelledby="about-heading">
+          <div className="landing-about-inner">
+            <div className="about-block">
+              <h3 id="about-heading">About StampYourMap</h3>
+              <p>
+                StampYourMap is a free interactive travel map for modern travelers. Stamp every country you've
+                visited on stunning interactive maps, capture photos and stories as memories, plan trips
+                with co-travelers, and share it all on Instagram, WhatsApp, or Facebook in one click.
+                Built by travelers, for travelers.
+              </p>
+            </div>
+            <div className="about-block">
+              <h3>Get in touch</h3>
+              <p>
+                Questions, feedback, partnerships — we read every message.<br />
+                <a href="mailto:support@stampyourmap.com" className="contact-email">
+                  📧 support@stampyourmap.com
+                </a>
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* FOOTER */}
       <footer className="landing-footer">
         <div className="footer-inner">
-          <div className="landing-logo"><FaMountain className="landing-logo-icon" /><span>MyTravelGlimpse</span></div>
+          <div className="landing-logo"><FaMountain className="landing-logo-icon" /><span>StampYourMap</span></div>
           <div className="footer-links">
             <a href="#features">Features</a>
-            <a href="#how">How It Works</a>
+            <a href="#how">How it works</a>
             <a href="#reviews">Reviews</a>
-            <span onClick={() => navigate('/login')}>Log In</span>
+            <a href="#faq">FAQ</a>
+            <a href="#about">About</a>
+            <a href="mailto:support@stampyourmap.com">Contact</a>
+            <span onClick={() => navigate('/login')} role="button" tabIndex={0}>Log in</span>
           </div>
-          <p>&copy; {new Date().getFullYear()} MyTravelGlimpse. Built with <FaHeart style={{ color: '#f43f5e', fontSize: '0.7rem', verticalAlign: 'middle' }} /> for travelers.</p>
+          <p>
+            &copy; {new Date().getFullYear()} StampYourMap ·{' '}
+            <a href="mailto:support@stampyourmap.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+              support@stampyourmap.com
+            </a>
+            {' '}· Built with <FaHeart style={{ color: '#f43f5e', fontSize: '0.7rem', verticalAlign: 'middle' }} /> for travelers everywhere.
+          </p>
         </div>
       </footer>
     </div>

@@ -1,1 +1,7 @@
 build
+
+# Environment (never commit secrets)
+.env
+.env.local
+.env.*.local
+server/.env

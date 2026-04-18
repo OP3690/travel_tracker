@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
+import API from '../api/api';
 import { FiUser, FiMail, FiPhone, FiShield, FiTrash2, FiLogOut, FiSun, FiMoon } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import './Settings.css';
@@ -23,11 +24,14 @@ export default function Settings() {
     }
   }, []);
 
-  const toggleDarkMode = () => {
+  const toggleDarkMode = async () => {
     const newMode = !darkMode;
+    const theme = newMode ? 'dark' : 'light';
     setDarkMode(newMode);
-    document.documentElement.setAttribute('data-theme', newMode ? 'dark' : 'light');
-    localStorage.setItem('theme', newMode ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    // Persist to backend
+    try { await API.put('/api/user/preferences', { theme }); } catch {}
   };
 
   const handleLogout = () => {
@@ -101,7 +105,7 @@ export default function Settings() {
             {activeTab === 'appearance' && (
               <div className="settings-card">
                 <h2>Appearance</h2>
-                <p className="settings-card-desc">Customize how TravelTracker looks</p>
+                <p className="settings-card-desc">Customize how StampYourMap looks</p>
                 <div className="settings-section">
                   <div className="ss-item">
                     <div className="ss-info">

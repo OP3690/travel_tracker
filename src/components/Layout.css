@@ -79,3 +79,24 @@
   .sidebar-logo-text { font-size: 0.9rem; }
   .nav-item { font-size: 0.82rem; padding: 8px 10px; }
 }
+
+/* Admin nav item accent */
+.nav-item-admin {
+  margin-top: 4px;
+  border-top: 1px solid var(--border-default);
+  padding-top: 10px !important;
+  position: relative;
+}
+.nav-item-admin .nav-icon { color: #f59e0b; }
+.nav-admin-chip {
+  margin-left: auto;
+  padding: 1px 6px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #78350f;
+  font-size: 0.55rem; font-weight: 800; letter-spacing: 0.08em;
+  border-radius: 4px;
+}
+.nav-item-admin.active .nav-icon { color: #f59e0b !important; }
+.nav-item-admin.active {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(245, 158, 11, 0.06));
+}

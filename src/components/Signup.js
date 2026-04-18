@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import API from '../api/api';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { FaMountain, FaUser, FaEnvelope, FaLock, FaArrowRight, FaEye, FaEyeSlash, FaGlobeAsia } from 'react-icons/fa';
 import allCountries from '../utils/countries';
 import countryCodes from '../utils/countryCodes';
@@ -15,6 +15,8 @@ export default function Signup() {
   const [countrySearch, setCountrySearch] = useState('');
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const invitedBy = searchParams.get('ref') || '';
 
   const filteredCountries = countrySearch
     ? allCountries.filter(c => c.value.toLowerCase().includes(countrySearch.toLowerCase()) || c.label.toLowerCase().includes(countrySearch.toLowerCase()))
@@ -62,7 +64,7 @@ export default function Signup() {
     setLoading(true);
     try {
       const actualCode = form.phoneCode.split('|')[0];
-      await API.post('/api/auth/signup', { ...form, mobile: actualCode + ' ' + form.mobile });
+      await API.post('/api/auth/signup', { ...form, mobile: actualCode + ' ' + form.mobile, invitedBy: invitedBy || undefined });
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.error || 'Signup failed. Please try again.');

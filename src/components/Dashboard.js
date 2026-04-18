@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import CountryMap, { getCountryMapInfo } from './CountryMap';
 import Layout from './Layout';
 import API from '../api/api';
-import { FaBook, FaGlobeAsia, FaChartBar, FaTimes, FaMapMarkerAlt, FaRoute, FaCompass, FaStar, FaFlagCheckered, FaArrowRight, FaCrown } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaBook, FaGlobeAsia, FaChartBar, FaTimes, FaMapMarkerAlt, FaRoute, FaCompass, FaFlagCheckered, FaArrowRight, FaCrown, FaHeart, FaPlus, FaCamera } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
 import allCountries from '../utils/countries';
+import AddMemoryModal from './AddMemoryModal';
 import './Dashboard.css';
 
 // Country-specific suggestions
@@ -46,11 +47,24 @@ const travelQuotes = [
 ];
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showWelcome, setShowWelcome] = useState(false);
   const [user, setUser] = useState({ name: 'Explorer', country: 'India', email: '' });
   const [adminCountry, setAdminCountry] = useState('');
+  const [recentMemories, setRecentMemories] = useState([]);
+  const [showMemoryModal, setShowMemoryModal] = useState(false);
+
+  const fetchMemories = async () => {
+    try {
+      const res = await API.get('/api/user/memories');
+      setRecentMemories((res.data.memories || []).slice(0, 4));
+    } catch {
+      setRecentMemories([]);
+    }
+  };
+  useEffect(() => { fetchMemories(); }, []);
 
   const ADMIN_EMAIL = 'global5665@gmail.com';
   const isAdmin = user.email === ADMIN_EMAIL;
@@ -142,7 +156,7 @@ export default function Dashboard() {
               <h2>Hey {user.name.split(' ')[0]}, ready to explore? 🧭</h2>
               <p>Your travel map is waiting. Click any region to mark it visited and watch your progress grow.</p>
               <div className="welcome-actions">
-                <Link to="/journal" className="welcome-link"><FaBook /> Journal</Link>
+                <Link to="/discover" className="welcome-link"><FaBook /> Discover</Link>
                 <Link to="/worldmap" className="welcome-link"><FaGlobeAsia /> World Map</Link>
                 <Link to="/statistics" className="welcome-link"><FaChartBar /> Stats</Link>
               </div>
@@ -273,23 +287,53 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div className="quick-links">
-              <Link to="/worldmap" className="quick-link">
-                <FaGlobeAsia /> World Map
-              </Link>
-              <Link to="/journal" className="quick-link">
-                <FaBook /> Journal
-              </Link>
-              <Link to="/statistics" className="quick-link">
-                <FaChartBar /> Statistics
-              </Link>
-              <Link to="/planner" className="quick-link">
-                <FaStar /> Planner
-              </Link>
+            {/* Memory Wall Preview */}
+            <div className="info-card memory-wall-card">
+              <div className="mw-header">
+                <h3 className="info-card-title"><FaHeart className="ict-icon mw-heart" /> Memory Wall</h3>
+                <Link to="/memories" className="mw-view-all">View all <FaArrowRight /></Link>
+              </div>
+              {recentMemories.length === 0 ? (
+                <div className="mw-empty">
+                  <p>Save photos and stories from places you've stamped.</p>
+                  <button className="mw-add-btn" onClick={() => setShowMemoryModal(true)}>
+                    <FaPlus /> Add Memory
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <div className="mw-grid">
+                    {recentMemories.map((m, i) => (
+                      <div key={m._id || i} className="mw-thumb" onClick={() => navigate('/memories')}>
+                        {m.photos?.[0] ? (
+                          <img src={m.photos[0]} alt={m.title} />
+                        ) : (
+                          <div className="mw-thumb-noimg">📝</div>
+                        )}
+                        {m.photos?.length > 1 && (
+                          <span className="mw-thumb-count"><FaCamera /> {m.photos.length}</span>
+                        )}
+                        <div className="mw-thumb-overlay">
+                          <span className="mw-thumb-title">{m.title}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <button className="mw-add-btn wide" onClick={() => setShowMemoryModal(true)}>
+                    <FaPlus /> Add Memory
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
+
+        {showMemoryModal && (
+          <AddMemoryModal
+            onClose={() => setShowMemoryModal(false)}
+            onSaved={fetchMemories}
+          />
+        )}
       </div>
     </Layout>
   );

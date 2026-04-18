@@ -121,7 +121,7 @@ export default function Community() {
               <a href="/community" className="fb-sc active"><FaUsers /> Community</a>
             </nav>
             <div className="fb-left-footer">
-              MyTravelGlimpse &copy; {new Date().getFullYear()}
+              StampYourMap &copy; {new Date().getFullYear()}
             </div>
           </aside>
 

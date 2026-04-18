@@ -230,10 +230,10 @@ const TravelJournal = () => {
         {/* Header */}
         <div className="page-header journal-hdr">
           <div>
-            <h1 className="page-title">Travel Journal</h1>
+            <h1 className="page-title">Discover {userCountry}</h1>
             <p className="page-subtitle">
               <FiGlobe style={{ verticalAlign: 'middle', marginRight: 4 }} />
-              {userCountry} — {countryRegions.length} {regionLabel.toLowerCase()} to explore
+              Famous places across {countryRegions.length} {regionLabel.toLowerCase()} — check off what you've been to
             </p>
           </div>
           <div className="journal-progress-card">

@@ -1,210 +1,378 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import Layout from './Layout';
 import API from '../api/api';
-import { FaMapMarkedAlt, FaGlobeAmericas, FaRoute, FaStar, FaTrophy, FaFlagCheckered } from 'react-icons/fa';
+import { FaGlobeAmericas, FaStar, FaTrophy, FaFlagCheckered, FaHome, FaPlane, FaCamera, FaLightbulb, FaFire, FaArrowRight, FaMedal } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { getContinent, CONTINENT_LIST, CONTINENT_TOTALS } from '../utils/continents';
+import { getCountryMapInfo } from './CountryMap';
 import './Statistics.css';
 
-const stateAndUTData = {
-  states: [
-    'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh',
-    'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka',
-    'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya',
-    'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim',
-    'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand',
-    'West Bengal'
-  ],
-  unionTerritories: [
-    'Andaman and Nicobar Islands', 'Chandigarh',
-    'Dadra and Nagar Haveli and Daman and Diu',
-    'Delhi', 'Jammu and Kashmir', 'Ladakh', 'Lakshadweep', 'Puducherry'
-  ]
-};
-
-const milestones = [
-  { threshold: 1, label: 'First Step', desc: 'Visited your first state', icon: <FaFlagCheckered /> },
-  { threshold: 5, label: 'Explorer', desc: 'Visited 5 states', icon: <FaRoute /> },
-  { threshold: 10, label: 'Adventurer', desc: 'Visited 10 states', icon: <FaMapMarkedAlt /> },
-  { threshold: 15, label: 'Wanderer', desc: 'Visited 15 states', icon: <FaStar /> },
-  { threshold: 20, label: 'Nomad', desc: 'Visited 20 states', icon: <FaGlobeAmericas /> },
-  { threshold: 28, label: 'All India', desc: 'All 28 states visited!', icon: <FaTrophy /> },
+// Inspiration seeds — curated "must-visit" spots around the globe, filtered by what the user hasn't marked yet
+const INSPIRATIONS = [
+  { country: 'Japan',        emoji: '🗼', why: 'Cherry blossoms, ramen, and 2000-year-old temples' },
+  { country: 'Iceland',      emoji: '🌋', why: 'Northern lights and waterfalls you will never forget' },
+  { country: 'Peru',         emoji: '🏔️', why: 'Walk Machu Picchu at sunrise' },
+  { country: 'Morocco',      emoji: '🐪', why: 'Sahara desert nights and Marrakech markets' },
+  { country: 'New Zealand',  emoji: '🏞️', why: 'Middle-earth landscapes are real' },
+  { country: 'Italy',        emoji: '🍝', why: 'Every meal is a love letter' },
+  { country: 'Thailand',     emoji: '🏝️', why: 'Beaches, street food, and elephant sanctuaries' },
+  { country: 'Egypt',        emoji: '🔺', why: 'Pyramids older than recorded history' },
+  { country: 'Norway',       emoji: '🚢', why: 'Fjords and midnight sun in summer' },
+  { country: 'Kenya',        emoji: '🦁', why: 'The Great Migration is the greatest show on earth' },
+  { country: 'Brazil',       emoji: '🎭', why: 'Rio, the Amazon, and Carnival' },
+  { country: 'Vietnam',      emoji: '🛵', why: 'Halong Bay, pho, and scooter rides through Hanoi' },
+  { country: 'Turkey',       emoji: '🎈', why: 'Cappadocia hot-air balloons at dawn' },
+  { country: 'Australia',    emoji: '🦘', why: 'Great Barrier Reef and 10,000 km of coastline' },
+  { country: 'Portugal',     emoji: '🌊', why: 'Lisbon\'s tiles, Porto\'s wine, Algarve\'s cliffs' },
 ];
+
+const INT_MILESTONES = [
+  { threshold: 1,  label: 'First Flight',       desc: 'Your first country stamped', icon: <FaFlagCheckered /> },
+  { threshold: 5,  label: 'Frequent Flyer',    desc: '5 countries unlocked',       icon: <FaPlane /> },
+  { threshold: 10, label: 'Continental',        desc: '10 countries explored',      icon: <FaGlobeAmericas /> },
+  { threshold: 25, label: 'Globetrotter',       desc: '25 countries and counting',  icon: <FaMedal /> },
+  { threshold: 50, label: 'Half Centurion',     desc: '50 countries conquered',     icon: <FaStar /> },
+  { threshold: 100,label: 'Century Club',       desc: '100 countries — elite',      icon: <FaTrophy /> },
+];
+
+function Donut({ percent, color, label, sub, size = 160 }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { const t = setTimeout(() => setMounted(true), 50); return () => clearTimeout(t); }, []);
+  return (
+    <div className="sp-donut" style={{ width: size, height: size }}>
+      <svg viewBox="0 0 36 36">
+        <path className="sp-donut-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
+        <path className="sp-donut-fill" style={{ stroke: color }} strokeDasharray={mounted ? `${percent}, 100` : '0, 100'}
+              d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
+      </svg>
+      <div className="sp-donut-center">
+        <span className="sp-donut-value">{percent}%</span>
+        <span className="sp-donut-sub">{sub}</span>
+      </div>
+      {label && <div className="sp-donut-label">{label}</div>}
+    </div>
+  );
+}
 
 export default function Statistics() {
   const [selectedLocations, setSelectedLocations] = useState([]);
-  const [visited, setVisited] = useState([]);
-  const [destinations, setDestinations] = useState([]);
+  const [visitedDestinations, setVisitedDestinations] = useState([]);
+  const [memories, setMemories] = useState([]);
+  const [friendsCount, setFriendsCount] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [mounted, setMounted] = useState(false);
+  const [userCountry, setUserCountry] = useState('India');
 
   useEffect(() => {
-    async function fetchAll() {
-      setLoading(true);
-      try {
-        const [selRes, visitRes, destRes] = await Promise.all([
-          API.get('/api/user/selected'),
-          API.get('/api/user/visited-destinations'),
-          API.get('/api/destinations')
-        ]);
-        setSelectedLocations(selRes.data.selectedLocations || []);
-        setVisited(visitRes.data.visitedDestinations || []);
-        setDestinations(destRes.data || []);
-      } catch {
-        setSelectedLocations([]);
-        setVisited([]);
-        setDestinations([]);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchAll();
+    try {
+      const stored = JSON.parse(localStorage.getItem('user'));
+      if (stored?.country) setUserCountry(stored.country);
+    } catch {}
   }, []);
 
   useEffect(() => {
-    if (!loading) {
-      requestAnimationFrame(() => setMounted(true));
+    let cancelled = false;
+    async function fetchAll() {
+      setLoading(true);
+      const [selRes, visitRes, memRes, friendsRes] = await Promise.allSettled([
+        API.get('/api/user/selected'),
+        API.get('/api/user/visited-destinations'),
+        API.get('/api/user/memories'),
+        API.get('/api/friends'),
+      ]);
+      if (cancelled) return;
+      setSelectedLocations(selRes.status === 'fulfilled' ? (selRes.value.data.selectedLocations || []) : []);
+      setVisitedDestinations(visitRes.status === 'fulfilled' ? (visitRes.value.data.visitedDestinations || []) : []);
+      setMemories(memRes.status === 'fulfilled' ? (memRes.value.data.memories || []) : []);
+      setFriendsCount(friendsRes.status === 'fulfilled' ? (friendsRes.value.data.friends?.length || 0) : 0);
+      setLoading(false);
     }
-  }, [loading]);
+    fetchAll();
+    return () => { cancelled = true; };
+  }, []);
 
-  const indiaLocs = selectedLocations.filter(loc => !loc.type || loc.type !== 'country');
-  const worldLocs = selectedLocations.filter(loc => loc.type === 'country');
-  const visitedStates = indiaLocs.filter(loc =>
-    stateAndUTData.states.some(s => s.toLowerCase() === (loc.name || '').toLowerCase())
-  );
-  const visitedUTs = indiaLocs.filter(loc =>
-    stateAndUTData.unionTerritories.some(ut => ut.toLowerCase() === (loc.name || '').toLowerCase())
-  );
+  // --- Derived stats ---
+  const countryInfo = useMemo(() => getCountryMapInfo(userCountry), [userCountry]);
+  const regionLabel = countryInfo.regionLabel || 'Regions';
+  const totalRegions = countryInfo.totalRegions || 0;
 
-  const totalDest = destinations.reduce((acc, d) => acc + d.destinations.length, 0);
-  const destPercent = totalDest > 0 ? Math.round((visited.length / totalDest) * 100) : 0;
-  const indiaPercent = Math.round(((visitedStates.length + visitedUTs.length) / 36) * 100);
+  // Domestic: regions within user's country (states/provinces)
+  const domesticRegions = selectedLocations.filter(loc => !loc.type || loc.type !== 'country');
+  const domesticCount = domesticRegions.length;
+  const domesticPercent = totalRegions > 0 ? Math.round((domesticCount / totalRegions) * 100) : 0;
 
-  const topStates = [...new Set(visited.map(v => v.state))].map(state => ({
-    state,
-    count: visited.filter(v => v.state === state).length,
-  })).sort((a, b) => b.count - a.count).slice(0, 5);
+  // International: 'country' type entries in selectedLocations
+  const intlCountries = selectedLocations.filter(loc => loc.type === 'country');
+  const intlCount = intlCountries.length;
+  const intlPercent = Math.round((intlCount / 195) * 100);
 
-  const achievedMilestones = milestones.filter(m => visitedStates.length >= m.threshold);
+  // Continent breakdown
+  const continentCounts = useMemo(() => {
+    const counts = Object.fromEntries(CONTINENT_LIST.map(c => [c, 0]));
+    for (const c of intlCountries) {
+      const cont = getContinent(c.name);
+      if (counts[cont] !== undefined) counts[cont]++;
+    }
+    return counts;
+  }, [intlCountries]);
 
-  if (loading) return (
-    <Layout>
-      <div className="stats-page">
-        <div className="page-header"><div><h1 className="page-title">Travel Statistics</h1></div></div>
-        <div className="stats-overview">
-          {[0,1,2,3].map(i => (
-            <div key={i} className="so-card">
-              <div className="skeleton" style={{ width: 44, height: 44, borderRadius: 'var(--radius-md)' }} />
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6 }}>
-                <div className="skeleton" style={{ width: '60%', height: 20 }} />
-                <div className="skeleton" style={{ width: '40%', height: 12 }} />
-              </div>
-            </div>
-          ))}
+  // Top explored regions (most destinations visited within)
+  const topRegions = useMemo(() => {
+    const byRegion = {};
+    for (const v of visitedDestinations) {
+      const key = v.state || v.region || 'Unknown';
+      byRegion[key] = (byRegion[key] || 0) + 1;
+    }
+    return Object.entries(byRegion)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 6)
+      .map(([name, count]) => ({ name, count }));
+  }, [visitedDestinations]);
+
+  // Unvisited inspirations
+  const visitedCountryNames = new Set(intlCountries.map(c => (c.name || '').toLowerCase()));
+  const inspirations = INSPIRATIONS
+    .filter(i => !visitedCountryNames.has(i.country.toLowerCase()))
+    .slice(0, 4);
+
+  // Achievements
+  const achievedIntl = INT_MILESTONES.filter(m => intlCount >= m.threshold);
+  const nextIntl = INT_MILESTONES.find(m => intlCount < m.threshold);
+
+  // Fun insights
+  const favContinent = Object.entries(continentCounts).sort((a, b) => b[1] - a[1])[0];
+  const travelDnaContinent = favContinent && favContinent[1] > 0 ? favContinent[0] : null;
+  const photoCount = memories.reduce((sum, m) => sum + (m.photos?.length || 0), 0);
+  const wordsWritten = memories.reduce((sum, m) => sum + (m.story || '').trim().split(/\s+/).filter(Boolean).length, 0);
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="stats-page">
+          <div className="sp-header"><h1 className="sp-title">Travel Statistics</h1></div>
+          <div className="sp-hero-grid">
+            {[0,1,2,3].map(i => <div key={i} className="sp-hero-card skeleton" style={{ height: 110 }} />)}
+          </div>
         </div>
-      </div>
-    </Layout>
-  );
-
-  const overviewCards = [
-    { icon: <FaMapMarkedAlt />, value: visitedStates.length, label: 'States Visited', bg: 'var(--accent-50)', color: 'var(--accent-500)' },
-    { icon: <FaRoute />, value: visitedUTs.length, label: 'UTs Visited', bg: 'var(--primary-50)', color: 'var(--primary-500)' },
-    { icon: <FaGlobeAmericas />, value: worldLocs.length, label: 'Countries', bg: 'var(--amber-50)', color: 'var(--amber-500)' },
-    { icon: <FaStar />, value: visited.length, label: 'Destinations', bg: 'var(--pink-50)', color: 'var(--pink-500)' },
-  ];
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
       <div className="stats-page">
-        <div className="page-header">
+        {/* Header */}
+        <div className="sp-header">
           <div>
-            <h1 className="page-title">Travel Statistics</h1>
-            <p className="page-subtitle">Numbers that prove you are not just dreaming about travel</p>
+            <h1 className="sp-title">Travel Statistics</h1>
+            <p className="sp-subtitle">Your journey in numbers — and a few nudges to make it bigger.</p>
+          </div>
+          <div className="sp-header-dna">
+            {travelDnaContinent ? (
+              <><span className="sp-dna-label">Travel DNA</span><span className="sp-dna-value">{travelDnaContinent} explorer</span></>
+            ) : (
+              <><span className="sp-dna-label">Travel DNA</span><span className="sp-dna-value">Awaiting first flight ✈️</span></>
+            )}
           </div>
         </div>
 
-        <div className="stats-overview">
-          {overviewCards.map((card, i) => (
-            <div key={i} className="so-card" style={{ '--i': i }}>
-              <div className="so-icon" style={{ background: card.bg, color: card.color }}>{card.icon}</div>
-              <div className="so-info">
-                <span className="so-value">{card.value}</span>
-                <span className="so-label">{card.label}</span>
-              </div>
+        {/* Hero row */}
+        <div className="sp-hero-grid">
+          <div className="sp-hero-card">
+            <div className="sp-hero-icon" style={{ background: 'rgba(52,211,153,0.12)', color: '#34d399' }}><FaHome /></div>
+            <div className="sp-hero-info">
+              <span className="sp-hero-value">{domesticCount}</span>
+              <span className="sp-hero-label">Domestic {regionLabel}</span>
+              <span className="sp-hero-sub">in {userCountry}</span>
             </div>
-          ))}
+          </div>
+          <div className="sp-hero-card">
+            <div className="sp-hero-icon" style={{ background: 'rgba(99,102,241,0.12)', color: '#818cf8' }}><FaGlobeAmericas /></div>
+            <div className="sp-hero-info">
+              <span className="sp-hero-value">{intlCount}</span>
+              <span className="sp-hero-label">Countries</span>
+              <span className="sp-hero-sub">of 195 worldwide</span>
+            </div>
+          </div>
+          <div className="sp-hero-card">
+            <div className="sp-hero-icon" style={{ background: 'rgba(244,114,182,0.12)', color: '#f472b6' }}><FaCamera /></div>
+            <div className="sp-hero-info">
+              <span className="sp-hero-value">{photoCount}</span>
+              <span className="sp-hero-label">Photos</span>
+              <span className="sp-hero-sub">across {memories.length} memories</span>
+            </div>
+          </div>
+          <div className="sp-hero-card">
+            <div className="sp-hero-icon" style={{ background: 'rgba(251,191,36,0.12)', color: '#fbbf24' }}><FaStar /></div>
+            <div className="sp-hero-info">
+              <span className="sp-hero-value">{visitedDestinations.length}</span>
+              <span className="sp-hero-label">Destinations</span>
+              <span className="sp-hero-sub">checked off</span>
+            </div>
+          </div>
         </div>
 
-        <div className="stats-charts">
-          <div className="stats-chart-card">
-            <h3>India Coverage</h3>
-            <div className="stats-donut">
-              <svg viewBox="0 0 36 36">
-                <path className="donut-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path className="donut-fill" style={{ stroke: 'var(--accent-500)' }} strokeDasharray={mounted ? `${indiaPercent}, 100` : '0, 100'} d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
-              </svg>
-              <div className="donut-center">
-                <span className="donut-value">{indiaPercent}%</span>
-                <span className="donut-label">of India</span>
-              </div>
+        {/* Domestic vs International split */}
+        <div className="sp-split">
+          <div className="sp-split-card sp-domestic">
+            <div className="sp-split-header">
+              <span className="sp-split-badge" style={{ background: 'rgba(52,211,153,0.15)', color: '#34d399' }}>
+                <FaHome /> Domestic
+              </span>
+              <h3>{userCountry} Coverage</h3>
             </div>
-            <div className="stats-breakdown">
-              <div className="sb-item"><span className="sb-dot" style={{ background: 'var(--accent-500)' }} />{visitedStates.length}/28 States</div>
-              <div className="sb-item"><span className="sb-dot" style={{ background: 'var(--primary-500)' }} />{visitedUTs.length}/8 UTs</div>
+            <Donut percent={domesticPercent} color="#34d399" sub={`of ${userCountry}`} />
+            <div className="sp-split-stats">
+              <div><strong>{domesticCount}</strong>/{totalRegions} {regionLabel} visited</div>
+              <div className="sp-muted">{totalRegions - domesticCount} more to go</div>
             </div>
+            <Link to="/dashboard" className="sp-split-cta">Open {userCountry} map <FaArrowRight /></Link>
           </div>
 
-          <div className="stats-chart-card">
-            <h3>Destination Coverage</h3>
-            <div className="stats-donut">
-              <svg viewBox="0 0 36 36">
-                <path className="donut-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path className="donut-fill" style={{ stroke: 'var(--amber-500)' }} strokeDasharray={mounted ? `${destPercent}, 100` : '0, 100'} d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
-              </svg>
-              <div className="donut-center">
-                <span className="donut-value">{destPercent}%</span>
-                <span className="donut-label">explored</span>
-              </div>
+          <div className="sp-split-card sp-international">
+            <div className="sp-split-header">
+              <span className="sp-split-badge" style={{ background: 'rgba(99,102,241,0.18)', color: '#818cf8' }}>
+                <FaPlane /> International
+              </span>
+              <h3>World Coverage</h3>
             </div>
-            <div className="stats-breakdown">
-              <div className="sb-item"><span className="sb-dot" style={{ background: 'var(--amber-500)' }} />{visited.length}/{totalDest} destinations</div>
+            <Donut percent={intlPercent} color="#818cf8" sub="of the world" />
+            <div className="sp-split-stats">
+              <div><strong>{intlCount}</strong>/195 countries stamped</div>
+              <div className="sp-muted">{nextIntl ? `${nextIntl.threshold - intlCount} away from "${nextIntl.label}"` : 'You\'re in rare air ⭐'}</div>
             </div>
+            <Link to="/worldmap" className="sp-split-cta">Open World map <FaArrowRight /></Link>
           </div>
+        </div>
 
-          <div className="stats-chart-card">
-            <h3>Most Explored</h3>
-            <div className="top-states-list">
-              {topStates.length === 0 ? (
-                <div className="empty-state" style={{ padding: '1.5rem 0' }}>
-                  <p>No destinations visited yet</p>
-                </div>
-              ) : (
-                topStates.map((ts, i) => (
-                  <div key={ts.state} className="top-state-item" style={{ '--i': i }}>
-                    <span className="top-state-rank">#{i + 1}</span>
-                    <span className="top-state-name">{ts.state}</span>
-                    <div className="top-state-bar-wrap">
-                      <div className="top-state-bar" style={{ width: mounted ? `${(ts.count / (topStates[0]?.count || 1)) * 100}%` : '0%' }} />
-                    </div>
-                    <span className="top-state-count">{ts.count}</span>
+        {/* Continent breakdown */}
+        <div className="sp-card">
+          <div className="sp-card-header">
+            <h3><FaGlobeAmericas /> Continent Breakdown</h3>
+            <span className="sp-muted">{intlCount} countries across {Object.values(continentCounts).filter(v => v > 0).length} continents</span>
+          </div>
+          <div className="sp-continents">
+            {CONTINENT_LIST.map(cont => {
+              const v = continentCounts[cont];
+              const total = CONTINENT_TOTALS[cont];
+              const pct = Math.round((v / total) * 100);
+              const emoji = { Africa: '🌍', Asia: '🌏', Europe: '🏰', 'North America': '🗽', 'South America': '🌴', Oceania: '🏝️' }[cont];
+              return (
+                <div key={cont} className="sp-cont-row">
+                  <div className="sp-cont-name">{emoji} <strong>{cont}</strong></div>
+                  <div className="sp-cont-bar-wrap">
+                    <div className="sp-cont-bar" style={{ width: `${pct}%` }} />
                   </div>
-                ))
+                  <div className="sp-cont-count">{v}/{total}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Insights + Top Regions */}
+        <div className="sp-grid-2">
+          <div className="sp-card">
+            <div className="sp-card-header">
+              <h3><FaLightbulb /> Insights</h3>
+            </div>
+            <div className="sp-insights">
+              {travelDnaContinent && (
+                <div className="sp-insight">
+                  <span className="sp-insight-emoji">🧭</span>
+                  <div><strong>You're a {travelDnaContinent} explorer.</strong> Most of your stamps cluster there — try a new continent to expand your travel DNA.</div>
+                </div>
+              )}
+              {intlCount > 0 && (
+                <div className="sp-insight">
+                  <span className="sp-insight-emoji">🌍</span>
+                  <div>You've been to <strong>{intlPercent}%</strong> of the world. Average traveler covers ~7%. {intlPercent >= 7 ? 'You\'re ahead of the pack.' : 'Plenty of firsts ahead.'}</div>
+                </div>
+              )}
+              {memories.length > 0 && (
+                <div className="sp-insight">
+                  <span className="sp-insight-emoji">✍️</span>
+                  <div>You've written <strong>{wordsWritten.toLocaleString()}</strong> words across <strong>{memories.length}</strong> memories. That's about {Math.max(1, Math.round(wordsWritten / 250))} pages of travel memoir.</div>
+                </div>
+              )}
+              {friendsCount > 0 && (
+                <div className="sp-insight">
+                  <span className="sp-insight-emoji">👥</span>
+                  <div>You have <strong>{friendsCount}</strong> travel {friendsCount === 1 ? 'friend' : 'friends'} on StampYourMap. See their stamps for trip inspiration.</div>
+                </div>
+              )}
+              {intlCount === 0 && domesticCount === 0 && (
+                <div className="sp-insight">
+                  <span className="sp-insight-emoji">🚀</span>
+                  <div>Start by stamping a few places you've been. Your stats light up fast — every stamp tells a story.</div>
+                </div>
               )}
             </div>
           </div>
+
+          <div className="sp-card">
+            <div className="sp-card-header">
+              <h3><FaFire /> Most Explored</h3>
+            </div>
+            {topRegions.length === 0 ? (
+              <div className="sp-empty">
+                Check off destinations in <Link to="/discover">Discover</Link> to see your top regions.
+              </div>
+            ) : (
+              <div className="sp-top-list">
+                {topRegions.map((r, i) => (
+                  <div key={r.name} className="sp-top-item">
+                    <span className="sp-top-rank">#{i + 1}</span>
+                    <span className="sp-top-name">{r.name}</span>
+                    <div className="sp-top-bar-wrap">
+                      <div className="sp-top-bar" style={{ width: `${(r.count / topRegions[0].count) * 100}%` }} />
+                    </div>
+                    <span className="sp-top-count">{r.count}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
-        <div className="stats-milestones">
-          <h3>Milestones</h3>
-          <div className="milestones-grid">
-            {milestones.map((m, i) => {
-              const achieved = achievedMilestones.includes(m);
-              return (
-                <div key={i} className={`milestone-card ${achieved ? 'achieved' : ''}`} style={{ '--i': i }}>
-                  <div className="milestone-icon">{m.icon}</div>
-                  <div className="milestone-info">
-                    <span className="milestone-label">{m.label}</span>
-                    <span className="milestone-desc">{m.desc}</span>
+        {/* Travel inspirations */}
+        {inspirations.length > 0 && (
+          <div className="sp-card">
+            <div className="sp-card-header">
+              <h3>✨ Travel Inspirations</h3>
+              <span className="sp-muted">Hand-picked places you haven't stamped yet</span>
+            </div>
+            <div className="sp-inspire-grid">
+              {inspirations.map(ins => (
+                <Link key={ins.country} to="/worldmap" className="sp-inspire-card">
+                  <span className="sp-inspire-emoji">{ins.emoji}</span>
+                  <div className="sp-inspire-info">
+                    <span className="sp-inspire-name">{ins.country}</span>
+                    <span className="sp-inspire-why">{ins.why}</span>
                   </div>
-                  {achieved && <span className="milestone-check">&#10003;</span>}
+                  <FaArrowRight className="sp-inspire-arrow" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* International milestones */}
+        <div className="sp-card">
+          <div className="sp-card-header">
+            <h3><FaTrophy /> Milestones</h3>
+            <span className="sp-muted">{achievedIntl.length}/{INT_MILESTONES.length} unlocked</span>
+          </div>
+          <div className="sp-milestones">
+            {INT_MILESTONES.map((m, i) => {
+              const achieved = achievedIntl.includes(m);
+              return (
+                <div key={i} className={`sp-milestone ${achieved ? 'achieved' : ''}`}>
+                  <div className="sp-ms-icon">{m.icon}</div>
+                  <div className="sp-ms-info">
+                    <span className="sp-ms-label">{m.label}</span>
+                    <span className="sp-ms-desc">{m.desc}</span>
+                  </div>
+                  {achieved ? <span className="sp-ms-check">✓</span> : <span className="sp-ms-lock">🔒</span>}
                 </div>
               );
             })}

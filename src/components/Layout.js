@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaMapMarkedAlt, FaGlobeAsia, FaCalendarAlt, FaBook, FaChartBar, FaCog, FaSignOutAlt, FaMountain, FaBars, FaTimes } from 'react-icons/fa';
+import { FaMapMarkedAlt, FaGlobeAsia, FaCalendarAlt, FaCompass, FaChartBar, FaCog, FaSignOutAlt, FaMountain, FaBars, FaTimes, FaHeart, FaUserFriends, FaCrown } from 'react-icons/fa';
 import './Layout.css';
 
 const navItems = [
-  { path: '/dashboard', icon: <FaMapMarkedAlt />, label: 'India Map' },
+  { path: '/dashboard', icon: <FaMapMarkedAlt />, label: 'My Map' },
   { path: '/worldmap', icon: <FaGlobeAsia />, label: 'World Map' },
-  { path: '/journal', icon: <FaBook />, label: 'Journal' },
-  { path: '/planner', icon: <FaCalendarAlt />, label: 'Planner' },
+  { path: '/memories', icon: <FaHeart />, label: 'Memory Wall' },
+  { path: '/friends', icon: <FaUserFriends />, label: 'Friends' },
+  { path: '/discover', icon: <FaCompass />, label: 'Discover' },
+  { path: '/planner', icon: <FaCalendarAlt />, label: 'Trip Planner' },
   { path: '/statistics', icon: <FaChartBar />, label: 'Statistics' },
   { path: '/settings', icon: <FaCog />, label: 'Settings' },
 ];
+
+const ADMIN_EMAIL = 'global5665@gmail.com';
+const adminNavItem = { path: '/admin', icon: <FaCrown />, label: 'Admin', adminOnly: true };
 
 export default function Layout({ children }) {
   const location = useLocation();
@@ -55,7 +60,7 @@ export default function Layout({ children }) {
           {/* Logo */}
           <div className="sidebar-logo">
             <FaMountain className="sidebar-logo-icon" />
-            <span className="sidebar-logo-text">MyTravelGlimpse</span>
+            <span className="sidebar-logo-text">StampYourMap</span>
           </div>
 
           {/* Navigation */}
@@ -72,6 +77,18 @@ export default function Layout({ children }) {
                 {item.badge && <span className="nav-badge">{item.badge}</span>}
               </Link>
             ))}
+            {(user.email || '').toLowerCase() === ADMIN_EMAIL && (
+              <Link
+                key={adminNavItem.path}
+                to={adminNavItem.path}
+                className={`nav-item nav-item-admin ${location.pathname === adminNavItem.path ? 'active' : ''}`}
+                onClick={() => setMobileOpen(false)}
+              >
+                <span className="nav-icon">{adminNavItem.icon}</span>
+                <span className="nav-label">{adminNavItem.label}</span>
+                <span className="nav-admin-chip">ADMIN</span>
+              </Link>
+            )}
           </nav>
 
           {/* User & Logout */}

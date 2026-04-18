@@ -10,6 +10,11 @@ import WorldMapView from './components/WorldMapView';
 import Statistics from './components/Statistics';
 import TravelPlanner from './components/TravelPlanner';
 import Settings from './components/Settings';
+import Memories from './components/Memories';
+import Friends from './components/Friends';
+import FriendProfile from './components/FriendProfile';
+import ForgotPassword from './components/ForgotPassword';
+import Admin from './components/Admin';
 import './App.css';
 
 function App() {
@@ -26,8 +31,24 @@ function App() {
         <Route path="/dashboard" element={
           <PrivateRoute><Dashboard /></PrivateRoute>
         } />
+        <Route path="/discover" element={
+          <PrivateRoute><TravelJournal /></PrivateRoute>
+        } />
+        <Route path="/passport" element={
+          <PrivateRoute><TravelJournal /></PrivateRoute>
+        } />
         <Route path="/journal" element={
           <PrivateRoute><TravelJournal /></PrivateRoute>
+        } />
+        <Route path="/friends" element={
+          <PrivateRoute><Friends /></PrivateRoute>
+        } />
+        <Route path="/u/:userId" element={
+          <PrivateRoute><FriendProfile /></PrivateRoute>
+        } />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/admin" element={
+          <PrivateRoute><Admin /></PrivateRoute>
         } />
         <Route path="/worldmap" element={
           <PrivateRoute><WorldMapView /></PrivateRoute>
@@ -40,6 +61,9 @@ function App() {
         } />
         <Route path="/settings" element={
           <PrivateRoute><Settings /></PrivateRoute>
+        } />
+        <Route path="/memories" element={
+          <PrivateRoute><Memories /></PrivateRoute>
         } />
       </Routes>
     </BrowserRouter>

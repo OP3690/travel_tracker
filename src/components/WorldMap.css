@@ -1,11 +1,25 @@
 /* ===== Dark World Map ===== */
 .world-map-outer { display: flex; flex-direction: column; align-items: center; width: 100%; position: relative; }
-.world-map-container { position: relative; width: 100%; height: 70vh; min-height: 500px; background: var(--bg-input); overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: grab; }
+.world-map-container {
+  position: relative; width: 100%; height: 70vh; min-height: 500px;
+  overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: grab;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.16), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(52, 211, 153, 0.1), transparent 55%),
+    linear-gradient(135deg, #0b1220 0%, #111a2e 50%, #0b1220 100%);
+  border-radius: var(--radius-xl);
+}
 .world-map-container:active { cursor: grabbing; }
 .world-map-container svg { width: 100% !important; height: 100% !important; display: block; object-fit: contain; }
 .world-map-container::before { display: none !important; }
-path.selected { fill: var(--accent-400) !important; stroke: var(--accent-500) !important; stroke-width: 1px !important; }
-g:hover path { fill: rgba(99,102,241,0.25) !important; stroke: var(--primary-400) !important; stroke-width: 0.8px !important; cursor: pointer; }
+.world-map-container svg path {
+  fill: rgba(255, 255, 255, 0.05);
+  stroke: rgba(255, 255, 255, 0.22);
+  stroke-width: 0.5px;
+  transition: fill 150ms ease, stroke 150ms ease;
+}
+path.selected { fill: var(--accent-400) !important; stroke: #fff !important; stroke-width: 0.8px !important; }
+g:hover path { fill: rgba(99,102,241,0.4) !important; stroke: var(--primary-400) !important; stroke-width: 1.2px !important; cursor: pointer; }
 
 .world-map-controls.zoom-controls { position: absolute; top: 16px; right: 16px; z-index: 20; display: flex; flex-direction: column; gap: 6px; background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 6px; border: 1px solid var(--border-default); }
 .zoom-controls button { width: 34px; height: 34px; border-radius: var(--radius-md); background: transparent; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all var(--transition-base); color: var(--text-secondary); }

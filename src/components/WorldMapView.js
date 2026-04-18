@@ -2,12 +2,25 @@ import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import WorldMap from './WorldMap';
 import API from '../api/api';
-import { FaEdit, FaTrash, FaSave, FaTimes, FaGlobeAmericas } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaSave, FaTimes, FaGlobeAmericas, FaHome } from 'react-icons/fa';
 import './WorldMapView.css';
 
 function countryCodeToFlagEmoji(code) {
   if (!code || code.length !== 2) return '';
   return String.fromCodePoint(...[...code.toUpperCase()].map(c => 0x1f1e6 + c.charCodeAt(0) - 65));
+}
+
+// Map short names to the canonical names used in the World SVG (<title> tags)
+const COUNTRY_ALIASES = {
+  'USA': 'United States',
+  'UK': 'United Kingdom',
+  'UAE': 'United Arab Emirates',
+  'Czechia': 'Czech Republic',
+  'Burma': 'Myanmar',
+};
+function canonicalCountry(name) {
+  if (!name) return '';
+  return COUNTRY_ALIASES[name] || name;
 }
 
 function WorldMapView() {
@@ -20,7 +33,38 @@ function WorldMapView() {
     async function fetchSelected() {
       try {
         const res = await API.get('/api/user/selected');
-        setSelectedLocations(res.data.selectedLocations || []);
+        let locations = res.data.selectedLocations || [];
+
+        // Auto-mark the user's home country as visited, with a "Home Country" note
+        let home = '';
+        try {
+          const stored = JSON.parse(localStorage.getItem('user') || '{}');
+          home = canonicalCountry(stored.country);
+        } catch {}
+
+        if (home) {
+          const idx = locations.findIndex(
+            l => l.type === 'country' && (l.name === home || canonicalCountry(l.name) === home)
+          );
+          if (idx === -1) {
+            const homeEntry = {
+              id: home,
+              name: home,
+              type: 'country',
+              isHome: true,
+              comment: 'Home Country',
+            };
+            locations = [...locations, homeEntry];
+            API.post('/api/user/selected', { selectedLocations: locations }).catch(() => {});
+          } else if (!locations[idx].isHome) {
+            locations = locations.map((l, i) =>
+              i === idx ? { ...l, isHome: true, comment: l.comment || 'Home Country' } : l
+            );
+            API.post('/api/user/selected', { selectedLocations: locations }).catch(() => {});
+          }
+        }
+
+        setSelectedLocations(locations);
       } catch {
         setSelectedLocations([]);
       }
@@ -157,7 +201,9 @@ function WorldMapView() {
                         )}
                       </td>
                       <td>
-                        {editId === location.id ? (
+                        {location.isHome ? (
+                          <span className="wm-home-badge"><FaHome /> Home Country</span>
+                        ) : editId === location.id ? (
                           <input
                             type="text"
                             value={editComment}
@@ -182,6 +228,8 @@ function WorldMapView() {
                                 <FaTimes />
                               </button>
                             </>
+                          ) : location.isHome ? (
+                            <span className="wm-home-lock" title="Home country is always marked visited">—</span>
                           ) : (
                             <>
                               <button className="wm-action-btn edit" onClick={() => handleEdit(location.id, location.dateVisited, location.comment)}>

@@ -53,3 +53,17 @@
   .wm-stats-bar { flex-direction: column; gap: 0.5rem; }
   .wm-stat-divider { width: 40px; height: 1px; }
 }
+
+/* Home country badge in Notes column */
+.wm-home-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.28rem 0.6rem;
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(16, 185, 129, 0.15));
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  color: var(--accent-500);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+[data-theme="dark"] .wm-home-badge { color: var(--accent-400); }
+.wm-home-lock { color: var(--text-tertiary); font-size: 0.82rem; padding: 0 0.4rem; }

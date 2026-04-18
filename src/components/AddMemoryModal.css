@@ -1,0 +1,197 @@
+.mem-modal-overlay {
+  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(6px);
+  z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem;
+  animation: memFadeIn 0.2s ease;
+}
+@keyframes memFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.mem-modal {
+  background: var(--bg-card); border-radius: var(--radius-xl); width: 100%; max-width: 760px;
+  max-height: 92vh; display: flex; flex-direction: column; overflow: hidden;
+  border: 1px solid var(--border-default); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  animation: memSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes memSlideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.mem-modal-header {
+  padding: 1.35rem 1.75rem; border-bottom: 1px solid var(--border-default);
+  display: flex; align-items: flex-start; justify-content: space-between;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(124, 58, 237, 0.1));
+}
+.mem-modal-header-text { display: flex; flex-direction: column; gap: 0.2rem; }
+.mem-modal-header h2 {
+  margin: 0; font-size: 1.4rem; color: var(--text-primary); font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.mem-modal-header-text p { margin: 0; font-size: 0.85rem; color: var(--text-secondary); }
+
+.mem-close {
+  background: transparent; border: none; color: var(--text-secondary); cursor: pointer;
+  width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition-base);
+}
+.mem-close:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+.mem-modal-body { padding: 1.5rem 1.75rem; overflow-y: auto; flex: 1; }
+
+/* SECTIONED LAYOUT */
+.mem-section { margin-bottom: 1.5rem; }
+.mem-section:last-child { margin-bottom: 0.5rem; }
+.mem-section-head {
+  display: flex; gap: 0.9rem; align-items: flex-start; margin-bottom: 0.9rem;
+}
+.mem-section-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-500), var(--accent-500));
+  color: #fff; font-weight: 800; font-size: 0.82rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.35);
+}
+.mem-section-head h3 {
+  margin: 0 0 0.1rem; font-size: 1.02rem; font-weight: 700; color: var(--text-primary);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.mem-section-sub {
+  font-size: 0.78rem; color: var(--text-secondary); font-weight: 400;
+}
+.mem-sh-count {
+  font-size: 0.7rem; padding: 0.1rem 0.5rem; background: var(--bg-input);
+  color: var(--text-secondary); border-radius: 999px; font-weight: 700;
+  margin-left: 0.3rem; letter-spacing: 0;
+}
+.mem-section-body {
+  padding-left: 44px;
+  display: flex; flex-direction: column; gap: 0.85rem;
+}
+
+.mem-field { margin-bottom: 0; }
+.mem-field label {
+  display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 700;
+  color: var(--text-secondary); margin-bottom: 0.4rem;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.mem-field label .mem-count { margin-left: auto; font-size: 0.7rem; color: var(--text-tertiary); text-transform: none; letter-spacing: 0; font-weight: 600; }
+.mem-field label .mem-count.over { color: #f87171; font-weight: 700; }
+
+.mem-field input, .mem-field select, .mem-field textarea {
+  width: 100%; padding: 0.78rem 0.95rem; background: var(--bg-input);
+  border: 1px solid var(--border-default); border-radius: var(--radius-md);
+  color: var(--text-primary); font-size: 0.93rem; font-family: inherit;
+  transition: all var(--transition-base);
+}
+.mem-field input:focus, .mem-field select:focus, .mem-field textarea:focus {
+  outline: none; border-color: var(--primary-400); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+.mem-field input::placeholder, .mem-field textarea::placeholder {
+  color: var(--text-tertiary); opacity: 0.75;
+}
+.mem-field textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+.mem-field-row {
+  display: grid; grid-template-columns: 1fr 1fr 160px; gap: 0.85rem;
+}
+.mem-field-row .mem-field { margin-bottom: 0; }
+
+.mem-photos-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+.mem-photo-thumb {
+  position: relative; aspect-ratio: 1; border-radius: var(--radius-md); overflow: hidden;
+  border: 1px solid var(--border-default);
+}
+.mem-photo-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mem-photo-remove {
+  position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(239, 68, 68, 0.9); color: #fff; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 0.7rem;
+  transition: all var(--transition-base);
+}
+.mem-photo-remove:hover { background: #dc2626; transform: scale(1.1); }
+
+.mem-photo-add {
+  aspect-ratio: 1; border: 2px dashed var(--border-default); background: var(--bg-input);
+  border-radius: var(--radius-md); color: var(--text-secondary); cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.35rem; font-size: 0.82rem; font-weight: 600; transition: all var(--transition-base);
+  text-align: center;
+}
+.mem-photo-add:hover {
+  border-color: var(--primary-400); color: var(--primary-400);
+  background: rgba(99, 102, 241, 0.06);
+  transform: translateY(-1px);
+}
+.mem-photo-add svg { font-size: 1.4rem; }
+.mem-photo-add-hint { font-size: 0.65rem; color: var(--text-tertiary); font-weight: 500; letter-spacing: 0.03em; }
+
+.mem-hint { margin: 0.5rem 0 0; font-size: 0.75rem; color: var(--text-tertiary); }
+
+.mem-error {
+  margin-top: 1rem; padding: 0.75rem 1rem; background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3); border-radius: var(--radius-md);
+  color: #fca5a5; font-size: 0.85rem;
+}
+
+.mem-modal-footer {
+  padding: 1rem 1.75rem; border-top: 1px solid var(--border-default);
+  display: flex; justify-content: flex-end; gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.15);
+}
+.mem-btn-secondary, .mem-btn-primary {
+  padding: 0.7rem 1.4rem; border-radius: var(--radius-md); font-weight: 600; font-size: 0.9rem;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: all var(--transition-base); border: none;
+}
+.mem-btn-secondary {
+  background: transparent; color: var(--text-secondary); border: 1px solid var(--border-default);
+}
+.mem-btn-secondary:hover { background: var(--bg-hover); color: var(--text-primary); }
+.mem-btn-primary {
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+  color: #fff; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+.mem-btn-primary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4); }
+.mem-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Visibility selector */
+.mem-visibility-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;
+}
+.mem-vis-opt {
+  display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+  padding: 0.85rem 0.5rem; background: var(--bg-input); border: 2px solid var(--border-default);
+  border-radius: var(--radius-md); cursor: pointer; transition: all var(--transition-base);
+  text-align: center;
+}
+.mem-vis-opt:hover {
+  border-color: var(--primary-400); background: rgba(99, 102, 241, 0.05);
+}
+.mem-vis-opt.active {
+  border-color: var(--primary-400);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.14), rgba(124, 58, 237, 0.14));
+}
+.mem-vis-icon { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 0.2rem; }
+.mem-vis-opt.active .mem-vis-icon { color: var(--primary-400); }
+.mem-vis-title { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); }
+.mem-vis-desc { font-size: 0.7rem; color: var(--text-tertiary); }
+
+.mem-optional { color: var(--text-tertiary); font-weight: 400; font-size: 0.7rem; text-transform: none; letter-spacing: 0; }
+.mem-field select[disabled],
+.mem-field input[disabled] {
+  opacity: 0.5; cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .mem-field-row { grid-template-columns: 1fr !important; }
+  .mem-modal { max-height: 95vh; }
+  .mem-modal-header { padding: 1rem 1.15rem; }
+  .mem-modal-header h2 { font-size: 1.2rem; }
+  .mem-modal-body { padding: 1.1rem 1.15rem; }
+  .mem-modal-footer { padding: 0.85rem 1.15rem; }
+  .mem-section-body { padding-left: 0; }
+  .mem-section-head { margin-bottom: 0.7rem; }
+  .mem-visibility-row { grid-template-columns: 1fr; }
+  .mem-vis-opt { flex-direction: row; justify-content: flex-start; gap: 0.75rem; text-align: left; }
+  .mem-vis-opt .mem-vis-icon { margin-bottom: 0; }
+}
