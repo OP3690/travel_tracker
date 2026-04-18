@@ -31,5 +31,49 @@
   .country-map-container { height: 300px; }
 }
 
-/* Tooltip */
-.country-map-tooltip { position: fixed; background: var(--bg-elevated); color: var(--text-bright); padding: 6px 12px; border-radius: var(--radius-sm); pointer-events: none; font-size: 0.78rem; font-weight: 500; z-index: 1000; box-shadow: var(--shadow-lg); border: 1px solid var(--border-muted); }
+/* Tooltip — premium travel-themed hover card */
+.country-map-tooltip {
+  position: fixed;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.95), rgba(124, 58, 237, 0.95));
+  color: #fff;
+  padding: 8px 16px 8px 14px;
+  border-radius: var(--radius-md);
+  pointer-events: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35), 0 2px 8px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: tooltipFadeIn 0.15s ease;
+  transform: translate(0, -4px);
+}
+
+.country-map-tooltip::before {
+  content: '📍';
+  font-size: 0.85rem;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.country-map-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 16px;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, transparent 50%, rgba(124, 58, 237, 0.95) 50%);
+  transform: rotate(45deg);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@keyframes tooltipFadeIn {
+  from { opacity: 0; transform: translate(0, 4px); }
+  to { opacity: 1; transform: translate(0, -4px); }
+}
