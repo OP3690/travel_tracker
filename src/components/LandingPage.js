@@ -179,13 +179,13 @@ export default function LandingPage() {
           <div className="hero-shape hero-shape-3" />
         </div>
         <div className="hero-content">
-          <div className="hero-badge"><FaPlane className="hero-badge-icon" /> Free for 195 Countries</div>
+          <div className="hero-badge"><FaPlane className="hero-badge-icon" /> Free Travel Tracker for 195 Countries</div>
           <h1 className="hero-title">
-            Track Every Journey.<br /><span className="hero-gradient-text">Map Every Memory.</span>
+            Your Travels.<br />Beautifully <span className="hero-gradient-text">Mapped.</span>
           </h1>
           <p className="hero-subtitle">
-            Interactive maps for 195 countries with clickable states and provinces.
-            Journal destinations, earn milestone badges, and see your travel story unfold beautifully.
+            Click states. Pin countries. Journal destinations. Earn badges.
+            The most visual way to track where you have been — and dream about where to go next.
           </p>
           <div className="hero-actions">
             <button className="hero-btn-primary" onClick={() => navigate('/signup')}>
@@ -196,11 +196,11 @@ export default function LandingPage() {
             </button>
           </div>
           <div className="hero-mini-stats">
-            <div className="hms"><strong><CountUp target="36" /></strong> States & UTs</div>
+            <div className="hms"><strong><CountUp target="195" /></strong> Countries</div>
             <div className="hms-dot" />
-            <div className="hms"><strong><CountUp target="195" suffix="+" /></strong> Countries</div>
+            <div className="hms"><strong><CountUp target="5000" suffix="+" /></strong> Regions</div>
             <div className="hms-dot" />
-            <div className="hms"><strong><CountUp target="1000" suffix="+" /></strong> Destinations</div>
+            <div className="hms"><strong>100</strong>% Free</div>
           </div>
         </div>
         <div className="hero-visual">
