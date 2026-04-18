@@ -167,9 +167,13 @@ export default function ForgotPassword() {
             <button className="auth-primary-btn" onClick={verifyOtp} disabled={loading}>
               {loading ? 'Verifying…' : 'Verify Code'}
             </button>
-            <button className="auth-link-btn" onClick={() => { setStep(1); setOtp(['', '', '', '', '', '']); }}>
+            <button className="auth-link-btn" onClick={() => { setStep(1); setOtp(['', '', '', '', '', '']); setInfo(''); }}>
               Didn't get it? Try again
             </button>
+            <div className="auth-back-row">
+              <Link to="/" className="auth-back"><FaArrowLeft /> Back to home</Link>
+              <Link to="/login" className="auth-back">Log in instead</Link>
+            </div>
           </>
         )}
 
@@ -190,6 +194,7 @@ export default function ForgotPassword() {
             <button className="auth-primary-btn" onClick={resetPassword} disabled={loading}>
               {loading ? 'Updating…' : 'Reset Password'}
             </button>
+            <Link to="/" className="auth-back"><FaArrowLeft /> Back to home</Link>
           </>
         )}
 

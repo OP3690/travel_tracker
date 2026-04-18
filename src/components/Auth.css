@@ -128,3 +128,18 @@
   .input-wrapper input, .input-select { padding: 10px 10px 10px 36px; font-size: 0.85rem; }
   .auth-submit { padding: 11px 16px; font-size: 0.88rem; }
 }
+
+/* Mobile polish — tighter padding + legible inputs on small screens */
+@media (max-width: 640px) {
+  .auth-page { flex-direction: column; }
+  .auth-visual { flex: 0 0 auto; padding: 1.5rem 1rem; min-height: 160px; }
+  .auth-visual-text h2 { font-size: 1.25rem; }
+  .auth-visual-text p { font-size: 0.85rem; }
+  .auth-form-section { padding: 1.25rem 1rem; }
+  .auth-title { font-size: 1.35rem; }
+  .input-row { grid-template-columns: 1fr; }
+  .input-wrapper input, .input-select, .phone-code-select {
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+  .auth-submit { padding: 14px 18px; font-size: 0.95rem; }
+}

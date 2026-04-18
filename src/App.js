@@ -15,6 +15,7 @@ import Friends from './components/Friends';
 import FriendProfile from './components/FriendProfile';
 import ForgotPassword from './components/ForgotPassword';
 import Admin from './components/Admin';
+import InstallAppButton from './components/InstallAppButton';
 import './App.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
+      <InstallAppButton />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<Signup />} />
