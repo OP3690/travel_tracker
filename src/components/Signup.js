@@ -8,7 +8,7 @@ import signupBg from '../assets/signup-travel-map.jpg';
 import './Auth.css';
 
 export default function Signup() {
-  const [form, setForm] = useState({ name: '', mobile: '', email: '', password: '', confirmPassword: '', country: 'USA', phoneCode: '+1|USA' });
+  const [form, setForm] = useState({ name: '', mobile: '', email: '', password: '', confirmPassword: '', country: 'USA', phoneCode: '+1|United States' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -42,9 +42,16 @@ export default function Signup() {
   // When country changes, auto-set the phone code
   const handleCountryChange = (e) => {
     const country = e.target.value;
-    const match = countryCodes.find(c => c.country === country);
-    // Store "code|country" so we can show the correct flag for shared codes like +1
-    setForm({ ...form, country, phoneCode: match ? `${match.code}|${match.country}` : '+1|USA' });
+    // Match by country value OR by label text (handles "USA" -> "United States")
+    let match = countryCodes.find(c => c.country === country);
+    if (!match) {
+      const obj = allCountries.find(c => c.value === country);
+      if (obj) {
+        const name = obj.label.replace(/^[^\s]+\s/, '');
+        match = countryCodes.find(c => c.country === name || c.country.includes(name) || name.includes(c.country));
+      }
+    }
+    setForm({ ...form, country, phoneCode: match ? `${match.code}|${match.country}` : '+1|United States' });
   };
 
   const handleSubmit = async e => {
