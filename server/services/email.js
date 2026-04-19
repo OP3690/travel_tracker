@@ -23,6 +23,11 @@ const SMTP_PORT = parseInt(process.env.SMTP_PORT || '465', 10);
 const SMTP_USER = process.env.SMTP_USER || 'support@stampyourmap.com';
 const SMTP_PASS = process.env.SMTP_PASS || '';
 const FROM_NAME = process.env.EMAIL_FROM_NAME || 'StampYourMap';
+// The visible From: address. Defaults to SMTP_USER for simple mailbox
+// SMTP (Titan/GoDaddy), but MUST be set explicitly when you use a relay
+// like Resend/SendGrid where SMTP_USER is their literal username
+// (e.g. "resend") and the From: address is your own domain.
+const FROM_EMAIL = process.env.EMAIL_FROM || SMTP_USER;
 // In production this MUST stay empty so real users receive their OTPs / welcome mails.
 // Only set EMAIL_REDIRECT_TO in a dev/staging env to funnel every outbound mail to one inbox.
 const EMAIL_REDIRECT_TO = process.env.EMAIL_REDIRECT_TO || '';
@@ -74,7 +79,7 @@ async function sendMail({ to, subject, html, text }) {
 
   try {
     const info = await t.sendMail({
-      from: `"${FROM_NAME}" <${SMTP_USER}>`,
+      from: `"${FROM_NAME}" <${FROM_EMAIL}>`,
       to: finalTo,
       subject: finalSubject,
       html: finalHtml,
@@ -139,8 +144,8 @@ async function diagnose(testTo) {
     await t.verify();
     // Send a tiny test mail
     const info = await t.sendMail({
-      from: `"${FROM_NAME}" <${SMTP_USER}>`,
-      to: testTo || SMTP_USER,
+      from: `"${FROM_NAME}" <${FROM_EMAIL}>`,
+      to: testTo || FROM_EMAIL,
       subject: 'StampYourMap SMTP test',
       text: 'If you see this, SMTP is wired up correctly.',
     });
