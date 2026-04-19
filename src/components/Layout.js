@@ -1,11 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   FaMapMarkedAlt, FaGlobeAsia, FaCalendarAlt, FaCompass, FaChartBar, FaCog,
   FaSignOutAlt, FaMountain, FaTimes, FaHeart, FaUserFriends, FaCrown,
   FaEllipsisH,
 } from 'react-icons/fa';
+import API from '../api/api';
 import './Layout.css';
+
+/** Render "9+" once the count goes over 9 — matches the Facebook/iOS style. */
+function formatBadge(n) {
+  if (!n || n <= 0) return null;
+  return n > 9 ? '9+' : String(n);
+}
 
 // Full nav (shown in desktop sidebar + mobile More-drawer)
 const navItems = [
@@ -36,6 +43,7 @@ export default function Layout({ children }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const [user, setUser] = useState({ name: 'Traveler' });
+  const [friendRequestCount, setFriendRequestCount] = useState(0);
 
   useEffect(() => {
     try {
@@ -43,6 +51,31 @@ export default function Layout({ children }) {
       if (stored?.name) setUser(stored);
     } catch {}
   }, []);
+
+  // Poll pending friend-request count. We refetch on mount, every 60 s,
+  // when the tab regains focus, and whenever Friends.js emits a custom
+  // "friend-request-handled" event (after accept/decline/cancel) so the
+  // badge updates instantly without a full poll cycle.
+  const fetchFriendRequestCount = useCallback(() => {
+    if (!localStorage.getItem('token')) return;
+    API.get('/api/friends/pending-count')
+      .then(r => setFriendRequestCount(r.data?.count || 0))
+      .catch(() => { /* silent — don't spam the UI on transient errors */ });
+  }, []);
+
+  useEffect(() => {
+    fetchFriendRequestCount();
+    const interval = setInterval(fetchFriendRequestCount, 60000);
+    const onFocus = () => fetchFriendRequestCount();
+    const onHandled = () => fetchFriendRequestCount();
+    window.addEventListener('focus', onFocus);
+    window.addEventListener('friend-request-handled', onHandled);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('focus', onFocus);
+      window.removeEventListener('friend-request-handled', onHandled);
+    };
+  }, [fetchFriendRequestCount]);
 
   // Close drawers on navigation
   useEffect(() => {
@@ -98,20 +131,30 @@ export default function Layout({ children }) {
           </div>
 
           <nav className="sidebar-nav">
-            {navItems.map(item => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
-                onClick={() => setMobileMenuOpen(false)}
-                data-ga-label={`Sidebar: ${item.label}`}
-                data-ga-category="nav"
-              >
-                <span className="nav-icon">{item.icon}</span>
-                <span className="nav-label">{item.label}</span>
-                {item.badge && <span className="nav-badge">{item.badge}</span>}
-              </Link>
-            ))}
+            {navItems.map(item => {
+              const isFriends = item.path === '/friends';
+              const countBadge = isFriends ? formatBadge(friendRequestCount) : null;
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-ga-label={`Sidebar: ${item.label}`}
+                  data-ga-category="nav"
+                >
+                  <span className="nav-icon">
+                    {item.icon}
+                    {countBadge && <span className="nav-icon-dot" aria-hidden="true" />}
+                  </span>
+                  <span className="nav-label">{item.label}</span>
+                  {countBadge && (
+                    <span className="nav-count-badge" aria-label={`${friendRequestCount} pending friend requests`}>{countBadge}</span>
+                  )}
+                  {!countBadge && item.badge && <span className="nav-badge">{item.badge}</span>}
+                </Link>
+              );
+            })}
             {isAdmin && (
               <Link
                 to="/admin"
@@ -153,6 +196,8 @@ export default function Layout({ children }) {
       <nav className="m-tabbar" aria-label="Primary" data-ga-section="tabbar">
         {bottomTabs.map(tab => {
           const active = location.pathname === tab.path;
+          const isFriends = tab.path === '/friends';
+          const countBadge = isFriends ? formatBadge(friendRequestCount) : null;
           return (
             <Link
               key={tab.path}
@@ -162,7 +207,12 @@ export default function Layout({ children }) {
               data-ga-label={`Tabbar: ${tab.label}`}
               data-ga-category="nav"
             >
-              <span className="m-tab-icon">{tab.icon}</span>
+              <span className="m-tab-icon">
+                {tab.icon}
+                {countBadge && (
+                  <span className="m-tab-count-badge" aria-label={`${friendRequestCount} pending friend requests`}>{countBadge}</span>
+                )}
+              </span>
               <span className="m-tab-label">{tab.label}</span>
             </Link>
           );

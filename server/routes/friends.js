@@ -5,6 +5,21 @@ const email = require('../services/email');
 const router = express.Router();
 
 // ============================================
+// Lightweight pending-friend-request count — polled by the app
+// shell to render a notification badge on the Friends nav item.
+// Returns { count: <number> } with no populated user data so it's cheap.
+// ============================================
+router.get('/pending-count', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.userId).select('friendRequests');
+    if (!user) return res.status(404).json({ count: 0 });
+    res.json({ count: (user.friendRequests || []).length });
+  } catch (err) {
+    res.status(500).json({ count: 0, error: err.message });
+  }
+});
+
+// ============================================
 // GET friends list + pending requests + sent requests
 // ============================================
 router.get('/', auth, async (req, res) => {

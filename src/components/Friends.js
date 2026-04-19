@@ -118,16 +118,23 @@ export default function Friends() {
     }
   };
 
+  // Tell the app shell to refetch the pending-count badge right now,
+  // instead of waiting for its 60-second poll.
+  const notifyShell = () => window.dispatchEvent(new Event('friend-request-handled'));
+
   const accept = async (userId) => {
     await API.post(`/api/friends/accept/${userId}`);
+    notifyShell();
     await load();
   };
   const decline = async (userId) => {
     await API.post(`/api/friends/decline/${userId}`);
+    notifyShell();
     await load();
   };
   const cancel = async (userId) => {
     await API.post(`/api/friends/cancel/${userId}`);
+    notifyShell();
     await load();
   };
   const unfriend = async (userId) => {
