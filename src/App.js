@@ -16,6 +16,7 @@ import FriendProfile from './components/FriendProfile';
 import ForgotPassword from './components/ForgotPassword';
 import Admin from './components/Admin';
 import InstallAppButton from './components/InstallAppButton';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { initGlobalClickTracking, initRouteTracking } from './utils/analytics';
 import './App.css';
 import './mobile.css';
@@ -29,6 +30,7 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
+      <SpeedInsights />
       <InstallAppButton />
       <Routes>
         <Route path="/" element={<LandingPage />} />
