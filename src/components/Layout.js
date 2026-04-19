@@ -23,13 +23,13 @@ const navGroups = [
       { path: '/dashboard',  icon: <FaMapMarkedAlt />, label: 'My Map' },
       { path: '/memories',   icon: <FaHeart />,        label: 'Memory Wall' },
       { path: '/friends',    icon: <FaUserFriends />,  label: 'Friends' },
+      { path: '/discover',   icon: <FaCompass />,      label: 'Discover' },
     ],
   },
   {
     heading: 'Explore',
     items: [
       { path: '/worldmap',   icon: <FaGlobeAsia />,    label: 'World Map' },
-      { path: '/discover',   icon: <FaCompass />,      label: 'Discover' },
       { path: '/planner',    icon: <FaCalendarAlt />,  label: 'Trip Planner' },
       { path: '/statistics', icon: <FaChartBar />,     label: 'Statistics' },
     ],
