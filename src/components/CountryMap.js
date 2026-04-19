@@ -1,10 +1,10 @@
 import React, { useRef, useState, useCallback } from "react";
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
-import { FaPlus, FaMinus, FaUndo } from "react-icons/fa";
 import DynamicCountryMap from "./DynamicCountryMap";
 import countryToCode from "../utils/countryCodeMap";
 import "./CountryMap.css";
+import "./WorldMap.css"; // share the .world-map-controls / .zoom-controls styling
 
 // Import ALL available @svg-maps packages (27 countries)
 import India from "@svg-maps/india";
@@ -160,19 +160,20 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
 
   return (
     <div className="country-map-container" ref={svgRef} onMouseMove={onMouseMove}>
-      {/* Zoom controls */}
-      <div className="country-map-controls" aria-label="Map controls">
-        <button type="button" onClick={zoomIn} title="Zoom in" aria-label="Zoom in"><FaPlus /></button>
-        <button type="button" onClick={zoomOut} title="Zoom out" aria-label="Zoom out" disabled={transform.scale <= 1}><FaMinus /></button>
-        <button type="button" onClick={reset} title="Reset view" aria-label="Reset view" disabled={transform.scale === 1 && transform.x === 0 && transform.y === 0}><FaUndo /></button>
+      {/* Zoom controls — same look as the World Map */}
+      <div className="world-map-controls zoom-controls" aria-label="Map controls">
+        <button type="button" onClick={zoomIn} title="Zoom in" aria-label="Zoom in">+</button>
+        <button type="button" onClick={zoomOut} title="Zoom out" aria-label="Zoom out" disabled={transform.scale <= 1}>−</button>
+        <button type="button" onClick={reset} title="Reset view" aria-label="Reset view" disabled={transform.scale === 1 && transform.x === 0 && transform.y === 0}>↺</button>
       </div>
 
       <div
         className="country-map-pan"
-        style={transformStyle}
+        style={{ ...transformStyle, touchAction: zoomed ? 'none' : 'auto' }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
         onPointerLeave={onPointerUp}
         onWheel={onWheel}
       >
