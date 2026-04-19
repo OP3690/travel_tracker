@@ -17,6 +17,7 @@ import ForgotPassword from './components/ForgotPassword';
 import Admin from './components/Admin';
 import InstallAppButton from './components/InstallAppButton';
 import './App.css';
+import './mobile.css';
 
 function App() {
   useEffect(() => {

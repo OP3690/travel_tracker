@@ -1,0 +1,193 @@
+/* ============================================================
+   StampYourMap — global mobile polish layer
+   Loaded last so it wins against any page-specific rule.
+   Focus: make every app page feel like a native iOS/Android app
+   without touching individual component CSS files.
+   ============================================================ */
+
+@media (max-width: 900px) {
+  /* -------- Smooth scrolling + safe areas everywhere -------- */
+  html, body { -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain; }
+  body {
+    font-size: 15px;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* -------- Tap feedback (subtle scale + no long-press menu) -------- */
+  a, button, [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+  }
+  button:active:not(:disabled),
+  a:active,
+  [role="button"]:active {
+    transform: scale(0.97);
+    transition: transform 80ms ease;
+  }
+
+  /* -------- Page headers (consistent rhythm across all pages) -------- */
+  .page-title, .mem-page-title, .planner-title, .sp-title, .ad-title {
+    font-size: 1.45rem !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.15 !important;
+  }
+  .page-subtitle, .mem-page-subtitle, .planner-subtitle, .sp-subtitle, .ad-subtitle {
+    font-size: 0.85rem !important;
+  }
+
+  /* -------- Cards: consistent softer elevation -------- */
+  .map-card, .info-card, .memory-wall-card,
+  .mem-card, .planner-card, .pst-card, .sp-card, .ad-card,
+  .progress-card, .stat-card, .mss-item {
+    border-radius: 14px !important;
+  }
+
+  /* -------- Buttons: min 44x44 tap target, full-width primary CTAs -------- */
+  .hero-btn-primary,
+  .mem-add-btn, .mem-nudge-cta,
+  .tp-btn-primary, .tp-btn-primary.big,
+  .smp-btn-primary,
+  .auth-submit, .auth-primary-btn {
+    min-height: 48px !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* Form inputs globally readable, 16px prevents iOS zoom-on-focus */
+  input[type="text"], input[type="email"], input[type="password"],
+  input[type="tel"], input[type="number"], input[type="date"],
+  input[type="search"], input[type="url"],
+  select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* -------- Sticky in-page headers (page titles) sit below the app topbar -------- */
+  .dashboard-page > .page-header,
+  .memories-page > .mem-page-header,
+  .planner-page > .planner-hdr,
+  .stats-page > .sp-header,
+  .ad-page > .ad-hdr,
+  .worldmap-page > .page-header {
+    background: var(--bg-root);
+    margin: 0 -12px 1rem;
+    padding: 10px 12px 8px !important;
+    border-bottom: 1px solid var(--border-default);
+  }
+
+  /* -------- Sticky filter pills strips scroll horizontally without wrapping -------- */
+  .mem-filters, .planner-tabs {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 2px 2px 10px !important;
+    margin: 0 -12px 1rem !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .mem-filters::-webkit-scrollbar,
+  .planner-tabs::-webkit-scrollbar { display: none; }
+  .mem-filter-chip, .planner-tab {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  /* ==================================================================
+     MODALS — bottom-sheet pattern on mobile
+     (slides up from the bottom with a drag handle & rounded top corners)
+     ================================================================== */
+  .mem-modal-overlay, .tp-modal-overlay, .ad-modal-overlay, .smp-overlay,
+  .mem-viewer-overlay, .mem-confirm-overlay {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+  .mem-modal, .tp-modal, .ad-modal, .smp-modal, .mem-viewer, .mem-confirm {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 92dvh !important;
+    border-radius: 20px 20px 0 0 !important;
+    margin: 0 !important;
+    animation: mobileSheetUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+  }
+  @keyframes mobileSheetUp {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+  /* Drag handle at the top of every mobile modal */
+  .mem-modal::before, .tp-modal::before, .ad-modal::before,
+  .smp-modal::before, .mem-viewer::before, .mem-confirm::before {
+    content: '';
+    display: block;
+    width: 42px; height: 4px;
+    background: var(--border-muted);
+    border-radius: 3px;
+    margin: 10px auto 4px;
+    opacity: 0.6;
+  }
+  /* Tighter header padding on mobile sheets */
+  .mem-modal-header, .tp-modal-header, .ad-modal-header, .smp-header {
+    padding: 10px 16px 14px !important;
+  }
+  .mem-modal-body, .tp-modal-body, .ad-modal-body, .smp-body {
+    padding: 14px 16px !important;
+  }
+  /* Close buttons stay in the top-right, extra tap-friendly */
+  .mem-close, .tp-close, .ad-close, .smp-close {
+    width: 40px !important; height: 40px !important;
+  }
+
+  /* -------- Admin table → stacked cards on mobile -------- */
+  .ad-table thead { display: none; }
+  .ad-table, .ad-table tbody, .ad-table tr, .ad-table td { display: block; }
+  .ad-table tr {
+    border: 1px solid var(--border-default) !important;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    padding: 12px;
+    background: var(--bg-card);
+  }
+  .ad-table td {
+    border: none !important;
+    padding: 3px 0 !important;
+    font-size: 0.82rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .ad-table td:first-child { padding-bottom: 8px !important; margin-bottom: 6px; border-bottom: 1px solid var(--border-default) !important; }
+  .ad-table td:not(:first-child)::before {
+    content: attr(data-label);
+    color: var(--text-secondary);
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  /* -------- Landing hero: guarantee hero-card + map feels balanced -------- */
+  .landing-hero { padding: 80px 1rem 32px !important; gap: 1.5rem !important; }
+  .hero-title { font-size: 2.1rem !important; text-align: center; }
+  .hero-subtitle {
+    font-size: 0.95rem !important;
+    max-width: 100% !important;
+    margin-left: auto !important; margin-right: auto !important;
+    text-align: center;
+  }
+  .hero-badge { align-self: center; margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; flex-wrap: wrap; gap: 10px; }
+  .hero-bullets { margin-left: auto; margin-right: auto; }
+  .hero-bullets li { justify-content: flex-start; }
+}
+
+/* ============================================================
+   ULTRA-NARROW (≤400px) — make sure nothing is cramped
+   ============================================================ */
+@media (max-width: 400px) {
+  .page-title, .mem-page-title, .planner-title, .sp-title, .ad-title {
+    font-size: 1.3rem !important;
+  }
+  .hero-title { font-size: 1.8rem !important; }
+  .mem-stats-strip { grid-template-columns: repeat(2, 1fr) !important; }
+  .planner-stats    { grid-template-columns: repeat(2, 1fr) !important; }
+  .ad-stats-grid    { grid-template-columns: repeat(2, 1fr) !important; }
+  .sp-hero-grid     { grid-template-columns: repeat(2, 1fr) !important; }
+}
