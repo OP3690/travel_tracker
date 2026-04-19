@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import API from '../api/api';
+import React, { useEffect, useState } from 'react';
+import API, { warmupApi } from '../api/api';
 import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { FaMountain, FaUser, FaEnvelope, FaLock, FaArrowRight, FaEye, FaEyeSlash, FaGlobeAsia } from 'react-icons/fa';
 import allCountries from '../utils/countries';
@@ -17,6 +17,8 @@ export default function Signup() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const invitedBy = searchParams.get('ref') || '';
+
+  useEffect(() => { warmupApi(); }, []);
 
   const filteredCountries = countrySearch
     ? allCountries.filter(c => c.value.toLowerCase().includes(countrySearch.toLowerCase()) || c.label.toLowerCase().includes(countrySearch.toLowerCase()))

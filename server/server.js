@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const compression = require('compression');
 
 require('dotenv').config();
 const authRoutes = require('./routes/auth');
@@ -10,6 +11,11 @@ const friendsRoutes = require('./routes/friends');
 const adminRoutes = require('./routes/admin');
 
 const app = express();
+
+// Gzip every response over ~1 KB — typical JSON payloads (memories, users)
+// compress 60-80%, which dramatically reduces time-to-interactive after login.
+app.use(compression({ threshold: 1024 }));
+app.set('etag', 'strong');
 
 // Explicit allow-list
 const allowedOrigins = [
@@ -51,9 +57,26 @@ app.use(express.json({ limit: '25mb' }));
 
 const MONGODB_URI = process.env.MONGODB_URI ||
   'mongodb+srv://global5665:test123@cluster0.wigbba7.mongodb.net/travel_dashboard?retryWrites=true&w=majority&appName=Cluster0';
-mongoose.connect(MONGODB_URI)
+mongoose.connect(MONGODB_URI, {
+  // Tighter timeouts + larger pool so Atlas connects faster on boot and
+  // concurrent auth requests don't block waiting for a socket.
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
+  maxPoolSize: 20,
+  minPoolSize: 2,
+  autoIndex: process.env.NODE_ENV !== 'production', // build indexes in dev; skip in prod after initial deploy
+})
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
+mongoose.set('strictQuery', true);
+
+// Lightweight warmup endpoint — the frontend pings this on app mount so
+// Render's free-tier instance (or a cold MongoDB pool) is already warm
+// before the user submits login/signup.
+app.get('/warmup', (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  res.json({ ok: true, db: mongoose.connection.readyState === 1 });
+});
 
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);

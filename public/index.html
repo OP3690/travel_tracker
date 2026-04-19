@@ -116,6 +116,11 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://stampyourmap.com" />
 
+    <!-- Preconnect/dns-prefetch to the API origin so TLS handshake is done
+         before the user taps login/signup — measurably cuts auth latency. -->
+    <link rel="preconnect" href="https://travel-tracker-enfv.onrender.com" crossorigin />
+    <link rel="dns-prefetch" href="https://travel-tracker-enfv.onrender.com" />
+
     <!-- Fonts — load async with media-trick so they don't block first paint -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

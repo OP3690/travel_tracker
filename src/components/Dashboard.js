@@ -46,10 +46,20 @@ const travelQuotes = [
   '"Travel far enough, you meet yourself." — David Mitchell',
 ];
 
+// Read whatever the login response already cached so the dashboard
+// renders instantly instead of waiting on a network round-trip.
+function hydratedFromCache() {
+  try {
+    const u = JSON.parse(localStorage.getItem('user') || '{}');
+    return Array.isArray(u.selectedLocations) ? u.selectedLocations : null;
+  } catch { return null; }
+}
+
 export default function Dashboard() {
   const navigate = useNavigate();
-  const [selectedLocations, setSelectedLocations] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const cached = hydratedFromCache();
+  const [selectedLocations, setSelectedLocations] = useState(cached || []);
+  const [loading, setLoading] = useState(!cached);
   const [showWelcome, setShowWelcome] = useState(false);
   const [user, setUser] = useState({ name: 'Explorer', country: 'India', email: '' });
   const [adminCountry, setAdminCountry] = useState('');
@@ -94,10 +104,20 @@ export default function Dashboard() {
     fetchSelected();
   }, []);
 
+  // Debounce the persistence call so a rapid burst of region taps
+  // collapses into one network request instead of N.
   useEffect(() => {
-    if (selectedLocations.length > 0) {
+    if (selectedLocations.length === 0) return;
+    const t = setTimeout(() => {
       API.post('/api/user/selected', { selectedLocations }).catch(() => {});
-    }
+      // Keep localStorage in sync so the next dashboard mount hydrates correctly
+      try {
+        const u = JSON.parse(localStorage.getItem('user') || '{}');
+        u.selectedLocations = selectedLocations;
+        localStorage.setItem('user', JSON.stringify(u));
+      } catch {}
+    }, 400);
+    return () => clearTimeout(t);
   }, [selectedLocations]);
 
   const dismissWelcome = () => {

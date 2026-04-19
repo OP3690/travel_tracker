@@ -6,6 +6,7 @@ import PrivateRoute from './components/PrivateRoute';
 import InstallAppButton from './components/InstallAppButton';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { initGlobalClickTracking, initRouteTracking } from './utils/analytics';
+import { warmupApi } from './api/api';
 import './App.css';
 import './mobile.css';
 
@@ -44,6 +45,8 @@ function App() {
     if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
     initGlobalClickTracking();
     initRouteTracking();
+    // Warm Render free-tier dyno + Mongo pool early so auth feels instant
+    warmupApi();
   }, []);
   return (
     <BrowserRouter>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import API from '../api/api';
+import React, { useEffect, useState } from 'react';
+import API, { warmupApi } from '../api/api';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaMountain, FaEnvelope, FaLock, FaArrowRight, FaEye, FaEyeSlash } from 'react-icons/fa';
 import loginBg from '../assets/login-travel-map.jpg';
@@ -11,6 +11,8 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => { warmupApi(); }, []);
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
