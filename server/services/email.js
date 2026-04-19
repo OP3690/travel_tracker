@@ -23,10 +23,21 @@ const SMTP_PORT = parseInt(process.env.SMTP_PORT || '465', 10);
 const SMTP_USER = process.env.SMTP_USER || 'support@stampyourmap.com';
 const SMTP_PASS = process.env.SMTP_PASS || '';
 const FROM_NAME = process.env.EMAIL_FROM_NAME || 'StampYourMap';
-const EMAIL_REDIRECT_TO = process.env.EMAIL_REDIRECT_TO || 'global5665@gmail.com';
+// In production this MUST stay empty so real users receive their OTPs / welcome mails.
+// Only set EMAIL_REDIRECT_TO in a dev/staging env to funnel every outbound mail to one inbox.
+const EMAIL_REDIRECT_TO = process.env.EMAIL_REDIRECT_TO || '';
 
 let transporter = null;
+let bootLogged = false;
 function getTransporter() {
+  if (!bootLogged) {
+    bootLogged = true;
+    if (!SMTP_PASS) {
+      console.warn(`[EMAIL] SMTP_PASS is NOT set — every outbound email will be mocked. Set SMTP_PASS env on your host to send real mail. host=${SMTP_HOST} port=${SMTP_PORT} user=${SMTP_USER}`);
+    } else {
+      console.log(`[EMAIL] SMTP configured: host=${SMTP_HOST} port=${SMTP_PORT} user=${SMTP_USER}${EMAIL_REDIRECT_TO ? ` REDIRECT_TO=${EMAIL_REDIRECT_TO}` : ''}`);
+    }
+  }
   if (transporter) return transporter;
   if (!SMTP_PASS) return null;
   transporter = nodemailer.createTransport({

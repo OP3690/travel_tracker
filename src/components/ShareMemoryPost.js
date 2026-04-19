@@ -105,6 +105,31 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
   const [error, setError] = useState('');
   const [template, setTemplate] = useState('polaroid');
   const posterRef = useRef(null);
+  const scalerRef = useRef(null);
+
+  // Auto-fit poster scale to the scaler width so the 1080x1350 card always
+  // renders exactly inside its wrapper — critical for mobile where the
+  // wrapper width changes with viewport.
+  useEffect(() => {
+    const el = scalerRef.current;
+    if (!el) return;
+    const apply = () => {
+      const w = el.clientWidth || 0;
+      if (w > 0) el.style.setProperty('--smp-scale', String(w / 1080));
+    };
+    apply();
+    let ro;
+    if (typeof ResizeObserver !== 'undefined') {
+      ro = new ResizeObserver(apply);
+      ro.observe(el);
+    } else {
+      window.addEventListener('resize', apply);
+    }
+    return () => {
+      if (ro) ro.disconnect();
+      else window.removeEventListener('resize', apply);
+    };
+  }, []);
 
   // Load user's preferred template
   useEffect(() => {
@@ -252,7 +277,7 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
         <div className="smp-body">
           {/* LEFT: poster preview */}
           <div className="smp-preview-wrap">
-            <div className="smp-preview-scaler">
+            <div className="smp-preview-scaler" ref={scalerRef}>
               <div className="smp-poster" data-template={template} ref={posterRef}>
                 <div className="smp-poster-grain" />
 

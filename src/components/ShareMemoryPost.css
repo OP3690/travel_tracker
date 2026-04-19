@@ -37,15 +37,24 @@
   min-height: 0; overflow: hidden;
 }
 .smp-preview-scaler {
-  /* Hold the scaled poster. The internal poster is 1080x1350 but displayed at ~48%. */
-  width: 520px; height: 650px; position: relative;
-  background: #0f172a; border-radius: var(--radius-lg);
+  /* Container whose width drives the poster scale via --smp-scale (set by JS).
+     aspect-ratio locks height = width * 1.25 (matches 1080/1350). */
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1080 / 1350;
+  position: relative;
+  background: #0f172a;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  --smp-scale: 0.48148;  /* fallback ≈ 520/1080 */
 }
 
 .smp-poster {
-  /* HD export size */
+  /* HD export size — always 1080x1350 regardless of viewport.
+     Scaled down via a JS-driven CSS variable so it exactly fits the scaler. */
+  position: absolute; top: 0; left: 0;
   width: 1080px; height: 1350px;
-  transform: scale(0.48148); /* 520 / 1080 */
+  transform: scale(var(--smp-scale));
   transform-origin: top left;
   background:
     radial-gradient(ellipse 900px 600px at 25% -10%, rgba(129, 140, 248, 0.35) 0%, transparent 55%),
@@ -359,11 +368,27 @@
 .smp-share-note strong { color: var(--text-secondary); }
 
 @media (max-width: 900px) {
-  .smp-body { grid-template-columns: 1fr; }
+  .smp-body {
+    grid-template-columns: 1fr;
+    padding: 0.75rem 1rem 1rem;
+    gap: 1rem;
+    overflow-y: auto;           /* let the whole body scroll on mobile */
+  }
   .smp-preview-wrap { order: 2; }
   .smp-controls { order: 1; }
-  .smp-preview-scaler { width: 100%; max-width: 420px; height: auto; aspect-ratio: 4 / 5; margin: 0 auto; }
-  .smp-poster { transform: scale(calc(100vw / 1080 * 0.8)); }
+  .smp-preview-scaler {
+    max-width: min(420px, calc(100vw - 32px));
+    margin: 0 auto;
+  }
+  .smp-header { padding: 0.85rem 1rem; }
+  .smp-header h2 { font-size: 1.05rem; }
+  .smp-header p { font-size: 0.78rem; }
+}
+
+@media (max-width: 520px) {
+  .smp-preview-scaler { max-width: calc(100vw - 28px); }
+  /* Share tile grid reflow on narrow screens */
+  .smp-share-row { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
 /* =============================================================

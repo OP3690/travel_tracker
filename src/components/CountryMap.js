@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useCallback } from "react";
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
+import { FaPlus, FaMinus, FaUndo } from "react-icons/fa";
 import DynamicCountryMap from "./DynamicCountryMap";
 import countryToCode from "../utils/countryCodeMap";
 import "./CountryMap.css";
@@ -63,12 +64,17 @@ const countryMaps = {
 function CountryMap({ country = 'India', selectedLocations = [], setSelectedLocations = () => {} }) {
   const [hoveredName, setHoveredName] = useState("");
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 });
+  const [dragging, setDragging] = useState(false);
+  const dragRef = useRef({ active: false, startX: 0, startY: 0, origX: 0, origY: 0, moved: 0 });
   const svgRef = useRef();
 
   const mapData = countryMaps[country];
   const hasInteractiveMap = !!mapData;
 
   function handleLocationClick(event) {
+    // Suppress click if it was part of a pan gesture
+    if (dragRef.current.moved > 4) return;
     const id = event.target.id;
     const name = event.target.getAttribute("name");
     setSelectedLocations(prev => {
@@ -96,19 +102,89 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
     return "svg-map__location pending";
   }
 
+  // ===== Pan + zoom handlers =====
+  const zoomIn  = useCallback(() => setTransform(t => ({ ...t, scale: Math.min(t.scale * 1.25, 6) })), []);
+  const zoomOut = useCallback(() => setTransform(t => {
+    const next = Math.max(t.scale / 1.25, 1);
+    return next === 1 ? { x: 0, y: 0, scale: 1 } : { ...t, scale: next };
+  }), []);
+  const reset   = useCallback(() => setTransform({ x: 0, y: 0, scale: 1 }), []);
+
+  const onPointerDown = (e) => {
+    if (transform.scale <= 1) return;
+    dragRef.current = {
+      active: true,
+      startX: e.clientX, startY: e.clientY,
+      origX: transform.x, origY: transform.y,
+      moved: 0,
+    };
+    setDragging(true);
+  };
+  const onPointerMove = (e) => {
+    if (!dragRef.current.active) return;
+    const dx = e.clientX - dragRef.current.startX;
+    const dy = e.clientY - dragRef.current.startY;
+    dragRef.current.moved = Math.max(dragRef.current.moved, Math.abs(dx) + Math.abs(dy));
+    setTransform(t => ({ ...t, x: dragRef.current.origX + dx, y: dragRef.current.origY + dy }));
+  };
+  const onPointerUp = () => {
+    dragRef.current.active = false;
+    setDragging(false);
+    // reset move marker after a tick so click handlers run with the true value
+    setTimeout(() => { dragRef.current.moved = 0; }, 0);
+  };
+
+  const onWheel = (e) => {
+    if (!e.ctrlKey && !e.metaKey) return; // only zoom on ctrl/cmd+wheel to keep page scroll natural
+    e.preventDefault();
+    setTransform(t => {
+      const delta = e.deltaY > 0 ? 1 / 1.15 : 1.15;
+      const next = Math.max(1, Math.min(6, t.scale * delta));
+      if (next === 1) return { x: 0, y: 0, scale: 1 };
+      return { ...t, scale: next };
+    });
+  };
+
   if (!hasInteractiveMap) {
     return <DynamicCountryMap country={country} selectedLocations={selectedLocations} setSelectedLocations={setSelectedLocations} />;
   }
 
+  const zoomed = transform.scale > 1;
+  const transformStyle = {
+    transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
+    transformOrigin: '50% 50%',
+    transition: dragging ? 'none' : 'transform 0.25s cubic-bezier(.4,2,.6,1)',
+    cursor: zoomed ? (dragging ? 'grabbing' : 'grab') : 'default',
+    willChange: 'transform',
+  };
+
   return (
     <div className="country-map-container" ref={svgRef} onMouseMove={onMouseMove}>
-      <SVGMap
-        map={mapData.map}
-        onLocationClick={handleLocationClick}
-        onLocationMouseOver={onLocationMouseOver}
-        onLocationMouseOut={onLocationMouseOut}
-        locationClassName={getLocationClass}
-      />
+      {/* Zoom controls */}
+      <div className="country-map-controls" aria-label="Map controls">
+        <button type="button" onClick={zoomIn} title="Zoom in" aria-label="Zoom in"><FaPlus /></button>
+        <button type="button" onClick={zoomOut} title="Zoom out" aria-label="Zoom out" disabled={transform.scale <= 1}><FaMinus /></button>
+        <button type="button" onClick={reset} title="Reset view" aria-label="Reset view" disabled={transform.scale === 1 && transform.x === 0 && transform.y === 0}><FaUndo /></button>
+      </div>
+
+      <div
+        className="country-map-pan"
+        style={transformStyle}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerLeave={onPointerUp}
+        onWheel={onWheel}
+      >
+        <SVGMap
+          map={mapData.map}
+          onLocationClick={handleLocationClick}
+          onLocationMouseOver={onLocationMouseOver}
+          onLocationMouseOut={onLocationMouseOut}
+          locationClassName={getLocationClass}
+        />
+      </div>
+
       {hoveredName && (
         <div
           className="country-map-tooltip"
