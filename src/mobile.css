@@ -7,8 +7,14 @@
 
 @media (max-width: 900px) {
   /* -------- Smooth scrolling + safe areas everywhere -------- */
-  html, body { -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain; }
+  /* Note: keep vertical scroll firmly on the body. Avoid setting
+     overflow-x:hidden on body (combined with html overflow-x:hidden
+     it can break iOS Safari's main scroll container). */
+  html { overflow-x: hidden; }
   body {
+    overflow-y: auto;
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
     font-size: 15px;
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);

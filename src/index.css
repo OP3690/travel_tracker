@@ -141,8 +141,9 @@ body {
   background: var(--bg-root);
   color: var(--text-primary);
   line-height: 1.5;
-  overflow-x: hidden;
   min-height: 100vh;
+  /* No body-level overflow-x:hidden; that prop is set on <html> in mobile.css
+     to avoid iOS Safari main-scroll-container weirdness. */
 }
 #root { min-height: 100vh; }
 a { color: inherit; text-decoration: none; }

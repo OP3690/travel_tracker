@@ -266,12 +266,8 @@
   }
   .m-sheet-logout:active { background: rgba(239, 68, 68, 0.1); }
 
-  /* Prevent horizontal overflow from child pages on mobile */
-  .main-content { overflow-x: hidden; width: 100%; }
-}
-@media (max-width: 900px) {
-  /* Blanket safety: hide any horizontal scroll on narrow screens */
-  html, body { overflow-x: hidden; max-width: 100%; }
+  /* Width guard only — keep vertical scroll completely native */
+  .main-content { width: 100%; }
 }
 
 /* Small phones */
