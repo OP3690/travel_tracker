@@ -259,4 +259,19 @@ router.post('/reset-password', async (req, res) => {
   }
 });
 
+// ============================================
+// EMAIL DIAGNOSTICS — gated by a shared secret
+// GET /api/auth/email-debug?key=<EMAIL_DEBUG_KEY>&to=<optional@addr>
+// Returns the raw SMTP verify + test-send result so you can see
+// exactly why an email didn't go out (bad password, port blocked,
+// etc). Set EMAIL_DEBUG_KEY in Render env to any random string.
+// ============================================
+router.get('/email-debug', async (req, res) => {
+  const required = process.env.EMAIL_DEBUG_KEY;
+  if (!required) return res.status(404).json({ error: 'not available' });
+  if (req.query.key !== required) return res.status(403).json({ error: 'bad key' });
+  const result = await email.diagnose(req.query.to);
+  res.json(result);
+});
+
 module.exports = router;

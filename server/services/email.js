@@ -116,9 +116,54 @@ async function sendFriendRequestEmail({ toUser, fromUser }) {
   return sendMail({ to: toUser.email, subject, html });
 }
 
+// ======================================================================
+// DIAGNOSTICS — used by the admin-gated /api/auth/email-debug endpoint.
+// Returns the full transport config (minus password) + the actual SMTP
+// outcome so you can see exactly why an email didn't go out.
+// ======================================================================
+async function diagnose(testTo) {
+  const config = {
+    SMTP_HOST, SMTP_PORT,
+    SMTP_USER,
+    SMTP_PASS_set: !!SMTP_PASS,
+    SMTP_PASS_length: SMTP_PASS ? SMTP_PASS.length : 0,
+    EMAIL_REDIRECT_TO: EMAIL_REDIRECT_TO || null,
+    NODE_ENV: process.env.NODE_ENV || 'development',
+  };
+  if (!SMTP_PASS) {
+    return { ok: false, config, reason: 'SMTP_PASS not set — emails are mocked.' };
+  }
+  try {
+    const t = getTransporter();
+    // verify() does a real SMTP handshake + auth without sending anything
+    await t.verify();
+    // Send a tiny test mail
+    const info = await t.sendMail({
+      from: `"${FROM_NAME}" <${SMTP_USER}>`,
+      to: testTo || SMTP_USER,
+      subject: 'StampYourMap SMTP test',
+      text: 'If you see this, SMTP is wired up correctly.',
+    });
+    return { ok: true, config, verified: true, messageId: info.messageId, to: testTo || SMTP_USER };
+  } catch (err) {
+    return {
+      ok: false,
+      config,
+      error: {
+        message: err.message,
+        code: err.code,
+        command: err.command,
+        response: err.response,
+        responseCode: err.responseCode,
+      },
+    };
+  }
+}
+
 module.exports = {
   sendWelcomeEmail,
   sendOtpEmail,
   sendInviteEmail,
   sendFriendRequestEmail,
+  diagnose,
 };
