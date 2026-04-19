@@ -4,7 +4,7 @@ import {
   FaGlobeAsia, FaArrowRight, FaPlane, FaRoute, FaCalendarAlt,
   FaCheckCircle, FaMountain, FaSuitcaseRolling, FaCamera, FaMapPin, FaUserPlus,
   FaStar, FaHeart, FaShareAlt, FaUserFriends, FaDownload, FaLock, FaBolt,
-  FaChartLine, FaImages, FaQuestionCircle
+  FaChartLine, FaImages, FaQuestionCircle, FaGlobeAmericas, FaPalette, FaInfinity,
 } from 'react-icons/fa';
 import './LandingPage.css';
 
@@ -61,12 +61,82 @@ const pillars = [
 ];
 
 /* ========================================================================
-   TESTIMONIALS
+   TESTIMONIALS — mix of American, British, and French travelers
+   Photos live in /public/reviewers/ (served at /reviewers/*.jpg)
    ======================================================================== */
 const testimonials = [
-  { text: 'I used to keep a messy spreadsheet of trips. Now my world map is a stunning visual I actually want to share.', name: 'Priya M.',  role: 'Solo Traveler',  stars: 5 },
-  { text: 'The shareable card templates are genuinely beautiful. My Instagram followers ask how I made them every single time.', name: 'Arjun K.',   role: 'Digital Nomad',  stars: 5 },
-  { text: 'Planning our anniversary trip with checklists + budget + itinerary in one place was a game-changer. Plus my husband actually used it.', name: 'Sneha R.',   role: 'Travel Blogger', stars: 5 },
+  {
+    photo: '/reviewers/emily.jpg',
+    name:  'Emily Carter',
+    role:  'Travel photographer · London 🇬🇧',
+    stars: 5,
+    text:
+      '14 years of scattered Instagram tags and messy Google Docs — all gone. StampYourMap is the one place I open when someone asks where I\'ve been. The share-cards are gorgeous enough that I actually post them.',
+  },
+  {
+    photo: '/reviewers/camille.jpg',
+    name:  'Camille Laurent',
+    role:  'Food & travel writer · Paris 🇫🇷',
+    stars: 5,
+    text:
+      'Je l\'adore. My partner and I planned our honeymoon through Japan entirely inside the Trip Planner — budget, itinerary, bookings. And reliving it through the Memory Wall afterwards? Pure magic.',
+  },
+  {
+    photo: '/reviewers/james.jpg',
+    name:  'James Harrison',
+    role:  'Digital nomad · Austin, TX 🇺🇸',
+    stars: 5,
+    text:
+      'I\'ve stamped 58 countries since 2019 and tried every tracker out there. This finally replaced the three apps I used for logging, journaling, and sharing. The world map looks stunning on an iPad.',
+  },
+  {
+    photo: '/reviewers/juliette.jpg',
+    name:  'Juliette Moreau',
+    role:  'Travel blogger · Nice 🇫🇷',
+    stars: 5,
+    text:
+      'The shareable post designs are genuinely the best I\'ve seen in any travel app. My Instagram followers message me every time I post one asking which app I used. 12 templates is almost too many good choices.',
+  },
+  {
+    photo: '/reviewers/oliver.jpg',
+    name:  'Oliver Bennett',
+    role:  'Backpacker & street photographer · Manchester 🇬🇧',
+    stars: 5,
+    text:
+      'Best travel app I\'ve tested in five years of nomad life. The Memory Wall finally got me to revisit my own photos — I\'d forgotten half my trips. Seeing them stamped on a proper world map is oddly emotional.',
+  },
+  {
+    photo: '/reviewers/madison.jpg',
+    name:  'Madison Parker',
+    role:  'Solo adventurer · Denver, CO 🇺🇸',
+    stars: 5,
+    text:
+      'Signed up on a whim and ended up planning my entire Europe trip with my sister in it. The friends feature made it actually fun — we compete on who\'s stamped more countries. She\'s winning. For now.',
+  },
+  {
+    photo: '/reviewers/ava.jpg',
+    name:  'Ava Mitchell',
+    role:  'Adventure guide · Portland, OR 🇺🇸',
+    stars: 5,
+    text:
+      'I lead small-group trips and used to send clients three different links for the itinerary, photos, and map. Now I just point them to our shared Memory Wall. Even my least-techy guests figure it out in 30 seconds.',
+  },
+  {
+    photo: '/reviewers/lucas.jpg',
+    name:  'Lucas Dubois',
+    role:  'Sommelier & wine-region traveler · Bordeaux 🇫🇷',
+    stars: 5,
+    text:
+      'C\'est magnifique. I\'ve been cataloguing every vineyard trip for years in a Moleskine — now they\'re all pinned on a real map with photos and tasting notes. Finally a journal that doesn\'t feel like homework.',
+  },
+  {
+    photo: '/reviewers/isabelle.jpg',
+    name:  'Isabelle Fraser',
+    role:  'Travel journalist · Edinburgh 🇬🇧',
+    stars: 5,
+    text:
+      'I\'ve written for Condé Nast and Lonely Planet, so I\'ve seen every trip-tracker out there. StampYourMap is the first one where the design is as thoughtful as the data model. Every detail feels intentional.',
+  },
 ];
 
 /* ========================================================================
@@ -142,6 +212,93 @@ function FaqItem({ q, a, defaultOpen }) {
         <span className="faq-chevron">{open ? '−' : '+'}</span>
       </button>
       {open && <div className="faq-a">{a}</div>}
+    </div>
+  );
+}
+
+/* ========================================================================
+   TESTIMONIALS CAROUSEL — auto-rotates, shows 3 at a time
+   (collapses to 1 at a time on mobile via CSS).
+   ======================================================================== */
+function TestimonialCard({ t, stagger }) {
+  const initials = t.name.split(/\s+/).map(s => s[0]).filter(Boolean).join('').slice(0, 2).toUpperCase();
+  return (
+    <figure className="testimonial-card" style={{ animationDelay: `${stagger * 0.08}s` }}>
+      <div className="testimonial-stars" aria-label={`${t.stars} out of 5 stars`}>
+        {Array(t.stars).fill(0).map((_, j) => <FaStar key={j} />)}
+      </div>
+      <blockquote className="testimonial-text">"{t.text}"</blockquote>
+      <figcaption className="testimonial-author">
+        <div className="testimonial-avatar testimonial-avatar-photo">
+          {t.photo ? (
+            <img
+              src={t.photo}
+              alt={t.name}
+              loading="lazy"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.parentElement.textContent = initials;
+              }}
+            />
+          ) : initials}
+        </div>
+        <div>
+          <div className="testimonial-name">{t.name}</div>
+          <div className="testimonial-role">{t.role}</div>
+        </div>
+      </figcaption>
+    </figure>
+  );
+}
+
+function TestimonialsCarousel() {
+  const [offset, setOffset] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const VISIBLE = 3;
+  const INTERVAL = 5500;
+
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(() => {
+      setOffset(o => (o + 1) % testimonials.length);
+    }, INTERVAL);
+    return () => clearInterval(t);
+  }, [paused]);
+
+  // Pick N cards starting at `offset`, wrapping.
+  const visible = Array.from({ length: VISIBLE }, (_, i) =>
+    testimonials[(offset + i) % testimonials.length]
+  );
+
+  return (
+    <div
+      className="testimonials-carousel"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onTouchStart={() => setPaused(true)}
+      onTouchEnd={() => setTimeout(() => setPaused(false), 3000)}
+      aria-roledescription="carousel"
+      aria-label="Travelers love StampYourMap"
+    >
+      {/* key={offset} forces remount so the fadeInUp CSS animation replays */}
+      <div className="testimonials-grid" key={offset}>
+        {visible.map((t, i) => (
+          <TestimonialCard key={`${offset}-${i}`} t={t} stagger={i} />
+        ))}
+      </div>
+
+      <div className="testimonials-dots" role="tablist">
+        {testimonials.map((_, i) => (
+          <button
+            key={i}
+            className={`testimonials-dot ${i === offset ? 'active' : ''}`}
+            aria-label={`Show reviewer ${i + 1} of ${testimonials.length}`}
+            aria-selected={i === offset}
+            role="tab"
+            onClick={() => setOffset(i)}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -363,11 +520,35 @@ export default function LandingPage() {
                 See how it works <FaArrowRight />
               </a>
             </div>
-            <ul className="hero-bullets" aria-label="Key numbers">
-              <li><FaCheckCircle /> <CountUp target="195" /> countries &amp; 5,000+ regions</li>
-              <li><FaCheckCircle /> 12 designer card templates</li>
-              <li><FaCheckCircle /> Trip planner, friends &amp; memory wall</li>
-              <li><FaCheckCircle /> Free forever — no credit card</li>
+            <ul className="hero-trust" aria-label="Why travelers love StampYourMap">
+              <li className="hero-trust-item" style={{ '--t': '#6366f1', '--tb': 'rgba(99,102,241,0.12)' }}>
+                <span className="hero-trust-icon"><FaGlobeAmericas /></span>
+                <div className="hero-trust-text">
+                  <strong><CountUp target="195" /> countries</strong>
+                  <span>+ 5,000 regions &amp; states</span>
+                </div>
+              </li>
+              <li className="hero-trust-item" style={{ '--t': '#ec4899', '--tb': 'rgba(236,72,153,0.12)' }}>
+                <span className="hero-trust-icon"><FaPalette /></span>
+                <div className="hero-trust-text">
+                  <strong>12 share templates</strong>
+                  <span>Instagram-ready in one tap</span>
+                </div>
+              </li>
+              <li className="hero-trust-item" style={{ '--t': '#10b981', '--tb': 'rgba(16,185,129,0.12)' }}>
+                <span className="hero-trust-icon"><FaUserFriends /></span>
+                <div className="hero-trust-text">
+                  <strong>Plan &amp; share together</strong>
+                  <span>Trip planner · friends · memories</span>
+                </div>
+              </li>
+              <li className="hero-trust-item" style={{ '--t': '#f59e0b', '--tb': 'rgba(245,158,11,0.14)' }}>
+                <span className="hero-trust-icon"><FaInfinity /></span>
+                <div className="hero-trust-text">
+                  <strong>Free forever</strong>
+                  <span>No credit card · No ads</span>
+                </div>
+              </li>
             </ul>
           </div>
           <div className="hero-visual" aria-hidden="true">
@@ -472,23 +653,7 @@ export default function LandingPage() {
             <div className="section-badge"><FaHeart /> Loved by travelers</div>
             <h2 id="reviews-heading">Real travelers. <span className="hero-gradient-text">Real stories.</span></h2>
           </div>
-          <div className="testimonials-grid">
-            {testimonials.map((t, i) => (
-              <figure key={i} className="testimonial-card" style={{ animationDelay: `${i * 0.1}s` }}>
-                <div className="testimonial-stars" aria-label={`${t.stars} out of 5 stars`}>
-                  {Array(t.stars).fill(0).map((_, j) => <FaStar key={j} />)}
-                </div>
-                <blockquote className="testimonial-text">"{t.text}"</blockquote>
-                <figcaption className="testimonial-author">
-                  <div className="testimonial-avatar">{t.name[0]}</div>
-                  <div>
-                    <div className="testimonial-name">{t.name}</div>
-                    <div className="testimonial-role">{t.role}</div>
-                  </div>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <TestimonialsCarousel />
         </section>
 
         {/* FAQ */}

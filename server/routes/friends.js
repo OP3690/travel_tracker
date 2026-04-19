@@ -7,15 +7,59 @@ const router = express.Router();
 // ============================================
 // Lightweight pending-friend-request count — polled by the app
 // shell to render a notification badge on the Friends nav item.
-// Returns { count: <number> } with no populated user data so it's cheap.
+// Also returns new-activity count (friend memories posted since the
+// user last visited the Friends page) + a per-friend breakdown so
+// the Friends page can show "3 new posts" dots on each friend card.
 // ============================================
 router.get('/pending-count', auth, async (req, res) => {
   try {
-    const user = await User.findById(req.userId).select('friendRequests');
-    if (!user) return res.status(404).json({ count: 0 });
-    res.json({ count: (user.friendRequests || []).length });
+    const me = await User.findById(req.userId)
+      .select('friendRequests friends friendsFeedSeenAt')
+      .populate('friends', '_id memories');
+    if (!me) return res.status(404).json({ count: 0 });
+
+    const pending = (me.friendRequests || []).length;
+    const seenAt = me.friendsFeedSeenAt || new Date(0);
+
+    // Count visible memories (public OR friends-only) that each friend
+    // has posted since the user's last Friends-page visit.
+    const perFriend = {};
+    let newActivity = 0;
+    for (const fr of me.friends || []) {
+      let n = 0;
+      for (const m of fr.memories || []) {
+        if (m.visibility === 'private') continue;
+        if (!m.createdAt) continue;
+        if (new Date(m.createdAt) > seenAt) n += 1;
+      }
+      if (n > 0) {
+        perFriend[String(fr._id)] = n;
+        newActivity += n;
+      }
+    }
+
+    res.json({
+      count: pending + newActivity,      // combined — shell uses this
+      pendingRequests: pending,
+      newActivity,
+      perFriend,                          // { friendId: newPostsCount }
+    });
   } catch (err) {
     res.status(500).json({ count: 0, error: err.message });
+  }
+});
+
+// ============================================
+// Mark the user's friends-feed as "seen" right now. Called when
+// the Friends page mounts so the badge clears the moment the user
+// looks at the page (Facebook/Instagram behavior).
+// ============================================
+router.post('/mark-seen', auth, async (req, res) => {
+  try {
+    await User.updateOne({ _id: req.userId }, { $set: { friendsFeedSeenAt: new Date() } });
+    res.json({ ok: true });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: err.message });
   }
 });
 

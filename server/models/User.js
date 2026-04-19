@@ -206,6 +206,12 @@ const userSchema = new mongoose.Schema({
   lastLogin: Date,
   loginCount: { type: Number, default: 0 },
 
+  // --- Friends feed seen marker ---
+  // Timestamp of the last time this user opened the Friends page (or
+  // otherwise acknowledged their friends' activity). We compare this
+  // against each friend memory's createdAt to count new posts since.
+  friendsFeedSeenAt: Date,
+
   // --- Soft Delete ---
   isDeleted: { type: Boolean, default: false, index: true },
   deletedAt: Date,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import Layout from './Layout';
 import API from '../api/api';
-import { FaUserFriends, FaUserPlus, FaEnvelope, FaCheck, FaTimes, FaTrash, FaPaperPlane, FaSearch, FaMapMarkerAlt, FaHeart, FaImages } from 'react-icons/fa';
+import { FaUserFriends, FaUserPlus, FaEnvelope, FaCheck, FaTimes, FaTrash, FaPaperPlane, FaSearch, FaMapMarkerAlt, FaHeart, FaImages, FaInbox, FaHourglassHalf, FaPaperPlane as FaInvite } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import './Friends.css';
 
@@ -74,14 +74,31 @@ function InviteModal({ onClose, onSent }) {
   );
 }
 
+/** Read my own email/id from localStorage once. */
+function useMyIdentity() {
+  const [me] = useState(() => {
+    try {
+      const u = JSON.parse(localStorage.getItem('user') || '{}');
+      return { email: (u.email || '').toLowerCase(), id: u.id || u._id || '' };
+    } catch { return { email: '', id: '' }; }
+  });
+  return me;
+}
+
 export default function Friends() {
   const navigate = useNavigate();
+  const me = useMyIdentity();
   const [data, setData] = useState({ friends: [], incoming: [], outgoing: [], invitesSent: [] });
   const [loading, setLoading] = useState(true);
   const [searchQ, setSearchQ] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searchLoading, setSearchLoading] = useState(false);
   const [showInvite, setShowInvite] = useState(false);
+  const isSelfSearch = searchQ.trim().toLowerCase() === me.email && me.email.length > 0;
+  // Map of friendId → count of new posts since the user's last visit.
+  // Frozen at mount so the dots stay visible while the user reads the page
+  // (we don't want them to vanish the instant mark-seen fires).
+  const [newPostsByFriend, setNewPostsByFriend] = useState({});
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -93,6 +110,25 @@ export default function Friends() {
   }, []);
 
   useEffect(() => { load(); }, [load]);
+
+  // On mount: snapshot which friends have new posts, then mark the feed
+  // seen so the nav badge clears. We keep the snapshot in state so the
+  // per-friend dots stay visible during this session.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const r = await API.get('/api/friends/pending-count');
+        if (cancelled) return;
+        setNewPostsByFriend(r.data?.perFriend || {});
+      } catch {}
+      try {
+        await API.post('/api/friends/mark-seen');
+        window.dispatchEvent(new Event('friend-request-handled'));
+      } catch {}
+    })();
+    return () => { cancelled = true; };
+  }, []);
 
   // Debounced search
   useEffect(() => {
@@ -147,32 +183,44 @@ export default function Friends() {
     <Layout>
       <div className="friends-page">
         <div className="fr-page-header">
-          <div>
+          <div className="fr-page-header-text">
             <h1 className="fr-title"><FaUserFriends className="fr-title-icon" /> Friends</h1>
-            <p className="fr-subtitle">See your friends' maps, photos, and stories — share yours with them</p>
+            <p className="fr-subtitle">See your friends' maps, photos &amp; stories — share yours with them</p>
           </div>
-          <button className="fr-btn-primary" onClick={() => setShowInvite(true)}>
+          <button className="fr-btn-primary small" onClick={() => setShowInvite(true)}>
             <FaEnvelope /> Invite by Email
           </button>
         </div>
 
         {/* Stats */}
         <div className="fr-stats">
-          <div className="fr-stat">
-            <span className="fr-stat-num">{data.friends.length}</span>
-            <span className="fr-stat-label">Friends</span>
+          <div className="fr-stat fr-stat--friends">
+            <span className="fr-stat-icon"><FaUserFriends /></span>
+            <span className="fr-stat-text">
+              <span className="fr-stat-num">{data.friends.length}</span>
+              <span className="fr-stat-label">Friends</span>
+            </span>
           </div>
-          <div className="fr-stat">
-            <span className="fr-stat-num">{data.incoming.length}</span>
-            <span className="fr-stat-label">Requests</span>
+          <div className={`fr-stat fr-stat--requests ${data.incoming.length > 0 ? 'has-pending' : ''}`}>
+            <span className="fr-stat-icon"><FaInbox /></span>
+            <span className="fr-stat-text">
+              <span className="fr-stat-num">{data.incoming.length}</span>
+              <span className="fr-stat-label">Requests</span>
+            </span>
           </div>
-          <div className="fr-stat">
-            <span className="fr-stat-num">{data.outgoing.length}</span>
-            <span className="fr-stat-label">Pending</span>
+          <div className="fr-stat fr-stat--pending">
+            <span className="fr-stat-icon"><FaHourglassHalf /></span>
+            <span className="fr-stat-text">
+              <span className="fr-stat-num">{data.outgoing.length}</span>
+              <span className="fr-stat-label">Pending</span>
+            </span>
           </div>
-          <div className="fr-stat">
-            <span className="fr-stat-num">{data.invitesSent.length}</span>
-            <span className="fr-stat-label">Invites</span>
+          <div className="fr-stat fr-stat--invites">
+            <span className="fr-stat-icon"><FaInvite /></span>
+            <span className="fr-stat-text">
+              <span className="fr-stat-num">{data.invitesSent.length}</span>
+              <span className="fr-stat-label">Invites</span>
+            </span>
           </div>
         </div>
 
@@ -189,7 +237,16 @@ export default function Friends() {
             />
           </div>
           {searchLoading && <div className="fr-hint">Searching…</div>}
-          {searchQ.length >= 3 && !searchLoading && searchResults.length === 0 && (
+          {searchQ.length >= 3 && !searchLoading && isSelfSearch && (
+            <div className="fr-self-hint">
+              <span className="fr-self-hint-emoji">👋</span>
+              <div>
+                <strong>That's you!</strong>
+                <span> Unfortunately you can't add yourself as a friend — but keep exploring and invite your actual travel buddies.</span>
+              </div>
+            </div>
+          )}
+          {searchQ.length >= 3 && !searchLoading && !isSelfSearch && searchResults.length === 0 && (
             <div className="fr-hint">
               No users found for "{searchQ}".{' '}
               <button className="fr-link-btn" onClick={() => setShowInvite(true)}>Invite them instead →</button>
@@ -216,7 +273,10 @@ export default function Friends() {
         {/* Incoming requests */}
         {data.incoming.length > 0 && (
           <div className="fr-section">
-            <h2 className="fr-section-title">📬 Friend Requests ({data.incoming.length})</h2>
+            <h2 className="fr-section-title">
+              <FaInbox style={{ color: '#f43f5e' }} /> Friend Requests
+              <span className="fr-section-count">{data.incoming.length}</span>
+            </h2>
             <div className="fr-list">
               {data.incoming.map(req => req.user && (
                 <div key={req.user._id} className="fr-item">
@@ -238,7 +298,10 @@ export default function Friends() {
         {/* Outgoing requests */}
         {data.outgoing.length > 0 && (
           <div className="fr-section">
-            <h2 className="fr-section-title">⏳ Sent Requests ({data.outgoing.length})</h2>
+            <h2 className="fr-section-title">
+              <FaHourglassHalf style={{ color: '#f59e0b' }} /> Sent Requests
+              <span className="fr-section-count">{data.outgoing.length}</span>
+            </h2>
             <div className="fr-list">
               {data.outgoing.map(req => req.user && (
                 <div key={req.user._id} className="fr-item">
@@ -257,7 +320,8 @@ export default function Friends() {
         {/* Friends */}
         <div className="fr-section">
           <h2 className="fr-section-title">
-            <FaHeart style={{ color: '#f43f5e' }} /> Your Friends ({data.friends.length})
+            <FaHeart style={{ color: '#f43f5e' }} /> Your Friends
+            <span className="fr-section-count">{data.friends.length}</span>
           </h2>
           {loading ? (
             <div className="fr-hint">Loading…</div>
@@ -272,28 +336,46 @@ export default function Friends() {
             </div>
           ) : (
             <div className="fr-grid">
-              {data.friends.map(f => (
-                <div key={f._id} className="fr-card" onClick={() => navigate(`/u/${f._id}`)}>
-                  <Initials name={f.name} size={56} />
-                  <div className="fr-card-name">{f.name}</div>
-                  <div className="fr-card-country"><FaMapMarkerAlt /> {f.country}</div>
-                  <div className="fr-card-actions">
-                    <button
-                      className="fr-btn-secondary small"
-                      onClick={e => { e.stopPropagation(); navigate(`/u/${f._id}`); }}
-                    >
-                      <FaImages /> View Wall
-                    </button>
-                    <button
-                      className="fr-btn-icon"
-                      onClick={e => { e.stopPropagation(); unfriend(f._id); }}
-                      title="Unfriend"
-                    >
-                      <FaTrash />
-                    </button>
+              {data.friends.map(f => {
+                const newPosts = newPostsByFriend[String(f._id)] || 0;
+                return (
+                  <div
+                    key={f._id}
+                    className={`fr-card ${newPosts > 0 ? 'has-new' : ''}`}
+                    onClick={() => navigate(`/u/${f._id}`)}
+                  >
+                    {newPosts > 0 && (
+                      <span
+                        className="fr-card-new-badge"
+                        aria-label={`${newPosts} new posts`}
+                      >
+                        {newPosts > 9 ? '9+' : newPosts} new
+                      </span>
+                    )}
+                    <Initials name={f.name} size={56} />
+                    <div className="fr-card-name">
+                      {f.name}
+                      {newPosts > 0 && <span className="fr-card-new-dot" aria-hidden="true" />}
+                    </div>
+                    <div className="fr-card-country"><FaMapMarkerAlt /> {f.country}</div>
+                    <div className="fr-card-actions">
+                      <button
+                        className="fr-btn-secondary small"
+                        onClick={e => { e.stopPropagation(); navigate(`/u/${f._id}`); }}
+                      >
+                        <FaImages /> View Wall
+                      </button>
+                      <button
+                        className="fr-btn-icon"
+                        onClick={e => { e.stopPropagation(); unfriend(f._id); }}
+                        title="Unfriend"
+                      >
+                        <FaTrash />
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>
