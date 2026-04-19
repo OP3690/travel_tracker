@@ -18,6 +18,43 @@ export function trackEvent(name, params = {}) {
   } catch (_) { /* never break the app because of analytics */ }
 }
 
+/** Walk up the tree to find the nearest meaningful "section" the click is in. */
+function findSection(el) {
+  let cur = el;
+  while (cur && cur !== document.body) {
+    const explicit = cur.getAttribute && cur.getAttribute('data-ga-section');
+    if (explicit) return explicit;
+    const tag = cur.tagName;
+    if (tag === 'HEADER') return 'header';
+    if (tag === 'FOOTER') return 'footer';
+    if (tag === 'NAV') return 'nav';
+    if (tag === 'ASIDE') return 'sidebar';
+    if (tag === 'DIALOG') return 'modal';
+    if (cur.getAttribute && cur.getAttribute('role') === 'dialog') return 'modal';
+    cur = cur.parentElement;
+  }
+  return 'main';
+}
+
+/** Build a short CSS-path-ish breadcrumb so you can locate the exact clicked element. */
+function buildPath(el) {
+  const parts = [];
+  let cur = el;
+  let depth = 0;
+  while (cur && cur !== document.body && depth < 4) {
+    let s = cur.tagName.toLowerCase();
+    if (cur.id) s += `#${cur.id}`;
+    else if (cur.className && typeof cur.className === 'string') {
+      const first = cur.className.trim().split(/\s+/)[0];
+      if (first) s += `.${first}`;
+    }
+    parts.unshift(s);
+    cur = cur.parentElement;
+    depth++;
+  }
+  return parts.join('>').slice(0, 160);
+}
+
 /** Pull a short, useful label out of a clicked element. */
 function describeElement(el) {
   if (!el) return {};
@@ -40,12 +77,15 @@ function describeElement(el) {
 
   return {
     element: el.tagName.toLowerCase(),
-    label: label.replace(/\s+/g, ' ').trim() || '(no label)',
-    category,
-    href,
+    click_label: label.replace(/\s+/g, ' ').trim() || '(no label)',
+    click_category: category,
+    click_section: findSection(el),
+    click_path: buildPath(el),
+    click_href: href,
     element_id: id,
     element_class: classes,
     page_path: window.location.pathname,
+    page_title: document.title,
   };
 }
 
