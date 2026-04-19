@@ -8,11 +8,14 @@
     <!-- Google Search Console verification -->
     <meta name="google-site-verification" content="_Xx76VY3bW82EStST08ikGjsr8Wdw0ejlVZyxvEX9No" />
 
-    <!-- Google tag (gtag.js) — GA4 analytics + Google Ads conversions -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QG1S9ETRH6"></script>
+    <!-- Google tag (gtag.js) — GA4 analytics + Google Ads conversions
+         The dataLayer + gtag() shim must be defined synchronously so analytics.js
+         can call window.gtag(...) safely. The 287 KiB GTM script itself is
+         deferred until idle/first-interaction so it doesn't block FCP/LCP. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
       gtag('js', new Date());
       gtag('config', 'G-QG1S9ETRH6');        // GA4 property
       gtag('config', 'AW-17984277661');      // Google Ads
@@ -21,8 +24,6 @@
       gtag('event', 'ads_conversion_About_Us_1', {});
 
       // Delayed-navigation helper for click conversions.
-      // Usage on any link/button:
-      //   <a href="/signup" onclick="return gtagSendEvent('/signup')">Sign up</a>
       window.gtagSendEvent = function (url) {
         var callback = function () {
           if (typeof url === 'string') window.location = url;
@@ -33,11 +34,50 @@
         });
         return false;
       };
+
+      (function(){
+        var loaded = false;
+        function loadGtm(){
+          if (loaded) return; loaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QG1S9ETRH6';
+          document.head.appendChild(s);
+        }
+        ['scroll','keydown','pointerdown','touchstart'].forEach(function(ev){
+          window.addEventListener(ev, loadGtm, { once: true, passive: true });
+        });
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadGtm, { timeout: 3000 });
+        } else {
+          setTimeout(loadGtm, 2500);
+        }
+      })();
     </script>
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6349841658473646"
-      crossorigin="anonymous"></script>
+    <!-- Google AdSense — loaded lazily after first interaction or idle to keep TBT low -->
+    <script>
+      (function(){
+        var loaded = false;
+        function loadAdSense(){
+          if (loaded) return; loaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.crossOrigin = 'anonymous';
+          s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6349841658473646';
+          document.head.appendChild(s);
+        }
+        // Whichever happens first: user interacts OR browser is idle 3s in
+        ['scroll','keydown','pointerdown','touchstart'].forEach(function(ev){
+          window.addEventListener(ev, loadAdSense, { once: true, passive: true });
+        });
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadAdSense, { timeout: 4000 });
+        } else {
+          setTimeout(loadAdSense, 3500);
+        }
+      })();
+    </script>
 
     <!-- Primary SEO -->
     <title>StampYourMap — Stamp Every Country You've Visited</title>
@@ -76,10 +116,18 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://stampyourmap.com" />
 
-    <!-- Fonts -->
+    <!-- Fonts — load async with media-trick so they don't block first paint -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" />
+    </noscript>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -104,7 +152,35 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <!-- Buy Me a Coffee Widget -->
-    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="WKbStURip" data-description="Support me on Buy me a coffee!" data-message="" data-color="#40DCA5" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+    <!-- Buy Me a Coffee Widget — lazy loaded so it doesn't block FCP/LCP -->
+    <script>
+      (function(){
+        var loaded = false;
+        function loadBMC(){
+          if (loaded) return; loaded = true;
+          var s = document.createElement('script');
+          s.setAttribute('data-name', 'BMC-Widget');
+          s.setAttribute('data-cfasync', 'false');
+          s.setAttribute('data-id', 'WKbStURip');
+          s.setAttribute('data-description', 'Support me on Buy me a coffee!');
+          s.setAttribute('data-message', '');
+          s.setAttribute('data-color', '#40DCA5');
+          s.setAttribute('data-position', 'Right');
+          s.setAttribute('data-x_margin', '18');
+          s.setAttribute('data-y_margin', '18');
+          s.async = true;
+          s.src = 'https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js';
+          document.body.appendChild(s);
+        }
+        ['scroll','keydown','pointerdown','touchstart'].forEach(function(ev){
+          window.addEventListener(ev, loadBMC, { once: true, passive: true });
+        });
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadBMC, { timeout: 5000 });
+        } else {
+          setTimeout(loadBMC, 4000);
+        }
+      })();
+    </script>
   </body>
 </html>
