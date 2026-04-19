@@ -85,6 +85,12 @@ export default function Signup() {
             <FaMountain className="auth-visual-icon" />
             <h2>Start Your Journey</h2>
             <p>195 countries. Infinite adventures. Your travel map starts now.</p>
+            <ul className="auth-visual-pills" aria-hidden="true">
+              <li>✓ Free forever</li>
+              <li>✓ 195 countries</li>
+              <li>✓ Memory wall</li>
+              <li>✓ Shareable cards</li>
+            </ul>
           </div>
         </div>
       </div>

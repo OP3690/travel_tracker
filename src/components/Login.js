@@ -42,6 +42,11 @@ export default function Login() {
             <FaMountain className="auth-visual-icon" />
             <h2>Welcome Back</h2>
             <p>Your maps are waiting. Log in and keep exploring.</p>
+            <ul className="auth-visual-pills" aria-hidden="true">
+              <li>✓ Pick up where you left off</li>
+              <li>✓ Memories synced</li>
+              <li>✓ Plans waiting</li>
+            </ul>
           </div>
         </div>
       </div>
