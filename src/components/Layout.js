@@ -14,17 +14,34 @@ function formatBadge(n) {
   return n > 9 ? '9+' : String(n);
 }
 
-// Full nav (shown in desktop sidebar + mobile More-drawer)
-const navItems = [
-  { path: '/dashboard',   icon: <FaMapMarkedAlt />, label: 'My Map' },
-  { path: '/worldmap',    icon: <FaGlobeAsia />,    label: 'World Map' },
-  { path: '/memories',    icon: <FaHeart />,        label: 'Memory Wall' },
-  { path: '/friends',     icon: <FaUserFriends />,  label: 'Friends' },
-  { path: '/discover',    icon: <FaCompass />,      label: 'Discover' },
-  { path: '/planner',     icon: <FaCalendarAlt />,  label: 'Trip Planner' },
-  { path: '/statistics',  icon: <FaChartBar />,     label: 'Statistics' },
-  { path: '/settings',    icon: <FaCog />,          label: 'Settings' },
+// Grouped nav — desktop sidebar renders the group headers; the mobile
+// More-drawer flattens everything back into one grid.
+const navGroups = [
+  {
+    heading: 'Your space',
+    items: [
+      { path: '/dashboard',  icon: <FaMapMarkedAlt />, label: 'My Map' },
+      { path: '/memories',   icon: <FaHeart />,        label: 'Memory Wall' },
+      { path: '/friends',    icon: <FaUserFriends />,  label: 'Friends' },
+    ],
+  },
+  {
+    heading: 'Explore',
+    items: [
+      { path: '/worldmap',   icon: <FaGlobeAsia />,    label: 'World Map' },
+      { path: '/discover',   icon: <FaCompass />,      label: 'Discover' },
+      { path: '/planner',    icon: <FaCalendarAlt />,  label: 'Trip Planner' },
+      { path: '/statistics', icon: <FaChartBar />,     label: 'Statistics' },
+    ],
+  },
+  {
+    heading: 'Account',
+    items: [
+      { path: '/settings',   icon: <FaCog />,          label: 'Settings' },
+    ],
+  },
 ];
+const navItems = navGroups.flatMap(g => g.items);
 
 // Primary 4 tabs shown on the mobile bottom tab bar (+ "More" as the 5th)
 const bottomTabs = [
@@ -131,42 +148,50 @@ export default function Layout({ children }) {
           </div>
 
           <nav className="sidebar-nav">
-            {navItems.map(item => {
-              const isFriends = item.path === '/friends';
-              const countBadge = isFriends ? formatBadge(friendRequestCount) : null;
-              return (
+            {navGroups.map(group => (
+              <div className="nav-group" key={group.heading}>
+                <div className="nav-group-heading">{group.heading}</div>
+                {group.items.map(item => {
+                  const isFriends = item.path === '/friends';
+                  const countBadge = isFriends ? formatBadge(friendRequestCount) : null;
+                  return (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      data-ga-label={`Sidebar: ${item.label}`}
+                      data-ga-category="nav"
+                    >
+                      <span className="nav-icon">
+                        {item.icon}
+                        {countBadge && <span className="nav-icon-dot" aria-hidden="true" />}
+                      </span>
+                      <span className="nav-label">{item.label}</span>
+                      {countBadge && (
+                        <span className="nav-count-badge" aria-label={`${friendRequestCount} pending friend requests`}>{countBadge}</span>
+                      )}
+                      {!countBadge && item.badge && <span className="nav-badge">{item.badge}</span>}
+                    </Link>
+                  );
+                })}
+              </div>
+            ))}
+            {isAdmin && (
+              <div className="nav-group">
+                <div className="nav-group-heading">Admin</div>
                 <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
+                  to="/admin"
+                  className={`nav-item nav-item-admin ${location.pathname === '/admin' ? 'active' : ''}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  data-ga-label={`Sidebar: ${item.label}`}
+                  data-ga-label="Sidebar: Admin"
                   data-ga-category="nav"
                 >
-                  <span className="nav-icon">
-                    {item.icon}
-                    {countBadge && <span className="nav-icon-dot" aria-hidden="true" />}
-                  </span>
-                  <span className="nav-label">{item.label}</span>
-                  {countBadge && (
-                    <span className="nav-count-badge" aria-label={`${friendRequestCount} pending friend requests`}>{countBadge}</span>
-                  )}
-                  {!countBadge && item.badge && <span className="nav-badge">{item.badge}</span>}
+                  <span className="nav-icon"><FaCrown /></span>
+                  <span className="nav-label">Admin Console</span>
+                  <span className="nav-admin-chip">ADMIN</span>
                 </Link>
-              );
-            })}
-            {isAdmin && (
-              <Link
-                to="/admin"
-                className={`nav-item nav-item-admin ${location.pathname === '/admin' ? 'active' : ''}`}
-                onClick={() => setMobileMenuOpen(false)}
-                data-ga-label="Sidebar: Admin"
-                data-ga-category="nav"
-              >
-                <span className="nav-icon"><FaCrown /></span>
-                <span className="nav-label">Admin</span>
-                <span className="nav-admin-chip">ADMIN</span>
-              </Link>
+              </div>
             )}
           </nav>
 
