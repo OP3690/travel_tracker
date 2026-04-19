@@ -185,7 +185,8 @@ export default function Memories() {
             <span className="brand-pill brand-ig">Instagram</span>{' '}&amp;{' '}
             <span className="brand-pill brand-fb">Facebook</span>.
           </div>
-          <button className="mem-nudge-cta" onClick={() => setShowModal(true)}>
+          <button className="mem-nudge-cta" onClick={() => setShowModal(true)}
+            data-ga-label="Memories: Nudge New Memory" data-ga-category="memory">
             <FaPlus /> New Memory
           </button>
         </div>
@@ -227,17 +228,20 @@ export default function Memories() {
 
         {/* Filter chips — All / Domestic / International + country-specific */}
         {memories.length > 0 && (
-          <div className="mem-filters">
-            <button className={`mem-filter-chip ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>
+          <div className="mem-filters" data-ga-section="memory-filters">
+            <button className={`mem-filter-chip ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}
+              data-ga-label="Memory filter: All" data-ga-category="filter">
               All <span className="mfc-count">{memories.length}</span>
             </button>
             {domesticMemories.length > 0 && (
-              <button className={`mem-filter-chip ${filter === 'domestic' ? 'active' : ''}`} onClick={() => setFilter('domestic')}>
+              <button className={`mem-filter-chip ${filter === 'domestic' ? 'active' : ''}`} onClick={() => setFilter('domestic')}
+                data-ga-label="Memory filter: Domestic" data-ga-category="filter">
                 <FaHome /> Domestic <span className="mfc-count">{domesticMemories.length}</span>
               </button>
             )}
             {internationalMemories.length > 0 && (
-              <button className={`mem-filter-chip ${filter === 'international' ? 'active' : ''}`} onClick={() => setFilter('international')}>
+              <button className={`mem-filter-chip ${filter === 'international' ? 'active' : ''}`} onClick={() => setFilter('international')}
+                data-ga-label="Memory filter: International" data-ga-category="filter">
                 <FaPlane /> International <span className="mfc-count">{internationalMemories.length}</span>
               </button>
             )}
@@ -247,6 +251,8 @@ export default function Memories() {
                 key={c}
                 className={`mem-filter-chip ${filter === c ? 'active' : ''}`}
                 onClick={() => setFilter(c)}
+                data-ga-label={`Memory filter: ${c}`}
+                data-ga-category="filter"
               >
                 {flagFor(c)} {c}
               </button>
@@ -265,7 +271,8 @@ export default function Memories() {
             <h3>{memories.length === 0 ? 'No memories yet' : 'No memories for this filter'}</h3>
             <p>{memories.length === 0 ? 'Capture your first travel moment — photos, stories, the feeling of being there.' : 'Try another country or clear the filter.'}</p>
             {memories.length === 0 && (
-              <button className="mem-add-btn" onClick={() => setShowModal(true)}>
+              <button className="mem-add-btn" onClick={() => setShowModal(true)}
+                data-ga-label="Memories: Add first memory" data-ga-category="memory">
                 <FaPlus /> Add Your First Memory
               </button>
             )}
@@ -294,12 +301,15 @@ export default function Memories() {
                     <p className="mem-card-story">{mem.story.slice(0, 140)}{mem.story.length > 140 ? '…' : ''}</p>
                   )}
                   <div className="mem-card-actions">
-                    <button className="mca-btn primary wide" onClick={() => setSharing(mem)}>
+                    <button className="mca-btn primary wide" onClick={() => setSharing(mem)}
+                      data-ga-label="Memory card: Get Your Card" data-ga-event="share_card_open" data-ga-category="share">
                       <FaShareAlt /> Get Your Card
                     </button>
                     <div className="mem-card-subactions">
-                      <button className="mca-btn icon-btn" onClick={() => openEdit(mem)} title="Edit memory" aria-label="Edit"><FaEdit /></button>
-                      <button className="mca-btn icon-btn danger" onClick={() => setDeleting(mem)} title="Delete memory" aria-label="Delete"><FaTrash /></button>
+                      <button className="mca-btn icon-btn" onClick={() => openEdit(mem)} title="Edit memory" aria-label="Edit"
+                        data-ga-label="Memory card: Edit" data-ga-category="memory"><FaEdit /></button>
+                      <button className="mca-btn icon-btn danger" onClick={() => setDeleting(mem)} title="Delete memory" aria-label="Delete"
+                        data-ga-label="Memory card: Delete" data-ga-category="memory"><FaTrash /></button>
                     </div>
                   </div>
                 </div>

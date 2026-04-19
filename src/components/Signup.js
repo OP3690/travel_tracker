@@ -223,13 +223,14 @@ export default function Signup() {
               </div>
             )}
 
-            <button type="submit" className="auth-submit" disabled={loading}>
+            <button type="submit" className="auth-submit" disabled={loading}
+              data-ga-label="Signup: Submit" data-ga-event="signup_submit" data-ga-category="auth">
               {loading ? <span className="auth-spinner" /> : <>Create Account <FaArrowRight /></>}
             </button>
           </form>
 
           <p className="auth-switch">
-            Already have an account? <Link to="/login">Log in</Link>
+            Already have an account? <Link to="/login" data-ga-label="Signup: Switch to login">Log in</Link>
           </p>
         </div>
       </div>

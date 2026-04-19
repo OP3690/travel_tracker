@@ -245,7 +245,8 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
               or post it straight to your social media.
             </p>
           </div>
-          <button className="smp-close" onClick={onClose} aria-label="Close"><FaTimes /></button>
+          <button className="smp-close" onClick={onClose} aria-label="Close"
+            data-ga-label="Share modal: close" data-ga-category="share"><FaTimes /></button>
         </div>
 
         <div className="smp-body">
@@ -379,6 +380,8 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
                     data-template={t.id}
                     onClick={() => setTemplate(t.id)}
                     title={t.name}
+                    data-ga-label={`Share template: ${t.name}`}
+                    data-ga-category="share"
                   >
                     <span
                       className="smp-template-swatch"
@@ -412,6 +415,9 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
               className="smp-btn-primary"
               onClick={downloadPng}
               disabled={generating}
+              data-ga-label="Share: Download HD PNG"
+              data-ga-event="share_card_download"
+              data-ga-category="share"
             >
               <FaDownload /> {generating ? 'Generating HD image…' : 'Download HD (PNG)'}
             </button>
@@ -423,23 +429,28 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
                 <span className="smp-share-title">Share on social</span>
                 <span className="smp-share-divider" />
               </div>
-              <button className="smp-share-copy-big" onClick={copyCaption}>
+              <button className="smp-share-copy-big" onClick={copyCaption}
+                data-ga-label="Share: Copy caption" data-ga-event="share_copy_caption" data-ga-category="share">
                 <FaCopy /> Copy caption &amp; link
               </button>
               <div className="smp-share-row">
-                <button className="smp-share-tile" data-plat="ig" onClick={downloadPng} title="Download HD, then upload in Instagram">
+                <button className="smp-share-tile" data-plat="ig" onClick={downloadPng} title="Download HD, then upload in Instagram"
+                  data-ga-label="Share: Instagram" data-ga-event="share_to" data-ga-category="share">
                   <span className="smp-share-tile-icon"><FaInstagram /></span>
                   <span className="smp-share-tile-label">Instagram</span>
                 </button>
-                <button className="smp-share-tile" data-plat="fb" onClick={() => openShare('facebook')} title="Share this page on Facebook">
+                <button className="smp-share-tile" data-plat="fb" onClick={() => openShare('facebook')} title="Share this page on Facebook"
+                  data-ga-label="Share: Facebook" data-ga-event="share_to" data-ga-category="share">
                   <span className="smp-share-tile-icon"><FaFacebook /></span>
                   <span className="smp-share-tile-label">Facebook</span>
                 </button>
-                <button className="smp-share-tile" data-plat="pin" onClick={() => openShare('pinterest')} title="Pin on Pinterest">
+                <button className="smp-share-tile" data-plat="pin" onClick={() => openShare('pinterest')} title="Pin on Pinterest"
+                  data-ga-label="Share: Pinterest" data-ga-event="share_to" data-ga-category="share">
                   <span className="smp-share-tile-icon"><FaPinterest /></span>
                   <span className="smp-share-tile-label">Pinterest</span>
                 </button>
-                <button className="smp-share-tile" data-plat="sc" onClick={downloadPng} title="Download HD, then upload in Snapchat">
+                <button className="smp-share-tile" data-plat="sc" onClick={downloadPng} title="Download HD, then upload in Snapchat"
+                  data-ga-label="Share: Snapchat" data-ga-event="share_to" data-ga-category="share">
                   <span className="smp-share-tile-icon"><FaSnapchat /></span>
                   <span className="smp-share-tile-label">Snapchat</span>
                 </button>

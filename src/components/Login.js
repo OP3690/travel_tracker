@@ -98,12 +98,14 @@ export default function Login() {
             </div>
 
             <div style={{ textAlign: 'right', marginTop: '-0.5rem', marginBottom: '0.5rem' }}>
-              <Link to="/forgot-password" style={{ fontSize: '0.82rem', color: 'var(--primary-400)', textDecoration: 'none', fontWeight: 600 }}>
+              <Link to="/forgot-password" style={{ fontSize: '0.82rem', color: 'var(--primary-400)', textDecoration: 'none', fontWeight: 600 }}
+                data-ga-label="Login: Forgot password">
                 Forgot password?
               </Link>
             </div>
 
-            <button type="submit" className="auth-submit" disabled={loading}>
+            <button type="submit" className="auth-submit" disabled={loading}
+              data-ga-label="Login: Submit" data-ga-event="login_submit" data-ga-category="auth">
               {loading ? (
                 <span className="auth-spinner" />
               ) : (
@@ -113,7 +115,7 @@ export default function Login() {
           </form>
 
           <p className="auth-switch">
-            Don't have an account? <Link to="/signup">Create one</Link>
+            Don't have an account? <Link to="/signup" data-ga-label="Login: Switch to signup">Create one</Link>
           </p>
         </div>
       </div>

@@ -70,8 +70,9 @@ export default function Layout({ children }) {
   return (
     <div className="app-layout">
       {/* ============ MOBILE TOP BAR ============ */}
-      <header className="m-topbar">
-        <Link to="/dashboard" className="m-topbar-brand" aria-label="Home">
+      <header className="m-topbar" data-ga-section="topbar">
+        <Link to="/dashboard" className="m-topbar-brand" aria-label="Home"
+          data-ga-label="Topbar: brand home">
           <FaMountain />
           <span>StampYourMap</span>
         </Link>
@@ -80,6 +81,7 @@ export default function Layout({ children }) {
           className="m-topbar-btn"
           onClick={() => setMobileMenuOpen(true)}
           aria-label="Menu"
+          data-ga-label="Topbar: open menu"
         >
           <div className="m-topbar-avatar">{initials}</div>
         </button>
@@ -88,7 +90,7 @@ export default function Layout({ children }) {
       {/* ============ DESKTOP SIDEBAR ============ */}
       {mobileMenuOpen && <div className="sidebar-overlay" onClick={() => setMobileMenuOpen(false)} />}
 
-      <aside className={`sidebar ${mobileMenuOpen ? 'open' : ''}`}>
+      <aside className={`sidebar ${mobileMenuOpen ? 'open' : ''}`} data-ga-section="sidebar">
         <div className="sidebar-inner">
           <div className="sidebar-logo">
             <FaMountain className="sidebar-logo-icon" />
@@ -102,6 +104,8 @@ export default function Layout({ children }) {
                 to={item.path}
                 className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
+                data-ga-label={`Sidebar: ${item.label}`}
+                data-ga-category="nav"
               >
                 <span className="nav-icon">{item.icon}</span>
                 <span className="nav-label">{item.label}</span>
@@ -113,6 +117,8 @@ export default function Layout({ children }) {
                 to="/admin"
                 className={`nav-item nav-item-admin ${location.pathname === '/admin' ? 'active' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
+                data-ga-label="Sidebar: Admin"
+                data-ga-category="nav"
               >
                 <span className="nav-icon"><FaCrown /></span>
                 <span className="nav-label">Admin</span>
@@ -129,7 +135,8 @@ export default function Layout({ children }) {
                 <div className="sidebar-user-role">Explorer</div>
               </div>
             </div>
-            <button className="sidebar-logout" onClick={handleLogout}>
+            <button className="sidebar-logout" onClick={handleLogout}
+              data-ga-label="Sidebar: Log out" data-ga-event="logout">
               <FaSignOutAlt />
               <span>Log Out</span>
             </button>
@@ -143,7 +150,7 @@ export default function Layout({ children }) {
       </main>
 
       {/* ============ MOBILE BOTTOM TAB BAR ============ */}
-      <nav className="m-tabbar" aria-label="Primary">
+      <nav className="m-tabbar" aria-label="Primary" data-ga-section="tabbar">
         {bottomTabs.map(tab => {
           const active = location.pathname === tab.path;
           return (
@@ -152,6 +159,8 @@ export default function Layout({ children }) {
               to={tab.path}
               className={`m-tab ${active ? 'active' : ''}`}
               aria-current={active ? 'page' : undefined}
+              data-ga-label={`Tabbar: ${tab.label}`}
+              data-ga-category="nav"
             >
               <span className="m-tab-icon">{tab.icon}</span>
               <span className="m-tab-label">{tab.label}</span>
@@ -162,6 +171,8 @@ export default function Layout({ children }) {
           className={`m-tab ${moreActive || moreOpen ? 'active' : ''}`}
           onClick={() => setMoreOpen(true)}
           aria-label="More"
+          data-ga-label="Tabbar: More"
+          data-ga-category="nav"
         >
           <span className="m-tab-icon"><FaEllipsisH /></span>
           <span className="m-tab-label">More</span>
@@ -170,7 +181,7 @@ export default function Layout({ children }) {
 
       {/* ============ MORE BOTTOM-SHEET DRAWER ============ */}
       {moreOpen && (
-        <div className="m-sheet-overlay" onClick={() => setMoreOpen(false)}>
+        <div className="m-sheet-overlay" onClick={() => setMoreOpen(false)} data-ga-section="more-sheet">
           <div className="m-sheet" onClick={e => e.stopPropagation()}>
             <div className="m-sheet-handle" />
             <div className="m-sheet-header">
@@ -181,7 +192,8 @@ export default function Layout({ children }) {
                   <div className="m-sheet-role">Explorer</div>
                 </div>
               </div>
-              <button className="m-sheet-close" onClick={() => setMoreOpen(false)} aria-label="Close">
+              <button className="m-sheet-close" onClick={() => setMoreOpen(false)} aria-label="Close"
+                data-ga-label="More sheet: close">
                 <FaTimes />
               </button>
             </div>
@@ -198,13 +210,16 @@ export default function Layout({ children }) {
                   to={item.path}
                   className={`m-sheet-tile ${item.admin ? 'admin' : ''}`}
                   onClick={() => setMoreOpen(false)}
+                  data-ga-label={`More sheet: ${item.label}`}
+                  data-ga-category="nav"
                 >
                   <span className="m-sheet-tile-icon">{item.icon}</span>
                   <span className="m-sheet-tile-label">{item.label}</span>
                 </Link>
               ))}
             </div>
-            <button className="m-sheet-logout" onClick={handleLogout}>
+            <button className="m-sheet-logout" onClick={handleLogout}
+              data-ga-label="More sheet: Log out" data-ga-event="logout">
               <FaSignOutAlt /> Log out
             </button>
           </div>

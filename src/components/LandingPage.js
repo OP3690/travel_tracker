@@ -136,7 +136,8 @@ function FaqItem({ q, a, defaultOpen }) {
   const [open, setOpen] = useState(!!defaultOpen);
   return (
     <div className={`faq-item ${open ? 'open' : ''}`}>
-      <button className="faq-q" onClick={() => setOpen(o => !o)} aria-expanded={open}>
+      <button className="faq-q" onClick={() => setOpen(o => !o)} aria-expanded={open}
+        data-ga-label={`FAQ: ${typeof q === 'string' ? q : 'item'}`} data-ga-category="faq">
         <span>{q}</span>
         <span className="faq-chevron">{open ? '−' : '+'}</span>
       </button>
@@ -304,21 +305,24 @@ export default function LandingPage() {
     <div className="landing">
       {/* NAV */}
       <header>
-        <nav className={`landing-nav ${scrollY > 50 ? 'scrolled' : ''}`} aria-label="Primary">
+        <nav className={`landing-nav ${scrollY > 50 ? 'scrolled' : ''}`} aria-label="Primary" data-ga-section="landing-nav">
           <div className="landing-nav-inner">
-            <a href="/" className="landing-logo" aria-label="StampYourMap home">
+            <a href="/" className="landing-logo" aria-label="StampYourMap home"
+              data-ga-label="Landing nav: logo home">
               <FaMountain className="landing-logo-icon" />
               <span>StampYourMap</span>
             </a>
             <div className="landing-nav-links">
-              <a href="#features" className="nav-link-text">Features</a>
-              <a href="#how" className="nav-link-text">How it works</a>
-              <a href="#reviews" className="nav-link-text">Reviews</a>
-              <a href="#faq" className="nav-link-text">FAQ</a>
+              <a href="#features" className="nav-link-text" data-ga-label="Landing nav: Features">Features</a>
+              <a href="#how" className="nav-link-text" data-ga-label="Landing nav: How it works">How it works</a>
+              <a href="#reviews" className="nav-link-text" data-ga-label="Landing nav: Reviews">Reviews</a>
+              <a href="#faq" className="nav-link-text" data-ga-label="Landing nav: FAQ">FAQ</a>
             </div>
             <div className="landing-nav-actions">
-              <button className="nav-btn-ghost" onClick={() => navigate('/login')}>Log in</button>
-              <button className="nav-btn-primary" onClick={() => navigate('/signup')}>
+              <button className="nav-btn-ghost" onClick={() => navigate('/login')}
+                data-ga-label="Landing nav: Log in" data-ga-category="cta">Log in</button>
+              <button className="nav-btn-primary" onClick={() => navigate('/signup')}
+                data-ga-label="Landing nav: Start stamping" data-ga-category="cta">
                 Start stamping <FaArrowRight />
               </button>
             </div>
@@ -349,11 +353,13 @@ export default function LandingPage() {
               plan adventures with friends, and download
               {' '}<strong>Instagram-ready travel cards</strong> in one tap.
             </p>
-            <div className="hero-actions">
-              <button className="hero-btn-primary" onClick={() => navigate('/signup')}>
+            <div className="hero-actions" data-ga-section="hero">
+              <button className="hero-btn-primary" onClick={() => navigate('/signup')}
+                data-ga-label="Hero: Stamp your first country" data-ga-category="cta">
                 <FaSuitcaseRolling /> Stamp your first country
               </button>
-              <a href="#features" className="hero-btn-secondary">
+              <a href="#features" className="hero-btn-secondary"
+                data-ga-label="Hero: See how it works" data-ga-category="cta">
                 See how it works <FaArrowRight />
               </a>
             </div>
@@ -510,7 +516,8 @@ export default function LandingPage() {
               Join thousands of travelers turning scattered trips into a beautiful, shareable story.
               Free forever. 195 countries. Takes 30 seconds.
             </p>
-            <button className="hero-btn-primary cta-btn" onClick={() => navigate('/signup')}>
+            <button className="hero-btn-primary cta-btn" onClick={() => navigate('/signup')}
+              data-ga-label="Bottom CTA: Start stamping" data-ga-category="cta">
               Start stamping — it's free forever <FaArrowRight />
             </button>
             <div className="cta-reassure">
@@ -547,17 +554,18 @@ export default function LandingPage() {
       </main>
 
       {/* FOOTER */}
-      <footer className="landing-footer">
+      <footer className="landing-footer" data-ga-section="footer">
         <div className="footer-inner">
           <div className="landing-logo"><FaMountain className="landing-logo-icon" /><span>StampYourMap</span></div>
           <div className="footer-links">
-            <a href="#features">Features</a>
-            <a href="#how">How it works</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#faq">FAQ</a>
-            <a href="#about">About</a>
-            <a href="mailto:support@stampyourmap.com">Contact</a>
-            <span onClick={() => navigate('/login')} role="button" tabIndex={0}>Log in</span>
+            <a href="#features" data-ga-label="Footer: Features">Features</a>
+            <a href="#how" data-ga-label="Footer: How it works">How it works</a>
+            <a href="#reviews" data-ga-label="Footer: Reviews">Reviews</a>
+            <a href="#faq" data-ga-label="Footer: FAQ">FAQ</a>
+            <a href="#about" data-ga-label="Footer: About">About</a>
+            <a href="mailto:support@stampyourmap.com" data-ga-label="Footer: Contact email">Contact</a>
+            <span onClick={() => navigate('/login')} role="button" tabIndex={0}
+              data-ga-label="Footer: Log in">Log in</span>
           </div>
           <p>
             &copy; {new Date().getFullYear()} StampYourMap ·{' '}
