@@ -16,6 +16,7 @@ import FriendProfile from './components/FriendProfile';
 import ForgotPassword from './components/ForgotPassword';
 import Admin from './components/Admin';
 import InstallAppButton from './components/InstallAppButton';
+import { initGlobalClickTracking, initRouteTracking } from './utils/analytics';
 import './App.css';
 import './mobile.css';
 
@@ -23,6 +24,8 @@ function App() {
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+    initGlobalClickTracking();
+    initRouteTracking();
   }, []);
   return (
     <BrowserRouter>

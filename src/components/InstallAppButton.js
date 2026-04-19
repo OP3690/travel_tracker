@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaDownload, FaTimes, FaMobileAlt, FaShareSquare, FaPlusSquare } from 'react-icons/fa';
+import { trackEvent } from '../utils/analytics';
 import './InstallAppButton.css';
 
 /**
@@ -30,6 +31,7 @@ export default function InstallAppButton({ variant = 'floating' }) {
       e.preventDefault();
       setDeferred(e);
       setVisible(true);
+      trackEvent('install_prompt_shown', { platform: 'native' });
     };
 
     window.addEventListener('beforeinstallprompt', onBeforeInstall);
@@ -38,27 +40,38 @@ export default function InstallAppButton({ variant = 'floating' }) {
     const ua = window.navigator.userAgent.toLowerCase();
     const isIOS = /iphone|ipad|ipod/.test(ua);
     const isSafari = /safari/.test(ua) && !/crios|fxios|chrome/.test(ua);
-    if (isIOS && isSafari) setVisible(true);
+    if (isIOS && isSafari) {
+      setVisible(true);
+      trackEvent('install_prompt_shown', { platform: 'ios' });
+    }
 
-    window.addEventListener('appinstalled', () => setVisible(false));
+    const onInstalled = () => {
+      trackEvent('app_installed', {});
+      setVisible(false);
+    };
+    window.addEventListener('appinstalled', onInstalled);
 
     return () => window.removeEventListener('beforeinstallprompt', onBeforeInstall);
   }, []);
 
   const handleInstall = async () => {
+    trackEvent('install_click', { platform: deferred ? 'native' : 'ios' });
     if (deferred) {
       deferred.prompt();
       const { outcome } = await deferred.userChoice;
+      trackEvent('install_choice', { outcome });
       if (outcome === 'accepted') setVisible(false);
       setDeferred(null);
     } else {
       // iOS fallback
       setShowIosSheet(true);
+      trackEvent('install_ios_sheet_shown', {});
     }
   };
 
   const dismiss = () => {
     localStorage.setItem('sym-install-dismissed', String(Date.now()));
+    trackEvent('install_dismissed', {});
     setVisible(false);
   };
 
@@ -67,11 +80,23 @@ export default function InstallAppButton({ variant = 'floating' }) {
   return (
     <>
       <div className={`install-app ${variant}`}>
-        <button className="install-app-btn" onClick={handleInstall}>
+        <button
+          className="install-app-btn"
+          onClick={handleInstall}
+          data-ga-event="install_click"
+          data-ga-label="Install App (floating)"
+          data-ga-category="install"
+        >
           <FaDownload /> <span>Install App</span>
         </button>
         {variant === 'floating' && (
-          <button className="install-app-dismiss" onClick={dismiss} aria-label="Dismiss">
+          <button
+            className="install-app-dismiss"
+            onClick={dismiss}
+            aria-label="Dismiss"
+            data-ga-event="install_dismissed"
+            data-ga-category="install"
+          >
             <FaTimes />
           </button>
         )}
