@@ -500,14 +500,16 @@ export default function LandingPage() {
               <FaPlane className="hero-badge-icon" /> The free travel tracker for 195 countries
             </div>
             <h1 className="hero-title" id="hero-heading">
-              Stamp every country you've visited.
-              <br />
-              <span className="hero-gradient-text">Share the story.</span>
+              Stamp every country you've visited on an
+              {' '}<span className="hero-gradient-text">Interactive World Map.</span>
             </h1>
             <p className="hero-subtitle">
-              Your <strong>free travel tracker</strong> for all 195 countries.
-              Pin every place you've been, capture memories with photos and stories,
-              plan adventures with friends, and download
+              Your <strong>free travel tracker</strong> for all 195 countries and
+              {' '}<strong>5,000+ states, regions &amp; cities</strong>.
+              Pin places you've visited — <strong>domestically or internationally</strong> —
+              on a beautiful interactive map, capture
+              {' '}<strong>travel memories</strong> with photos and stories,
+              plan trips with friends, and download
               {' '}<strong>Instagram-ready travel cards</strong> in one tap.
             </p>
             <div className="hero-actions" data-ga-section="hero">
