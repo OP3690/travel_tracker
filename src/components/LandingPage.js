@@ -500,8 +500,8 @@ export default function LandingPage() {
               <FaPlane className="hero-badge-icon" /> The free travel tracker for 195 countries
             </div>
             <h1 className="hero-title" id="hero-heading">
-              Stamp every country you've visited on an
-              {' '}<span className="hero-gradient-text">Interactive World Map.</span>
+              Stamp every country you've visited<br />
+              <span className="hero-gradient-text">on an Interactive World Map.</span>
             </h1>
             <p className="hero-subtitle">
               Your <strong>free travel tracker</strong> for all 195 countries and

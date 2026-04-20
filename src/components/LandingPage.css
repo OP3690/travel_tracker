@@ -74,7 +74,21 @@
 .hero-title {
   font-size: 3.6rem; font-weight: 900; line-height: 1.04;
   color: var(--text-bright); margin-bottom: 1.2rem; letter-spacing: -0.035em;
-  text-wrap: balance;
+  /* Extend into the whitespace on the right of the hero column.
+     The explicit <br> in markup enforces the 2-line break we want;
+     each line should then fill its full width instead of auto-balancing
+     to a narrower box. */
+  max-width: none;
+  text-wrap: wrap;
+  width: max-content;
+  max-width: 100%;
+}
+.hero-title .hero-gradient-text {
+  display: inline-block;
+}
+@media (max-width: 520px) {
+  /* On very small screens let the second line wrap naturally */
+  .hero-title { width: 100%; }
 }
 
 .hero-gradient-text {
