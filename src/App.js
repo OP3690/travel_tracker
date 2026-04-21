@@ -26,6 +26,10 @@ const Admin           = lazy(() => import('./components/Admin'));
 const BlogIndex                 = lazy(() => import('./components/Blog/BlogIndex'));
 const Route66UltimateGuide      = lazy(() => import('./components/Blog/posts/Route66UltimateGuide'));
 const UsStatesRanked2026        = lazy(() => import('./components/Blog/posts/UsStatesRanked2026'));
+const MostVisitedNationalParks  = lazy(() => import('./components/Blog/posts/MostVisitedNationalParks2026'));
+const PacificCoastHighway       = lazy(() => import('./components/Blog/posts/PacificCoastHighway2026'));
+const AmericanTravelTrends      = lazy(() => import('./components/Blog/posts/AmericanTravelTrends2026'));
+const UsaBucketList100          = lazy(() => import('./components/Blog/posts/UsaBucketList100'));
 const About                     = lazy(() => import('./components/About'));
 const Contact                   = lazy(() => import('./components/Contact'));
 
@@ -102,6 +106,10 @@ function App() {
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/route-66-ultimate-guide-2026" element={<Route66UltimateGuide />} />
           <Route path="/blog/us-states-ranked-for-travelers-2026" element={<UsStatesRanked2026 />} />
+          <Route path="/blog/most-visited-national-parks-2026" element={<MostVisitedNationalParks />} />
+          <Route path="/blog/pacific-coast-highway-ultimate-guide-2026" element={<PacificCoastHighway />} />
+          <Route path="/blog/american-travel-trends-2026" element={<AmericanTravelTrends />} />
+          <Route path="/blog/usa-bucket-list-100-places" element={<UsaBucketList100 />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
