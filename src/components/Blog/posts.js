@@ -2,6 +2,18 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'us-states-ranked-for-travelers-2026',
+    title: "All 50 US States Ranked for Travelers in 2026: A Data-Driven Bucket-List Guide",
+    description:
+      "The StampYourMap team scored all 50 US states across six dimensions — cost, nature, culture, food, bucket-list iconicity and ease-of-travel — to produce the definitive 2026 ranking. Full table, interactive map, best-by-category picks, and the underrated sleepers everyone overlooks.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-21',
+    readMinutes: 14,
+    category: 'USA Travel',
+    tags: ['US States', 'Bucket List', 'Travel Rankings', 'USA', 'Trip Planning'],
+    heroEmoji: '🗽',
+  },
+  {
     slug: 'route-66-ultimate-guide-2026',
     title: "Route 66 Revival: The Ultimate 2,448-Mile American Road Trip Guide (2026)",
     description:

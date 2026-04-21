@@ -25,6 +25,7 @@ const ForgotPassword  = lazy(() => import('./components/ForgotPassword'));
 const Admin           = lazy(() => import('./components/Admin'));
 const BlogIndex                 = lazy(() => import('./components/Blog/BlogIndex'));
 const Route66UltimateGuide      = lazy(() => import('./components/Blog/posts/Route66UltimateGuide'));
+const UsStatesRanked2026        = lazy(() => import('./components/Blog/posts/UsStatesRanked2026'));
 
 function RouteFallback() {
   return (
@@ -98,6 +99,7 @@ function App() {
           } />
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/route-66-ultimate-guide-2026" element={<Route66UltimateGuide />} />
+          <Route path="/blog/us-states-ranked-for-travelers-2026" element={<UsStatesRanked2026 />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
