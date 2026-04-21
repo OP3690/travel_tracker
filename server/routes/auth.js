@@ -17,10 +17,7 @@ const DEMO_MEMORY = {
   region: 'Arizona',
   story: 'The Grand Canyon at sunrise took my breath away — thousand-colored cliffs for as far as the eye could see. Then the desert stars at night, the red-rock hikes around Sedona, a dusk drive along Route 66. Arizona delivered everything I hoped for and a few surprises I didn\'t see coming. This is just the start — a placeholder memory to show what your Memory Wall can look like. Replace it with your own!',
   photos: [
-    'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1502375751959-7bbbbdd96d56?w=1200&q=80&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1551799517-eb8f03cb5e6a?w=1200&q=80&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1521575107034-e0fa0b594529?w=1200&q=80&auto=format&fit=crop',
+    '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
   ],
   dateVisited: new Date('2025-10-15'),
   visibility: 'public',
@@ -112,6 +109,14 @@ router.post('/login', async (req, res) => {
 
     user.lastLogin = new Date();
     user.loginCount = (user.loginCount || 0) + 1;
+
+    // Repoint legacy demo memories (remote Unsplash URLs, sometimes 404) to the bundled local image
+    const demoMem = (user.memories || []).find(m => m.isDemo);
+    if (demoMem && (demoMem.photos || []).some(p => typeof p === 'string' && !p.startsWith('/'))) {
+      demoMem.photos = [...DEMO_MEMORY.photos];
+      user.markModified('memories');
+    }
+
     await user.save();
 
     const token = jwt.sign(

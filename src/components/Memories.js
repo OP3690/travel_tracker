@@ -25,31 +25,44 @@ function formatDate(d) {
 // photo every ~3.5s. Single-photo cards stay static.
 function CardPhoto({ photos, title, onClick, staggerIndex = 0 }) {
   const [idx, setIdx] = useState(0);
+  const [brokenSrcs, setBrokenSrcs] = useState(() => new Set());
+  const validPhotos = (photos || []).filter(src => !brokenSrcs.has(src));
+
   useEffect(() => {
-    if (!photos || photos.length <= 1) return;
+    if (validPhotos.length <= 1) return;
     // Offset each card's cycle by 600ms so the grid doesn't flip in sync
     const start = setTimeout(() => {
-      setIdx(i => (i + 1) % photos.length);
+      setIdx(i => (i + 1) % validPhotos.length);
     }, 3500 + (staggerIndex * 600));
     return () => clearTimeout(start);
-  }, [photos, idx, staggerIndex]);
+  }, [validPhotos.length, idx, staggerIndex]);
 
-  if (!photos || photos.length === 0) {
+  // Reset idx if a photo being marked broken pushed it out of range
+  useEffect(() => {
+    if (idx >= validPhotos.length && validPhotos.length > 0) setIdx(0);
+  }, [idx, validPhotos.length]);
+
+  if (validPhotos.length === 0) {
     return <div className="mem-card-no-photo" onClick={onClick}>📝</div>;
   }
   return (
     <>
-      {photos.map((src, i) => (
+      {validPhotos.map((src, i) => (
         <img
-          key={i}
+          key={src}
           src={src}
           alt={title || ''}
           className={`mem-cp-img ${i === idx ? 'active' : ''}`}
+          onError={() => setBrokenSrcs(prev => {
+            const next = new Set(prev);
+            next.add(src);
+            return next;
+          })}
         />
       ))}
-      {photos.length > 1 && (
+      {validPhotos.length > 1 && (
         <div className="mem-cp-dots">
-          {photos.map((_, i) => (
+          {validPhotos.map((_, i) => (
             <span key={i} className={`mem-cp-dot ${i === idx ? 'active' : ''}`} />
           ))}
         </div>
