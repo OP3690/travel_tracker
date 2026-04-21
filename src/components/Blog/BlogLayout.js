@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { trackEvent } from '../../utils/analytics';
 import './Blog.css';
 
 const SITE_ORIGIN = 'https://stampyourmap.com';
@@ -104,7 +105,7 @@ export function usePageMeta({
 }
 
 // Blog-post-specific SEO — same meta handling plus an Article JSON-LD
-// schema for Google rich results.
+// schema for Google rich results, plus analytics (blog_post_view + scroll-depth milestones).
 export function useBlogSEO({
   title,
   description,
@@ -113,6 +114,9 @@ export function useBlogSEO({
   datePublished,
   author = 'StampYourMap',
   keywords,
+  slug,
+  category,
+  readMinutes,
 }) {
   const absUrl = url && url.startsWith('http') ? url : `${SITE_ORIGIN}${url || ''}`;
   const absImage = image && image.startsWith('http') ? image : `${SITE_ORIGIN}${image || ''}`;
@@ -142,6 +146,65 @@ export function useBlogSEO({
       mainEntityOfPage: { '@type': 'WebPage', '@id': absUrl },
     },
   });
+  // Fire `blog_post_view` + scroll-depth milestones (25 / 50 / 75 / 100).
+  // Derives slug from url path if not explicitly provided.
+  const derivedSlug = slug || (url ? url.replace(/^\/blog\//, '').replace(/\/+$/, '') : '');
+  useBlogAnalytics({
+    slug: derivedSlug,
+    title,
+    category,
+    readMinutes,
+  });
+}
+
+// Fires `blog_post_view` on mount, then tracks scroll depth and fires
+// `blog_scroll_depth` at 25 / 50 / 75% and `blog_read_complete` at ≥90%.
+// One-shot per milestone — we don't spam events on every scroll tick.
+export function useBlogAnalytics({ slug, title, category, readMinutes }) {
+  useEffect(() => {
+    if (typeof window === 'undefined' || !slug) return;
+
+    const startedAt = Date.now();
+    trackEvent('blog_post_view', {
+      post_slug: slug,
+      post_title: title || '',
+      post_category: category || '',
+      read_minutes_est: readMinutes || 0,
+    });
+
+    const hit = { 25: false, 50: false, 75: false, 100: false };
+    const onScroll = () => {
+      const docEl = document.documentElement;
+      const scrollTop = window.scrollY || docEl.scrollTop || 0;
+      const viewport = window.innerHeight || docEl.clientHeight || 0;
+      const fullHeight = docEl.scrollHeight || document.body.scrollHeight || 0;
+      const scrollable = Math.max(fullHeight - viewport, 1);
+      const pct = Math.min(100, Math.round((scrollTop / scrollable) * 100));
+
+      [25, 50, 75].forEach(m => {
+        if (!hit[m] && pct >= m) {
+          hit[m] = true;
+          trackEvent('blog_scroll_depth', {
+            post_slug: slug,
+            depth: m,
+            seconds_since_open: Math.round((Date.now() - startedAt) / 1000),
+          });
+        }
+      });
+      if (!hit[100] && pct >= 90) {
+        hit[100] = true;
+        trackEvent('blog_read_complete', {
+          post_slug: slug,
+          seconds_to_read: Math.round((Date.now() - startedAt) / 1000),
+        });
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // Fire once in case the page is already scrolled (e.g. anchor-link entry)
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [slug, title, category, readMinutes]);
 }
 
 // IntersectionObserver-driven reveal: any element with className="blog-reveal"

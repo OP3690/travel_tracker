@@ -4,6 +4,7 @@ import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { FaMountain, FaUser, FaEnvelope, FaLock, FaArrowRight, FaEye, FaEyeSlash, FaGlobeAsia } from 'react-icons/fa';
 import allCountries from '../utils/countries';
 import countryCodes from '../utils/countryCodes';
+import { trackEvent } from '../utils/analytics';
 import signupBg from '../assets/signup-travel-map.jpg';
 import './Auth.css';
 
@@ -18,7 +19,14 @@ export default function Signup() {
   const [searchParams] = useSearchParams();
   const invitedBy = searchParams.get('ref') || '';
 
-  useEffect(() => { warmupApi(); }, []);
+  useEffect(() => {
+    warmupApi();
+    trackEvent('signup_page_view', {
+      page_path: '/signup',
+      has_invite_ref: !!invitedBy,
+      invite_ref_source: invitedBy ? 'referral_link' : 'direct',
+    });
+  }, [invitedBy]);
 
   const filteredCountries = countrySearch
     ? allCountries.filter(c => c.value.toLowerCase().includes(countrySearch.toLowerCase()) || c.label.toLowerCase().includes(countrySearch.toLowerCase()))
@@ -61,14 +69,44 @@ export default function Signup() {
   const handleSubmit = async e => {
     e.preventDefault();
     setError('');
-    if (form.password !== form.confirmPassword) return setError('Passwords do not match');
-    if (form.password.length < 6) return setError('Password must be at least 6 characters');
+    if (form.password !== form.confirmPassword) {
+      trackEvent('signup_validation_error', { reason: 'password_mismatch' });
+      return setError('Passwords do not match');
+    }
+    if (form.password.length < 6) {
+      trackEvent('signup_validation_error', { reason: 'password_too_short' });
+      return setError('Password must be at least 6 characters');
+    }
+    // Keep email out of analytics — only the domain is logged (e.g. "gmail.com")
+    const emailDomain = (form.email.split('@')[1] || '').toLowerCase();
+    trackEvent('signup_attempt', {
+      country: form.country,
+      email_domain: emailDomain,
+      has_mobile: !!form.mobile,
+      has_invite_ref: !!invitedBy,
+    });
     setLoading(true);
     try {
       const actualCode = form.phoneCode.split('|')[0];
       await API.post('/api/auth/signup', { ...form, mobile: actualCode + ' ' + form.mobile, invitedBy: invitedBy || undefined });
+      trackEvent('signup_success', {
+        country: form.country,
+        email_domain: emailDomain,
+        has_invite_ref: !!invitedBy,
+      });
+      // GA4 recommended conversion event — fires on the client so Google Ads can attribute
+      trackEvent('sign_up', {
+        method: 'email',
+        country: form.country,
+      });
       navigate('/login');
     } catch (err) {
+      const reason = err.response?.data?.error || 'unknown';
+      trackEvent('signup_error', {
+        reason: String(reason).slice(0, 120),
+        status: err.response?.status || 0,
+        country: form.country,
+      });
       setError(err.response?.data?.error || 'Signup failed. Please try again.');
     } finally {
       setLoading(false);

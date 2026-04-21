@@ -144,16 +144,21 @@ export function BlogStatGrid({ stats = [] }) {
 // ---------------------------------------------------------------------------
 export function BlogInlineCTA({ title, subtitle, href = '/signup', button = 'Start free' }) {
   const isInternal = href.startsWith('/');
+  const gaAttrs = {
+    'data-ga-event': 'blog_cta_click',
+    'data-ga-category': 'blog_cta',
+    'data-ga-label': `inline · ${title || button}`,
+  };
   return (
-    <div className="blog-inline-cta blog-reveal">
+    <div className="blog-inline-cta blog-reveal" data-ga-section="blog_inline_cta">
       <div>
         <div className="t">{title}</div>
         <div className="s">{subtitle}</div>
       </div>
       {isInternal ? (
-        <Link to={href} className="blog-cta-btn-sm">{button}</Link>
+        <Link to={href} className="blog-cta-btn-sm" {...gaAttrs}>{button}</Link>
       ) : (
-        <a href={href} className="blog-cta-btn-sm">{button}</a>
+        <a href={href} className="blog-cta-btn-sm" {...gaAttrs}>{button}</a>
       )}
     </div>
   );
@@ -164,14 +169,19 @@ export function BlogInlineCTA({ title, subtitle, href = '/signup', button = 'Sta
 // ---------------------------------------------------------------------------
 export function BlogEndCTA({ title, subtitle, href = '/signup', button = 'Start stamping free' }) {
   const isInternal = href.startsWith('/');
+  const gaAttrs = {
+    'data-ga-event': 'blog_cta_click',
+    'data-ga-category': 'blog_cta',
+    'data-ga-label': `end · ${title || button}`,
+  };
   return (
-    <section className="blog-end-cta blog-reveal">
+    <section className="blog-end-cta blog-reveal" data-ga-section="blog_end_cta">
       <h3>{title}</h3>
       <p>{subtitle}</p>
       {isInternal ? (
-        <Link to={href} className="blog-cta-btn">{button} →</Link>
+        <Link to={href} className="blog-cta-btn" {...gaAttrs}>{button} →</Link>
       ) : (
-        <a href={href} className="blog-cta-btn">{button} →</a>
+        <a href={href} className="blog-cta-btn" {...gaAttrs}>{button} →</a>
       )}
     </section>
   );
