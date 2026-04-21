@@ -4,17 +4,17 @@ import './Blog.css';
 
 const SITE_ORIGIN = 'https://stampyourmap.com';
 
-// Per-post SEO — temporarily overrides the index.html default meta while
-// the article page is mounted, and restores it on unmount so navigating
-// back to the landing page keeps its own SEO intact.
-export function useBlogSEO({
+// Core SEO hook — temporarily overrides the index.html default meta while
+// the page is mounted, and restores it on unmount. Accepts any JSON-LD
+// schema object so blog articles, About, Contact, etc. can all reuse this.
+export function usePageMeta({
   title,
   description,
   url,
   image,
-  datePublished,
-  author = 'StampYourMap',
+  ogType = 'website',
   keywords,
+  jsonLd,
 }) {
   useEffect(() => {
     if (typeof document === 'undefined') return;
@@ -46,12 +46,12 @@ export function useBlogSEO({
     setContent('meta[property="og:title"]', title);
     setContent('meta[property="og:description"]', description);
     setContent('meta[property="og:url"]', absUrl);
-    setContent('meta[property="og:type"]', 'article');
+    setContent('meta[property="og:type"]', ogType);
     setContent('meta[name="twitter:title"]', title);
     setContent('meta[name="twitter:description"]', description);
     setHref('link[rel="canonical"]', absUrl);
 
-    // Upsert an og:image (hero image helps WhatsApp/Slack/Twitter previews)
+    // Upsert og:image (preview thumbnail on WhatsApp/Slack/Twitter shares)
     let ogImage = document.querySelector('meta[property="og:image"]');
     let ogImageWasCreated = false;
     if (!ogImage) {
@@ -67,7 +67,7 @@ export function useBlogSEO({
       else ogImage.setAttribute('content', prevOg ?? '');
     });
 
-    // Upsert twitter image
+    // Upsert twitter:image
     let twImage = document.querySelector('meta[name="twitter:image"]');
     let twImageWasCreated = false;
     if (!twImage) {
@@ -83,11 +83,47 @@ export function useBlogSEO({
       else twImage.setAttribute('content', prevTw ?? '');
     });
 
-    // JSON-LD article schema for Google rich results
-    const jsonLd = document.createElement('script');
-    jsonLd.type = 'application/ld+json';
-    jsonLd.id = 'blog-article-jsonld';
-    jsonLd.textContent = JSON.stringify({
+    // Optional page-specific JSON-LD
+    let ldScript;
+    if (jsonLd) {
+      ldScript = document.createElement('script');
+      ldScript.type = 'application/ld+json';
+      ldScript.id = 'page-jsonld';
+      ldScript.textContent = JSON.stringify(jsonLd);
+      document.head.appendChild(ldScript);
+      restore.push(() => ldScript.remove());
+    }
+
+    return () => {
+      document.title = prevTitle;
+      restore.forEach(fn => {
+        try { fn(); } catch (_) { /* ignore */ }
+      });
+    };
+  }, [title, description, url, image, ogType, keywords, jsonLd]);
+}
+
+// Blog-post-specific SEO — same meta handling plus an Article JSON-LD
+// schema for Google rich results.
+export function useBlogSEO({
+  title,
+  description,
+  url,
+  image,
+  datePublished,
+  author = 'StampYourMap',
+  keywords,
+}) {
+  const absUrl = url && url.startsWith('http') ? url : `${SITE_ORIGIN}${url || ''}`;
+  const absImage = image && image.startsWith('http') ? image : `${SITE_ORIGIN}${image || ''}`;
+  usePageMeta({
+    title,
+    description,
+    url,
+    image,
+    ogType: 'article',
+    keywords,
+    jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: title,
@@ -104,17 +140,8 @@ export function useBlogSEO({
         logo: { '@type': 'ImageObject', url: `${SITE_ORIGIN}/icon-512.png` },
       },
       mainEntityOfPage: { '@type': 'WebPage', '@id': absUrl },
-    });
-    document.head.appendChild(jsonLd);
-    restore.push(() => jsonLd.remove());
-
-    return () => {
-      document.title = prevTitle;
-      restore.forEach(fn => {
-        try { fn(); } catch (_) { /* ignore */ }
-      });
-    };
-  }, [title, description, url, image, datePublished, author, keywords]);
+    },
+  });
 }
 
 // IntersectionObserver-driven reveal: any element with className="blog-reveal"

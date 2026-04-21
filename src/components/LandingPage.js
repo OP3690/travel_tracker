@@ -472,7 +472,8 @@ export default function LandingPage() {
             <div className="landing-nav-links">
               <a href="#features" className="nav-link-text" data-ga-label="Landing nav: Features">Features</a>
               <a href="#how" className="nav-link-text" data-ga-label="Landing nav: How it works">How it works</a>
-              <a href="#reviews" className="nav-link-text" data-ga-label="Landing nav: Reviews">Reviews</a>
+              <a href="/blog" className="nav-link-text" data-ga-label="Landing nav: Blog">Blog</a>
+              <a href="/about" className="nav-link-text" data-ga-label="Landing nav: About">About</a>
               <a href="#faq" className="nav-link-text" data-ga-label="Landing nav: FAQ">FAQ</a>
             </div>
             <div className="landing-nav-actions">
@@ -729,8 +730,9 @@ export default function LandingPage() {
             <a href="#how" data-ga-label="Footer: How it works">How it works</a>
             <a href="#reviews" data-ga-label="Footer: Reviews">Reviews</a>
             <a href="#faq" data-ga-label="Footer: FAQ">FAQ</a>
-            <a href="#about" data-ga-label="Footer: About">About</a>
-            <a href="mailto:support@stampyourmap.com" data-ga-label="Footer: Contact email">Contact</a>
+            <a href="/blog" data-ga-label="Footer: Blog">Blog</a>
+            <a href="/about" data-ga-label="Footer: About">About</a>
+            <a href="/contact" data-ga-label="Footer: Contact">Contact</a>
             <span onClick={() => navigate('/login')} role="button" tabIndex={0}
               data-ga-label="Footer: Log in">Log in</span>
           </div>
