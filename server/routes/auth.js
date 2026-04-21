@@ -18,6 +18,9 @@ const DEMO_MEMORY = {
   story: 'The Grand Canyon at sunrise took my breath away — thousand-colored cliffs for as far as the eye could see. Then the desert stars at night, the red-rock hikes around Sedona, a dusk drive along Route 66. Arizona delivered everything I hoped for and a few surprises I didn\'t see coming. This is just the start — a placeholder memory to show what your Memory Wall can look like. Replace it with your own!',
   photos: [
     '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
   ],
   dateVisited: new Date('2025-10-15'),
   visibility: 'public',
@@ -110,11 +113,20 @@ router.post('/login', async (req, res) => {
     user.lastLogin = new Date();
     user.loginCount = (user.loginCount || 0) + 1;
 
-    // Repoint legacy demo memories (remote Unsplash URLs, sometimes 404) to the bundled local image
+    // Keep the isDemo memory's photo set in sync with the current seed so legacy
+    // Unsplash URLs (and the earlier single-photo seed) upgrade on next login.
+    // Skip if the user has added their own photos (data: URLs) — we don't want to clobber uploads.
     const demoMem = (user.memories || []).find(m => m.isDemo);
-    if (demoMem && (demoMem.photos || []).some(p => typeof p === 'string' && !p.startsWith('/'))) {
-      demoMem.photos = [...DEMO_MEMORY.photos];
-      user.markModified('memories');
+    if (demoMem) {
+      const photos = demoMem.photos || [];
+      const hasUserUpload = photos.some(p => typeof p === 'string' && p.startsWith('data:'));
+      const matchesSeed =
+        photos.length === DEMO_MEMORY.photos.length &&
+        photos.every((p, i) => p === DEMO_MEMORY.photos[i]);
+      if (!hasUserUpload && !matchesSeed) {
+        demoMem.photos = [...DEMO_MEMORY.photos];
+        user.markModified('memories');
+      }
     }
 
     await user.save();
