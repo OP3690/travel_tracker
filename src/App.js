@@ -23,6 +23,8 @@ const Friends         = lazy(() => import('./components/Friends'));
 const FriendProfile   = lazy(() => import('./components/FriendProfile'));
 const ForgotPassword  = lazy(() => import('./components/ForgotPassword'));
 const Admin           = lazy(() => import('./components/Admin'));
+const BlogIndex                 = lazy(() => import('./components/Blog/BlogIndex'));
+const Route66UltimateGuide      = lazy(() => import('./components/Blog/posts/Route66UltimateGuide'));
 
 function RouteFallback() {
   return (
@@ -94,6 +96,8 @@ function App() {
           <Route path="/memories" element={
             <PrivateRoute><Memories /></PrivateRoute>
           } />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/route-66-ultimate-guide-2026" element={<Route66UltimateGuide />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
