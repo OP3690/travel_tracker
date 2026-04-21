@@ -104,6 +104,7 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState('');
   const [template, setTemplate] = useState('polaroid');
+  const [brokenSrcs, setBrokenSrcs] = useState(() => new Set());
   const posterRef = useRef(null);
   const scalerRef = useRef(null);
 
@@ -158,7 +159,7 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
     return () => { cancelled = true; };
   }, [memory]);
 
-  const photos = (memory?.photos || []).slice(0, 5);
+  const photos = (memory?.photos || []).filter(src => !brokenSrcs.has(src)).slice(0, 5);
   const regionSelected = memory?.region ? memory.region.split(',')[0].trim() : null;
   const city = memory?.region && memory.region.includes(',') ? memory.region.split(',').slice(1).join(',').trim() : '';
   const centroid = mapData && regionSelected ? getRegionCentroid(mapData, regionSelected) : null;
@@ -349,8 +350,17 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
                   {photos.length > 0 && (
                     <div className="smp-photos">
                       {photos.map((src, i) => (
-                        <div key={i} className={`smp-photo smp-photo-${i}`}>
-                          <img src={src} alt={`memory ${i + 1}`} crossOrigin="anonymous" />
+                        <div key={src} className={`smp-photo smp-photo-${i}`}>
+                          <img
+                            src={src}
+                            alt={`memory ${i + 1}`}
+                            crossOrigin="anonymous"
+                            onError={() => setBrokenSrcs(prev => {
+                              const next = new Set(prev);
+                              next.add(src);
+                              return next;
+                            })}
+                          />
                         </div>
                       ))}
                     </div>
