@@ -96,6 +96,12 @@ const BestCanadaDestinations    = lazy(() => import('./components/Blog/posts/Bes
 const BanffCanadianRockies      = lazy(() => import('./components/Blog/posts/BanffCanadianRockiesGuide2026'));
 const CanadianFoodGuide         = lazy(() => import('./components/Blog/posts/CanadianFoodGuide2026'));
 const CanadaBudgetTravel        = lazy(() => import('./components/Blog/posts/CanadaBudgetTravel2026'));
+const VietnamTravelGuide        = lazy(() => import('./components/Blog/posts/VietnamTravelGuide2026'));
+const TwoWeekVietnamItin        = lazy(() => import('./components/Blog/posts/TwoWeekVietnamItinerary2026'));
+const BestVietnamDestinations   = lazy(() => import('./components/Blog/posts/BestVietnamDestinations2026'));
+const VietnameseFoodGuide       = lazy(() => import('./components/Blog/posts/VietnameseFoodGuide2026'));
+const HalongBayHoiAnGuide       = lazy(() => import('./components/Blog/posts/HalongBayHoiAnGuide2026'));
+const VietnamBudgetTravel       = lazy(() => import('./components/Blog/posts/VietnamBudgetTravel2026'));
 const About                     = lazy(() => import('./components/About'));
 const Contact                   = lazy(() => import('./components/Contact'));
 
@@ -242,6 +248,12 @@ function App() {
           <Route path="/blog/banff-canadian-rockies-guide-2026" element={<BanffCanadianRockies />} />
           <Route path="/blog/canadian-food-guide-2026" element={<CanadianFoodGuide />} />
           <Route path="/blog/canada-budget-travel-2026" element={<CanadaBudgetTravel />} />
+          <Route path="/blog/vietnam-travel-guide-2026" element={<VietnamTravelGuide />} />
+          <Route path="/blog/two-week-vietnam-itinerary-2026" element={<TwoWeekVietnamItin />} />
+          <Route path="/blog/best-vietnam-destinations-2026" element={<BestVietnamDestinations />} />
+          <Route path="/blog/vietnamese-food-guide-2026" element={<VietnameseFoodGuide />} />
+          <Route path="/blog/halong-bay-hoi-an-guide-2026" element={<HalongBayHoiAnGuide />} />
+          <Route path="/blog/vietnam-budget-travel-2026" element={<VietnamBudgetTravel />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

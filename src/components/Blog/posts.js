@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'vietnam-travel-guide-2026',
+    title: "The Ultimate Vietnam Travel Guide (2026): 63 Provinces, One Diverse Country",
+    description:
+      "Everything for a Vietnam trip in 2026 — best time, north-to-south regions, e-visa rules, honest cost breakdown, street food culture, 63 provinces, and the 12 mistakes first-timers make. Hanoi, Halong, Hoi An, Saigon and beyond.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Vietnam Travel',
+    tags: ['Vietnam', 'Travel Guide', 'Southeast Asia'],
+    heroEmoji: '🇻🇳',
+  },
+  {
+    slug: 'two-week-vietnam-itinerary-2026',
+    title: "The Perfect 2-Week Vietnam Itinerary: Hanoi → Halong → Hoi An → Saigon → Mekong (2026)",
+    description:
+      "A tested 14-day Vietnam itinerary from north to south — Hanoi + Halong Bay, Hue + Hoi An, Ho Chi Minh City + Mekong Delta. Train vs flight math, Vietnam Airlines + budget carrier picks, cost breakdown.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Vietnam Travel',
+    tags: ['Vietnam', 'Itinerary', 'Hanoi', 'Halong', 'Hoi An'],
+    heroEmoji: '🛶',
+  },
+  {
+    slug: 'best-vietnam-destinations-2026',
+    title: "Vietnam's 10 Best Destinations for Travelers in 2026 (Ranked)",
+    description:
+      "The 10 Vietnamese destinations worth your vacation time in 2026 — ranked by a 6-dimension score. Deep-dives on Hanoi, Halong, Hoi An, Ho Chi Minh, Sapa, Hue, Nha Trang, Phu Quoc, Ninh Binh, Da Lat.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Vietnam Travel',
+    tags: ['Vietnam', 'Destinations', 'Ranked'],
+    heroEmoji: '🏞️',
+  },
+  {
+    slug: 'vietnamese-food-guide-2026',
+    title: "Vietnamese Food Guide: 25 Dishes You Must Try in Vietnam — by Region (2026)",
+    description:
+      "Vietnamese cuisine is a UNESCO contender — light, herbal, balanced. The 25 dishes every traveler must try — pho, banh mi, bun bo hue, bun cha, cao lau, cà phê sữa đá — by region + where to eat each.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Vietnam Travel',
+    tags: ['Vietnam', 'Food', 'Pho', 'Banh Mi', 'Street Food'],
+    heroEmoji: '🍜',
+  },
+  {
+    slug: 'halong-bay-hoi-an-guide-2026',
+    title: "Halong Bay & Hoi An Complete Guide 2026: Vietnam's Two UNESCO Icons",
+    description:
+      "The definitive 2026 guide to Vietnam's two most iconic UNESCO sites — Halong Bay (cruise picks, overnight vs day-trip, Lan Ha Bay alternative) + Hoi An (tailoring, food, lantern festivals).",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Vietnam Travel',
+    tags: ['Vietnam', 'Halong Bay', 'Hoi An', 'UNESCO'],
+    heroEmoji: '⛵',
+  },
+  {
+    slug: 'vietnam-budget-travel-2026',
+    title: "Vietnam on a Budget: How to Travel Vietnam for $25, $50 or $100 a Day (2026)",
+    description:
+      "Three 2026 Vietnam budgets — $25/day backpacker, $50/day mid-range, $100/day comfort. Real dong prices, Reunification Express vs flight, hostel picks, and why Vietnam is Southeast Asia's best value in 2026.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Vietnam Travel',
+    tags: ['Vietnam', 'Budget Travel', 'Southeast Asia'],
+    heroEmoji: '💰',
+  },
+  {
     slug: 'canada-travel-guide-2026',
     title: "The Ultimate Canada Travel Guide (2026): 10 Provinces, 3 Territories, One Vast Country",
     description:
