@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   FaGlobeAsia, FaArrowRight, FaPlane, FaRoute, FaCalendarAlt,
-  FaCheckCircle, FaMountain, FaSuitcaseRolling, FaCamera, FaMapPin, FaUserPlus,
+  FaCheckCircle, FaMountain, FaSuitcaseRolling, FaMapPin, FaUserPlus,
   FaStar, FaHeart, FaShareAlt, FaUserFriends, FaDownload, FaLock, FaBolt,
   FaChartLine, FaImages, FaQuestionCircle, FaGlobeAmericas, FaPalette, FaInfinity,
 } from 'react-icons/fa';
@@ -434,7 +434,7 @@ export default function LandingPage() {
             g.classList.remove('sym-hover');
             if (tooltip) tooltip.classList.remove('show');
           };
-          const onClick = () => {
+          const onClick = (e) => {
             if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
               try {
                 window.gtag('event', 'hero_map_country_click', {
@@ -443,9 +443,35 @@ export default function LandingPage() {
                 });
               } catch (_) { /* noop */ }
             }
-            // Stamp it briefly, then route to signup with context
+            // Bump the counter chip in the top bar
+            const counterEl = containerEl?.parentElement?.querySelector('.hero-map-counter-num');
+            if (counterEl && !g.classList.contains('sym-just-stamped')) {
+              const current = parseInt(counterEl.textContent || '7', 10) || 7;
+              const next = Math.min(current + 1, 195);
+              counterEl.textContent = String(next);
+              counterEl.classList.remove('bump');
+              // force reflow so animation restarts
+              // eslint-disable-next-line no-unused-expressions
+              counterEl.offsetWidth;
+              counterEl.classList.add('bump');
+              g.classList.add('sym-just-stamped');
+            }
+            // Ripple from click point inside the map card
+            const mapCard = containerEl?.parentElement;
+            if (mapCard) {
+              const rect = mapCard.getBoundingClientRect();
+              const rx = (e.clientX ?? rect.left + rect.width / 2) - rect.left;
+              const ry = (e.clientY ?? rect.top + rect.height / 2) - rect.top;
+              const ripple = document.createElement('span');
+              ripple.className = 'hero-map-ripple';
+              ripple.style.setProperty('--rx', `${rx}px`);
+              ripple.style.setProperty('--ry', `${ry}px`);
+              mapCard.appendChild(ripple);
+              setTimeout(() => ripple.remove(), 900);
+            }
+            // Stamp animation, then route to signup with context
             g.classList.add('sym-stamped');
-            setTimeout(() => navigate(`/signup?from=hero-map&country=${encodeURIComponent(name)}`), 260);
+            setTimeout(() => navigate(`/signup?from=hero-map&country=${encodeURIComponent(name)}`), 420);
           };
           g.addEventListener('mouseenter', onEnter);
           g.addEventListener('mousemove', onMove);
@@ -615,6 +641,20 @@ export default function LandingPage() {
               role="button"
               tabIndex={0}
               aria-label="Click any country to start stamping your travel map"
+              onMouseMove={(e) => {
+                const el = e.currentTarget;
+                const r = el.getBoundingClientRect();
+                const px = (e.clientX - r.left) / r.width - 0.5;
+                const py = (e.clientY - r.top) / r.height - 0.5;
+                el.style.setProperty('--rx', `${(-py * 4).toFixed(2)}deg`);
+                el.style.setProperty('--ry', `${(px * 5).toFixed(2)}deg`);
+                el.style.setProperty('--gx', `${(e.clientX - r.left).toFixed(0)}px`);
+                el.style.setProperty('--gy', `${(e.clientY - r.top).toFixed(0)}px`);
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.setProperty('--rx', '0deg');
+                e.currentTarget.style.setProperty('--ry', '0deg');
+              }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
@@ -622,16 +662,48 @@ export default function LandingPage() {
                 }
               }}
             >
+              {/* Top status bar — mac-style window chrome with live counter */}
+              <div className="hero-map-topbar" aria-hidden="true">
+                <div className="hero-map-dots">
+                  <span className="hero-map-dot hero-map-dot-r" />
+                  <span className="hero-map-dot hero-map-dot-y" />
+                  <span className="hero-map-dot hero-map-dot-g" />
+                </div>
+                <div className="hero-map-title">
+                  <FaGlobeAmericas /> <span>My Travel Atlas</span>
+                </div>
+                <div className="hero-map-counter">
+                  <span className="hero-map-live" />
+                  <span className="hero-map-counter-num">7</span>
+                  <span className="hero-map-counter-denom">/ 195</span>
+                </div>
+              </div>
+
+              {/* The map itself */}
               <div className="hero-map-container" ref={mapRef} />
+
+              {/* Glow follow spot on hover — stays centered by default */}
+              <div className="hero-map-spot" aria-hidden="true" />
+
+              {/* Cursor-tracking country tooltip */}
               <div className="hero-map-tooltip" ref={tooltipRef} aria-hidden="true" />
-              <div className="hero-map-hint">
-                <span className="hero-map-hint-dot" />
-                Click any country to start your map
+
+              {/* Bottom bar — symmetric legend + CTA pill */}
+              <div className="hero-map-bottombar" aria-hidden="true">
+                <div className="hero-map-legend">
+                  <span className="hero-map-legend-item">
+                    <span className="hero-map-legend-swatch legend-visited" /> Visited
+                  </span>
+                  <span className="hero-map-legend-sep" />
+                  <span className="hero-map-legend-item">
+                    <span className="hero-map-legend-swatch legend-unstamped" /> Unstamped
+                  </span>
+                </div>
+                <div className="hero-map-cta-pill">
+                  Click to stamp <FaArrowRight />
+                </div>
               </div>
             </div>
-            <div className="hero-float-icon fi-1" aria-hidden="true"><FaPlane /></div>
-            <div className="hero-float-icon fi-2" aria-hidden="true"><FaCamera /></div>
-            <div className="hero-float-icon fi-3" aria-hidden="true"><FaMapPin /></div>
           </div>
         </section>
 
