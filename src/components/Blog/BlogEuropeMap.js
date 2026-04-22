@@ -27,8 +27,9 @@ export function BlogEuropeMap({ regionIds = [], title, subtitle }) {
   };
 
   // Europe viewBox crop from the world (viewBox 0 0 1010 666).
-  // Hand-tuned to capture roughly Iceland → Cyprus / Canary → Scandinavia.
-  const euroViewBox = '440 28 280 340';
+  // Actual measured bounding box of all European country paths is roughly
+  // x: 386-582, y: 175-380. This crop adds ~8px padding on all sides.
+  const euroViewBox = '378 167 212 220';
 
   return (
     <figure className="blog-usmap blog-reveal" aria-label={title || 'Europe map'}>
