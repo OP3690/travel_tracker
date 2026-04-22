@@ -30,6 +30,12 @@ const MostVisitedNationalParks  = lazy(() => import('./components/Blog/posts/Mos
 const PacificCoastHighway       = lazy(() => import('./components/Blog/posts/PacificCoastHighway2026'));
 const AmericanTravelTrends      = lazy(() => import('./components/Blog/posts/AmericanTravelTrends2026'));
 const UsaBucketList100          = lazy(() => import('./components/Blog/posts/UsaBucketList100'));
+const PhilippinesTravelGuide    = lazy(() => import('./components/Blog/posts/PhilippinesTravelGuide2026'));
+const BestPhilippineIslands     = lazy(() => import('./components/Blog/posts/BestPhilippineIslands2026'));
+const PhilippinesBeaches        = lazy(() => import('./components/Blog/posts/PhilippinesBeaches2026'));
+const FilipinoFoodGuide         = lazy(() => import('./components/Blog/posts/FilipinoFoodGuide2026'));
+const PhilippinesBudgetTravel   = lazy(() => import('./components/Blog/posts/PhilippinesBudgetTravel2026'));
+const TwoWeekPhilippinesItin    = lazy(() => import('./components/Blog/posts/TwoWeekPhilippinesItinerary2026'));
 const About                     = lazy(() => import('./components/About'));
 const Contact                   = lazy(() => import('./components/Contact'));
 
@@ -110,6 +116,12 @@ function App() {
           <Route path="/blog/pacific-coast-highway-ultimate-guide-2026" element={<PacificCoastHighway />} />
           <Route path="/blog/american-travel-trends-2026" element={<AmericanTravelTrends />} />
           <Route path="/blog/usa-bucket-list-100-places" element={<UsaBucketList100 />} />
+          <Route path="/blog/philippines-travel-guide-2026" element={<PhilippinesTravelGuide />} />
+          <Route path="/blog/best-philippine-islands-2026" element={<BestPhilippineIslands />} />
+          <Route path="/blog/philippines-beaches-2026" element={<PhilippinesBeaches />} />
+          <Route path="/blog/filipino-food-guide-2026" element={<FilipinoFoodGuide />} />
+          <Route path="/blog/philippines-budget-travel-2026" element={<PhilippinesBudgetTravel />} />
+          <Route path="/blog/two-week-philippines-itinerary-2026" element={<TwoWeekPhilippinesItin />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

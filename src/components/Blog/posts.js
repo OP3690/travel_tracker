@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'philippines-travel-guide-2026',
+    title: "The Ultimate Philippines Travel Guide (2026): 7,641 Islands, 17 Regions, One Incredible Country",
+    description:
+      "Everything you need to plan a Philippines trip in 2026 — best time to visit, 3 main island groups, visa rules, realistic budgets, region-by-region highlights, food, safety and the 10 mistakes first-timers always make.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 15,
+    category: 'Philippines Travel',
+    tags: ['Philippines', 'Travel Guide', 'Southeast Asia', 'Bucket List'],
+    heroEmoji: '🇵🇭',
+  },
+  {
+    slug: 'two-week-philippines-itinerary-2026',
+    title: "The Perfect 2-Week Philippines Itinerary: Manila → Palawan → Cebu → Siargao (2026)",
+    description:
+      "A pragmatic, tested 14-day Philippines itinerary covering Manila, El Nido, Coron, Cebu, Bohol, and Siargao — with exact flight/ferry logistics, daily budgets, where to sleep, and the stops most itineraries skip.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Philippines Travel',
+    tags: ['Philippines', 'Itinerary', '2 Weeks', 'Trip Planning'],
+    heroEmoji: '🗺️',
+  },
+  {
+    slug: 'best-philippine-islands-2026',
+    title: "7 Best Philippine Islands to Visit in 2026: Palawan, Siargao, Cebu & More (Ranked)",
+    description:
+      "The seven Philippine islands worth your vacation days in 2026 — ranked by our data-backed traveler score. Deep-dives on Palawan, Boracay, Cebu, Bohol, Siargao, Batanes and Siquijor, plus which to pair for a 2-island trip.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'Philippines Travel',
+    tags: ['Philippines', 'Islands', 'Palawan', 'Siargao', 'Ranked'],
+    heroEmoji: '🏝️',
+  },
+  {
+    slug: 'philippines-beaches-2026',
+    title: "The 15 Most Beautiful Beaches in the Philippines (2026 Complete Guide)",
+    description:
+      "From Boracay's White Beach to hidden pristine coves in Palawan and Siargao — the 15 Philippine beaches that genuinely deserve bucket-list status in 2026. Location, best time, how to get there, and honest crowd-levels for each.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Philippines Travel',
+    tags: ['Philippines', 'Beaches', 'White Sand', 'Island Hopping'],
+    heroEmoji: '🏖️',
+  },
+  {
+    slug: 'filipino-food-guide-2026',
+    title: "Filipino Food Guide: 25 Dishes You Must Try in the Philippines (2026)",
+    description:
+      "A pragmatic, deliciously opinionated guide to Filipino cuisine in 2026 — the 25 dishes that matter, from adobo and sinigang to halo-halo, lechon, pancit, ube, and the street-food you shouldn't leave without trying. Where to eat each one.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Philippines Travel',
+    tags: ['Philippines', 'Food', 'Filipino Cuisine', 'Foodie'],
+    heroEmoji: '🍲',
+  },
+  {
+    slug: 'philippines-budget-travel-2026',
+    title: "Philippines on a Budget: How to Travel for $25, $50 or $100 a Day (2026)",
+    description:
+      "Three fully-costed 2026 Philippines budgets for every kind of traveler — the $25/day backpacker, the $50/day comfortable mid-range, and the $100/day comfort tier. Real 2026 prices, actual hostels, ferry schedules and money-saving tactics.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Philippines Travel',
+    tags: ['Philippines', 'Budget Travel', 'Backpacking', 'Costs'],
+    heroEmoji: '💸',
+  },
+  {
     slug: 'usa-bucket-list-100-places',
     title: "USA Bucket List: 100 Must-See Places by State (Interactive Map & Checklist)",
     description:
