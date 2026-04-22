@@ -389,31 +389,46 @@ export default function LandingPage() {
           path.setAttribute('stroke-width', '0.8');
         });
         const visited = ['India', 'France', 'Australia', 'Brazil', 'Japan', 'Thailand', 'Italy'];
-        // Wire every country group for hover + click
         const containerEl = mapRef.current;
-        const groups = svg.querySelectorAll('g');
+        // Collect every titled element — the SVG mixes <g><title/><path/></g>
+        // and <path><title/></path>, so we bind to whichever is the title's parent.
+        const countryElements = new Set();
+        svg.querySelectorAll('title').forEach(t => {
+          const parent = t.parentElement;
+          if (!parent || parent === svg) return; // skip the root <svg> "World Map" title
+          if (!t.textContent || !t.textContent.trim()) return;
+          countryElements.add(parent);
+        });
         let visitedIdx = 0;
-        groups.forEach(g => {
-          const title = g.querySelector('title');
-          if (!title) return;
-          const name = title.textContent.trim();
+        countryElements.forEach(el => {
+          // Use the first (direct-child preferred) title as the country name.
+          const t = el.querySelector(':scope > title') || el.querySelector('title');
+          const name = (t?.textContent || '').trim();
           if (!name) return;
           const isVisited = visited.some(v => name.includes(v));
-          g.setAttribute('data-country', name);
-          g.classList.add('sym-country');
-          if (isVisited) {
-            g.classList.add('sym-visited');
-            g.style.setProperty('--stamp-delay', `${600 + visitedIdx * 140}ms`);
-            visitedIdx += 1;
-            g.querySelectorAll('path').forEach(p => {
+          el.setAttribute('data-country', name);
+          el.classList.add('sym-country');
+          // Gather paths to color. If el is a <path>, style it directly.
+          // If el is a <g>, style its direct-child paths (avoids leaking styles
+          // into nested sub-territory groups that have their own titles).
+          const targets = el.tagName.toLowerCase() === 'path'
+            ? [el]
+            : Array.from(el.querySelectorAll(':scope > path'));
+          targets.forEach(p => {
+            p.classList.add('sym-country-path');
+            if (isVisited) {
               p.setAttribute('fill', '#34d399');
               p.setAttribute('stroke', '#6ee7b7');
               p.setAttribute('stroke-width', '0.7');
-            });
+            }
+          });
+          if (isVisited) {
+            el.classList.add('sym-visited');
+            el.style.setProperty('--stamp-delay', `${600 + visitedIdx * 140}ms`);
+            visitedIdx += 1;
           }
-          // Hover / click
           const onEnter = (e) => {
-            g.classList.add('sym-hover');
+            el.classList.add('sym-hover');
             if (tooltip) {
               tooltip.textContent = isVisited ? `${name} · stamped` : `${name} · stamp it`;
               tooltip.classList.add('show');
@@ -431,10 +446,12 @@ export default function LandingPage() {
             tooltip.style.setProperty('--ty', `${e.clientY - rect.top}px`);
           };
           const onLeave = () => {
-            g.classList.remove('sym-hover');
+            el.classList.remove('sym-hover');
             if (tooltip) tooltip.classList.remove('show');
           };
           const onClick = (e) => {
+            // Inner (nested) country wins over the outer one that contains it.
+            e.stopPropagation();
             if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
               try {
                 window.gtag('event', 'hero_map_country_click', {
@@ -443,20 +460,17 @@ export default function LandingPage() {
                 });
               } catch (_) { /* noop */ }
             }
-            // Bump the counter chip in the top bar
             const counterEl = containerEl?.parentElement?.querySelector('.hero-map-counter-num');
-            if (counterEl && !g.classList.contains('sym-just-stamped')) {
+            if (counterEl && !el.classList.contains('sym-just-stamped')) {
               const current = parseInt(counterEl.textContent || '7', 10) || 7;
               const next = Math.min(current + 1, 195);
               counterEl.textContent = String(next);
               counterEl.classList.remove('bump');
-              // force reflow so animation restarts
               // eslint-disable-next-line no-unused-expressions
-              counterEl.offsetWidth;
+              counterEl.offsetWidth; // reflow to restart animation
               counterEl.classList.add('bump');
-              g.classList.add('sym-just-stamped');
+              el.classList.add('sym-just-stamped');
             }
-            // Ripple from click point inside the map card
             const mapCard = containerEl?.parentElement;
             if (mapCard) {
               const rect = mapCard.getBoundingClientRect();
@@ -469,14 +483,13 @@ export default function LandingPage() {
               mapCard.appendChild(ripple);
               setTimeout(() => ripple.remove(), 900);
             }
-            // Stamp animation, then route to signup with context
-            g.classList.add('sym-stamped');
+            el.classList.add('sym-stamped');
             setTimeout(() => navigate(`/signup?from=hero-map&country=${encodeURIComponent(name)}`), 420);
           };
-          g.addEventListener('mouseenter', onEnter);
-          g.addEventListener('mousemove', onMove);
-          g.addEventListener('mouseleave', onLeave);
-          g.addEventListener('click', onClick);
+          el.addEventListener('mouseenter', onEnter);
+          el.addEventListener('mousemove', onMove);
+          el.addEventListener('mouseleave', onLeave);
+          el.addEventListener('click', onClick);
         });
         // Flight arcs
         const ns = 'http://www.w3.org/2000/svg';
