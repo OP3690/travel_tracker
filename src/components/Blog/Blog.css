@@ -531,6 +531,158 @@
 }
 [data-theme='dark'] .blog-usmap path.st { fill: #1c1843; stroke: #0a0818; }
 
+/* ----- Philippines regions infographic (no geographic SVG) -------------- */
+.blog-ph-infographic {
+  background: var(--blog-card-bg);
+  border: 1px solid var(--blog-border);
+  border-radius: 16px;
+  padding: 28px;
+  margin: 32px 0;
+  box-shadow: var(--blog-shadow-md);
+}
+.blog-ph-infographic h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--blog-text-strong);
+}
+.blog-ph-infographic .sub {
+  color: var(--blog-text-muted);
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+.blog-ph-groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 780px) {
+  .blog-ph-groups { grid-template-columns: 1fr; }
+}
+
+.blog-ph-group {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.03) 0%, transparent 60%);
+  border: 1px solid var(--blog-border);
+  border-radius: 14px;
+  padding: 18px;
+  transition: border-color 300ms ease, box-shadow 300ms ease, transform 320ms var(--blog-ease-out);
+  position: relative;
+  overflow: hidden;
+}
+.blog-ph-group::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blog-brand-1) 0%, var(--blog-brand-3) 100%);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.blog-ph-group.is-active {
+  border-color: var(--blog-border-strong);
+  box-shadow: var(--blog-shadow-md);
+}
+.blog-ph-group.is-active::before { opacity: 1; }
+
+.blog-ph-group-head { margin-bottom: 14px; }
+.blog-ph-group-label {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--blog-text-strong);
+}
+.blog-ph-group-sub {
+  font-size: 11px;
+  color: var(--blog-text-muted);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.blog-ph-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.blog-ph-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: rgba(99, 102, 241, 0.05);
+  border: 1px solid var(--blog-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  transition: background 300ms ease, border-color 300ms ease, transform 300ms var(--blog-ease-out);
+}
+[data-theme='dark'] .blog-ph-pill {
+  background: rgba(139, 92, 246, 0.06);
+}
+.blog-ph-pill-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--blog-text-strong);
+  line-height: 1.2;
+}
+.blog-ph-pill-hint {
+  font-size: 11.5px;
+  color: var(--blog-text-muted);
+  line-height: 1.35;
+}
+
+/* Active pill — brand gradient with stagger animation */
+.blog-ph-pill.active {
+  background: linear-gradient(135deg, var(--blog-brand-1) 0%, var(--blog-brand-3) 100%);
+  border-color: transparent;
+  animation: blog-ph-pill-in 700ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: var(--ph-pill-delay, 0ms);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 1px 2px rgba(99, 102, 241, 0.3),
+    0 6px 16px -4px rgba(99, 102, 241, 0.5);
+}
+.blog-ph-pill.active .blog-ph-pill-name,
+.blog-ph-pill.active .blog-ph-pill-hint {
+  color: #fff;
+}
+.blog-ph-pill.active .blog-ph-pill-hint { opacity: 0.9; }
+
+@keyframes blog-ph-pill-in {
+  0%   { opacity: 0; transform: translateY(8px) scale(0.96); }
+  70%  { opacity: 1; transform: translateY(-2px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.blog-ph-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.08);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blog-brand-1);
+}
+[data-theme='dark'] .blog-ph-legend {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c7d2fe;
+}
+.blog-ph-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blog-brand-1) 0%, var(--blog-brand-3) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-ph-pill.active { animation: none; }
+}
+
 @keyframes blog-state-in {
   from { opacity: 0.2; transform: scale(0.97); transform-origin: center; }
   to   { opacity: 1;   transform: scale(1); }
