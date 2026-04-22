@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'thailand-travel-guide-2026',
+    title: "The Ultimate Thailand Travel Guide (2026): Everything You Need to Know",
+    description:
+      "A complete 2026 Thailand guide — best time to visit, regions, visa rules, budget tiers, food, transport, beaches and the 12 mistakes first-timers make. Bangkok, Chiang Mai, Phuket and beyond.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 15,
+    category: 'Thailand Travel',
+    tags: ['Thailand', 'Travel Guide', 'Southeast Asia', 'Bucket List'],
+    heroEmoji: '🇹🇭',
+  },
+  {
+    slug: 'two-week-thailand-itinerary-2026',
+    title: "The Perfect 2-Week Thailand Itinerary: Bangkok → Chiang Mai → Phuket → Krabi (2026)",
+    description:
+      "A tested 14-day Thailand itinerary covering Bangkok temples, Chiang Mai mountains, Phuket beaches and Krabi island-hopping — with daily logistics, lodging picks and cost breakdown.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Thailand Travel',
+    tags: ['Thailand', 'Itinerary', 'Bangkok', 'Phuket'],
+    heroEmoji: '🛕',
+  },
+  {
+    slug: 'best-thailand-islands-2026',
+    title: "The 10 Best Thai Islands in 2026: Phi Phi, Koh Samui, Koh Tao & More (Ranked)",
+    description:
+      "The 10 Thai islands worth your vacation time in 2026 — ranked by a 6-dimension score. Deep-dives on Phi Phi, Koh Samui, Koh Tao, Koh Lanta, Koh Phangan, Koh Lipe, Railay and the underrated sleepers.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'Thailand Travel',
+    tags: ['Thailand', 'Islands', 'Phuket', 'Koh Samui'],
+    heroEmoji: '🏝️',
+  },
+  {
+    slug: 'thai-food-guide-2026',
+    title: "Thai Food Guide: 25 Dishes You Must Try in Thailand (2026)",
+    description:
+      "A pragmatic 2026 guide to Thai cuisine — the 25 dishes that matter, from pad thai and green curry to som tum, tom yum, khao soi, mango sticky rice and the street food that's Thailand's real soul.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Thailand Travel',
+    tags: ['Thailand', 'Food', 'Thai Cuisine', 'Street Food'],
+    heroEmoji: '🍜',
+  },
+  {
+    slug: 'bangkok-complete-guide-2026',
+    title: "Bangkok Complete Guide 2026: 5 Days in the World's Wildest Capital",
+    description:
+      "The definitive 2026 Bangkok guide — where to stay, what to eat, the 12 temples worth your time, night markets, rooftop bars, airport logistics and how to actually enjoy a 5-day Bangkok trip.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Thailand Travel',
+    tags: ['Thailand', 'Bangkok', 'City Guide'],
+    heroEmoji: '🏙️',
+  },
+  {
+    slug: 'thailand-budget-travel-2026',
+    title: "Thailand on a Budget: How to Travel for $25, $60 or $120 a Day (2026)",
+    description:
+      "Three fully-costed 2026 Thailand budgets — $25/day backpacker, $60/day mid-range, $120/day comfort tier. Real 2026 prices, hostel picks, night-bus math, and the saving tactics locals use.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Thailand Travel',
+    tags: ['Thailand', 'Budget Travel', 'Backpacking'],
+    heroEmoji: '💸',
+  },
+  {
     slug: 'japan-travel-guide-2026',
     title: "The Ultimate Japan Travel Guide (2026): 47 Prefectures, One Unforgettable Country",
     description:
