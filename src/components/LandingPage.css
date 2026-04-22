@@ -218,32 +218,178 @@
 .hero-map-real {
   width: 560px; aspect-ratio: 2 / 1; position: relative; border-radius: 22px;
   overflow: hidden;
+  cursor: crosshair;
   background:
-    radial-gradient(ellipse at 50% 50%, #1e1b4b 0%, #0d1224 60%, #060912 100%);
+    /* aurora sweeps */
+    radial-gradient(ellipse 55% 40% at 18% 20%, rgba(99,102,241,0.28), transparent 70%),
+    radial-gradient(ellipse 45% 38% at 82% 80%, rgba(236,72,153,0.22), transparent 70%),
+    radial-gradient(ellipse 40% 35% at 50% 110%, rgba(52,211,153,0.18), transparent 70%),
+    /* base deep-space */
+    radial-gradient(ellipse at 50% 50%, #1a1a4f 0%, #0d1224 60%, #050814 100%);
   box-shadow:
-    0 0 0 1px rgba(99,102,241,0.18),
-    0 30px 90px rgba(99,102,241,0.25),
-    0 60px 120px rgba(15,23,42,0.35);
-  border: 1px solid rgba(99,102,241,0.18); flex-shrink: 0;
+    0 0 0 1px rgba(99,102,241,0.22),
+    0 30px 90px rgba(99,102,241,0.28),
+    0 60px 120px rgba(15,23,42,0.40),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  border: 1px solid rgba(99,102,241,0.20); flex-shrink: 0;
   transform: perspective(1200px) rotateX(2deg) rotateY(-3deg);
-  transition: transform 480ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 480ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 320ms ease;
+  outline: none;
 }
-.hero-map-real:hover { transform: perspective(1200px) rotateX(0deg) rotateY(0deg); }
+.hero-map-real:hover,
+.hero-map-real:focus-visible {
+  transform: perspective(1200px) rotateX(0deg) rotateY(0deg);
+  box-shadow:
+    0 0 0 1px rgba(129,140,248,0.38),
+    0 36px 110px rgba(99,102,241,0.38),
+    0 70px 140px rgba(15,23,42,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+}
+/* Subtle starfield */
+.hero-map-real::before {
+  content: ''; position: absolute; inset: 0; border-radius: 22px;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.55) 50%, transparent 55%),
+    radial-gradient(1px 1px at 24% 70%, rgba(255,255,255,0.35) 50%, transparent 55%),
+    radial-gradient(1.5px 1.5px at 42% 28%, rgba(255,255,255,0.7) 50%, transparent 55%),
+    radial-gradient(1px 1px at 58% 82%, rgba(255,255,255,0.4) 50%, transparent 55%),
+    radial-gradient(1px 1px at 72% 14%, rgba(255,255,255,0.55) 50%, transparent 55%),
+    radial-gradient(1.5px 1.5px at 88% 52%, rgba(255,255,255,0.6) 50%, transparent 55%),
+    radial-gradient(1px 1px at 34% 54%, rgba(255,255,255,0.3) 50%, transparent 55%),
+    radial-gradient(1px 1px at 66% 38%, rgba(255,255,255,0.45) 50%, transparent 55%);
+  pointer-events: none; opacity: 0.9;
+  animation: heroStarfield 8s ease-in-out infinite alternate;
+}
+@keyframes heroStarfield {
+  0%   { opacity: 0.55; }
+  100% { opacity: 1; }
+}
 .hero-map-real::after {
-  content: ''; position: absolute; inset: 0; border-radius: 18px;
-  background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(6,15,31,0.5) 100%);
+  content: ''; position: absolute; inset: 0; border-radius: 22px;
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(6,15,31,0.55) 100%);
   pointer-events: none; z-index: 1;
 }
 
 .hero-map-container {
   width: 100%; height: 100%; display: flex; align-items: center;
   justify-content: center; padding: 14px 18px;
+  position: relative; z-index: 2;
 }
 .hero-map-container svg {
   width: 100% !important; height: auto !important; max-height: 100%;
   opacity: 0; animation: mapFadeIn 1.5s ease 0.5s forwards;
+  overflow: visible;
 }
 @keyframes mapFadeIn { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: scale(1); } }
+
+/* Country interactivity — every <g data-country> */
+.hero-map-container svg .sym-country { cursor: pointer; }
+.hero-map-container svg .sym-country path {
+  transition: fill 180ms ease, stroke 180ms ease, filter 220ms ease, transform 220ms ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.hero-map-container svg .sym-country.sym-hover path {
+  fill: #818cf8 !important;
+  stroke: #e0e7ff !important;
+  filter: drop-shadow(0 0 6px rgba(129,140,248,0.85)) drop-shadow(0 0 14px rgba(99,102,241,0.6));
+}
+.hero-map-container svg .sym-country.sym-visited.sym-hover path {
+  fill: #10b981 !important;
+  stroke: #d1fae5 !important;
+  filter: drop-shadow(0 0 8px rgba(52,211,153,0.95)) drop-shadow(0 0 20px rgba(16,185,129,0.65));
+}
+/* Click-stamp pop */
+.hero-map-container svg .sym-country.sym-stamped path {
+  fill: #fbbf24 !important;
+  stroke: #fffbeb !important;
+  filter: drop-shadow(0 0 14px rgba(251,191,36,0.95)) drop-shadow(0 0 26px rgba(245,158,11,0.7));
+  animation: heroCountryStampPop 420ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes heroCountryStampPop {
+  0%   { transform: scale(1); }
+  45%  { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+/* Visited-country stagger-in + slow pulse */
+.hero-map-container svg .sym-visited path {
+  animation:
+    heroVisitedStampIn 820ms cubic-bezier(0.34, 1.56, 0.64, 1) both,
+    heroVisitedPulse 3.6s ease-in-out 1.6s infinite;
+  animation-delay: var(--stamp-delay, 0ms), calc(var(--stamp-delay, 0ms) + 900ms);
+}
+@keyframes heroVisitedStampIn {
+  0%   { fill: #3d5f80; transform: scale(0.88); filter: drop-shadow(0 0 0 rgba(52,211,153,0)); }
+  60%  { transform: scale(1.08); }
+  100% { fill: #34d399; transform: scale(1); filter: drop-shadow(0 0 6px rgba(52,211,153,0.55)); }
+}
+@keyframes heroVisitedPulse {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(52,211,153,0.35)); }
+  50%      { filter: drop-shadow(0 0 10px rgba(52,211,153,0.8)); }
+}
+
+/* Tooltip — follows mouse, shown on country hover */
+.hero-map-tooltip {
+  position: absolute;
+  left: 0; top: 0;
+  transform: translate(calc(var(--tx, 0px) + 14px), calc(var(--ty, 0px) - 38px));
+  background: rgba(10, 14, 32, 0.92);
+  color: #f8fafc;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(129,140,248,0.4);
+  box-shadow: 0 8px 22px rgba(10,14,32,0.45), inset 0 1px 0 rgba(255,255,255,0.08);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity 140ms ease;
+  white-space: nowrap;
+  text-transform: capitalize;
+  backdrop-filter: blur(4px);
+}
+.hero-map-tooltip.show { opacity: 1; }
+
+/* "Click any country" hint */
+.hero-map-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  animation: heroMapHintIn 600ms ease 2.4s forwards;
+}
+.hero-map-hint-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 0 0 rgba(52,211,153,0.6);
+  animation: heroMapHintDot 1.8s ease-in-out infinite;
+}
+@keyframes heroMapHintIn {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+@keyframes heroMapHintDot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0.55); }
+  50%      { box-shadow: 0 0 0 6px rgba(52,211,153,0); }
+}
 
 /* Floating icon chips around the hero map */
 .hero-float-icon {
@@ -566,7 +712,10 @@
   .hero-bullets { justify-content: center; margin: 0 auto; }
   .hero-mini-stats { justify-content: center; }
   .hero-map-real { width: 100%; max-width: 500px; transform: none; }
-  .hero-map-real:hover { transform: none; }
+  .hero-map-real:hover,
+  .hero-map-real:focus-visible { transform: none; }
+  .hero-map-tooltip { display: none; }
+  .hero-map-hint { font-size: 0.68rem; padding: 5px 10px; bottom: 10px; }
   .hero-float-icon { display: none; }
   .landing-nav-links { display: none; }
   .landing-nav { padding: 0.8rem 1.25rem; }

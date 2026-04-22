@@ -310,6 +310,7 @@ export default function LandingPage() {
   const navigate = useNavigate();
   const [scrollY, setScrollY] = useState(0);
   const mapRef = useRef(null);
+  const tooltipRef = useRef(null);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -360,9 +361,10 @@ export default function LandingPage() {
     };
   }, []);
 
-  // Load interactive world map with flight arcs
+  // Load interactive world map with flight arcs + clickable countries
   useEffect(() => {
     if (!mapRef.current) return;
+    const tooltip = tooltipRef.current;
     fetch('/WorldMap_SVG_Source.normalized.svg')
       .then(res => res.text())
       .then(svgContent => {
@@ -387,15 +389,68 @@ export default function LandingPage() {
           path.setAttribute('stroke-width', '0.8');
         });
         const visited = ['India', 'France', 'Australia', 'Brazil', 'Japan', 'Thailand', 'Italy'];
-        svg.querySelectorAll('g').forEach(g => {
+        // Wire every country group for hover + click
+        const containerEl = mapRef.current;
+        const groups = svg.querySelectorAll('g');
+        let visitedIdx = 0;
+        groups.forEach(g => {
           const title = g.querySelector('title');
-          if (title && visited.some(v => title.textContent.includes(v))) {
+          if (!title) return;
+          const name = title.textContent.trim();
+          if (!name) return;
+          const isVisited = visited.some(v => name.includes(v));
+          g.setAttribute('data-country', name);
+          g.classList.add('sym-country');
+          if (isVisited) {
+            g.classList.add('sym-visited');
+            g.style.setProperty('--stamp-delay', `${600 + visitedIdx * 140}ms`);
+            visitedIdx += 1;
             g.querySelectorAll('path').forEach(p => {
               p.setAttribute('fill', '#34d399');
               p.setAttribute('stroke', '#6ee7b7');
               p.setAttribute('stroke-width', '0.7');
             });
           }
+          // Hover / click
+          const onEnter = (e) => {
+            g.classList.add('sym-hover');
+            if (tooltip) {
+              tooltip.textContent = isVisited ? `${name} · stamped` : `${name} · stamp it`;
+              tooltip.classList.add('show');
+              const rect = containerEl.getBoundingClientRect();
+              const x = (e.clientX || rect.left + rect.width / 2) - rect.left;
+              const y = (e.clientY || rect.top + rect.height / 2) - rect.top;
+              tooltip.style.setProperty('--tx', `${x}px`);
+              tooltip.style.setProperty('--ty', `${y}px`);
+            }
+          };
+          const onMove = (e) => {
+            if (!tooltip) return;
+            const rect = containerEl.getBoundingClientRect();
+            tooltip.style.setProperty('--tx', `${e.clientX - rect.left}px`);
+            tooltip.style.setProperty('--ty', `${e.clientY - rect.top}px`);
+          };
+          const onLeave = () => {
+            g.classList.remove('sym-hover');
+            if (tooltip) tooltip.classList.remove('show');
+          };
+          const onClick = () => {
+            if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+              try {
+                window.gtag('event', 'hero_map_country_click', {
+                  country: name,
+                  visited: isVisited,
+                });
+              } catch (_) { /* noop */ }
+            }
+            // Stamp it briefly, then route to signup with context
+            g.classList.add('sym-stamped');
+            setTimeout(() => navigate(`/signup?from=hero-map&country=${encodeURIComponent(name)}`), 260);
+          };
+          g.addEventListener('mouseenter', onEnter);
+          g.addEventListener('mousemove', onMove);
+          g.addEventListener('mouseleave', onLeave);
+          g.addEventListener('click', onClick);
         });
         // Flight arcs
         const ns = 'http://www.w3.org/2000/svg';
@@ -450,7 +505,7 @@ export default function LandingPage() {
         });
         svg.appendChild(overlay);
       });
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -554,13 +609,29 @@ export default function LandingPage() {
               </li>
             </ul>
           </div>
-          <div className="hero-visual" aria-hidden="true">
-            <div className="hero-map-real">
+          <div className="hero-visual" role="region" aria-label="Interactive world map — click any country to start your map">
+            <div
+              className="hero-map-real"
+              role="button"
+              tabIndex={0}
+              aria-label="Click any country to start stamping your travel map"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  navigate('/signup?from=hero-map');
+                }
+              }}
+            >
               <div className="hero-map-container" ref={mapRef} />
+              <div className="hero-map-tooltip" ref={tooltipRef} aria-hidden="true" />
+              <div className="hero-map-hint">
+                <span className="hero-map-hint-dot" />
+                Click any country to start your map
+              </div>
             </div>
-            <div className="hero-float-icon fi-1"><FaPlane /></div>
-            <div className="hero-float-icon fi-2"><FaCamera /></div>
-            <div className="hero-float-icon fi-3"><FaMapPin /></div>
+            <div className="hero-float-icon fi-1" aria-hidden="true"><FaPlane /></div>
+            <div className="hero-float-icon fi-2" aria-hidden="true"><FaCamera /></div>
+            <div className="hero-float-icon fi-3" aria-hidden="true"><FaMapPin /></div>
           </div>
         </section>
 
