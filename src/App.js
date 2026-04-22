@@ -60,6 +60,12 @@ const BestEuropeanCities        = lazy(() => import('./components/Blog/posts/Bes
 const InterrailEurailGuide      = lazy(() => import('./components/Blog/posts/InterrailEurailGuide2026'));
 const EuropeBudgetTravel        = lazy(() => import('./components/Blog/posts/EuropeBudgetTravel2026'));
 const BestEuropeanBeaches       = lazy(() => import('./components/Blog/posts/BestEuropeanBeaches2026'));
+const FranceTravelGuide         = lazy(() => import('./components/Blog/posts/FranceTravelGuide2026'));
+const TwoWeekFranceItin         = lazy(() => import('./components/Blog/posts/TwoWeekFranceItinerary2026'));
+const BestFranceRegions         = lazy(() => import('./components/Blog/posts/BestFranceRegions2026'));
+const FrenchFoodGuide           = lazy(() => import('./components/Blog/posts/FrenchFoodGuide2026'));
+const FrenchRivieraGuide        = lazy(() => import('./components/Blog/posts/FrenchRivieraGuide2026'));
+const FranceBudgetTravel        = lazy(() => import('./components/Blog/posts/FranceBudgetTravel2026'));
 const About                     = lazy(() => import('./components/About'));
 const Contact                   = lazy(() => import('./components/Contact'));
 
@@ -170,6 +176,12 @@ function App() {
           <Route path="/blog/interrail-eurail-guide-2026" element={<InterrailEurailGuide />} />
           <Route path="/blog/europe-budget-travel-2026" element={<EuropeBudgetTravel />} />
           <Route path="/blog/best-european-beaches-2026" element={<BestEuropeanBeaches />} />
+          <Route path="/blog/france-travel-guide-2026" element={<FranceTravelGuide />} />
+          <Route path="/blog/two-week-france-itinerary-2026" element={<TwoWeekFranceItin />} />
+          <Route path="/blog/best-france-regions-2026" element={<BestFranceRegions />} />
+          <Route path="/blog/french-food-guide-2026" element={<FrenchFoodGuide />} />
+          <Route path="/blog/french-riviera-guide-2026" element={<FrenchRivieraGuide />} />
+          <Route path="/blog/france-budget-travel-2026" element={<FranceBudgetTravel />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'france-travel-guide-2026',
+    title: "The Ultimate France Travel Guide (2026): 13 Regions, One Beautiful Country",
+    description:
+      "Everything for a France trip in 2026 — best time to visit, 13 regions, TGV vs plane, food by region, budget tiers, visa/ETIAS rules, and the 12 mistakes first-timers make. Paris, Provence, Loire, Bordeaux and beyond.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'France Travel',
+    tags: ['France', 'Travel Guide', 'Europe', 'Bucket List'],
+    heroEmoji: '🇫🇷',
+  },
+  {
+    slug: 'two-week-france-itinerary-2026',
+    title: "The Perfect 2-Week France Itinerary: Paris → Loire → Bordeaux → Provence → Nice (2026)",
+    description:
+      "A tested 14-day France itinerary — Paris, Loire Valley châteaux, Bordeaux wine country, Provence villages, Nice and the Côte d'Azur. TGV logistics, lodging picks per tier, cost breakdown.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'France Travel',
+    tags: ['France', 'Itinerary', 'Paris', 'Provence', 'Trip Planning'],
+    heroEmoji: '🗼',
+  },
+  {
+    slug: 'best-france-regions-2026',
+    title: "France's 10 Best Regions for Travelers in 2026: Paris, Provence, Bordeaux & More (Ranked)",
+    description:
+      "The 10 French regions worth your vacation time in 2026 — ranked by a 6-dimension traveler score. Deep-dives on Île-de-France, Provence, Nouvelle-Aquitaine, Bretagne, Alsace, Normandy, the Alps and Corsica.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'France Travel',
+    tags: ['France', 'Regions', 'Ranked', 'Bucket List'],
+    heroEmoji: '🏰',
+  },
+  {
+    slug: 'french-food-guide-2026',
+    title: "French Food Guide: 25 Dishes You Must Try in France — by Region (2026)",
+    description:
+      "French cuisine is 13 regional cuisines, not one. The 25 dishes every traveler must try — bouillabaisse, cassoulet, coq au vin, tarte tatin — plus where to eat each in its home region.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'France Travel',
+    tags: ['France', 'Food', 'French Cuisine', 'Wine'],
+    heroEmoji: '🥐',
+  },
+  {
+    slug: 'french-riviera-guide-2026',
+    title: "French Riviera Complete Guide 2026: Nice, Cannes, Monaco, Saint-Tropez",
+    description:
+      "The definitive 2026 French Riviera / Côte d'Azur guide — Nice vs Cannes vs Antibes vs Saint-Tropez, when to go, where to stay, train + bus logistics, the best beaches, Monaco day-trip and the underrated alternatives.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'France Travel',
+    tags: ['France', 'French Riviera', 'Nice', 'Monaco', 'Beach'],
+    heroEmoji: '🌊',
+  },
+  {
+    slug: 'france-budget-travel-2026',
+    title: "France on a Budget: How to Travel France for €60, €120 or €250 a Day (2026)",
+    description:
+      "Three fully-costed 2026 France budgets — €60/day backpacker, €120/day comfortable mid-range, €250/day comfort tier. Real 2026 prices, TGV Super Economy math, B&B picks, saving tactics the French themselves use.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'France Travel',
+    tags: ['France', 'Budget Travel', 'Europe', 'Costs'],
+    heroEmoji: '💶',
+  },
+  {
     slug: 'europe-travel-guide-2026',
     title: "The Ultimate Europe Travel Guide 2026: 44 Countries, One Continent, Endless Possibilities",
     description:
