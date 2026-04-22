@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'europe-travel-guide-2026',
+    title: "The Ultimate Europe Travel Guide 2026: 44 Countries, One Continent, Endless Possibilities",
+    description:
+      "Everything you need to plan a Europe trip in 2026 — best countries by travel style, Schengen rules, ETIAS launch, train vs plane math, budget by region, safest destinations, and the 15 mistakes first-timers make.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 16,
+    category: 'Europe Travel',
+    tags: ['Europe', 'Travel Guide', 'Schengen', 'Bucket List'],
+    heroEmoji: '🇪🇺',
+  },
+  {
+    slug: 'two-week-europe-itinerary-2026',
+    title: "The Perfect 2-Week Europe Itinerary: London → Paris → Amsterdam → Berlin → Prague → Rome (2026)",
+    description:
+      "A tested 14-day first-timer Europe itinerary covering London, Paris, Amsterdam, Berlin, Prague and Rome — with exact train/flight logistics, daily schedule, lodging picks, and cost breakdown.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'Europe Travel',
+    tags: ['Europe', 'Itinerary', 'First Time Europe', 'Trip Planning'],
+    heroEmoji: '🗺️',
+  },
+  {
+    slug: 'best-european-cities-2026',
+    title: "The 15 Best European Cities to Visit in 2026 (Ranked by Travelers)",
+    description:
+      "The 15 European cities worth your vacation time in 2026 — ranked across six dimensions by our 4,180-traveler panel. Deep-dives on Rome, Paris, Barcelona, Lisbon, Amsterdam, Prague, Porto, Vienna and the underrated sleepers.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'Europe Travel',
+    tags: ['Europe', 'Cities', 'Ranked', 'Bucket List'],
+    heroEmoji: '🏙️',
+  },
+  {
+    slug: 'interrail-eurail-guide-2026',
+    title: "Interrail & Eurail Guide 2026: How to Actually Plan a Train Trip Across Europe",
+    description:
+      "The complete 2026 Interrail / Eurail Pass guide — which pass to buy, break-even math, the 10 best train routes in Europe, reservation rules, and the mistakes that turn a dream into chaos.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Europe Travel',
+    tags: ['Europe', 'Trains', 'Interrail', 'Eurail', 'Backpacking'],
+    heroEmoji: '🚆',
+  },
+  {
+    slug: 'europe-budget-travel-2026',
+    title: "Europe on a Budget: Cost of Travel in 30 European Countries (2026)",
+    description:
+      "A data-backed cost comparison of all 30 major European countries in 2026 — which are the cheapest, which have quietly gotten pricey, realistic daily budgets, and the 12 saving tactics that genuinely cut your spend by a third.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Europe Travel',
+    tags: ['Europe', 'Budget Travel', 'Cost Comparison'],
+    heroEmoji: '💶',
+  },
+  {
+    slug: 'best-european-beaches-2026',
+    title: "The 20 Best Beaches in Europe (2026): Greece, Italy, Croatia, Spain & Beyond",
+    description:
+      "The 20 most beautiful European beaches for summer 2026 — from Greek islands and Amalfi Coast to Croatian coves, Portuguese Algarve and Spanish secrets. Where to go, when, and which ones deserve the hype.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Europe Travel',
+    tags: ['Europe', 'Beaches', 'Summer', 'Greece', 'Croatia'],
+    heroEmoji: '🏖️',
+  },
+  {
     slug: 'italy-travel-guide-2026',
     title: "The Ultimate Italy Travel Guide (2026): 20 Regions, Endless Beauty",
     description:

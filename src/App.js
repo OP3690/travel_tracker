@@ -54,6 +54,12 @@ const BestItalyRegions          = lazy(() => import('./components/Blog/posts/Bes
 const ItalianFoodGuide          = lazy(() => import('./components/Blog/posts/ItalianFoodGuide2026'));
 const AmalfiCoastGuide          = lazy(() => import('./components/Blog/posts/AmalfiCoastGuide2026'));
 const ItalyBudgetTravel         = lazy(() => import('./components/Blog/posts/ItalyBudgetTravel2026'));
+const EuropeTravelGuide         = lazy(() => import('./components/Blog/posts/EuropeTravelGuide2026'));
+const TwoWeekEuropeItin         = lazy(() => import('./components/Blog/posts/TwoWeekEuropeItinerary2026'));
+const BestEuropeanCities        = lazy(() => import('./components/Blog/posts/BestEuropeanCities2026'));
+const InterrailEurailGuide      = lazy(() => import('./components/Blog/posts/InterrailEurailGuide2026'));
+const EuropeBudgetTravel        = lazy(() => import('./components/Blog/posts/EuropeBudgetTravel2026'));
+const BestEuropeanBeaches       = lazy(() => import('./components/Blog/posts/BestEuropeanBeaches2026'));
 const About                     = lazy(() => import('./components/About'));
 const Contact                   = lazy(() => import('./components/Contact'));
 
@@ -158,6 +164,12 @@ function App() {
           <Route path="/blog/italian-food-guide-2026" element={<ItalianFoodGuide />} />
           <Route path="/blog/amalfi-coast-guide-2026" element={<AmalfiCoastGuide />} />
           <Route path="/blog/italy-budget-travel-2026" element={<ItalyBudgetTravel />} />
+          <Route path="/blog/europe-travel-guide-2026" element={<EuropeTravelGuide />} />
+          <Route path="/blog/two-week-europe-itinerary-2026" element={<TwoWeekEuropeItin />} />
+          <Route path="/blog/best-european-cities-2026" element={<BestEuropeanCities />} />
+          <Route path="/blog/interrail-eurail-guide-2026" element={<InterrailEurailGuide />} />
+          <Route path="/blog/europe-budget-travel-2026" element={<EuropeBudgetTravel />} />
+          <Route path="/blog/best-european-beaches-2026" element={<BestEuropeanBeaches />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
