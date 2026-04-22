@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'japan-travel-guide-2026',
+    title: "The Ultimate Japan Travel Guide (2026): 47 Prefectures, One Unforgettable Country",
+    description:
+      "Everything you need to plan a Japan trip in 2026 — best time to visit, JR Pass math, region-by-region highlights, food, etiquette, budget tiers, cherry blossom timing and the 12 mistakes first-time visitors make.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 15,
+    category: 'Japan Travel',
+    tags: ['Japan', 'Travel Guide', 'Asia', 'Bucket List'],
+    heroEmoji: '🇯🇵',
+  },
+  {
+    slug: 'two-week-japan-itinerary-2026',
+    title: "The Perfect 2-Week Japan Itinerary: Tokyo → Kyoto → Osaka → Hiroshima (2026)",
+    description:
+      "A tested 14-day Japan itinerary covering Tokyo, Kyoto, Osaka, Hiroshima, Hakone and Kanazawa — with exact JR Pass logistics, daily schedule, ryokan vs hotel picks, cost breakdown and the stops most itineraries skip.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'Japan Travel',
+    tags: ['Japan', 'Itinerary', 'Tokyo', 'Kyoto', 'Trip Planning'],
+    heroEmoji: '🗾',
+  },
+  {
+    slug: 'best-japan-regions-2026',
+    title: "Japan's 9 Best Regions for Travelers in 2026: Tokyo, Kyoto, Hokkaido & More (Ranked)",
+    description:
+      "The 9 Japanese regions worth your vacation days in 2026 — ranked by a 6-dimension traveler score. Deep-dives on Kanto, Kansai, Hokkaido, Okinawa, Tohoku, and the underrated regions most itineraries skip.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Japan Travel',
+    tags: ['Japan', 'Regions', 'Ranked', 'Bucket List'],
+    heroEmoji: '🗻',
+  },
+  {
+    slug: 'japanese-food-guide-2026',
+    title: "Japanese Food Guide: 30 Dishes You Must Try in Japan (2026)",
+    description:
+      "A pragmatic 2026 guide to the 30 Japanese dishes that genuinely matter — sushi, ramen, tempura, okonomiyaki, unagi, yakiniku, kaiseki — organized by region, with our best-in-class restaurant picks for each.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'Japan Travel',
+    tags: ['Japan', 'Food', 'Japanese Cuisine', 'Sushi', 'Ramen'],
+    heroEmoji: '🍣',
+  },
+  {
+    slug: 'japan-cherry-blossom-2026',
+    title: "Japan Cherry Blossom 2026: Complete Sakura Forecast, Hanami Spots & Peak Dates by Region",
+    description:
+      "The 2026 sakura forecast — when cherry blossoms will peak in Tokyo, Kyoto, Osaka, Hokkaido and every major region. Best hanami viewing spots, how to book a cherry-blossom trip, and which year to go if 2026 is already booked.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Japan Travel',
+    tags: ['Japan', 'Cherry Blossom', 'Sakura', 'Hanami', '2026'],
+    heroEmoji: '🌸',
+  },
+  {
+    slug: 'japan-budget-travel-2026',
+    title: "Japan on a Budget: How to Travel Japan for $60, $120 or $250 a Day (2026)",
+    description:
+      "Three fully-costed 2026 Japan budgets — the $60/day backpacker, the $120/day comfortable mid-range, and the $250/day comfort tier. Real 2026 prices, JR Pass math, hostel/ryokan picks, and money-saving tactics locals actually use.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Japan Travel',
+    tags: ['Japan', 'Budget Travel', 'JR Pass', 'Costs'],
+    heroEmoji: '💴',
+  },
+  {
     slug: 'philippines-travel-guide-2026',
     title: "The Ultimate Philippines Travel Guide (2026): 7,641 Islands, 17 Regions, One Incredible Country",
     description:

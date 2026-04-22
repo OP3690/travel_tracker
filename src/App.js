@@ -36,6 +36,12 @@ const PhilippinesBeaches        = lazy(() => import('./components/Blog/posts/Phi
 const FilipinoFoodGuide         = lazy(() => import('./components/Blog/posts/FilipinoFoodGuide2026'));
 const PhilippinesBudgetTravel   = lazy(() => import('./components/Blog/posts/PhilippinesBudgetTravel2026'));
 const TwoWeekPhilippinesItin    = lazy(() => import('./components/Blog/posts/TwoWeekPhilippinesItinerary2026'));
+const JapanTravelGuide          = lazy(() => import('./components/Blog/posts/JapanTravelGuide2026'));
+const TwoWeekJapanItin          = lazy(() => import('./components/Blog/posts/TwoWeekJapanItinerary2026'));
+const BestJapanRegions          = lazy(() => import('./components/Blog/posts/BestJapanRegions2026'));
+const JapaneseFoodGuide         = lazy(() => import('./components/Blog/posts/JapaneseFoodGuide2026'));
+const JapanCherryBlossom        = lazy(() => import('./components/Blog/posts/JapanCherryBlossom2026'));
+const JapanBudgetTravel         = lazy(() => import('./components/Blog/posts/JapanBudgetTravel2026'));
 const About                     = lazy(() => import('./components/About'));
 const Contact                   = lazy(() => import('./components/Contact'));
 
@@ -122,6 +128,12 @@ function App() {
           <Route path="/blog/filipino-food-guide-2026" element={<FilipinoFoodGuide />} />
           <Route path="/blog/philippines-budget-travel-2026" element={<PhilippinesBudgetTravel />} />
           <Route path="/blog/two-week-philippines-itinerary-2026" element={<TwoWeekPhilippinesItin />} />
+          <Route path="/blog/japan-travel-guide-2026" element={<JapanTravelGuide />} />
+          <Route path="/blog/two-week-japan-itinerary-2026" element={<TwoWeekJapanItin />} />
+          <Route path="/blog/best-japan-regions-2026" element={<BestJapanRegions />} />
+          <Route path="/blog/japanese-food-guide-2026" element={<JapaneseFoodGuide />} />
+          <Route path="/blog/japan-cherry-blossom-2026" element={<JapanCherryBlossom />} />
+          <Route path="/blog/japan-budget-travel-2026" element={<JapanBudgetTravel />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
