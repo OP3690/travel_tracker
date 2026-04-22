@@ -66,6 +66,12 @@ const BestFranceRegions         = lazy(() => import('./components/Blog/posts/Bes
 const FrenchFoodGuide           = lazy(() => import('./components/Blog/posts/FrenchFoodGuide2026'));
 const FrenchRivieraGuide        = lazy(() => import('./components/Blog/posts/FrenchRivieraGuide2026'));
 const FranceBudgetTravel        = lazy(() => import('./components/Blog/posts/FranceBudgetTravel2026'));
+const SpainTravelGuide          = lazy(() => import('./components/Blog/posts/SpainTravelGuide2026'));
+const TwoWeekSpainItin          = lazy(() => import('./components/Blog/posts/TwoWeekSpainItinerary2026'));
+const BestSpainRegions          = lazy(() => import('./components/Blog/posts/BestSpainRegions2026'));
+const SpanishFoodGuide          = lazy(() => import('./components/Blog/posts/SpanishFoodGuide2026'));
+const BarcelonaCompleteGuide    = lazy(() => import('./components/Blog/posts/BarcelonaCompleteGuide2026'));
+const SpainBudgetTravel         = lazy(() => import('./components/Blog/posts/SpainBudgetTravel2026'));
 const About                     = lazy(() => import('./components/About'));
 const Contact                   = lazy(() => import('./components/Contact'));
 
@@ -182,6 +188,12 @@ function App() {
           <Route path="/blog/french-food-guide-2026" element={<FrenchFoodGuide />} />
           <Route path="/blog/french-riviera-guide-2026" element={<FrenchRivieraGuide />} />
           <Route path="/blog/france-budget-travel-2026" element={<FranceBudgetTravel />} />
+          <Route path="/blog/spain-travel-guide-2026" element={<SpainTravelGuide />} />
+          <Route path="/blog/two-week-spain-itinerary-2026" element={<TwoWeekSpainItin />} />
+          <Route path="/blog/best-spain-regions-2026" element={<BestSpainRegions />} />
+          <Route path="/blog/spanish-food-guide-2026" element={<SpanishFoodGuide />} />
+          <Route path="/blog/barcelona-complete-guide-2026" element={<BarcelonaCompleteGuide />} />
+          <Route path="/blog/spain-budget-travel-2026" element={<SpainBudgetTravel />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

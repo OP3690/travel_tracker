@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'spain-travel-guide-2026',
+    title: "The Ultimate Spain Travel Guide (2026): 17 Autonomous Communities, One Sun-Drenched Country",
+    description:
+      "Everything for a Spain trip in 2026 — best time, 17 regions, AVE high-speed rail, tapas culture, Schengen + ETIAS, budget tiers, and the 12 mistakes first-timers make. Madrid, Barcelona, Seville, Granada and beyond.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'Spain Travel',
+    tags: ['Spain', 'Travel Guide', 'Europe', 'Bucket List'],
+    heroEmoji: '🇪🇸',
+  },
+  {
+    slug: 'two-week-spain-itinerary-2026',
+    title: "The Perfect 2-Week Spain Itinerary: Madrid → Seville → Granada → Barcelona → Valencia (2026)",
+    description:
+      "A tested 14-day Spain itinerary covering Madrid, Andalucía (Seville + Granada + Córdoba), Barcelona and Valencia — with AVE logistics, lodging picks, siesta-aware scheduling, and cost breakdown.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Spain Travel',
+    tags: ['Spain', 'Itinerary', 'Madrid', 'Barcelona', 'Andalucía'],
+    heroEmoji: '🏛️',
+  },
+  {
+    slug: 'best-spain-regions-2026',
+    title: "Spain's 10 Best Regions for Travelers in 2026: Andalucía, Catalonia, Basque Country & More (Ranked)",
+    description:
+      "The 10 Spanish regions worth your vacation time in 2026 — ranked by a 6-dimension traveler score. Deep-dives on Andalucía, Catalonia, Madrid, Basque Country, Valencia, Balearics, Canaries, Galicia.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Spain Travel',
+    tags: ['Spain', 'Regions', 'Andalucia', 'Catalonia', 'Ranked'],
+    heroEmoji: '🌞',
+  },
+  {
+    slug: 'spanish-food-guide-2026',
+    title: "Spanish Food Guide: 25 Tapas & Dishes You Must Try in Spain — by Region (2026)",
+    description:
+      "Spanish cuisine is 17 regional cuisines and a thousand tapas bars. The 25 dishes every traveler must try — paella, jamón ibérico, tortilla española, gazpacho, pintxos, churros — and where to eat each in its home region.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Spain Travel',
+    tags: ['Spain', 'Food', 'Tapas', 'Paella', 'Spanish Cuisine'],
+    heroEmoji: '🥘',
+  },
+  {
+    slug: 'barcelona-complete-guide-2026',
+    title: "Barcelona Complete Guide 2026: 5 Days in Gaudí's City",
+    description:
+      "The definitive 2026 Barcelona guide — Gaudí sights (Sagrada Familia, Park Güell, Casa Batlló), neighborhoods, tapas bars, beaches, day-trips, and how to navigate the overtourism backlash with respect.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Spain Travel',
+    tags: ['Spain', 'Barcelona', 'Gaudí', 'City Guide'],
+    heroEmoji: '🏛️',
+  },
+  {
+    slug: 'spain-budget-travel-2026',
+    title: "Spain on a Budget: How to Travel Spain for €50, €90 or €180 a Day (2026)",
+    description:
+      "Three fully-costed 2026 Spain budgets — €50/day backpacker, €90/day mid-range, €180/day comfort. Real 2026 prices, AVE math, pension/hostel picks, and the tapas-trick that feeds you for €10/day.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Spain Travel',
+    tags: ['Spain', 'Budget Travel', 'Europe', 'Costs'],
+    heroEmoji: '💶',
+  },
+  {
     slug: 'france-travel-guide-2026',
     title: "The Ultimate France Travel Guide (2026): 13 Regions, One Beautiful Country",
     description:
