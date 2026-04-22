@@ -72,6 +72,12 @@ const BestSpainRegions          = lazy(() => import('./components/Blog/posts/Bes
 const SpanishFoodGuide          = lazy(() => import('./components/Blog/posts/SpanishFoodGuide2026'));
 const BarcelonaCompleteGuide    = lazy(() => import('./components/Blog/posts/BarcelonaCompleteGuide2026'));
 const SpainBudgetTravel         = lazy(() => import('./components/Blog/posts/SpainBudgetTravel2026'));
+const MexicoTravelGuide         = lazy(() => import('./components/Blog/posts/MexicoTravelGuide2026'));
+const TwoWeekMexicoItin         = lazy(() => import('./components/Blog/posts/TwoWeekMexicoItinerary2026'));
+const BestMexicoDestinations    = lazy(() => import('./components/Blog/posts/BestMexicoDestinations2026'));
+const MexicanFoodGuide          = lazy(() => import('./components/Blog/posts/MexicanFoodGuide2026'));
+const YucatanGuide              = lazy(() => import('./components/Blog/posts/YucatanCenotesMayanRuinsGuide2026'));
+const MexicoBudgetTravel        = lazy(() => import('./components/Blog/posts/MexicoBudgetTravel2026'));
 const About                     = lazy(() => import('./components/About'));
 const Contact                   = lazy(() => import('./components/Contact'));
 
@@ -194,6 +200,12 @@ function App() {
           <Route path="/blog/spanish-food-guide-2026" element={<SpanishFoodGuide />} />
           <Route path="/blog/barcelona-complete-guide-2026" element={<BarcelonaCompleteGuide />} />
           <Route path="/blog/spain-budget-travel-2026" element={<SpainBudgetTravel />} />
+          <Route path="/blog/mexico-travel-guide-2026" element={<MexicoTravelGuide />} />
+          <Route path="/blog/two-week-mexico-itinerary-2026" element={<TwoWeekMexicoItin />} />
+          <Route path="/blog/best-mexico-destinations-2026" element={<BestMexicoDestinations />} />
+          <Route path="/blog/mexican-food-guide-2026" element={<MexicanFoodGuide />} />
+          <Route path="/blog/yucatan-cenotes-mayan-ruins-guide-2026" element={<YucatanGuide />} />
+          <Route path="/blog/mexico-budget-travel-2026" element={<MexicoBudgetTravel />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

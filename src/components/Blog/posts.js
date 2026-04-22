@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'mexico-travel-guide-2026',
+    title: "The Ultimate Mexico Travel Guide (2026): 32 States, Endless Adventures",
+    description:
+      "Everything for a Mexico trip in 2026 — best time, 32 states, visa-free rules, peso vs USD, safety the honest answer, regional food, budget tiers, and the 12 mistakes first-timers make. Cancún, Tulum, Mexico City, Oaxaca and beyond.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'Mexico Travel',
+    tags: ['Mexico', 'Travel Guide', 'Latin America', 'Bucket List'],
+    heroEmoji: '🇲🇽',
+  },
+  {
+    slug: 'two-week-mexico-itinerary-2026',
+    title: "The Perfect 2-Week Mexico Itinerary: Mexico City → Oaxaca → Yucatán → Tulum (2026)",
+    description:
+      "A tested 14-day Mexico itinerary — Mexico City's art + food, Oaxaca's mezcal + markets, Yucatán's cenotes + Chichén Itzá, Tulum's beaches. Domestic flight logistics, ADO bus network, lodging picks, cost breakdown.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Mexico Travel',
+    tags: ['Mexico', 'Itinerary', 'Mexico City', 'Yucatan', 'Oaxaca'],
+    heroEmoji: '🌵',
+  },
+  {
+    slug: 'best-mexico-destinations-2026',
+    title: "Mexico's 10 Best Destinations for Travelers in 2026: Tulum, Oaxaca, Mexico City & More (Ranked)",
+    description:
+      "The 10 Mexican destinations worth your vacation time in 2026 — ranked by a 6-dimension score. Deep-dives on Mexico City, Oaxaca, Yucatán, Los Cabos, Guadalajara, San Miguel de Allende, and the underrated gems.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Mexico Travel',
+    tags: ['Mexico', 'Destinations', 'Ranked', 'Bucket List'],
+    heroEmoji: '🏖️',
+  },
+  {
+    slug: 'mexican-food-guide-2026',
+    title: "Mexican Food Guide: 25 Dishes You Must Try in Mexico — by Region (2026)",
+    description:
+      "Real Mexican food is 32 regional cuisines, not Tex-Mex. The 25 dishes every traveler must try — tacos al pastor, mole, cochinita pibil, chiles en nogada, pozole — and where to eat each in its home region.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Mexico Travel',
+    tags: ['Mexico', 'Food', 'Mexican Cuisine', 'Tacos', 'Mole'],
+    heroEmoji: '🌮',
+  },
+  {
+    slug: 'yucatan-cenotes-mayan-ruins-guide-2026',
+    title: "Yucatán Peninsula Guide 2026: Cenotes, Mayan Ruins, Tulum & Mérida",
+    description:
+      "The definitive 2026 Yucatán Peninsula guide — Chichén Itzá vs Ek Balam, the 10 best cenotes, Tulum vs Playa del Carmen vs Mérida, when to go, how to get around, and the island of Holbox alternative.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Mexico Travel',
+    tags: ['Mexico', 'Yucatán', 'Cenotes', 'Tulum', 'Mayan Ruins'],
+    heroEmoji: '🐢',
+  },
+  {
+    slug: 'mexico-budget-travel-2026',
+    title: "Mexico on a Budget: How to Travel Mexico for $30, $70 or $150 a Day (2026)",
+    description:
+      "Three fully-costed 2026 Mexico budgets — $30/day backpacker, $70/day mid-range, $150/day comfort. Real peso prices, ADO vs flight math, taco cart vs restaurant, safety + tipping + tactics locals actually use.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Mexico Travel',
+    tags: ['Mexico', 'Budget Travel', 'Latin America', 'Costs'],
+    heroEmoji: '💵',
+  },
+  {
     slug: 'spain-travel-guide-2026',
     title: "The Ultimate Spain Travel Guide (2026): 17 Autonomous Communities, One Sun-Drenched Country",
     description:
