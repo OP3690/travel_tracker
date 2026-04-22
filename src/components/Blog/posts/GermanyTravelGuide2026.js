@@ -180,10 +180,66 @@ export default function GermanyTravelGuide2026() {
         </ol>
 
         <h2 id="faq">8. FAQ</h2>
-        <h3>Days needed?</h3><p><strong>10-14 days</strong>. Minimum 7.</p>
-        <h3>Safest?</h3><p>One of Europe\'s safest. Pickpockets in Berlin/Munich metros, otherwise low crime.</p>
-        <h3>English?</h3><p>Widely spoken in cities + tourism. Limited in small towns + East Germany.</p>
-        <h3>Tipping?</h3><p>Round up 5-10% at restaurants. Say amount when paying, not leaving extra cash.</p>
+        <h3>How many days do I actually need for Germany?</h3>
+        <p>
+          <strong>10-14 days is the sweet spot</strong> for a meaningful first trip — enough to hit Berlin, Munich, Neuschwanstein, and one more region (Black Forest, Dresden, or Cologne/Rhine). Bare minimum is 7 days (Berlin 3 + Munich 3 + Neuschwanstein day-trip), and 18-21 days lets you add the Baltic coast or Bavarian Alps without rushing.
+        </p>
+        <h3>Is Germany a safe destination?</h3>
+        <p>
+          <strong>One of Europe{"'"}s safest countries</strong> — violent crime is rare, cities feel comfortable at all hours, and women regularly travel solo without issue. The only real nuisance is pickpockets in Berlin Hauptbahnhof, Munich{"'"}s U-Bahn, and tourist corridors like Marienplatz. Crime rates are lower in Bavaria and eastern Germany than in Berlin.
+        </p>
+        <h3>Do I need to speak German?</h3>
+        <p>
+          <strong>English is widely spoken in cities, tourism, and under-45 populations</strong> — Berlin, Munich, Hamburg, Frankfurt have near-universal English. Rural Bavaria, eastern villages, and older generations speak limited English; Google Translate plus "Sprechen Sie Englisch?" handles it. Learning "Danke, Bitte, Entschuldigung" is appreciated everywhere.
+        </p>
+        <h3>What is the best month to visit?</h3>
+        <p>
+          <strong>May-June and September</strong> — long days (sunrise 5am, sunset 9pm in June), mild weather (18-24°C), and gardens/beer gardens at peak. Late September is Oktoberfest (book Munich 6+ months out). December 1-22 is magical for Christmas markets (see our <Link to="/blog/germany-christmas-markets-2026">markets guide</Link>). Avoid January-February unless you love grey + cold.
+        </p>
+        <h3>How do I handle public transport between cities?</h3>
+        <p>
+          <strong>Deutsche Bahn ICE trains</strong> are the backbone — Berlin-Munich 4 hours (€40-120 booked ahead via bahn.de), Berlin-Cologne 4h30, Munich-Frankfurt 3h15. The <strong>Deutschland-Ticket (€58/month for unlimited regional trains + local transit)</strong> is the best-value pass if your itinerary is slow. ICE Sparpreis tickets from €17.90 if booked 3+ months ahead.
+        </p>
+        <h3>Do I need a visa to enter Germany?</h3>
+        <p>
+          <strong>No visa needed for stays under 90 days</strong> for US, UK, Canadian, Australian, Japanese, and most Western passports — Germany is Schengen, so the 90-day limit counts across all Schengen countries in a rolling 180 days. <strong>ETIAS launches late 2026</strong> and will add a €7 pre-authorization for visa-exempt travelers.
+        </p>
+        <h3>What currency and payment methods work?</h3>
+        <p>
+          <strong>Euros</strong> — but Germany is surprisingly cash-heavy for a developed economy. Many small cafés, bakeries, imbiss stands, beer gardens, and even some mid-range restaurants are <strong>cash-only</strong>. Always carry €30-50. Cards work at supermarkets, chains, hotels, and most city restaurants. Apple/Google Pay acceptance is improving but still spotty.
+        </p>
+        <h3>Is tipping expected?</h3>
+        <p>
+          <strong>Round up 5-10% at restaurants</strong> — the German way is to <strong>tell the waiter the total you want to pay when they bring the bill</strong> (e.g. €42 bill becomes "mach 45"), not leave cash on the table. Do not tip at fast-food, bakeries, or supermarkets. Taxi drivers get rounded up to the nearest euro.
+        </p>
+        <h3>What is the German approach to punctuality and rules?</h3>
+        <p>
+          Germans take punctuality and rules seriously — <strong>trains, tours, and reservations run on time, and showing up late is mildly rude</strong>. Jaywalking at empty crosswalks is frowned upon (especially in front of children). Quiet hours are observed on Sundays nationwide (most shops closed, no loud activities). Follow the rule, avoid friction.
+        </p>
+        <h3>How good is mobile data and WiFi?</h3>
+        <p>
+          Mobile data is solid across Germany — <strong>Vodafone and Telekom have the best coverage</strong>, O2 is cheapest. EU roaming rules apply free of charge on any EU SIM. An Airalo eSIM (US$10 for 5GB/14 days) covers a typical trip. Hotel WiFi is universally free. Train WiFi on ICE is free but patchy in rural stretches.
+        </p>
+        <h3>Do I need travel insurance or health prep?</h3>
+        <p>
+          No vaccines required beyond routine — <strong>Germany{"'"}s healthcare is world-class</strong> and EU visitors get EHIC/GHIC emergency cover. Non-EU visitors need travel insurance: a doctor visit is €50-120, a hospital stay €400+/day. World Nomads, SafetyWing, or a quality credit-card (Chase Sapphire Reserve) cover it.
+        </p>
+        <h3>Best festivals and events worth timing a trip around?</h3>
+        <p>
+          <strong>Oktoberfest Munich (mid-Sept to first Sunday of Oct), Christmas Markets (Dec 1-22), Carnival in Cologne/Mainz (Feb)</strong>, Berlinale film festival (February), and Wagner{"'"}s Bayreuth Festival (late July-Aug, tickets need 6-month lottery). Rhine in Flames summer weekends (May-Sept) bring fireworks along castle-lined river stretches.
+        </p>
+        <h3>Cultural etiquette I should know?</h3>
+        <p>
+          <strong>Make eye contact when clinking glasses ("Prost!") or it is considered bad luck</strong>, always greet on entering a small shop ("Guten Tag"), and keep conversation volume low on trains and restaurants. Do not cut pauses in conversation — Germans leave deliberate silences. Directness is not rudeness; a blunt "no" means no friction, not offense.
+        </p>
+        <h3>Is Germany easy for vegetarians and dietary restrictions?</h3>
+        <p>
+          <strong>Easier than reputation suggests</strong> — Berlin has hundreds of vegan restaurants (Europe{"'"}s vegan capital by many metrics), Munich and Hamburg are well-served, and every major supermarket has dedicated vegan sections. Rural Bavaria and traditional beer halls are meat-centric, but spätzle, käsespätzle, and maultaschen offer vegetarian options. GF/DF labels are standard.
+        </p>
+        <h3>Where should I base myself as a first-timer?</h3>
+        <p>
+          Build your trip around <strong>Berlin + Munich as bookends</strong> (fly into one, out of the other) — they are Germany{"'"}s two iconic cities and anchor different regions (north/east vs south). Add Dresden between them by train, plus either the Romantic Road + Neuschwanstein from Munich or Cologne + Rhine from Frankfurt.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

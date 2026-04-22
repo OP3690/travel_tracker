@@ -172,9 +172,62 @@ export default function BestAustralianDestinations2026() {
         />
 
         <h2 id="faq">4. FAQ</h2>
-        <h3>First-time visit?</h3><p><strong>Sydney + GBR + Uluru + Melbourne</strong>. The classic Australia loop.</p>
-        <h3>Most underrated?</h3><p><strong>Tasmania</strong>. Food, wilderness, culture.</p>
-        <h3>Best beach?</h3><p><strong>Whitehaven (Whitsundays)</strong>.</p>
+        <h3>If this is my only Australia trip, where should I go?</h3>
+        <p>
+          The unbeatable first-timer loop is <strong>Sydney + Great Barrier Reef + Uluru + Melbourne</strong> — four genuinely different landscapes (harbour city, tropical reef, desert, temperate coast) in 14 days. Adding Tasmania or the Great Ocean Road takes it to 18-21 days. See our <Link to="/blog/two-week-australia-itinerary-2026">2-week itinerary</Link> for day-by-day.
+        </p>
+        <h3>What is the single most underrated destination?</h3>
+        <p>
+          <strong>Tasmania</strong>, unanimously — it has Australia{"'"}s best wilderness (Cradle Mountain, Freycinet), most avant-garde art (MONA), top seafood, and cooler, European-feeling climate. Tasmanians joke about being forgotten off maps, but the island is a fully realized destination on its own deserving 7-10 days.
+        </p>
+        <h3>Which destination is the best single beach?</h3>
+        <p>
+          <strong>Whitehaven Beach in the Whitsundays</strong> — 7 km of silica sand so pure it squeaks, accessed only by boat from Airlie Beach or Hamilton Island. Close runners-up: Turquoise Bay (Ningaloo WA), Wineglass Bay (Freycinet TAS), and Cable Beach (Broome WA) for camel sunsets on 22 km of empty sand.
+        </p>
+        <h3>Best destination for first-time hikers?</h3>
+        <p>
+          <strong>Cradle Mountain-Lake St Clair (Tasmania)</strong> for alpine wilderness without technical difficulty — the Dove Lake Circuit is 6 km easy; the Overland Track is 6 days intermediate. The Blue Mountains near Sydney are more accessible, and Kings Canyon (NT) Rim Walk is 6 km of jaw-dropping red-rock gorge.
+        </p>
+        <h3>Where can I see the most wildlife in one place?</h3>
+        <p>
+          <strong>Kangaroo Island (SA)</strong> — kangaroos, koalas, sea lions, echidnas, penguins, and seals within a 90-minute drive on a 4,400 km² island. Runners-up: Phillip Island (Victoria) for penguins, Ningaloo Reef (WA) for whale sharks and manta rays, and Daintree Rainforest for cassowaries and saltwater crocs.
+        </p>
+        <h3>Best destination for nightlife and going out?</h3>
+        <p>
+          <strong>Melbourne for laneway bars and live music</strong> — the CBD has 200+ hidden rooftops and basement venues, and Brunswick + Fitzroy for indie scene. Sydney is more polished (harbour bars, King{"'"}s Cross gentrified), Brisbane has Fortitude Valley, and Gold Coast delivers mega-club Surfers Paradise energy if that is your vibe.
+        </p>
+        <h3>Best family-friendly destination?</h3>
+        <p>
+          <strong>Gold Coast (QLD) — theme park capital</strong> with Movie World, Dreamworld, Sea World, and Warner Bros Fun Park plus 70 km of beaches. Phillip Island for penguins at dusk and koala sanctuary. For older kids (10+), the Great Barrier Reef day tours from Cairns with lagoon-style pontoons are unbeatable.
+        </p>
+        <h3>Best luxury destination?</h3>
+        <p>
+          <strong>Longitude 131° at Uluru</strong> (A$2,800+/night, 15 tented pavilions facing the rock) is the unmatched luxury experience — all-inclusive, private Field of Light, and sunrise terrace. Close seconds: Saffire Freycinet (Tasmania), qualia (Hamilton Island, Whitsundays), and One&Only Wolgan Valley in the Blue Mountains.
+        </p>
+        <h3>How do I combine east coast and Red Centre efficiently?</h3>
+        <p>
+          <strong>Fly, do not drive</strong> — Sydney or Cairns to Uluru (via Alice Springs) is 3 hours direct on Qantas/Jetstar; driving is 2,800+ km across nothing. Best combo: 4 days east coast → fly to Uluru for 3 days → fly back to Cairns or Melbourne. Never try to drive Sydney to Uluru in under 5 days.
+        </p>
+        <h3>East coast vs west coast — which first?</h3>
+        <p>
+          <strong>East coast first</strong> for first-time visitors — Sydney + GBR + Melbourne have the iconic moments and easier logistics. The west (Perth, Margaret River, Ningaloo, Kimberley) rewards repeat visitors with emptier beaches and more adventurous terrain, but it is a full trip on its own (minimum 10 days from Perth).
+        </p>
+        <h3>Best wine destination?</h3>
+        <p>
+          <strong>Margaret River (WA)</strong> for top-tier cabernet + surf + caves in one 3-day region, or <strong>Barossa Valley (SA)</strong> for heritage shiraz producers (Penfolds, Henschke) and German-Australian heritage. Yarra Valley (near Melbourne) is easier day-trip pinot country; Tamar Valley (Tasmania) makes world-class sparkling.
+        </p>
+        <h3>Best destination in winter (June-August)?</h3>
+        <p>
+          <strong>Tropical north</strong> — Cairns, Darwin, Broome, Kakadu, and the Whitsundays are all in dry season with perfect 26-30°C weather. Uluru nights are cold (5°C) but days are ideal. The southern cities (Sydney, Melbourne) are chilly and grey; Tasmania is cold but the truffle and whisky scene peaks in winter.
+        </p>
+        <h3>Which destinations can I skip without regret?</h3>
+        <p>
+          <strong>Gold Coast (if you are not a theme-park family), Cairns city itself (use as a reef gateway only)</strong>, and Alice Springs town (functional stopover for Uluru, no reason to linger). Canberra is interesting for 1-2 days if you love politics and museums, otherwise easy skip on a 14-day trip.
+        </p>
+        <h3>Hidden gem most travelers miss?</h3>
+        <p>
+          <strong>Flinders Ranges (SA)</strong> — red-rock desert landscapes rivaling Uluru with 1/10th the crowds, plus emu + kangaroo at every turn. Runners-up: Lord Howe Island (700 people, 400 tourists max at any time), Montague Island (NSW penguins + seals), and Coober Pedy (underground opal-mining town).
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

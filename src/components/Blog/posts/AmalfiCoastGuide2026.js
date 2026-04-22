@@ -212,13 +212,49 @@ export default function AmalfiCoastGuide2026() {
 
         <h2 id="faq">10. FAQ</h2>
         <h3>How long do I need on the Amalfi Coast?</h3>
-        <p><strong>5 days minimum</strong>. 7 if you add Pompeii + Capri as proper explorations.</p>
-        <h3>Is driving the SS163 dangerous?</h3>
-        <p>Not dangerous; tedious. Two-way cliff road with tour buses. Get a driver instead.</p>
+        <p><strong>{"5 days minimum"}</strong>{" — one to settle, one for Positano, one for Amalfi + Ravello, one ferry day to Capri, one reserve for hikes or Pompeii. "}<strong>7 days</strong>{" lets you add the Path of the Gods hike, a boat charter, and the southern Cilento coast. Anything under 3 nights and you spend more time on transfers than beaches."}</p>
+
+        <h3>Is driving the SS163 coastal road dangerous?</h3>
+        <p>{"Not dangerous, but "}<strong>tedious and stressful</strong>{". The SS163 is a single-lane cliff road shared with 12-metre tour buses, blind hairpin turns, and scooters overtaking in both directions. Parking in Positano runs "}<strong>€6–10 per hour</strong>{". Hire a private driver (€180–260/day shared by 3–4 people) or use the SITA bus and ferries — cheaper and saner."}</p>
+
         <h3>Is Positano worth the hype?</h3>
-        <p>Yes for the vistas + sunset. No for the prices. Stay in Praiano, visit Positano for dinners.</p>
-        <h3>Can I do Amalfi Coast in a day?</h3>
-        <p>From Naples — just barely. Ferry to Positano, walk, ferry to Amalfi, ferry back. Tiring.</p>
+        <p>{"Yes for the pastel-stacked views and sunset from Le Sirenuse's terrace; no for the prices. A standard hotel room in July runs "}<strong>€450–800/night</strong>{" and lunch on the beach costs €60+ per person. "}<strong>Stay in Praiano or Minori</strong>{" (30 min ferry away, half the price) and visit Positano for one dinner. You get the vistas without the receipt shock."}</p>
+
+        <h3>Can I see the Amalfi Coast in a day from Naples?</h3>
+        <p>{"Just barely, and you'll regret it. From Naples: "}<strong>Circumvesuviana to Sorrento (1 h 10), ferry to Positano (40 min), walk, ferry to Amalfi (25 min), ferry back to Sorrento (50 min), train back</strong>{". You'll have maybe 4 hours total on the coast. Better: base in Sorrento for 3 nights and day-trip daily."}</p>
+
+        <h3>Where should I actually base myself?</h3>
+        <p><strong>{"Praiano"}</strong>{" for best value (between Positano and Amalfi, quiet, ferry access); "}<strong>Amalfi town</strong>{" for ferry-hub convenience; "}<strong>Ravello</strong>{" for luxury + peace above the crowds; "}<strong>Sorrento</strong>{" for families and budget (cheaper hotels, train to Pompeii). Avoid Positano as a base unless money doesn't matter — book parking and groceries become impossible."}</p>
+
+        <h3>Best way to get around — ferry, bus, or car?</h3>
+        <p><strong>{"Ferries in summer (April–Oct)"}</strong>{" — fast, scenic, no traffic. Positano-Amalfi 25 min for €11. "}<strong>SITA bus</strong>{" year-round (€3/ride, €10 day ticket) but packed in high season. "}<strong>Private driver</strong>{" for groups of 3–4 who want door-to-door. Skip renting a car unless you're continuing to Cilento."}</p>
+
+        <h3>When is the best time to visit?</h3>
+        <p><strong>{"Late May and late September"}</strong>{" — warm enough to swim (22°C water), 25% below peak prices, ferries running, crowds manageable. "}<strong>July–August</strong>{" is beautiful but brutal: 34°C, packed, 50% more expensive. "}<strong>October</strong>{" is still lovely until mid-month when ferries reduce. "}<strong>November–March</strong>{" many hotels and ferries shut — lovely for locals, frustrating for visitors."}</p>
+
+        <h3>Is Capri worth a day trip?</h3>
+        <p>{"Yes, but arrive early. "}<strong>7:45 AM ferry from Sorrento or Amalfi</strong>{" gets you ahead of the day-tripper wave. Blue Grotto queues past 10 AM hit 90 minutes. Ride the funicular to Capri Town, chair-lift to Monte Solaro, swim at Marina Piccola, late ferry back. Skip Capri if summer swells (June–August) are predicted — the Blue Grotto shuts."}</p>
+
+        <h3>How do I handle Pompeii/Herculaneum from the Amalfi Coast?</h3>
+        <p>{"From Sorrento: "}<strong>Circumvesuviana train 30 min to Pompei Scavi</strong>{" (€3.60). From Amalfi town: SITA bus to Sorrento then train (2 hours each way). Herculaneum ("}<strong>Ercolano Scavi</strong>{") is smaller, better preserved, half the crowds — often the smarter pick. Buy the "}<strong>€20 Campania Arte Card</strong>{" if visiting multiple sites."}</p>
+
+        <h3>Best beaches on the Amalfi Coast?</h3>
+        <p><strong>{"Arienzo Beach (300 steps down from Positano)"}</strong>{"; "}<strong>Marina di Praia</strong>{" (tucked between cliffs in Praiano); "}<strong>Duoglio Beach</strong>{" (below Amalfi town); "}<strong>Laurito</strong>{" (boat-access only, Da Adolfo restaurant). All are pebble-and-grit, not sand. Rent a lounge for "}<strong>€20–35/day</strong>{" or grab the free public sections at each end of the beach."}</p>
+
+        <h3>Is the Path of the Gods hike worth it?</h3>
+        <p>{"Absolutely — it's the Amalfi Coast's most iconic walk. "}<strong>7.5 km one-way from Bomerano (Agerola) to Nocelle (Positano)</strong>{", 3 hours downhill, stunning cliff-edge views. Doable without a guide; bring water and sun protection, start by 8 AM. From Nocelle, descend 1,500 steps into Positano or catch the local bus down."}</p>
+
+        <h3>Family-friendly or honeymoon-only?</h3>
+        <p>{"Both work with different bases. "}<strong>Families: Sorrento</strong>{" (easy train, flat town, kid-friendly hotels with pools); "}<strong>Honeymoons: Ravello or Positano</strong>{" (boutique hotels, candlelit dinners, sunsets). Avoid narrow-cliff towns with young kids — Positano has 900 stairs between hotel and beach. Capri is stroller-hostile."}</p>
+
+        <h3>How do I avoid the worst crowds?</h3>
+        <p><strong>{"Start days at 7 AM"}</strong>{" — beaches and viewpoints are empty until 9:30. "}<strong>Ferries before 9 AM or after 4 PM</strong>{" are half as crowded. Eat lunch at 2:30 PM (post-tour-bus wave). Sleep inland (Ravello or Scala) and descend only after the day-trippers leave. Day-trippers peak "}<strong>11 AM to 3 PM</strong>{" — plan accordingly."}</p>
+
+        <h3>Best ferry to Capri — and what does it cost?</h3>
+        <p><strong>{"NLG, Alicost, and Positano Jet"}</strong>{" run Positano/Amalfi to Capri for "}<strong>€22–28 one-way</strong>{" (40–50 min). Buy at the pier morning-of in shoulder season; pre-book online in July/August. Returns last around 5:30–6 PM — miss the last ferry and you're staying in Capri. Check the day's forecast: seas above 1.5m often cancel."}</p>
+
+        <h3>Any under-the-radar alternatives to the Amalfi Coast?</h3>
+        <p><strong>{"Cilento Coast"}</strong>{" — 60 km south, half the price, 1/10 the crowds, with Paestum's Greek temples within 20 min. "}<strong>Procida island</strong>{" (20 min ferry from Naples) is 'pre-tourism Amalfi' in look and feel. "}<strong>Ischia</strong>{" offers thermal spas and quiet fishing villages. All three beat the Amalfi Coast on value; none match its name-recognition glamour."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

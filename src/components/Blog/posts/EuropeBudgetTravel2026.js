@@ -220,16 +220,50 @@ export default function EuropeBudgetTravel2026() {
         />
 
         <h2 id="faq">9. FAQ</h2>
-        <h3>What\'s the single cheapest country in Europe for travel?</h3>
-        <p><strong>Albania</strong>. About €35/day for a comfortable mid-range experience.</p>
+        <h3>What's the single cheapest country in Europe for travel?</h3>
+        <p><strong>{"Albania"}</strong>{" remains the clear winner at "}<strong>€35–45/day</strong>{" for a comfortable mid-range experience. Turquoise Riviera beaches (Ksamil, Dhërmi), Ottoman-era Gjirokastër, and Tirana's cafés. Runner-ups: "}<strong>Bosnia (€45/day), North Macedonia (€45/day), Bulgaria and Romania (€50/day)</strong>{". Kosovo is even cheaper at €30/day but harder for first-timers."}</p>
+
         <h3>Cheapest month to travel Europe?</h3>
-        <p><strong>November or early March</strong>. 35-50% off peak-season prices across most countries.</p>
+        <p><strong>{"November and early March"}</strong>{" knock "}<strong>35–50% off peak-season prices</strong>{" across most countries. Avoid mid-December (Christmas-market bump in Germany/Austria), Easter week (prices jump 30%), and July-August peak. "}<strong>Early June</strong>{" is a hidden sweet spot — summer weather, pre-holiday-season prices. "}<strong>January post-Epiphany</strong>{" is the absolute floor in Italy and Spain."}</p>
+
         <h3>Is Portugal still cheap in 2026?</h3>
-        <p>Less so than 5 years ago — Lisbon has risen 25-30%. But rural Portugal, Porto + Douro, Algarve off-peak still very good value.</p>
+        <p>{"Less so than 5 years ago. "}<strong>Lisbon has risen 25–30%</strong>{" and Porto 15–20% since 2020 due to digital-nomad demand and Airbnb proliferation. Still solid value by Western-Europe standards at "}<strong>€70–100/day mid-range</strong>{". Rural Portugal, the "}<strong>Douro Valley, Alentejo, off-peak Algarve</strong>{" remain genuine bargains. Avoid Lisbon peak-summer Airbnbs — hostels and pensions beat them on value."}</p>
+
         <h3>Is the Euro weaker than USD in 2026?</h3>
-        <p>Mostly yes — roughly 1 EUR = 1.10 USD in April 2026. Good for American travelers.</p>
-        <h3>Cheapest way to fly in Europe?</h3>
-        <p><strong>Ryanair</strong> sales + strict carry-on discipline. €10-40 flights routinely, often cheaper than trains for long routes.</p>
+        <p>{"Mostly yes — "}<strong>1 EUR ≈ 1.10 USD</strong>{" in April 2026, favourable to Americans. GBP is "}<strong>1.28 USD</strong>{" (pound slightly weaker than pre-Brexit norm). CZK, PLN, HUF all deliver strong American buying power. Japanese yen and Asian currency travellers have it less rosy — Euro feels sharply more expensive to them than in 2019."}</p>
+
+        <h3>Cheapest way to fly around Europe?</h3>
+        <p><strong>{"Ryanair, Wizz Air, and easyJet sales"}</strong>{" deliver "}<strong>€10–40 one-way fares</strong>{" when booked 6–8 weeks out from secondary airports (Ciampino, Bergamo, Beauvais, Stansted). Strict "}<strong>55×40×20cm carry-on</strong>{" or €50+ gate fee. Often cheaper than the train for long routes (London→Rome, Madrid→Berlin). Sign up for flash-sale emails."}</p>
+
+        <h3>Cheapest hostels to look for?</h3>
+        <p><strong>{"Generator, Wombat's, Meininger, St. Christopher's, Safestay"}</strong>{" — chains that deliver reliable €22–40 dorms in capitals. "}<strong>Selina</strong>{" for digital nomad scene; "}<strong>HI (Hostelling International)</strong>{" for countryside/nature bases. Balkans run €12–20 for comparable quality. Always filter by "}<strong>{"8.5+ rating and pod beds"}</strong>{" on Hostelworld."}</p>
+
+        <h3>What's the realistic daily minimum for Europe?</h3>
+        <p><strong>{"Shoestring: €35/day in Albania, €50 in Portugal/Spain/Greece, €65 in Italy, €75 in France/Netherlands, €90 in UK/Switzerland"}</strong>{". This is "}<strong>{"dorm bed + street food + walking + one paid museum"}</strong>{". Below these numbers you're couchsurfing or cooking your own meals. Realistic mid-range: double the shoestring number."}</p>
+
+        <h3>Best ATM and card strategy to avoid fees?</h3>
+        <p><strong>{"Wise, Revolut, Charles Schwab, Starling, Monzo"}</strong>{" — fee-refund debit cards. Use "}<strong>bank-branded ATMs</strong>{" (never Euronet orange terminals). Withdraw €200–300 at a time. "}<strong>Always "charge in EUR/GBP/CZK"</strong>{" when the machine asks about DCC (dynamic currency conversion). Saves 4–8% per transaction."}</p>
+
+        <h3>Hidden costs first-timers miss?</h3>
+        <p><strong>{"Tourist taxes"}</strong>{" (€1–7/night hotel across Italy, France, Spain, Germany, added at check-out in cash); "}<strong>Venice day-tripper fee (€5–10)</strong>{"; "}<strong>coperto (€2–5/person) in Italian restaurants</strong>{"; "}<strong>train-station baggage storage (€5–8)</strong>{"; "}<strong>ZTL driving fines (€80+ per camera)</strong>{"; "}<strong>museum skip-the-line surcharges</strong>{". Budget 10% extra for these on any Europe trip."}</p>
+
+        <h3>Are working-holiday visas worth it for budget extension?</h3>
+        <p>{"Huge multiplier. "}<strong>UK Youth Mobility Visa</strong>{" (Australian, Canadian, NZ, South Korean under 35, 2 years); "}<strong>Working Holiday Visas</strong>{" for France, Germany, Netherlands to most Commonwealth passports. Hostel work, bar jobs, harvest work pay €8–15/hour and slash your net travel cost by 80%+. The "}<strong>Digital Nomad Visas</strong>{" (Portugal, Spain, Estonia, Italy, Croatia, Greece) are the remote-worker equivalent."}</p>
+
+        <h3>Any student or age discounts worth using?</h3>
+        <p><strong>{"Under 27: Interrail Youth Pass is 25% cheaper"}</strong>{", plus 50% off most French trains with Carte Avantage Jeune. "}<strong>ISIC card</strong>{" unlocks 10–30% off many museums, train tickets, and Flixbus. "}<strong>Seniors 60+</strong>{" get Trenitalia Senior Cards (30% off), British Railcards (Senior £30/year for 1/3 off). Check "}<strong>European Youth Card (EYCA)</strong>{" for under-30 discounts nationwide."}</p>
+
+        <h3>Eating cheaply without sacrificing local food?</h3>
+        <p><strong>{"Pizza al taglio in Italy (€2–4)"}</strong>{", "}<strong>döner kebab in Germany/Austria (€6–8)</strong>{", "}<strong>menu del día in Spain (€12–18 for 3 courses)</strong>{", "}<strong>kokorec + lahmacun in Turkey</strong>{", "}<strong>cheap Vietnamese and kebab spots in Berlin's Kreuzberg</strong>{". Supermarket breakfast (bakery bread + fruit + yogurt) cuts a €15 restaurant breakfast to €3."}</p>
+
+        <h3>Free or cheap cultural experiences?</h3>
+        <p><strong>{"Free-entry Sundays"}</strong>{" at most state museums (Italy first Sunday, France first Sunday, Spain free after 18:00 many days). "}<strong>Sandeman's free walking tours</strong>{" in every capital (tip €10). "}<strong>Churches are always free</strong>{" (shoulders covered). Park hang-outs, markets, canal walks, sunset points — the richest Europe experiences are free."}</p>
+
+        <h3>Cheap long-distance transport alternatives?</h3>
+        <p><strong>{"FlixBus"}</strong>{" covers 2,500+ European cities at €9–29 between capitals. "}<strong>BlaBlaCar</strong>{" (ride-share, €15–35 driver-to-passenger). "}<strong>Regional trains</strong>{" (no pass needed, tickets €5–25 for short hops). Night trains ("}<strong>ÖBB Nightjet, European Sleeper</strong>{") save a hotel night at €35–80 for a couchette."}</p>
+
+        <h3>What's the smartest route for a 3-week budget trip?</h3>
+        <p><strong>{"Balkans loop: Albania → North Macedonia → Greece → Bulgaria"}</strong>{" can be done at €50/day, €1,100 total. Or the "}<strong>Portugal + Spain + Morocco</strong>{" arc for €1,400. Or "}<strong>Central Europe: Prague → Krakow → Budapest → Vienna</strong>{" for €1,500. Avoid the 'Paris-London-Amsterdam-Rome' classic circuit on a budget — Western-Europe capitals eat budgets alive."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

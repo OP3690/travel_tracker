@@ -217,13 +217,52 @@ export default function ItalyTravelGuide2026() {
 
         <h2 id="faq">9. Italy FAQ</h2>
         <h3>How long should I spend in Italy?</h3>
-        <p>Minimum <strong>10 days</strong>. Sweet spot <strong>14-17 days</strong>.</p>
+        <p>{"Minimum "}<strong>10 days</strong>{" to combine two major cities with one region. The sweet spot is "}<strong>14–17 days</strong>{" for the classic Rome + Florence/Tuscany + Venice + Amalfi or Cinque Terre loop. Three weeks gets you south to Puglia or Sicily. Below 7 days, pick one city base and day-trip rather than hopping — Italian trains are fast but travel days kill pace."}</p>
+
         <h3>Rome vs Florence — which is better?</h3>
-        <p>Rome has more ancient history; Florence is more walkable and art-dense. Do both.</p>
-        <h3>Is Venice sinking?</h3>
-        <p>Yes, slowly — still very much visitable in 2026. MOSE flood-barrier protects during acqua alta.</p>
-        <h3>Best region most tourists skip?</h3>
-        <p><strong>Puglia (Apulia)</strong> — the heel of the boot. Trulli houses, pristine beaches, cheap.</p>
+        <p>{"Rome wins on ancient history (Colosseum, Forum, Vatican) and food scale; "}<strong>Florence</strong>{" is more walkable, art-dense (Uffizi, David, Duomo climb), and easier for 48 hours. Do both — they're "}<strong>1h30 apart by Frecciarossa high-speed train</strong>{". If forced to pick one for a first trip, pick Rome for the scale, Florence for the soul."}</p>
+
+        <h3>Is Venice sinking, and is it worth visiting in 2026?</h3>
+        <p>{"Yes, slowly — but "}<strong>MOSE flood-barrier</strong>{" (active since 2020) protects the city during acqua alta events. Venice is absolutely still worth visiting in 2026, though a "}<strong>€5–10 day-tripper fee</strong>{" now applies April–July on peak weekends. Stay 2 nights minimum to see it post-day-tripper evening — the canals at 8 PM are magical."}</p>
+
+        <h3>What's the best region most tourists skip?</h3>
+        <p><strong>{"Puglia (Apulia)"}</strong>{" — the heel of the boot. Trulli houses in Alberobello, whitewashed Ostuni, Lecce's baroque churches, and pristine Adriatic beaches. "}<strong>40% cheaper than Tuscany</strong>{", barely any US tourists outside August. Runner-up: "}<strong>Emilia-Romagna</strong>{" (Bologna, Parma, Modena) for peak food without the crowds of Florence."}</p>
+
+        <h3>Do I need to speak Italian?</h3>
+        <p>{"In tourist cities (Rome, Florence, Venice, Milan, Amalfi) functional English is widespread; in rural Tuscany, Sicily, and Puglia, much less. Learn "}<strong>buongiorno, grazie, permesso, il conto per favore</strong>{" — Italians visibly warm up. Google Translate handles menus. Outside tourism hubs, a "}<strong>phrasebook beats an app</strong>{" when the signal drops."}</p>
+
+        <h3>Is Italy expensive in 2026?</h3>
+        <p>{"Moderate by Western-Europe standards, with sharp regional variation. Amalfi Coast in August hits Swiss prices ("}<strong>€300+ hotel nights, €40 lunch</strong>{"). Rome and Florence are mid ("}<strong>€120–180 hotels, €20 pasta</strong>{"). "}<strong>Puglia, Sicily, Umbria</strong>{" remain excellent value at €70 guesthouse + €12 pasta. Budget €130–180/day mid-range; €60 scrappy backpacker; €250+ comfort."}</p>
+
+        <h3>Euro, cash or card?</h3>
+        <p>{"Italy uses Euro. Cards work nearly everywhere in cities — including most cafés since the 2022 cashless law. Carry "}<strong>€30–50 cash</strong>{" for small towns, markets, taxis, and church donations. "}<strong>Wise or Revolut</strong>{" give the best exchange. Avoid dynamic currency conversion (always choose 'charge in EUR'). ATMs ("}<strong>bancomat</strong>{") at banks beat Euronet stands."}</p>
+
+        <h3>High-speed trains vs internal flights?</h3>
+        <p><strong>{"Trains win almost every time"}</strong>{". Frecciarossa/Italo go "}<strong>Rome–Milan in 3 hours, Florence in 1h30, Naples in 1h10</strong>{". Booked 60+ days out, super-economy fares are €19–39 — cheaper and faster than flying when you count airport transfers. Fly only Rome ↔ Sicily/Sardinia or trips combining 4+ Italian regions."}</p>
+
+        <h3>Is driving in Italy a good idea?</h3>
+        <p>{"In cities "}<strong>absolutely not</strong>{" — ZTL (restricted-traffic zones) issue €80+ fines via licence-plate cameras, parking is misery, and Roma/Napoli traffic is legendary. "}<strong>Rent a car only for Tuscany, Puglia, Sicily, Umbria countryside</strong>{". Always pre-book, always decline dynamic-currency conversion on the deposit, and carry an International Driving Permit (required, rarely checked but saves a €400 fine)."}</p>
+
+        <h3>Can I use tap water and is Italian food safe?</h3>
+        <p>{"Tap water is "}<strong>excellent nationwide</strong>{" — refill at public fountains (Rome has 2,500 'nasoni'). Food safety is world-class. The only watch-outs are raw-fish crudo at cheap touristy Roman trattorias and strawberry gelato made with dye (real fresh fruit gelato is muted pastel, not neon). Stick to "}<strong>gelato artigianale</strong>{" labelled shops for the real thing."}</p>
+
+        <h3>Tipping culture in Italy?</h3>
+        <p>{"Much lighter than the US. At restaurants, "}<strong>coperto (€2–5 bread/cover charge)</strong>{" is not a tip but is on the bill. Round up €1–2 at trattorias; leave "}<strong>5–10%</strong>{" only at upscale restaurants and only if there's no 'servizio incluso'. Tip €1/bag hotel porters, €1–2 for taxi help. Baristas: drop coins in the tip tray, never tableside."}</p>
+
+        <h3>Is Italy safe for solo women?</h3>
+        <p>{"Yes — Italy is genuinely safe. Pickpockets in Rome Termini, Milan Duomo, and Naples train stations are the real risk (keep wallets in front pockets, bags zipped across the body). Catcalls happen in Naples and Rome but rarely escalate. Women dining alone is completely normal in cities. Avoid "}<strong>Naples Spaccanapoli alleys after 11 PM</strong>{" solo — move to busy streets instead."}</p>
+
+        <h3>Schengen rules and visa?</h3>
+        <p>{"Italy is in the Schengen zone: "}<strong>US/UK/CA/AU/NZ travellers get 90 days in any 180-day window</strong>{" across all 27 Schengen countries combined. "}<strong>ETIAS (the new EU authorisation, €7)</strong>{" comes online late 2026 — not yet required for early-2026 trips. Passport must be valid 3+ months beyond departure."}</p>
+
+        <h3>Best free or cheap cultural experiences?</h3>
+        <p><strong>{"First Sunday of every month"}</strong>{" state museums are free (Uffizi, Colosseum included — expect queues). "}<strong>Walking the Roman Forum perimeter, St Peter's Basilica (free, dome €10)</strong>{", any evening passeggiata in any town. Venice vaporetto day pass €25 buys you a cheap canal tour. "}<strong>Pantheon</strong>{" now €5 but still stunning."}</p>
+
+        <h3>Best festival or event to plan around?</h3>
+        <p><strong>{"Siena's Palio (July 2 and August 16)"}</strong>{" — 90-second medieval horse race around a packed piazza, booked 6+ months ahead. "}<strong>Venice Carnevale (Jan–Feb)</strong>{" for masks; "}<strong>Sagra</strong>{" food festivals dot every village in summer. Avoid visiting Rome during the Giubileo (Holy Year 2025 extended events) — crowds are 40% up."}</p>
+
+        <h3>Packing essentials most visitors forget?</h3>
+        <p><strong>{"Shoulder-covering shawl or shirt"}</strong>{" (required in every church and St Peter's); "}<strong>comfortable walking shoes that look decent</strong>{" (cobblestones destroy flip-flops); a "}<strong>small crossbody bag</strong>{" that zips (pickpocket deterrent); a reusable water bottle for the nasoni; and a "}<strong>power adapter (type F or L)</strong>{" — Italy uses both."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

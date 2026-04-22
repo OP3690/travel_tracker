@@ -147,10 +147,66 @@ export default function CanadaBudgetTravel2026() {
         />
 
         <h2 id="faq">7. FAQ</h2>
-        <h3>Is Canada cheaper than the US?</h3><p>Marginally — about $10/day less at mid-range.</p>
-        <h3>$85/day possible?</h3><p>Yes with hostel + Tim Hortons + budget bus + cooking.</p>
-        <h3>Cheapest time?</h3><p><strong>October-November or March-April</strong>. 30-40% off Rockies peak.</p>
-        <h3>Tipping?</h3><p>15-18% at restaurants. 20% for exceptional service.</p>
+        <h3>Is Canada cheaper than the US?</h3>
+        <p>
+          Marginally — <strong>about C$10-15/day less at mid-range</strong>, thanks to cheaper hotels in smaller cities (Halifax, Montreal, Winnipeg) and much cheaper universal healthcare background (you pay less out of pocket for any minor issue). Banff + Vancouver + Toronto are comparable to similar US cities. Canadian dollar is usually weaker vs US, helping US travelers.
+        </p>
+        <h3>Is US$85/day actually possible?</h3>
+        <p>
+          <strong>Yes with hostels, Tim Hortons + grocery meals, Megabus/Flix, and cooking in hostel kitchens</strong> — Toronto, Montreal, Halifax are doable at that level. Banff + Vancouver push you to US$100-110/day minimum. Rural Maritime provinces (Newfoundland, New Brunswick) are genuinely cheap at US$70-80/day including car share.
+        </p>
+        <h3>What is the absolute cheapest month to visit?</h3>
+        <p>
+          <strong>October-November or March-April (shoulder seasons)</strong> — Banff drops 30-40% below July-August peak, city hotels 20-30% less, and flights are cheapest. November is cold-but-dry in Ontario/Quebec; April has long days and fewer crowds. Avoid Christmas-New Year, spring break weeks, and July 1 (Canada Day) through Labour Day.
+        </p>
+        <h3>Tipping — how much and where?</h3>
+        <p>
+          <strong>15-18% at sit-down restaurants, 20% for exceptional service, C$1-2 per drink at bars, 15-20% for tour guides, C$2-5/bag for porters</strong>. Tipping is expected at delivery apps (DoorDash, Uber Eats) — 15-18%. Skip tipping at fast-food counters and Tim Hortons. Tax-included restaurant bills are rare; tip on the pre-tax amount.
+        </p>
+        <h3>Cards or cash — which works better?</h3>
+        <p>
+          <strong>Cards everywhere — Canada is one of the most cashless economies in the world</strong>. Apple/Google Pay, Interac, Visa, Mastercard, Amex (at most places) are all accepted. Carry C$50 emergency cash for rural Maritimes farmers{"'"}s markets or tips. Wise, Revolut, or Charles Schwab cards avoid foreign fees at any bank ATM.
+        </p>
+        <h3>Which cities are the best budget bases?</h3>
+        <p>
+          <strong>Montreal and Halifax</strong> — Montreal has excellent cheap eats (bagels, poutine, Jewish delis), affordable hostels, and free festivals. Halifax has cheap seafood (lobster roll C$18-22 vs C$35 in Toronto). Avoid Banff town as a multi-night budget base; use Canmore (30 min away, 20-25% cheaper).
+        </p>
+        <h3>Best free activities in major cities?</h3>
+        <p>
+          <strong>Montreal: Mount Royal hike, Old Montreal walking, free museum Wednesdays. Toronto: Kensington Market, Harbourfront, ROM free Tuesday nights. Vancouver: Stanley Park, Granville Island, Lynn Canyon Suspension Bridge</strong> (free alternative to the C$68 Capilano). Every city has tip-based walking tours — give C$15-20.
+        </p>
+        <h3>Rockies on a budget — is it doable?</h3>
+        <p>
+          <strong>Yes but it takes effort</strong> — hostel in Canmore or Banff (HI Banff C$45-65/night), Parks Canada Discovery Pass (C$75.25 annual), groceries from Banff IGA, and free hikes (there are 20+ free marquee hikes). Skip Lake Louise Chateau accommodations; use the shuttle. Expect C$90-120/day including car share. See our <Link to="/blog/banff-canadian-rockies-guide-2026">Banff guide</Link>.
+        </p>
+        <h3>Hidden costs that catch travelers off guard?</h3>
+        <p>
+          <strong>Parks Canada fees (C$11/day or C$75 annual), provincial sales tax (varies 5-15% by province), hotel MRDT tourism tax (3-5% on top of taxes), Banff National Park entrance mandatory for driving through, one-way rental car drop fees (C$150-400)</strong>. Restaurants in Quebec show pre-tax + post-tax prices; read carefully.
+        </p>
+        <h3>Best transport hacks for saving money?</h3>
+        <p>
+          <strong>Flix, Rider Express, Megabus for intercity (C$30-80 vs C$120+ VIA Rail), VIA Rail Escape fares (C$50-120 if booked 30 days ahead)</strong>, Turo for Rockies car rental (often C$40-60/day vs C$90+ airport rental), and Poparide/Kangaride ride-share apps for C$30-50 ride options. Transit day-passes in Montreal (C$11.50) and Toronto (C$13) are great value.
+        </p>
+        <h3>Is hostel quality genuinely good?</h3>
+        <p>
+          <strong>Yes — HI Canada (Hostelling International) chain is excellent</strong>, with modern dorms, full kitchens, and safety across 14 Canadian hostels. Samesun in Banff is lively/social. Montreal + Quebec City have great independent hostels (M Montréal, HI Quebec City). Hostel beds run C$35-55, much cheaper than any hotel.
+        </p>
+        <h3>How does food cost realistically break down?</h3>
+        <p>
+          <strong>Supermarket self-catering C$18-28/day (Loblaws, Metro, IGA, Sobeys)</strong>. Tim Hortons + Subway for lunch: C$10-15. Casual dinner: C$20-30. Nice restaurant dinner: C$45-70. Budget tip: Montreal bagels (C$1.50 each) + smoked meat sandwich (C$12 at Schwartz{"'"}s) + poutine (C$10-15) is a full day for C$25.
+        </p>
+        <h3>Student or youth discounts?</h3>
+        <p>
+          <strong>ISIC card saves 10-20% on VIA Rail, Parks Canada, many museums</strong>. HI hostel membership (C$35/year) saves 10% on all HI stays plus discounts on tours. Most provincial art galleries have free admission days. University shuttles (free) operate in Toronto, Montreal, Vancouver — sometimes open to non-students.
+        </p>
+        <h3>Can I use a working holiday to fund the trip?</h3>
+        <p>
+          <strong>Yes — IEC (International Experience Canada) working holiday visa for ages 18-35</strong> (varies by country), lets you work 12-24 months. Minimum wage ranges by province (C$15-17/hour), easily save C$800-1,500/week in hospitality + retail. A 3-month stint funds 6 months of budget travel.
+        </p>
+        <h3>Is winter travel cheaper and worth it?</h3>
+        <p>
+          <strong>Yes — Banff + Whistler skiing accommodation drops 20-30% in November and late April; Quebec City Winter Carnival (late Jan-Feb) is magical</strong>. But add C$200-400 for proper winter gear rental if you do not own it. December-February non-ski travel is cheap but requires serious parkas and tolerance for -20°C.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

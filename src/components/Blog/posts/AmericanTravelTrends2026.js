@@ -437,33 +437,50 @@ export default function AmericanTravelTrends2026() {
 
         <h2 id="faq">10. FAQ</h2>
 
-        <h3>What's the #1 travel destination in the US in 2026?</h3>
-        <p>
-          <strong>Florida</strong>. It's been #1 every year since 2015
-          except 2020 (when California briefly took it).
-        </p>
+        <h3>What's the #1 US travel destination in 2026?</h3>
+        <p>{"Florida, which has topped the overnight-visit rankings every year since 2015 except 2020 (when California briefly overtook it during pandemic re-openings). Orlando alone pulls 74 million visitors a year, and the state's no-state-income-tax budget advantage keeps mid-range hotel pricing 15–25% below comparable California coast markets."}</p>
 
         <h3>How much do Americans spend on travel per year?</h3>
-        <p>
-          The average American traveler household spends{' '}
-          <strong>$5,820 on travel annually</strong> in 2025 — up
-          from $4,380 in 2022.
-        </p>
+        <p>{"The average American traveler household spent roughly $5,820 on travel in 2025, up from $4,380 in 2022. That breaks down to about 52% on airfare and lodging, 21% on food and drink, 17% on activities and tickets, and the remainder on car rentals, fuel and incidentals — with premium travelers spending 3-4x that baseline."}</p>
 
         <h3>Which travel trend will matter most in 2027?</h3>
-        <p>
-          Our bet: <strong>blended work-and-leisure</strong>. The 41%
-          of trips that currently include work is still climbing; it
-          crosses 50% of trips by early 2027 on current trajectory.
-        </p>
+        <p>{"Our bet is blended work-and-leisure. The 41% of 2025 trips that already include remote work is still climbing, and at current pace crosses 50% of all trips by early 2027. The second-biggest shift is multi-generational family travel — trips with grandparents have doubled since 2019 and are projected to double again by 2028."}</p>
 
         <h3>Where do the data come from?</h3>
-        <p>
-          US Travel Association's 2025 State of American Travel report,
-          NPS visitation records, BLS consumer expenditure tables, and
-          our 2025 StampYourMap user panel of 12,400 travelers who
-          logged at least three domestic trips.
-        </p>
+        <p>{"Primary sources are US Travel Association's 2025 State of American Travel report, NPS visitation records, BLS consumer expenditure tables, TSA throughput data, and Longwoods International's TravelStyles panel. We supplement with our own 2025 StampYourMap user panel of 12,400 travelers who logged at least three domestic trips across the calendar year."}</p>
+
+        <h3>Is leisure travel still growing faster than business travel?</h3>
+        <p>{"Yes, by a wide margin. Leisure travel volume is up 28% versus 2019 while business-only travel is still 14% below pre-pandemic baselines. The hybrid bleisure category (work + leisure combined) is where the recovery actually landed — it has grown 61% since 2019 and now outweighs pure business travel by trip count."}</p>
+
+        <h3>Which states are losing visitors in 2026?</h3>
+        <p>{"Hawaii is the clearest decliner on the panel — visitation is down 7% versus 2019 and 'wouldn't return' responses have tripled from 4% to 11%. Louisiana (post-hurricane brand damage), West Virginia and Mississippi also trend negative. Travelers substitute Mexican Pacific, Puerto Rico and the Caribbean for Hawaii at roughly equivalent budgets."}</p>
+
+        <h3>What share of Americans have a valid US passport?</h3>
+        <p>{"As of late 2025, about 48% of US adults hold a current passport, up from 27% in 2007 but still the lowest passport-holding rate of any G7 country. Among travelers who took 3+ trips in 2025, the rate jumps to 79% — and passport card ownership is growing faster than books thanks to Mexico/Canada land crossings."}</p>
+
+        <h3>Which age cohort travels the most in 2026?</h3>
+        <p>{"Gen X (ages 45-60) takes the most trips per year at 5.1 on average, but Boomers (ages 60-78) spend the most per trip at $1,940 median. Millennials travel on more total trips across weekend escapes, but Gen Z is the fastest-growing segment by percentage — up 34% trips year-over-year driven by TikTok-discovered destinations."}</p>
+
+        <h3>How long is the average American trip?</h3>
+        <p>{"4.2 nights for domestic leisure trips in 2025, down from 4.8 nights in 2019 — Americans are taking more but shorter trips, a pattern remote work has accelerated. International trips average 9.3 nights, with Europe trips clocking 11.2 and Mexico/Caribbean trips averaging 6.1 nights."}</p>
+
+        <h3>What are the fastest-growing US destinations?</h3>
+        <p>{"Charleston SC, Asheville NC, Bozeman MT, Boise ID and Greenville SC all grew visitation 18%+ year-over-year. The pattern is consistent: mid-sized cities with walkable downtowns, strong food scenes and proximity to outdoor recreation. Meanwhile Las Vegas, Miami and Orlando are growing flat-to-down relative to inflation."}</p>
+
+        <h3>How are travelers booking trips differently in 2026?</h3>
+        <p>{"Direct booking has quietly reclaimed market share — 54% of hotel nights now book directly (vs 46% via OTAs like Expedia/Booking), reversing a decade-long trend. AI trip planners (ChatGPT, Perplexity, Google AI Overviews) are replacing traditional search for 22% of trip research, though they still drive relatively few final bookings."}</p>
+
+        <h3>What's the average cost of a US family vacation in 2026?</h3>
+        <p>{"A family of four's 7-night domestic vacation averages $6,450 in 2026 — roughly $920 per night all-in. That includes lodging ($2,800), flights or drive costs ($1,400), food ($1,350), activities and tickets ($700), and incidentals. Orlando Disney trips average $8,200; national-park road trips average $4,100."}</p>
+
+        <h3>Are US airfares rising or falling?</h3>
+        <p>{"Domestic airfares are roughly flat nominally in 2026 but 12% cheaper in real terms versus 2019 once inflation is accounted for. International long-haul is up sharply — London and Tokyo routes are 22-31% above pre-pandemic. Basic-economy fares are the main story: they now account for 38% of all domestic bookings."}</p>
+
+        <h3>How much do Americans tip while traveling in 2026?</h3>
+        <p>{"Hotel housekeeping tipping is stable at $3-5 per night (roughly 45% of guests leave something), room service runs 18% if not already included, and restaurant tipping has crept up from a historical 18-20% to a new 20-22% norm. Concierge services and ride-shares expect 15-18% for anything beyond a basic pickup."}</p>
+
+        <h3>What share of Americans still haven't visited all 50 states?</h3>
+        <p>{"A full 89% of US adults have not set foot in all 50 states; only about 11% have visited all 50, and just 2% claim to have visited before age 30. The median American adult has stamped 17 states by age 40, with Alaska, Hawaii, North Dakota, Mississippi and West Virginia consistently the five least-visited."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

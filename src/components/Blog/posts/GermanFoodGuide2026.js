@@ -159,9 +159,62 @@ export default function GermanFoodGuide2026() {
         />
 
         <h2 id="faq">10. FAQ</h2>
-        <h3>Best dish to try first?</h3><p><strong>Schnitzel + pils at a Munich beer hall</strong>.</p>
-        <h3>Vegetarian-friendly?</h3><p>Improving — especially Berlin. Spätzle + flammkuchen veg options + kebab stands everywhere.</p>
-        <h3>Food budget?</h3><p>Backpacker: <strong>€18/day</strong>. Mid: <strong>€35/day</strong>. Comfort: <strong>€80+/day</strong>.</p>
+        <h3>What should be my first German meal?</h3>
+        <p>
+          <strong>Wiener Schnitzel + pils + pretzel at a Munich beer hall (Hofbräuhaus, Augustiner, Spatenhaus)</strong> is the iconic first meal — even as a cliché it is genuinely delicious. In Berlin, swap for a Curry 36 currywurst + pommes red-white and a Berliner pils at a Kreuzberg beer garden. Both under €20 with atmosphere included.
+        </p>
+        <h3>Which city is the best food destination overall?</h3>
+        <p>
+          <strong>Berlin for variety</strong> (vegan, Middle Eastern, Vietnamese, Michelin-star modern), <strong>Munich for traditional Bavarian</strong> (beer halls, wiesnhendl, weißwurst), and <strong>Hamburg for seafood</strong> (fischbrötchen, matjes). Cologne for kölsch culture in brauhäuser. Frankfurt is a surprise apple-wine (apfelwein) and green-sauce (grüne soße) destination worth half a day.
+        </p>
+        <h3>How vegetarian and vegan-friendly is Germany?</h3>
+        <p>
+          <strong>Berlin is Europe{"'"}s vegan capital</strong> with hundreds of dedicated restaurants (Kopps, Brammibal{"'"}s Donuts, Veganz supermarkets). Munich and Hamburg are well-served. Traditional Bavarian cuisine is meat-centric but spätzle, käsespätzle, flammkuchen, obazda + pretzel, and maultaschen offer real vegetarian depth. Every supermarket has dedicated vegan sections.
+        </p>
+        <h3>Are allergies and dietary restrictions handled well?</h3>
+        <p>
+          Yes — <strong>EU allergen labeling requires all 14 major allergens flagged on menus</strong>, and servers are trained on cross-contamination. Gluten-free pasta, dairy-free options, and nut warnings are standard. Smaller traditional wirtshäuser in rural Bavaria may be less flexible; bring a written card (Dunkelroter Reisepass allergy card) for severe cases.
+        </p>
+        <h3>Should I tip at restaurants?</h3>
+        <p>
+          <strong>Yes — 5-10%, told verbally to the waiter</strong>. When paying, state the total you want: "Mach 25" (for a €23 bill) means keep €2 as tip. Do not leave cash on the table German-style; it is awkward. No tip needed at imbiss, bakeries, self-service beer gardens, or supermarkets. Round up at bars.
+        </p>
+        <h3>What regional specialties absolutely cannot be missed?</h3>
+        <p>
+          <strong>Bavaria: weißwurst + sweet mustard (eaten before noon, with skin removed), Franconia: bratwurst + sauerkraut in Nuremberg, Swabia: maultaschen + spätzle, Rheinland: sauerbraten, Hamburg: fischbrötchen, Saxony: eierschecke cake, Black Forest: kirschtorte</strong>. Each region has genuinely distinct cuisine tied to local history.
+        </p>
+        <h3>How do beer halls work — what should I order?</h3>
+        <p>
+          <strong>Communal tables, self-service or waited, and the default serving is a full Maß (1 liter, €10-15)</strong> — order a Halbe (500ml, €5-7) if you cannot commit. Drink the local style: helles in Munich, pils in Berlin, dunkel for dark, weißbier for wheat. Food orders come by gesture to the roaming staff in dirndl/lederhosen.
+        </p>
+        <h3>When are the best seasonal specialties?</h3>
+        <p>
+          <strong>Spargel (white asparagus) mid-April to June 24th (the Spargel season is a national event)</strong>, pilze (wild mushrooms) Sept-Oct, pfifferlinge (chanterelles) June-Sept, wild boar and venison autumn, kartoffelsalat warm in Bavaria + cold in the north year-round. Christmas brings stollen, lebkuchen, glühwein, and reibekuchen.
+        </p>
+        <h3>Is street food a real thing in Germany?</h3>
+        <p>
+          <strong>Yes — and it is cheap + excellent</strong>. Döner kebab (invented in Berlin by Turkish immigrants, €5-7), bratwurst + brötchen (€3-5), currywurst + pommes (€4-6), fischbrötchen in Hamburg (€4-6), käsebrötchen for €2.50. Christmas markets offer seasonal street food: glühwein, raclette, reibekuchen. Mustafas Gemüse Kebap (Berlin) is the cult pick.
+        </p>
+        <h3>German wine — is it really that good?</h3>
+        <p>
+          <strong>Yes, especially Riesling</strong> — the Mosel, Rheingau, and Pfalz produce some of the world{"'"}s finest white wines at bargain prices (€10-18 per excellent bottle). Spätburgunder (pinot noir) from Baden is underrated. Wine tastings along the Mosel Valley near Cochem or Bernkastel-Kues are genuine highlights worth a detour.
+        </p>
+        <h3>Bakeries — why are they so important?</h3>
+        <p>
+          <strong>German bread has UNESCO cultural heritage status</strong> for good reason — 3,200+ varieties. Start the day at any bäckerei with a brötchen (€0.40-1), butter + jam, plus a coffee (€2.50). Traditional loaves like Roggenbrot, Vollkornbrot, and Pumpernickel are worth taking home vacuum-sealed.
+        </p>
+        <h3>Food budget per day — realistic numbers?</h3>
+        <p>
+          <strong>Backpacker €18-22/day</strong> (bakery + imbiss + cooking in hostel), <strong>mid-range €35-50/day</strong> (one nice meal + casual dining), <strong>comfort €80+/day</strong> (restaurant dinners + good wine). Beer is €4-5/pint vs €6-8 mixed drinks vs €9-14 restaurant wine. Breakfast is cheap, dinner is where costs add up.
+        </p>
+        <h3>Are cooking classes worth it?</h3>
+        <p>
+          <strong>Yes in Berlin</strong> (Goldhahn und Sampson school teaches German + international, €80-130) and <strong>Munich</strong> (Bavarian Cooking Class at Markt am Wittelsbacherplatz, €90-120). Christmas market cooking classes (glühwein, lebkuchen, Christstollen) in Nuremberg and Dresden run November-December, €65-95.
+        </p>
+        <h3>Best Christmas market food specialties?</h3>
+        <p>
+          <strong>Glühwein (mulled wine, €3-5 in refundable mug), Bratwurst in a brötchen, raclette on bread, lebkuchen (gingerbread), Nuremberg rostbratwurst, Dresden stollen, langos, reibekuchen + applesauce</strong>. See our <Link to="/blog/germany-christmas-markets-2026">Christmas markets guide</Link> for full details.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

@@ -236,19 +236,52 @@ export default function ThailandTravelGuide2026() {
 
         <h2 id="faq">10. Thailand FAQ</h2>
         <h3>How long should I spend in Thailand?</h3>
-        <p>Minimum <strong>10 days</strong>. Sweet spot is <strong>14–21 days</strong> to properly cover Bangkok + North + a beach region.</p>
+        <p>{"Minimum "}<strong>10 days</strong>{" to combine a city, the north, and one beach without feeling rushed. The sweet spot is "}<strong>14–21 days</strong>{" for Bangkok (3–4) + Chiang Mai (3–4) + Krabi/Phuket (5–7), leaving buffer for ferry delays and a day in Ayutthaya. Three-week travellers usually add Koh Tao or Pai and still wish they had another week."}</p>
 
         <h3>Is English widely spoken?</h3>
-        <p>In tourism hubs — yes, at functional level. Outside them — limited, but Google Translate works well.</p>
+        <p>{"In tourism hubs (Bangkok, Chiang Mai, Phuket, Krabi, Koh Samui) English is functional — hotel staff, Grab drivers, and most restaurants understand menu-level English. In rural Isaan, smaller islands, and night-market stalls you will need Google Translate and a friendly attitude. Learn "}<strong>sawasdee</strong>{" (hello) and "}<strong>khop khun</strong>{" (thank you) — locals visibly warm up."}</p>
 
-        <h3>What currency is used?</h3>
-        <p>Thai baht (THB). Roughly <strong>36 THB = $1 USD</strong> in April 2026. Cash is still king outside Bangkok.</p>
+        <h3>What currency is used and how much cash should I carry?</h3>
+        <p>{"Thai baht (THB), roughly "}<strong>36 THB = $1 USD</strong>{" in April 2026. Cards work in Bangkok malls, 4-star hotels, and chain restaurants, but street food, tuk-tuks, temples, and most islands are cash-only. Carry "}<strong>2,000–3,000 THB</strong>{" ($55–85) in small notes per person per day and top up at 7-Eleven or bank ATMs (150 THB fee — withdraw 10,000+ at a time)."}</p>
+
+        <h3>Do I need vaccinations or malaria pills?</h3>
+        <p>{"No mandatory vaccines for most nationalities, but the CDC/NHS recommend "}<strong>Hepatitis A, Typhoid, and Tetanus</strong>{" as standard for Southeast Asia. Malaria is essentially absent from tourist areas — pills are not needed for Bangkok, Chiang Mai, or the main islands. Dengue is the real risk: use DEET, especially at dusk in Pai and Krabi during rainy season."}</p>
 
         <h3>Which island is best for first-timers?</h3>
-        <p><strong>Krabi (Railay or Ao Nang base) + Phi Phi day-trip</strong>. Much better than Phuket for a first visit.</p>
+        <p>{"For a first trip, base in "}<strong>Krabi (Ao Nang or Railay)</strong>{" and day-trip to Phi Phi and Hong Islands — you get limestone karsts, turquoise water, and none of Phuket's Patong nightlife chaos. If you want a livelier scene with direct flights, Phuket's Kata or Karon beaches are the moderate choice. Skip Koh Phangan unless Full Moon Party is your draw."}</p>
 
-        <h3>Is Thai food too spicy?</h3>
-        <p>It can be. Say "mai phet" (not spicy) and it'll be toned down. Tourist restaurants already tone it down automatically.</p>
+        <h3>Is Thai food too spicy for Western palates?</h3>
+        <p>{"It can be, but Thais are gracious about adjusting. Say "}<strong>mai phet</strong>{" (not spicy) or "}<strong>phet nit noi</strong>{" (little spicy) and cooks will dial it down. Tourist-zone restaurants already tone it down automatically — if you want the real version, eat where locals eat and ask for "}<strong>phet thammada</strong>{" (normal spicy)."}</p>
+
+        <h3>How do I get from Bangkok to the islands?</h3>
+        <p>{"For Phuket/Krabi the "}<strong>1-hour AirAsia or Thai Lion flight ($35–60)</strong>{" beats the 12-hour bus every time. For Koh Samui, fly Bangkok Airways direct ($90–130) or take the cheaper combo: AirAsia to Surat Thani + 2-hour ferry ($45 total). Book 3–4 weeks ahead for the best fares; last-minute domestic flights routinely double in price."}</p>
+
+        <h3>Are tuk-tuks a rip-off in Bangkok?</h3>
+        <p>{"Mostly yes — Bangkok tuk-tuks quote tourists 3–5× the fair rate and often detour to gem-shop commission traps. Use "}<strong>Grab or Bolt</strong>{" for honest metered prices, or take the BTS SkyTrain/MRT which costs 16–62 THB and beats traffic. Save tuk-tuks for one novelty ride at night in Chinatown."}</p>
+
+        <h3>Is Thailand safe for solo female travellers?</h3>
+        <p>{"Yes — it is one of Asia's easiest countries for solo women. Violent crime against tourists is rare, hostels have female-only dorms, and transport is reliable. Watch for "}<strong>spiked drinks on party islands</strong>{" (Koh Phangan, Patong) and scooter scams where rental shops claim pre-existing damage. Photograph the bike before and after."}</p>
+
+        <h3>What's the tipping culture?</h3>
+        <p>{"Not expected, but appreciated. Round up at street food; leave "}<strong>20–50 THB</strong>{" at mid-range restaurants if service charge isn't included; tip "}<strong>50–100 THB</strong>{" after a 1-hour massage. Hotel porters and spa therapists remember generous guests — a 100 THB tip goes a long way."}</p>
+
+        <h3>Do I need a SIM or will eSIM work?</h3>
+        <p>{"Both work. "}<strong>AIS or TrueMove tourist SIMs</strong>{" at Bangkok airport cost 299 THB for 15 GB / 8 days — still the best value. eSIMs from Airalo or Holafly cost $12–20 for similar data and activate before landing — convenient but 30–40% pricier. Coverage is excellent even on smaller islands."}</p>
+
+        <h3>Can I drink the tap water?</h3>
+        <p>{"No — bottled water only, which costs "}<strong>7–15 THB per 1.5 L</strong>{" at 7-Eleven (on every corner). Ice in restaurants and cafes is machine-made and safe; street carts usually use delivered ice. Refill stations at hostels ("}<strong>Refill My Bottle</strong>{" app) cut plastic waste and cost 1–3 THB."}</p>
+
+        <h3>What should I wear to temples?</h3>
+        <p>{"Cover "}<strong>shoulders and knees</strong>{" — no tank tops, short shorts, or see-through clothing. Shoes come off inside the temple hall (not the grounds). Grand Palace and Wat Phra Kaew have a strict dress code and will lend sarongs for 200 THB deposit. Remove hats, and never point your feet at a Buddha image."}</p>
+
+        <h3>When's the absolute worst time to visit?</h3>
+        <p>{"Mid-April in Bangkok hits "}<strong>40°C / 104°F</strong>{" with humidity — even locals struggle. September is the wettest month on both coasts, with ferry cancellations common around Phuket and Koh Phi Phi. If you must travel in these windows, head to the Gulf side (Koh Samui) in September or escape to cooler Pai/Chiang Rai in April."}</p>
+
+        <h3>Are elephant experiences ethical?</h3>
+        <p>{"Riding camps, circuses, and 'painting elephants' are not — they rely on cruel training. Choose observation-only sanctuaries like "}<strong>Elephant Nature Park</strong>{" (Chiang Mai, ~2,500 THB), Boon Lott's Elephant Sanctuary (Sukhothai), or BEES. Good sanctuaries never chain elephants, never offer bareback rides, and limit visitor group sizes."}</p>
+
+        <h3>Can I use Thailand as a digital-nomad base?</h3>
+        <p>{"Absolutely — "}<strong>Chiang Mai</strong>{" is one of Asia's top nomad hubs with $400/month studios, fast fibre (300+ Mbps), and a huge cafe/coworking scene (Punspace, CAMP). The new "}<strong>DTV visa</strong>{" (launched 2024) gives remote workers 180 days per entry for 5 years, a genuine game-changer over the old 60-day tourist loop."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

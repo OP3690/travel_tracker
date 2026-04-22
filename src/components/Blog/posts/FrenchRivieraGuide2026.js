@@ -209,14 +209,36 @@ export default function FrenchRivieraGuide2026() {
         />
 
         <h2 id="faq">10. FAQ</h2>
-        <h3>Best Riviera base?</h3>
-        <p><strong>Nice</strong>. Best value, best food, best train connections.</p>
-        <h3>Worth visiting Monaco?</h3>
-        <p>Yes — as a day-trip, not a base (hotels 3x pricier than Nice).</p>
-        <h3>Saint-Tropez worth the detour?</h3>
-        <p>Yes if you're going for beach + celeb-spotting. No if logistics matter (no train).</p>
-        <h3>How many days?</h3>
-        <p><strong>5-7 days</strong>. Less feels rushed; more is saturation.</p>
+        <h3>What's the best base for a first Riviera trip?</h3>
+        <p>{"Nice, by a wide margin. Hotels average €110-170 vs Cannes €180-260 or Monaco €400+, the TER coastal train runs east-west from Menton to Cannes every 30 minutes for €4-10, and the Vieux Nice food scene (socca, pissaladière, Cours Saleya market) is the best day-to-day eating on the coast. Stay in Le Carré d'Or or Old Nice for walkable access."}</p>
+        <h3>Which neighbourhood in Nice should I actually book?</h3>
+        <p>{"Vieux Nice (Old Town) for atmosphere and food — pastel alleys, markets, late-night bars. Le Carré d'Or for upscale shopping and easy Promenade des Anglais access. Musicians / Jean-Médecin for modern value hotels 8 minutes' walk to the beach. Avoid Nice Ouest (west of the airport) — far from the action. Libération is hip, cheap, and 15 min by tram from centre."}</p>
+        <h3>Is Monaco worth visiting, and how long do I need?</h3>
+        <p>{"Yes, as a half-day trip from Nice — the TER train takes 22 minutes (€4.60) and drops you at Monte Carlo. Walk the Casino Square, Prince's Palace, Oceanographic Museum, and the old port in 4-5 hours. Skip as an overnight: hotels start at €380, and the place empties after dinner except for club nights at Jimmy'z and Twiga. Dress code: no flip-flops in the casino."}</p>
+        <h3>Is Saint-Tropez worth the detour given no train access?</h3>
+        <p>{"Yes if beach-club vibes and celeb-spotting matter — Pampelonne's clubs (Club 55, La Réserve à la Plage) are legendary. Getting there requires a car (90 minutes from Nice) or the summer ferry from Nice/Cannes (2h15, €65 one-way). Day-trip difficult; plan 2 nights. July-August rates are brutal (€500+ for 3-star) — May or September is the sweet spot."}</p>
+        <h3>How many days do I need on the Riviera overall?</h3>
+        <p>{"Five to seven days is the sweet spot: 3 nights Nice as base (with Monaco, Èze, Villefranche day trips), 1-2 nights Cannes or Antibes, and 1-2 nights Saint-Tropez if beach-club is your thing. Under 4 days you'll skip half the coast; over 8 days repeat the same-same coastline unless you add inland Provence (Grasse, Gorges du Verdon)."}</p>
+        <h3>When is the best month to visit?</h3>
+        <p>{"Late May to mid-June and early September — water 22-25°C, daytime 24-28°C, beaches a third as crowded as August. July-August means 30-35°C days, €6 parking-meter hell, and hotels 60-80% more expensive. May 12-23 (Cannes Film Festival) and the Monaco Grand Prix (late May) triple prices in those towns specifically — dodge those dates or book 9 months out."}</p>
+        <h3>Is the Riviera safe from pickpockets and scams?</h3>
+        <p>{"Broadly very safe, but Nice's Promenade des Anglais, train stations (Nice-Ville, Cannes, Monaco), and packed beach clubs attract pickpockets in peak season. Use a crossbody bag, never leave bags on a beach towel while swimming (use the €5 locker), and ignore 'free bracelet' hustlers around Place Massena. Violent crime against tourists is genuinely rare."}</p>
+        <h3>What are the best swimmable beaches and are they free?</h3>
+        <p>{"Best free public beaches: Plage Mala (Cap d'Ail, hike down 10 min), Plage de Passable (Cap Ferrat), Plage de la Gravette (Antibes old town), and Plage des Marinières (Villefranche). Most Nice and Cannes beaches are mixed public-private — find the 'plage publique' sections free; private clubs charge €25-70 for a sunbed. All beaches on the Côte d'Azur are rocky or pebbly east of Antibes."}</p>
+        <h3>How do I get around without renting a car?</h3>
+        <p>{"The TER coastal train (Menton-Cannes-Antibes-Nice) runs every 30 min for €3-10 and covers 80% of the must-sees. Lignes d'Azur buses (€1.70/ride, €10/day pass) reach inland villages like Èze and Saint-Paul-de-Vence. Uber works in Nice-Cannes-Monaco; taxis are strictly metered. Rent a car only for Saint-Tropez, Grasse, or Gorges du Verdon day trips."}</p>
+        <h3>Is a day trip to inland Provence (Grasse, Èze, Saint-Paul) worthwhile?</h3>
+        <p>{"Yes — Èze Village (clifftop medieval village, 400m above the sea) is a 20-minute bus from Nice and one of the Riviera's best half-days. Saint-Paul-de-Vence (Fondation Maeght art gallery + cobbled old town) is 40 minutes by bus. Grasse (perfume museums + factory tours) needs a car or 2-hour bus; combine with Gourdon for scenery. Pick one, not all three, in a single day."}</p>
+        <h3>Is the Riviera family-friendly for kids?</h3>
+        <p>{"Very — Marineland near Antibes, the Oceanographic Museum in Monaco, Nice's Promenade des Anglais bike path, and the calm pebbled beaches of Villefranche are stroller-friendly. The pebbles hurt bare feet (water shoes are essential). Saint-Tropez beach clubs allow kids by day but are poor adults-only atmospheres after 22:00. Monaco's aquarium beats Disneyland for under-8s."}</p>
+        <h3>What do the Riviera's best food experiences cost?</h3>
+        <p>{"Socca at Chez Pipo (Nice): €3.50 per portion. Lunch formule in Vieux Nice: €18-24. Dinner at a seafront bistro: €40-60 with wine. Michelin-starred splurge at La Palme d'Or (Cannes) or Le Louis XV (Monaco): €350-550 per head. Monaco's Marché de la Condamine is the cheapest sit-down lunch in the principality — €12-15 for a full plate."}</p>
+        <h3>How's the nightlife and where are the main party districts?</h3>
+        <p>{"Nice: Cours Saleya bars and High Club / Waka on Promenade des Anglais. Cannes: Croisette beach clubs (Baôli, Le Bâoli) and La Suite. Monaco: Jimmy'z, Twiga, and Sass Café (yacht-owner crowd). Saint-Tropez: Les Caves du Roy and summer Pampelonne day-club scene. Dress code everywhere is 'smart chic' — no shorts or trainers past 22:00."}</p>
+        <h3>When should I book hotels and flights for the Riviera?</h3>
+        <p>{"Flights to Nice (NCE) 3-4 months ahead for July-Aug, 6-8 weeks for shoulder. Hotels for July-August: book 5-6 months ahead, especially for 3-4 star boutique. Cannes Film Festival rooms need booking in January for the following May; Monaco Grand Prix even earlier. Shoulder-season (May/Sept/Oct) prices drop 30-45% vs July-Aug peak."}</p>
+        <h3>Can I extend the trip into Italy (Ventimiglia, San Remo)?</h3>
+        <p>{"Easy — Ventimiglia is 35 minutes by TER train from Menton (€5), Genoa 2h15 further. Friday is market day in Ventimiglia; locals take the train just for the €4 pizza al taglio. For a bigger add-on, do 3 nights Cinque Terre (4h from Nice via Genoa). Make sure your Schengen 90/180 clock has room — Italy is Schengen just like France."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

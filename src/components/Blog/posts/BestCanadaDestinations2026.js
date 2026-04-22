@@ -173,9 +173,62 @@ export default function BestCanadaDestinations2026() {
         />
 
         <h2 id="faq">4. FAQ</h2>
-        <h3>Best destination for first-timers?</h3><p><strong>Banff + Vancouver</strong> OR <strong>Montreal + Quebec City</strong>. One east OR one west.</p>
-        <h3>Most underrated?</h3><p><strong>Cape Breton + Newfoundland</strong>.</p>
-        <h3>Best in winter?</h3><p><strong>Quebec City</strong> (Winter Carnival + Ice Hotel). Or Whistler skiing.</p>
+        <h3>Best destination for a first Canada trip?</h3>
+        <p>
+          <strong>Banff + Vancouver for west-coast first-timers</strong>, or <strong>Montreal + Quebec City</strong> for eastern first-timers. Pick one side — trying to do both in under 14 days cheats each region. The unbeatable "Canada in a week" is Vancouver (2) + Whistler (1) + Banff (3) + Calgary (1) for Rockies-focused travel.
+        </p>
+        <h3>What is the most underrated destination?</h3>
+        <p>
+          <strong>Cape Breton Island (Nova Scotia) and Newfoundland</strong> — Cape Breton{"'"}s Cabot Trail is routinely voted one of the world{"'"}s best drives; Newfoundland has puffins, icebergs (May-June), humpback whales, and the most culturally distinct community in Canada. Both feel like separate countries and are genuinely empty of tourists outside July-August.
+        </p>
+        <h3>Best destination for winter travel?</h3>
+        <p>
+          <strong>Quebec City</strong> — the Winter Carnival (late January-February) is one of the world{"'"}s biggest winter festivals, the Ice Hotel (Hôtel de Glace) is a unique stay experience, and the fortified Old Town is magical under snow. Runners-up: Whistler for skiing, Yellowknife for Northern Lights (reliable viewing November-March), and Churchill for polar bears.
+        </p>
+        <h3>Which destination has Canada{"'"}s best mountain scenery?</h3>
+        <p>
+          <strong>Banff + Jasper (Alberta)</strong> — Lake Louise, Moraine Lake, Peyto Lake, Icefields Parkway, Columbia Icefield. The 232 km Icefields Parkway drive between Banff and Jasper is one of the world{"'"}s top 10 scenic drives. Yoho National Park (BC, next door) has Emerald Lake and Takakkaw Falls if you want to escape crowds.
+        </p>
+        <h3>Best Canadian beach destination?</h3>
+        <p>
+          <strong>PEI{"'"}s Cavendish + Basin Head beaches</strong> for classic red-sand Atlantic, <strong>Tofino (Vancouver Island)</strong> for dramatic surf + rainforest, and <strong>Grand Bend (Lake Huron)</strong> for warm freshwater swimming (Aug water 22°C). Nova Scotia{"'"}s Martinique Beach is the longest unspoiled Atlantic beach in the province.
+        </p>
+        <h3>Best destination for foodies?</h3>
+        <p>
+          <strong>Montreal</strong> — bagels, smoked meat, poutine, French-Canadian bistros, and James Beard-level fine dining. Toronto for international cuisine diversity (the world{"'"}s most multicultural city by some metrics). Halifax + PEI for Atlantic seafood. Okanagan Valley (BC) for wine + farm-to-table. See our <Link to="/blog/canadian-food-guide-2026">Canadian food guide</Link>.
+        </p>
+        <h3>Best destination for wildlife viewing?</h3>
+        <p>
+          <strong>Churchill (Manitoba) for polar bears (October-November)</strong> and beluga whales (June-August). Vancouver Island for orcas + grizzlies. Jasper for elk + bighorn sheep + grizzlies. Algonquin for moose (July dawn/dusk). Newfoundland for puffins + humpbacks + icebergs (May-June). Canada is genuinely a world-class wildlife destination.
+        </p>
+        <h3>Best destination for a romantic or honeymoon trip?</h3>
+        <p>
+          <strong>Banff (Fairmont Chateau Lake Louise + Banff Springs)</strong>, <strong>Quebec City (Fairmont Château Frontenac)</strong>, and <strong>Whistler (Four Seasons, Nita Lake Lodge)</strong> are the three iconic honeymoon picks. Tofino for surf-luxe. PEI for beach-cottage quiet. Niagara-on-the-Lake for wine-country romance.
+        </p>
+        <h3>Best destination for family travel?</h3>
+        <p>
+          <strong>PEI</strong> — the Anne of Green Gables heritage, safe beaches, short driving distances across the whole island, lobster suppers, and zero stress. Niagara Falls for ages 5+. Banff for outdoor-loving families. Montreal for Science Centre + Biodôme + Old Port ferris wheel.
+        </p>
+        <h3>Vancouver or Toronto if I can only pick one city?</h3>
+        <p>
+          <strong>Vancouver for nature access</strong> (Stanley Park, Grouse Mountain, ferry to Victoria, Whistler within 90 minutes) and <strong>Toronto for urban + international food + multicultural neighborhoods</strong>. Vancouver has mountains + ocean in one city; Toronto has theatre + museums + sports. Visitors with 2+ days in Canada usually do both.
+        </p>
+        <h3>Best destination for Indigenous culture?</h3>
+        <p>
+          <strong>Haida Gwaii (BC)</strong> is the deepest Indigenous cultural experience — the Haida Heritage Centre at Kay Llnagaay, totem poles, and SGang Gwaay UNESCO site. <strong>Wendake (near Quebec City)</strong> for Huron-Wendat cultural village + hotel. <strong>Whistler Squamish Lil{"'"}wat Cultural Centre</strong> for accessible First Nations history.
+        </p>
+        <h3>Best destination for Canadian nightlife?</h3>
+        <p>
+          <strong>Montreal</strong> — bars open until 3am, Crescent Street + Plateau neighborhoods, Jazz Festival in summer, Piknic Électronik electronic music Sunday afternoons. Toronto{"'"}s King West + Queen West. Vancouver{"'"}s Gastown + Granville Street. Halifax has surprisingly good pub + live music scene for its size.
+        </p>
+        <h3>Best destination for luxury travel?</h3>
+        <p>
+          <strong>Banff (Fairmont Chateau Lake Louise), Whistler (Four Seasons), Tofino (Wickaninnish Inn), Muskoka lake cottages (JW Marriott Rosseau)</strong>, and Charlevoix (Le Manoir Richelieu). Amangiri-style desert luxury does not exist in Canada, but mountain + lakeside luxury is world-class.
+        </p>
+        <h3>Hidden gem most travelers miss?</h3>
+        <p>
+          <strong>The Magdalen Islands (Îles-de-la-Madeleine, Quebec)</strong> — 12-island archipelago in the Gulf of St. Lawrence, reachable by ferry or plane from PEI, with red cliffs + Acadian culture + seal-pup viewing in March. Also: Fogo Island (NL) for the surreal Fogo Island Inn, Moraine Lake before 6am, and the Bay of Fundy for world{"'"}s highest tides.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

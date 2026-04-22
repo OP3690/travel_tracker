@@ -215,15 +215,49 @@ export default function BestItalyRegions2026() {
 
         <h2 id="faq">4. FAQ</h2>
         <h3>Best region for first-time Italy?</h3>
-        <p><strong>Tuscany + Lazio</strong>. Classic one-two.</p>
+        <p><strong>{"Tuscany + Lazio"}</strong>{" — the classic one-two. Rome delivers antiquity, Florence gives you Renaissance art and hilltown day-trips, and Tuscany's countryside (Chianti, Val d'Orcia, San Gimignano) closes the loop. 10–14 days is the sweet spot. Add Campania for the Amalfi coast and pizza, or Veneto for Venice, if you have 2+ weeks."}</p>
+
         <h3>Best region for beaches?</h3>
-        <p><strong>Sardinia</strong>. Then Apulia, then Sicily.</p>
+        <p><strong>{"Sardinia"}</strong>{" wins on sheer water quality — Costa Smeralda, La Pelosa, Cala Goloritzé. "}<strong>Puglia</strong>{" is second for variety (Salento, Gargano, Polignano a Mare) and 40% cheaper. "}<strong>Sicily</strong>{" third for volcanic drama (San Vito lo Capo, Taormina's Isola Bella). Liguria has character but tiny crowded beaches. Avoid Adriatic Riviera lidos unless you want old-school chaise-longue culture."}</p>
+
         <h3>Best region for food?</h3>
-        <p><strong>Emilia-Romagna</strong>. Debatable only with Campania (pizza) and Piedmont (truffles).</p>
-        <h3>Most underrated?</h3>
-        <p><strong>Puglia + Emilia-Romagna</strong> in a tie.</p>
-        <h3>Best region for romance?</h3>
-        <p><strong>Amalfi Coast (Campania)</strong>. Then Lake Como (Lombardy), then Cinque Terre (Liguria).</p>
+        <p><strong>{"Emilia-Romagna"}</strong>{" — Parmigiano, balsamic, mortadella, prosciutto, tortellini, ragù bolognese, all concentrated within 100 km. Only "}<strong>Campania</strong>{" (pizza + pasta + buffalo mozzarella) and "}<strong>Piedmont</strong>{" (white truffles + Barolo) seriously compete. Tuscany is famous but more about raw ingredients than invention; Sicily is distinctive for pastry and street food."}</p>
+
+        <h3>What's the most underrated region?</h3>
+        <p><strong>{"Puglia and Emilia-Romagna"}</strong>{" tie. Puglia offers trulli houses, turquoise Adriatic water, and low prices most Americans haven't discovered. Emilia-Romagna has the best food in Italy but gets skipped for Florence. Runner-up: "}<strong>Umbria</strong>{" (Assisi, Orvieto, Spoleto) — Tuscany's quieter sibling, 30% cheaper, same rolling hills."}</p>
+
+        <h3>Best region for romance and honeymoons?</h3>
+        <p><strong>{"Amalfi Coast (Campania)"}</strong>{" is the classic — Positano sunsets, Ravello concerts, lemon groves. "}<strong>Lake Como (Lombardy)</strong>{" is the more refined alternative with Bellagio + Varenna ferries. "}<strong>Cinque Terre (Liguria)</strong>{" is photogenic but 2 days max. For off-beat romance: "}<strong>Taormina (Sicily), Portofino, or a Tuscan agriturismo in Val d'Orcia</strong>{"."}</p>
+
+        <h3>Which region for a second-time Italy trip?</h3>
+        <p><strong>{"Sicily or Puglia"}</strong>{" — both are worlds removed from Rome/Florence and deserve 7+ days each. Sicily combines Greek ruins (Agrigento), baroque villages (Noto, Ragusa), Palermo street food, and Mount Etna. Puglia does trulli + beaches + easy pace. "}<strong>Sardinia</strong>{" if beaches top your list; "}<strong>Piedmont or Friuli</strong>{" if wine is the goal."}</p>
+
+        <h3>Best region for hiking?</h3>
+        <p><strong>{"The Dolomites (Trentino-Alto Adige/Südtirol)"}</strong>{" — Alta Via 1, Tre Cime, Lago di Braies. World-class rifugio-to-rifugio hiking June–September. "}<strong>Cinque Terre's Sentiero Azzurro</strong>{" for village-to-village walking. "}<strong>Gran Sasso (Abruzzo)</strong>{" for raw mountain. "}<strong>Sicily's Etna ascents</strong>{" for volcanic. Avoid summer midday heat — start hikes at 6 AM."}</p>
+
+        <h3>Best region for wine?</h3>
+        <p><strong>{"Piedmont (Langhe, Barolo, Barbaresco)"}</strong>{" for prestige; "}<strong>Tuscany (Chianti Classico, Brunello di Montalcino)</strong>{" for accessibility; "}<strong>Veneto (Prosecco hills, Valpolicella, Amarone)</strong>{" for variety. Small winery tastings run "}<strong>€15–35 with 4–6 pours</strong>{"; book 1–2 weeks ahead. Avoid Chianti tourist-trap cellars on the SR-222 main road."}</p>
+
+        <h3>Best region for families with kids?</h3>
+        <p><strong>{"Tuscany agriturismo stays"}</strong>{" (pools, pasta classes, space to run), "}<strong>Emilia-Romagna's Adriatic Riviera (Rimini, Riccione)</strong>{" for kid-friendly beaches and theme parks, "}<strong>Lake Garda</strong>{" for Gardaland and safe swimming. Cities: Rome is doable with kids; Venice is magical but stroller-hostile (bridges). Skip Amalfi with toddlers — narrow cliff roads and steep stairs."}</p>
+
+        <h3>Best region for luxury?</h3>
+        <p><strong>{"Amalfi Coast (Belmond Caruso in Ravello, Le Sirenuse in Positano)"}</strong>{", "}<strong>Lake Como (Villa d'Este, Passalacqua)</strong>{", "}<strong>Tuscany (Castiglion del Bosco, Rosewood Castiglion)</strong>{". Expect €900–2,400/night in season. "}<strong>Capri</strong>{" and "}<strong>Portofino</strong>{" are the jet-set day pulses. For understated luxury, Umbrian villa rentals beat resorts."}</p>
+
+        <h3>Which region is cheapest to travel?</h3>
+        <p><strong>{"Puglia, Basilicata, Sicily, Calabria"}</strong>{" — all 30–45% below Tuscany/Veneto on hotels and restaurants. A €70 B&B in Lecce matches a €130 room in Florence. Regional food is arguably more distinctive. Trains reach all major cities; car rental is the smart move in rural pockets ($25–40/day)."}</p>
+
+        <h3>How do I combine two regions in 10 days?</h3>
+        <p><strong>{"Lazio + Tuscany"}</strong>{" is the classic (Rome + Florence + Chianti, 5 + 4 nights). "}<strong>Campania + Lazio</strong>{" for pizza + antiquity (Rome + Naples + Amalfi). "}<strong>Veneto + Emilia-Romagna</strong>{" for food + Venice (Venice + Bologna + Modena). Two regions is the realistic ceiling for 10 days — three creates travel-day fatigue."}</p>
+
+        <h3>Ferry vs flight for Sicily and Sardinia?</h3>
+        <p><strong>{"Fly to Sicily (Palermo PMO or Catania CTA)"}</strong>{" — €30–70 Ryanair from Rome/Naples in 1 hour vs 9-hour overnight ferry. Sardinia: fly to Cagliari or Olbia ($40–100) unless you're bringing a car, in which case the "}<strong>Grimaldi ferry from Civitavecchia to Olbia</strong>{" (8 hours, €120 with cabin + car) makes sense. Book ferries 6+ weeks out in summer."}</p>
+
+        <h3>Best region for autumn (Sept–Nov) travel?</h3>
+        <p><strong>{"Piedmont for truffle season (Oct–Nov, Alba Truffle Fair)"}</strong>{", "}<strong>Tuscany for grape harvest (mid-Sept)</strong>{", "}<strong>Umbria for chestnut festivals</strong>{". The light turns golden, crowds thin 50%, hotels drop 25%. November rain can disrupt countryside drives — keep a cities-plus-one-agriturismo structure."}</p>
+
+        <h3>Best combination for 3 weeks?</h3>
+        <p><strong>{"Rome + Tuscany + Amalfi + Puglia"}</strong>{" (South-focus), or "}<strong>Rome + Florence + Venice + Dolomites + Lake Como</strong>{" (North-focus), or the dream loop: "}<strong>Rome → Amalfi → Sicily → Puglia → Bologna → back</strong>{". 3 weeks is the shortest time Italy fully rewards — below this you're forced to skip something great."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

@@ -150,10 +150,66 @@ export default function HalongBayHoiAnGuide2026() {
         </p>
 
         <h2 id="faq">7. FAQ</h2>
-        <h3>Halong worth it?</h3><p>Yes — if you book a good cruise in Bai Tu Long.</p>
-        <h3>Halong or Ninh Binh?</h3><p>Both if you can. Halong for the sea, Ninh Binh for the rivers + less crowds.</p>
-        <h3>Hoi An tailor reliable?</h3><p>Stick to top tier (Yaly, Bebe, A Dong) for suits. Budget tailors fine for simple shirts/dresses.</p>
-        <h3>Days needed?</h3><p>Halong: <strong>2 days/1 night</strong>. Hoi An: <strong>3-4 days</strong>.</p>
+        <h3>Is Halong Bay actually worth the trip?</h3>
+        <p>
+          <strong>Yes — but only if you book a good-quality cruise in Bai Tu Long Bay (not the crowded Halong Bay zone)</strong>. The UNESCO karst seascape is genuinely extraordinary when seen from the right operator. Budget US$60/day cruises visit overcrowded inner zones with poor water quality; premium cruises (US$180-350/night) visit pristine outer bays with fewer boats.
+        </p>
+        <h3>Halong Bay or Ninh Binh — which first?</h3>
+        <p>
+          <strong>Do both if you have time — they are genuinely different experiences</strong>. Halong is the sea + karst cruise experience; Ninh Binh is the river + rice-paddy land version, often called "inland Halong" with 10% the crowds. If forced to pick: Ninh Binh for photography + budget travelers; Halong for the iconic bucket-list cruise.
+        </p>
+        <h3>How do I pick a reliable Halong cruise operator?</h3>
+        <p>
+          <strong>Book into Bai Tu Long or Lan Ha Bay (avoid central Halong Bay zone)</strong> — recommended operators: Indochina Junk, Paradise Elegance, Heritage Line, Orchid Cruises, and Emperor Cruises. Premium 5-star cruises US$180-350/night all-inclusive. Check TripAdvisor reviews from the last 6 months; the industry changes fast.
+        </p>
+        <h3>2 days/1 night or 3 days/2 nights?</h3>
+        <p>
+          <strong>3 days/2 nights is significantly better</strong> — the 2-day cruise feels rushed (arrive late afternoon, cruise, sleep, wake, depart by 10am) while 3-day cruises include kayaking, cave visits, and actual time to relax. Cost difference is only 40-60% more but experience is 2x. Budget 3D/2N at US$350-700 all-in on a quality operator.
+        </p>
+        <h3>Hoi An tailors — are they reliable for suits?</h3>
+        <p>
+          <strong>Stick to top-tier tailors for formal wear</strong> — Yaly Couture (oldest + most experienced, 3-day turnaround, suits US$200-400), Bebe (silk specialist), and A Dong Silk. Budget tailors at US$40-80 are fine for simple shirts, dresses, and casual suits — but not for formal wool suits or complex tailoring.
+        </p>
+        <h3>How many days do I need in Hoi An?</h3>
+        <p>
+          <strong>3-4 days minimum</strong> — day 1 for arrival + old town exploration, day 2 for cooking class + beach, day 3 for My Son Sanctuary + lantern evening, day 4 for tailor fittings + Thu Bon River sunset. Less than 3 days misses the lantern-lit evening magic and rushes tailoring turnaround.
+        </p>
+        <h3>When is the best time to visit both?</h3>
+        <p>
+          <strong>March-April is optimum for both</strong> — Halong has clear visibility + calm seas, Hoi An has dry weather + manageable temperatures (26-30°C). Avoid October-November (Hoi An floods annually, annual typhoon risk) and July-August (hot + humid + domestic crowds). February is cool for Halong but occasionally foggy.
+        </p>
+        <h3>How do I get between Halong Bay and Hoi An?</h3>
+        <p>
+          <strong>Fly — Hanoi to Danang on Vietjet/Bamboo Airways (70 min, US$30-60)</strong> then 45-min taxi/shuttle to Hoi An. Overnight trains (Hanoi → Danang, 17h) and buses are possible but waste a travel day. Budget travelers can take the SE1/SE3 soft-sleeper train for US$30-60 as an experience if time permits.
+        </p>
+        <h3>Cost breakdown for a 5-day Halong + Hoi An add-on?</h3>
+        <p>
+          <strong>Budget: US$400-550</strong> (mid-range Halong cruise US$200 + Hoi An homestay + meals + transport). <strong>Mid-range: US$700-1,100</strong>. <strong>Luxury: US$1,500-3,500+</strong> (Emperor Cruise Halong + Four Seasons Nam Hai Hoi An). Internal flight US$40-80, Hoi An hotels US$25-120/night.
+        </p>
+        <h3>What photo spots cannot be missed in Hoi An?</h3>
+        <p>
+          <strong>Japanese Covered Bridge (cliché but essential), Thu Bon River at sunset, lantern-lit Old Town streets after 7pm, tailor shops with raw fabric walls, An Bang Beach fishing boats at sunrise</strong>. For Halong: Tí Tốp Island viewpoint, Sung Sot Cave, kayaking through Luon Cave arch, and sunset from ship deck.
+        </p>
+        <h3>Is Halong Bay family-friendly?</h3>
+        <p>
+          <strong>Yes for ages 7+</strong> — kids enjoy kayaking, swimming off the boat, cave tours, and cooking classes on-ship. Premium operators (Paradise Elegance, Heritage Line) have family cabins. Under 7 can get bored by cruise pace; opt for day tours from Hanoi or base in Hoi An instead.
+        </p>
+        <h3>Luxury vs budget — what{"'"}s the real difference?</h3>
+        <p>
+          <strong>Budget cruises (US$60-90/night): shared bathrooms, inner-bay routes, meal quality poor, 20+ boats clustered</strong>. Mid-range (US$120-180): private bathroom, decent food, Bai Tu Long access. Luxury (US$200-350+): full-service butler, private balcony, outer-bay anchorages with 2-3 other boats max, gourmet meals. Jump mid-range minimum.
+        </p>
+        <h3>Cooking class recommendations in Hoi An?</h3>
+        <p>
+          <strong>Red Bridge Cooking School (US$40, half-day, includes market + river ride), Morning Glory (US$35, urban cooking class by celeb chef Ms. Vy), Tra Que Village Farm (US$30, organic vegetable village + cooking in a rural setting)</strong>. Book 1-2 days ahead. Best for learning: banh xeo, pho, spring rolls, cao lầu.
+        </p>
+        <h3>Are there sustainability concerns for Halong?</h3>
+        <p>
+          <strong>Yes — Halong Bay is genuinely at risk from over-tourism, plastic waste, and poor-quality cruise operators</strong>. Premium operators (Indochina Junk, Paradise, Heritage) enforce strict no-plastic + wastewater-treatment rules. Bai Tu Long Bay cruises are the lower-impact choice. Avoid cheap day-trips from Hanoi — they do the most damage to the ecosystem.
+        </p>
+        <h3>When should I book everything?</h3>
+        <p>
+          <strong>Halong cruise 2-4 weeks ahead in shoulder season, 4-8 weeks in peak (March-April, October-November)</strong>. Hoi An tailor fittings book at walk-in. Hoi An hotels 4-6 weeks ahead. Internal flight Hanoi-Danang 2-6 weeks ahead (prices do not drop closer). Luxury Halong cruises + Four Seasons Nam Hai: 3-6 months.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

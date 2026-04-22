@@ -175,20 +175,36 @@ export default function SpainBudgetTravel2026() {
         />
 
         <h2 id="faq">8. FAQ</h2>
-        <h3>Is Spain cheaper than Italy?</h3>
-        <p>Slightly — €10/day less at mid-range.</p>
-
-        <h3>Can I do Spain on €50/day?</h3>
-        <p>Yes — menú del día + free-tapa bars + hostels. Nothing about it is a deprivation.</p>
-
-        <h3>Cheapest month?</h3>
-        <p><strong>November or February (excl. Carnival)</strong>. 30-50% off peak.</p>
-
-        <h3>Tipping?</h3>
-        <p>Not expected. Round up €1-2 or 5% for exceptional.</p>
-
-        <h3>Cards or cash?</h3>
-        <p>Cards widely accepted. Carry €30-50 cash for tapas bars + small towns.</p>
+        <h3>Is Spain actually cheaper than Italy or France?</h3>
+        <p>{"Yes — roughly €10-15/day cheaper than Italy at mid-range and €20-30 less than France. Where it shows up: hotels (3-star in Seville €70 vs Florence €110), wine (€2.50/glass of rioja vs €6 in Paris), and menú del día (€13-18 three courses vs €22+ in Italy). Barcelona and San Sebastián cost as much as Paris in peak season — the rest of Spain is the bargain."}</p>
+        <h3>Can I genuinely travel Spain on €50/day?</h3>
+        <p>{"Yes, without feeling deprived — dorm beds €18-28, menú del día lunches €13-16, free-tapa-with-drink bars in Granada and León where a €2.50 caña comes with an actual plate of food, and €20 museum/attraction budget. Barcelona, Madrid, and San Sebastián push the daily floor to €65-75 but it's still a deal. This excludes intercity transport — budget €80-150 extra for AVEs."}</p>
+        <h3>What are the cheapest months to visit?</h3>
+        <p>{"November and February (outside Carnival week) hit the low point — hotels 35-55% below July-August, mild weather in Andalusia and the coast, light crowds even at the Alhambra. Avoid Semana Santa (Holy Week, late March/early April) and August on the coast. January is cheap everywhere except ski towns. December in Madrid and Barcelona is festive but not budget-crushing."}</p>
+        <h3>Tipping — what's actually expected?</h3>
+        <p>{"Very little. Round up coffee (10-20 cents), leave €1 for a €10 lunch, and 5-8% at a proper dinner if service was excellent. Locals tip €0 at tapas bars routinely. Hotel bellhops: €1-2 if they carry bags; housekeeping: €1-2/night if you're staying 3+ nights. Taxi drivers: round up to the next euro. Don't tip at fast food or takeaway counters."}</p>
+        <h3>Cards or cash — what's the split?</h3>
+        <p>{"Contactless cards work in 90%+ of bars, supermarkets, and taxis in cities — Apple Pay / Google Pay is widely accepted. Keep €40-60 cash for small tapas bars in Andalusian pueblos, tip jars, public markets (Madrid's San Miguel, Barcelona's La Boqueria), and rural petrol stations. Use a no-fee debit card (Wise, Revolut, N26) at BBVA, Santander, or CaixaBank ATMs."}</p>
+        <h3>How do I avoid ATM and card fees completely?</h3>
+        <p>{"Choose 'decline conversion' at the ATM every single time — it forces your home bank to convert, saving 3-8%. Use BBVA, Santander, ING, or Sabadell ATMs (no network surcharge to foreign cards). Avoid Euronet (orange kiosks, 10%+ rip-off fee) and any ATM inside a tobacco shop or convenience store. Wise and Revolut cards beat most US/UK debit cards on FX."}</p>
+        <h3>How good and cheap are hostels really?</h3>
+        <p>{"Spanish hostels have leveled up — dorms at Casa Gracia (Barcelona), The Hat (Madrid), The Nomad (Seville), and Oasis Granada are effectively budget boutique hotels with bars, co-working, and tour programs for €22-36/night. Independent small hostels (30-60 beds) are often best. Book 4+ weeks ahead for peak months; €18 dorms still exist in León, Salamanca, and small Galician cities."}</p>
+        <h3>What do meals realistically cost per day?</h3>
+        <p>{"Backpacker €15-20: panadería breakfast (€2-3), menú del día lunch (€13-16 including wine and dessert), free tapa with caña for dinner (€2.50-4 per drink, food included). Mid-range €30-45: café tostada breakfast, proper menú lunch, tapas bar dinner (€18-25 for 4 tapas + wine). Splurge €70+: one sit-down dinner at a nice taberna, with wine by the glass."}</p>
+        <h3>What transport hacks save the most money?</h3>
+        <p>{"Ouigo España and Iryo on Madrid-Barcelona and Madrid-Valencia undercut Renfe AVE by 50% (€9-25 vs €30-60) — same speed, cheaper seats. ALSA buses Madrid-Seville at €22 (6h30) vs AVE €60 (2h30) if time isn't tight. BlaBlaCar rides between cities €15-35. Renfe's Tarjeta Joven (14-30 year olds, €50/year) saves 30% on all trains."}</p>
+        <h3>Do student or youth discounts really apply?</h3>
+        <p>{"EU under-18s are free at most national museums (Prado, Reina Sofía, Alhambra); under-26s get 50% off at many state-run attractions with a passport as proof of age. ISIC cards work at some private sites. Renfe's Tarjeta Joven pays for itself in 2-3 rides. Some cities (Madrid's Paseo del Arte) have museum combo tickets that beat individual entry fees."}</p>
+        <h3>Which are the best free or near-free things to do?</h3>
+        <p>{"Prado Museum Mon-Sat 18:00-20:00 and Sun 17:00-19:00 free; Reina Sofía Mon + Wed-Sat 19:00-21:00, Sun 12:30-14:30 free. Barcelona's Picasso Museum free Thursday 17:00-20:00 + first Sunday of the month. Most cathedrals (Seville, Granada, Burgos) charge €9-12 but are free 1 hour before closing. Parks and plazas cost nothing — Madrid's Retiro, Seville's Maria Luisa, Valencia's Turia gardens."}</p>
+        <h3>Are working-holiday visas an option for cheap long-term travel?</h3>
+        <p>{"Australians, New Zealanders, Canadians, and 10+ others qualify for a 12-month Working Holiday Visa (ages 18-30/35). Seasonal work (fruit picking, ski resorts in Sierra Nevada/Pyrenees, beach-bar work in Costa Brava) pays €30-50/day plus accommodation. Americans don't qualify. The Digital Nomad Visa is a separate option if you earn remotely."}</p>
+        <h3>What hidden costs blow up budgets?</h3>
+        <p>{"Tourist tax (tasa turística) of €1-4/night in Catalonia and Balearics, not shown on booking totals. Alhambra General Tickets (€19-24) sell out 2-3 months ahead — scalped tickets resell for €60-100. Sagrada Família skip-the-line booking fees. Water at restaurants is NOT always free — ask for 'agua del grifo' (tap) to save €3/bottle. Beach umbrella rentals €5-10/day in peak."}</p>
+        <h3>Hostel, guesthouse, or cheap hotel — best value?</h3>
+        <p>{"Guesthouses (pensiones, hostales one-star) at €35-55/night for private room often beat dorm beds (€25/person × 2) for couples. Try Booking.com filter 'pension' or 'hostal' (not to be confused with English 'hostel'). In Granada and Seville, pensiones in old-town buildings are charming and cheap. Solo travellers: dorms win on price and meeting people."}</p>
+        <h3>Is travel insurance worth it for a budget trip?</h3>
+        <p>{"Yes — a €30 SafetyWing or WorldNomads policy covers a €2,000 medical visit (Spanish private GP €60-120), lost bag, strike-related rebooking, and stolen phone. Check credit card benefits first — Chase Sapphire Reserve and Amex Platinum include strong travel medical coverage. Spain's public hospitals are excellent but bill non-EU visitors at full rate."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

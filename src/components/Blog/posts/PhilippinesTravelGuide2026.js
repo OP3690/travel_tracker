@@ -384,48 +384,49 @@ export default function PhilippinesTravelGuide2026() {
         <h2 id="faq">10. Philippines FAQ</h2>
 
         <h3>How long should I spend in the Philippines?</h3>
-        <p>
-          Minimum <strong>10 days</strong>. Sweet spot is{' '}
-          <strong>14–17 days</strong>, which lets you hit 3 islands
-          without rushing. For a first-time, week-only trip, pick a
-          single region (Palawan or Cebu+Bohol) and do it properly.
-        </p>
+        <p>{"Minimum 10 days to make the long-haul flight worthwhile. The sweet spot is 14–17 days, which lets you hit 3 islands (e.g. Palawan + Cebu + Bohol) without feeling rushed. For a week-only trip, pick a single region — Palawan alone or Cebu-plus-Bohol — and do it properly instead of chasing island-hop logistics."}</p>
 
         <h3>Is English widely spoken?</h3>
-        <p>
-          Yes. English is an official language, taught from grade 1, and
-          spoken confidently by the majority of Filipinos you'll meet in
-          tourism, restaurants, hotels, taxis and airports.
-        </p>
+        <p>{"Yes — the Philippines is one of the two largest English-speaking countries in Asia. English is an official language, taught from grade 1, and spoken confidently by the vast majority of Filipinos in tourism, restaurants, hotels, airports and taxis. You will never need a translation app."}</p>
 
-        <h3>What currency is used?</h3>
-        <p>
-          Philippine peso (PHP, ₱). Roughly <strong>56 pesos = $1 USD</strong>{' '}
-          in April 2026. Carry cash; ATMs are everywhere in cities but
-          rare on small islands.
-        </p>
+        <h3>What currency is used and how much cash should I carry?</h3>
+        <p>{"Philippine peso (PHP, ₱), roughly 56 pesos to $1 USD in April 2026. Carry 3,000–5,000 pesos in cash at all times for tricycles, market food and island-hop tips; ATMs are widespread in cities but rare on smaller islands like El Nido and Siquijor, and the BPI/BDO ATMs cap withdrawals at 10,000 pesos per transaction."}</p>
 
         <h3>Are credit cards accepted?</h3>
-        <p>
-          In Manila, Cebu, and 4-star+ hotels — yes. Everywhere else —
-          partially. Bring a Wise or Revolut card for fee-free ATM
-          withdrawals; the cash-friendly model saves a lot of hassle.
-        </p>
+        <p>{"In Manila, Cebu City, Boracay and 4-star+ hotels — yes. Everywhere else only partially. Bring a Wise or Revolut card for fee-free ATM withdrawals (local ATMs charge 250 peso fees that add up fast) and plan to use cash for 70% of everyday spending — tricycles, bangka boats, barbecue stalls, island-hop lunches."}</p>
 
         <h3>What's the best island for first-time visitors?</h3>
-        <p>
-          <strong>Palawan</strong> — specifically an El Nido + Coron
-          combo. It delivers the Philippines's most iconic scenery, is
-          well set up for tourists, and you don't need more than 6–7
-          days for a satisfying trip.
-        </p>
+        <p>{"Palawan — specifically an El Nido plus Coron combination. It delivers the Philippines' most iconic scenery (Twin Lagoon, Big Lagoon, Kayangan Lake), is well set up for tourists, and only needs 6–7 days for a satisfying trip. Second choice for first-timers: Cebu plus Bohol, which combines whale sharks, Chocolate Hills and tarsiers."}</p>
 
         <h3>Is the tap water safe to drink?</h3>
-        <p>
-          Not usually. Bottled water is cheap (~$0.50/liter) and
-          ubiquitous. Resort hotels often have purified water stations
-          you can refill from.
-        </p>
+        <p>{"No, not anywhere. Bottled water is cheap (roughly 20 pesos / $0.35 per liter) and ubiquitous; resort hotels often have purified refill stations, and a LifeStraw or Grayl bottle handles the edge cases. Use bottled water for brushing teeth at smaller guesthouses and avoid ice outside of reputable restaurants."}</p>
+
+        <h3>Do I need a visa?</h3>
+        <p>{"Citizens of 157 countries (including the US, UK, EU, Australia, Canada, Japan) get 30 days visa-free on arrival. You can extend for up to 36 months at any Bureau of Immigration office for roughly 3,000 pesos per 2-month extension. You will need an onward ticket to board your inbound flight — airlines do check this at check-in."}</p>
+
+        <h3>When is the best time to visit?</h3>
+        <p>{"December through May is the dry season, with January-February delivering the best combination of calm seas, low rainfall and comfortable 26-30 C temperatures. June through November is typhoon season — September-October are the riskiest, though deals are deep and islands are gorgeously green. Avoid Holy Week (Easter) and Christmas for both crowds and pricing."}</p>
+
+        <h3>How do I get between islands?</h3>
+        <p>{"Domestic flights on Cebu Pacific, PAL and AirSWIFT connect all major islands for $40–$120 one-way — book 3-6 weeks ahead. For shorter hops, 2GO and Montenegro Shipping run overnight RoRo ferries (cheap but slow), and bangka outrigger boats handle inter-island hops under 3 hours (El Nido to Coron is roughly 8 hours by boat, 30 min by plane)."}</p>
+
+        <h3>Is the Philippines safe for tourists?</h3>
+        <p>{"Overwhelmingly yes across tourist areas — Palawan, Cebu, Bohol, Boracay, Siargao, Siquijor all have strong safety records. Avoid western Mindanao (especially Sulu and Basilan) where kidnap-for-ransom remains an active risk; the rest of Mindanao including Siargao and Davao is safe and increasingly popular. Use Grab instead of hailing taxis in Manila."}</p>
+
+        <h3>How does tipping work?</h3>
+        <p>{"Tipping is appreciated but not obligatory. Restaurants usually add a 10% service charge — if they do, no additional tip expected; if they do not, 50-100 pesos or 10% is generous. For bangka boat captains and island-hop guides, 200-500 pesos per day is standard. Hotel housekeeping 50-100 pesos per day, and Grab drivers no tip needed."}</p>
+
+        <h3>What should I pack that people forget?</h3>
+        <p>{"Reef-safe sunscreen (required in several marine parks including El Nido), water shoes for rocky beaches, a dry bag for island-hopping, and a light rain shell for sudden afternoon showers even in dry season. Do NOT bring drones without the FAA-equivalent permit — CAAP enforces this increasingly strictly. Skip the big first-aid kit; pharmacies are everywhere."}</p>
+
+        <h3>Is SIM/eSIM coverage good?</h3>
+        <p>{"Globe and Smart cover 95% of populated islands with 4G. Buy a Tourist SIM at NAIA Terminal 3 arrival for 500-800 pesos (10-30 GB for 30 days), or use Airalo eSIM before you land for $15-25. Coverage drops in the middle of big islands like Palawan's interior and parts of Siargao's interior — download offline Google Maps."}</p>
+
+        <h3>What about healthcare and travel insurance?</h3>
+        <p>{"Manila and Cebu have excellent private hospitals (St. Luke's, Makati Medical, Chong Hua) at a fraction of Western prices. For island trips, travel insurance is essential — a decompression chamber evacuation from remote diving sites easily runs $15,000-30,000. SafetyWing and World Nomads are the popular budget-traveler picks."}</p>
+
+        <h3>Can I use USD instead of pesos?</h3>
+        <p>{"Occasionally in Boracay, El Nido and luxury resorts, but exchange rates are poor (expect 15-20% markup). Exchange at airport kiosks at NAIA (fair rates) or bank branches in Manila/Cebu. Never exchange with street touts. Bring crisp, unmarked USD 100 bills — torn or stamped notes are frequently rejected."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

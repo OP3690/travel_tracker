@@ -304,39 +304,49 @@ export default function TwoWeekPhilippinesItinerary2026() {
         <h2 id="faq">8. Itinerary FAQ</h2>
 
         <h3>Can I do this in 10 days?</h3>
-        <p>
-          Yes, but you'll need to cut Siargao or Bohol. 10-day version:
-          Manila (1) → El Nido (3) → Coron (2) → Cebu + Bohol (3) →
-          Manila (1). Still excellent.
-        </p>
+        <p>{"Yes, but you will need to cut Siargao or Bohol. The 10-day version that works best: Manila (1 night) → El Nido (3) → Coron (2) → Cebu and Bohol (3) → Manila return (1). Skipping Siargao saves a full travel day and a regional flight, and Palawan plus Cebu-Bohol already covers the archipelago's two most photogenic experiences."}</p>
 
         <h3>Can I do this in 17 days?</h3>
-        <p>
-          Yes — add Siquijor as a 3-day extension after Bohol (ferry
-          Tagbilaran → Dumaguete → Siquijor). The extra days let
-          everything breathe.
-        </p>
+        <p>{"Yes — add Siquijor as a 3-day extension after Bohol via ferry Tagbilaran → Dumaguete → Siquijor. The extra days let everything breathe: build in a rest day on Bohol's Alona Beach, spend an extra day snorkeling in Apo Reef, and finish with Siquijor's quiet beaches before flying out. This is the 'right length' version for a first trip."}</p>
 
-        <h3>What's the best month?</h3>
-        <p>
-          <strong>February or March</strong>. Dry across all 4 islands,
-          post-Chinese-New-Year prices, pre-Easter-break crowds.
-        </p>
+        <h3>What's the best month for this itinerary?</h3>
+        <p>{"February or March. Dry weather holds across all four islands, prices drop after Chinese New Year, seas are flat for island-hopping, and you are before the Easter/Holy Week domestic travel surge (which doubles hotel rates and packs beaches). January is also great but slightly pricier; April starts getting hot inland."}</p>
 
         <h3>Can I do this with kids?</h3>
-        <p>
-          Yes — this itinerary is family-friendly. The tarsier sanctuary
-          and Chocolate Hills in Bohol are kid magnets. Skip the Siargao
-          surf lesson and replace with the family-friendly 3-island
-          tour.
-        </p>
+        <p>{"Yes — this itinerary is family-friendly with small adjustments. The Bohol tarsier sanctuary, Chocolate Hills and Loboc river cruise are kid magnets; in Cebu swap the canyoneering for whale shark snorkeling at Oslob (ages 6+). Skip Siargao's surf lesson and replace with the 3-island boat tour (Daku-Guyam-Naked). Budget an extra $60-80 per day for family-friendly accommodations."}</p>
 
         <h3>Should I book everything in advance?</h3>
-        <p>
-          Domestic flights + hotels: yes, 4-6 weeks out. Tours + ferries:
-          48-72 hours out is fine. Land transport: book the day before
-          through your hotel.
-        </p>
+        <p>{"Domestic flights and hotels: yes, 4-6 weeks out — AirSWIFT Manila-El Nido and inter-island Cebu Pacific routes sell out fast. Island-hop tours and ferries: 48-72 hours out is fine through your hotel. Land transport (vans, tricycles, private drivers): the day before through your hotel concierge saves 20-30% versus airport hustlers."}</p>
+
+        <h3>How do I handle jet lag on arrival?</h3>
+        <p>{"If arriving from North America or Europe, spend your first full day in Manila (not El Nido) — the 10-13 hour time difference is brutal and you do not want to burn a day of Palawan beach time recovering. Take a walking tour of Intramuros at your own pace, eat at Toyo Eatery or Poblacion, sleep 10 hours, and fly El Nido the morning of Day 2."}</p>
+
+        <h3>Is this itinerary too ambitious for solo travelers?</h3>
+        <p>{"Not at all — the Philippines is one of the easiest countries in Asia for solo travel thanks to near-universal English, friendly culture and cheap domestic flights. Solo travelers should favor hostel-dorm social scenes in El Nido, Siargao and Cebu; Frendz Hostel El Nido and Harana Surf Resort Siargao are where solo travelers cluster in 2026."}</p>
+
+        <h3>What's the best way to handle internal flights?</h3>
+        <p>{"Three domestic flights make this itinerary work: Manila-El Nido (AirSWIFT or Cebu Pacific-to-Puerto Princesa + 5-hour van), Coron-Cebu via Manila, Cebu-Siargao direct. Book each as a one-way rather than a multi-city ticket; Cebu Pacific and PAL release 24-hour flash sales weekly, and one-way flexibility is worth the small price premium."}</p>
+
+        <h3>Carry-on or checked bag?</h3>
+        <p>{"Carry-on every time. Domestic budget airlines charge $15-30 per checked bag per flight (so $60-120 across 3 flights), bangka boats on island hops get wet, and you will wear the same boardshorts/swimsuit rotation for 14 days regardless of what you pack. A 40L backpack is ideal; leave the heavy suitcase at your Manila hotel if needed."}</p>
+
+        <h3>How do I adjust for a rainy-season trip (July-November)?</h3>
+        <p>{"Flip the itinerary east-to-west: Siargao first (consistent east-swell surf regardless of weather), then Bohol (sheltered Alona Beach side), Cebu, then Palawan last so you can adjust El Nido days if a typhoon threatens. Build in one extra flex day. Travel insurance is non-negotiable for trip delay and evacuation coverage in typhoon months."}</p>
+
+        <h3>How does this itinerary change for couples versus groups?</h3>
+        <p>{"Couples should splurge on a private island-hop in El Nido (roughly $180-250 for two instead of $70pp joiner) and a villa in Siargao or Panglao instead of mid-range hotels. Groups of 4+ save dramatically on private vans, private bangka boats and villa rentals — budget-per-person drops 30-40%. Solo travelers save by doing joiner tours exclusively."}</p>
+
+        <h3>Can I swap El Nido for Boracay?</h3>
+        <p>{"You can, but we do not recommend it for a 14-day trip. Boracay is a walkable beach party scene with one spectacular beach (White Beach); El Nido offers dramatic limestone karsts, hidden lagoons and boat-tour variety that a single beach cannot match. Save Boracay for a short beach-focused trip or a 3-night extension after the main itinerary."}</p>
+
+        <h3>What about senior travelers or mobility-limited guests?</h3>
+        <p>{"Swap Siargao (bumpy habal-habal motorbike transport) for a longer Bohol stay and add Coron's Maquinit Hot Springs for easy relaxation. Stay at Pangulasian Island Resort in El Nido (private boat transfers) rather than El Nido town (steep, uneven streets). Everywhere you go, tip the bangka crew extra for stable boat assistance."}</p>
+
+        <h3>What vaccinations or medications do I need?</h3>
+        <p>{"Routine + hepatitis A and typhoid are standard CDC recommendations. Japanese encephalitis only if you are staying weeks in rural areas. Carry Imodium and oral rehydration salts for the inevitable first stomach bug. No malaria pills needed for the standard tourist route; dengue is a real risk so use DEET 30%+ at dawn and dusk."}</p>
+
+        <h3>Is a guided tour worth it or should I DIY?</h3>
+        <p>{"DIY is the clear winner for this itinerary — English is universal, domestic flights are cheap and easy to book, and hotels handle all local tours. Group tour operators charge a 80-120% markup for the same experience. Consider a guide only if you have under 10 days, minimal travel experience, or want to combine with a more complex Vietnam/Thailand multi-country itinerary."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

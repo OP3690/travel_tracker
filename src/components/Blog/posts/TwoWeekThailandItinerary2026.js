@@ -179,12 +179,50 @@ export default function TwoWeekThailandItinerary2026() {
         </ol>
 
         <h2 id="faq">8. FAQ</h2>
-        <h3>Can I do this in 10 days?</h3>
-        <p>Yes — drop Chiang Rai day-trip + 1 beach day. 10-day: Bangkok (3) → Chiang Mai (3) → Krabi (4).</p>
-        <h3>Best month?</h3>
-        <p><strong>November–February</strong>. Dry everywhere.</p>
-        <h3>Can I reverse the route?</h3>
-        <p>Yes. Fly into Phuket or Krabi first, end in Bangkok.</p>
+        <h3>Can I do this itinerary in 10 days?</h3>
+        <p>{"Yes, with two sensible cuts: drop the Chiang Rai day-trip and one beach day. A tight 10-day version is "}<strong>Bangkok (3) → Chiang Mai (3) → Krabi (4)</strong>{", accepting that everything feels a touch rushed. Below 10 days, ditch the north entirely and do Bangkok (3) + Krabi (4) + one day in Ayutthaya."}</p>
+
+        <h3>What's the best month for this route?</h3>
+        <p><strong>{"November to February"}</strong>{" wins on every metric — dry everywhere, highs of 28–32°C, and the beach coasts are at their clearest. December 20–January 5 is peak peak; book hotels 3 months ahead and expect 40–60% price bumps. February is arguably the sweet spot: same weather, lower prices."}</p>
+
+        <h3>Can I reverse the route and start in the south?</h3>
+        <p>{"Yes — flying into Phuket (HKT) or Krabi (KBV) and ending in Bangkok works well, especially if you score a cheaper transpacific fare. Start beach, finish with temples keeps cultural-fatigue low. One catch: the "}<strong>night train Bangkok→Chiang Mai</strong>{" only makes sense southbound if you build it in as Chiang Mai→Bangkok on day 11."}</p>
+
+        <h3>How do I handle jet lag on day 1?</h3>
+        <p>{"Plan day 1 as deliberately light — land, hotel, 1-hour foot massage (300 THB), rooftop sunset, early dinner, bed by 9 PM. Bangkok is 12 hours ahead of US East Coast and 7 ahead of London. Aggressive exposure to morning sunlight on days 2–3 resets your clock faster than any pill; melatonin 0.5 mg is optional help."}</p>
+
+        <h3>Should I book all domestic flights now or on arrival?</h3>
+        <p>{"Book the "}<strong>Bangkok→Chiang Mai and Chiang Mai→Krabi</strong>{" flights 3–4 weeks ahead on AirAsia or Thai Lion — fares are $35–60 that far out but double to $100+ last-minute. Don't book the ferry to islands in advance; buy at the pier or 12Go the day before. Flexibility is cheap insurance against weather delays."}</p>
+
+        <h3>Carry-on only or checked bag?</h3>
+        <p><strong>{"Carry-on only"}</strong>{" is the move. Domestic Thai budget airlines charge $15–25 per checked bag each segment, laundry is $3/kg everywhere, and you will buy a beach sarong and linen shirts anyway. Pack light: 5 shirts, 2 shorts, 1 pair long pants for temples, swimwear, rain shell, flip-flops + one proper shoe."}</p>
+
+        <h3>Is this itinerary fine for solo travellers?</h3>
+        <p>{"Perfectly — Thailand is one of the most solo-friendly countries in Asia. Bangkok and Chiang Mai hostels have dorm rates of $8–15 with pool and strong social scenes (Mad Monkey, Lub d). On the islands, Koh Phi Phi and Ao Nang are easier for solo travellers than Phuket; join a 1-day longtail boat tour to meet people fast."}</p>
+
+        <h3>Will this work with kids aged 6–12?</h3>
+        <p>{"Yes, with small tweaks: swap the night train for a morning flight (1 hour vs 14 hours), add an "}<strong>elephant sanctuary day</strong>{" in Chiang Mai, and base in family-friendly Ao Nang rather than Railay (no cars). Skip Khao San Road and Patong. Thai kids run everywhere, restaurants welcome children, and the healthcare is excellent if needed."}</p>
+
+        <h3>What about elderly parents on this route?</h3>
+        <p>{"Drop the night train and fly all legs; stay in 4-star hotels with elevators (not every Bangkok boutique has one); and pre-arrange "}<strong>private drivers</strong>{" in Chiang Mai ($45/day) rather than using scooters. Railay's beach-only access via longtail boat involves a wade-in that some elderly guests find tough — base in Ao Nang instead and day-trip."}</p>
+
+        <h3>How do I handle a rainy day in Chiang Mai?</h3>
+        <p>{"Cooking class (Thai Farm Cooking School, ~$30 for 6 dishes), indoor Thai massage at a blind-masseur school (400 THB/hour), or the Chiang Mai Night Bazaar undercover. If it really monsoons, catch a same-day flight to Krabi — Gulf and Andaman weather rarely match up and you can swap days."}</p>
+
+        <h3>What if I have only 7 days?</h3>
+        <p>{"Cut the north entirely: "}<strong>Bangkok (3 nights) + Krabi or Phuket (4 nights)</strong>{" with a one-day Ayutthaya temple run from Bangkok. This gives you the urban + beach contrast that most first-timers crave, without the exhausting 3-region sprint. A week is enough if you're efficient — but you will want to come back."}</p>
+
+        <h3>Can I add Cambodia or Laos to this route?</h3>
+        <p>{"Easily. Fly "}<strong>Chiang Mai → Luang Prabang</strong>{" ($120, 1 hour) for 3 days of temples and the Kuang Si waterfall, or Bangkok → Siem Reap for Angkor Wat (3-day pass $62). Add 4 nights minimum — less and you're just shuffling airports. Both work as side-trips before your southern beach leg."}</p>
+
+        <h3>Visa and Schengen-style limits?</h3>
+        <p>{"Thailand gives "}<strong>60 days visa-free</strong>{" to most Western passports (raised from 30 in mid-2024) — this itinerary uses 14. File the "}<strong>TDAC (Thailand Digital Arrival Card)</strong>{" online for free within 3 days of arrival. Fingerprints at immigration take 30 seconds; no visa runs needed unless you stay past 60 days."}</p>
+
+        <h3>What travel insurance do I need?</h3>
+        <p>{"Yes, buy it. Look for "}<strong>scooter/motorbike coverage</strong>{" (many standard policies exclude it — SafetyWing and World Nomads include it as an add-on), $100,000+ medical, and evacuation coverage. Expect $40–70 for 2 weeks. If you plan to dive around Koh Tao or Phi Phi, add diving cover explicitly."}</p>
+
+        <h3>Best ATM strategy to avoid fees?</h3>
+        <p>{"Thai bank ATMs charge "}<strong>150–220 THB per withdrawal</strong>{" on top of your home-bank fee. Use a "}<strong>Wise, Revolut, or Charles Schwab debit card</strong>{" that refunds fees, and withdraw 10,000–20,000 THB per pull to dilute the fixed fee. Avoid dynamic currency conversion (DCC) — always choose 'charge in THB'."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

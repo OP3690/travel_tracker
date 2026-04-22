@@ -186,19 +186,49 @@ export default function ItalyBudgetTravel2026() {
 
         <h2 id="faq">9. FAQ</h2>
         <h3>Is Italy more expensive than Spain?</h3>
-        <p>Slightly — about €15/day more at mid-range.</p>
+        <p>{"Slightly — about "}<strong>€15–25/day more at mid-range</strong>{" than Spain in 2026. Italy's food, wine, and regional train network are equal to or better than Spain; accommodation and tourist-zone restaurants run 20–30% higher. Southern Italy (Puglia, Sicily, Calabria) is actually cheaper than mainland Spain's coast — if budget is the axis, head south."}</p>
 
         <h3>Can I travel Italy on €50/day?</h3>
-        <p>Yes — outside August in Amalfi + Cinque Terre. You'll stay in dorms and eat street-food.</p>
+        <p>{"Yes, outside August in Amalfi and Cinque Terre. You'll sleep in "}<strong>€22–32 hostel dorms</strong>{", eat pizza al taglio and pasta at aperitivo bars (€8–14), take regional (not high-speed) trains, and skip paid museums on free-Sundays. Puglia and Sicily let the same €50 stretch to comfortable B&Bs and sit-down dinners."}</p>
 
-        <h3>Cheapest months?</h3>
-        <p><strong>November or March (non-Easter)</strong>. Hotels 30-40% off. Weather is moody but usable.</p>
+        <h3>What are the cheapest months?</h3>
+        <p><strong>{"November and March (non-Easter)"}</strong>{" knock "}<strong>30–40% off hotels</strong>{" nationwide. Weather is moody but usable — Rome stays at 14–16°C. Early December sees Christmas-market deals in northern cities. Avoid late December in Rome (Holy-Year crowds) and Easter week (prices jump 40%). January post-Epiphany is the absolute floor."}</p>
 
-        <h3>Do I tip?</h3>
-        <p>Not expected. Round up €1-2 at restaurants; "servizio incluso" is usually already on the bill.</p>
+        <h3>Do I tip at Italian restaurants?</h3>
+        <p>{"Not expected — Italian servers are salaried. At trattorias, "}<strong>round up €1–2</strong>{" on a €30 bill. Most places include "}<strong>coperto (€2–5 cover charge)</strong>{" — this is not a tip, it's a bread/table fee. If you see "}<strong>"servizio incluso"</strong>{" on the bill, no additional tip needed. Upscale restaurants: 5–10% for excellent service. Never tip a barista at the counter."}</p>
 
-        <h3>Cash or card?</h3>
-        <p>Cards accepted almost everywhere in cities. Carry €30-50 cash for small towns + cafés.</p>
+        <h3>Cash or card — which dominates?</h3>
+        <p>{"Cards work nearly everywhere in cities — the 2022 cashless law even covers €1 espresso purchases. Carry "}<strong>€30–50 cash</strong>{" for rural trattorias, church donations, market vendors, and taxi rides in Rome where drivers sometimes claim a broken card reader. "}<strong>Wise or Revolut</strong>{" give the best EUR rates; avoid Euronet ATMs and always 'charge in EUR'."}</p>
+
+        <h3>Best ATMs to minimise fees?</h3>
+        <p>{"Bank-branded "}<strong>bancomat</strong>{" machines at BNL, Intesa Sanpaolo, UniCredit, or Poste Italiane. Skip orange 'Euronet' ATMs at airports and tourist zones — they charge €4–8 plus bad rates. Use a fee-refund card ("}<strong>Wise, Charles Schwab, Starling, Monzo</strong>{") and pull €200–300 at a time. Always decline DCC when the machine asks about 'conversion'."}</p>
+
+        <h3>How much do hostels realistically cost in 2026?</h3>
+        <p><strong>{"Rome and Florence: €28–40/night in summer, €22–28 off-season"}</strong>{" for a 6-bed dorm with breakfast. Venice skews €35–55 (island surcharge). "}<strong>YellowSquare, The Yellow, and Generator</strong>{" are reliable chains with strong social scenes. Smaller cities (Bologna, Turin, Lecce) bring dorms to €20. Always book an extra day — cancellation is free 24 hours out."}</p>
+
+        <h3>Eating cheaply without sacrificing quality?</h3>
+        <p><strong>{"Pizza al taglio (€2–4/slice), tavola calda buffets (€7–12 full plate), aperitivo (€8–12 drink + food buffet)"}</strong>{". Breakfast is always cheap: €1 espresso + €1.50 cornetto at any bar, standing. The €12 menu turistico is the one to avoid — tourist-trap territory. Markets (Rome's Testaccio, Florence's Sant'Ambrogio) beat supermarkets on fresh produce."}</p>
+
+        <h3>Hidden costs most first-timers miss?</h3>
+        <p><strong>{"Coperto (€2–5/person) at every trattoria"}</strong>{"; Venice's new "}<strong>€5–10 day-tripper fee</strong>{" on peak weekends; Amalfi ferry + bus surcharges in summer; ZTL-zone driving fines (€80 per camera); tourist tax on hotels (€2–7/night); "}<strong>€5 Pantheon entry</strong>{" (formerly free); Colosseum 'timed-entry only' upgrade fees."}</p>
+
+        <h3>Is the Eurail Italy Pass a budget win?</h3>
+        <p>{"Only if you take 5+ long trains. Point-to-point "}<strong>Super Economy Frecciarossa/Italo tickets 60 days out</strong>{" cost €19–39 Rome–Milan — cheaper than the €219 7-day pass plus reservation fees. Regional trains (Rome–Tivoli, Florence–Pisa, Naples–Pompeii) are never worth a pass. Skip the pass entirely if your itinerary is 4 cities or fewer."}</p>
+
+        <h3>Cheapest way to fly within Italy?</h3>
+        <p><strong>{"Ryanair and Wizz Air"}</strong>{" from secondary airports (Ciampino, Bergamo, Treviso). €15–40 one-way Rome–Palermo or Milan–Catania if booked 6–8 weeks out. Strict "}<strong>55×40×20cm carry-on</strong>{" limit or you pay €50+ at the gate. Trains beat flights for anywhere mainland; fly only to Sicily, Sardinia, or Puglia when tight on time."}</p>
+
+        <h3>Any student or age discounts worth using?</h3>
+        <p>{"Under 26? Some state museums offer "}<strong>€2 Uffizi or half-price Colosseum</strong>{". "}<strong>Trenitalia Young Card (€40/year)</strong>{" gives 30% off all trains for under 30s — pays back in 2 long rides. Seniors 65+ get similar discounts on regional trains and many museums. ISIC cards are widely accepted but the Italian-specific "}<strong>Carta Giovani</strong>{" is better if you're EU-based."}</p>
+
+        <h3>Free museums and cultural deals?</h3>
+        <p><strong>{"First Sunday of every month"}</strong>{" — Uffizi, Colosseum, Accademia, and most state museums are free (queue 60+ min earlier). Vatican is free on the last Sunday of each month. "}<strong>Roma Pass (€52, 48 hours)</strong>{" includes 2 museums + unlimited public transport if you're doing Colosseum + Borghese. Churches are free everywhere; shoulders covered."}</p>
+
+        <h3>Wine and aperitivo on a budget?</h3>
+        <p><strong>{"€1–3 house wine (vino della casa)"}</strong>{" at any trattoria — often from the owner's family vineyard. Supermarket wine (Coop, Esselunga) delivers genuinely good bottles at €4–6. Aperitivo "}<strong>Milan-style (Spritz + buffet)</strong>{" at €8–12 doubles as dinner. Osterias beat wine bars for pairing value. Skip tourist-zone 'wine-tasting experiences' at €45+ — real enoteche cost €15–20."}</p>
+
+        <h3>Budget total for 10 days in Italy?</h3>
+        <p><strong>{"Shoestring: €520"}</strong>{" (10 × €50, mostly southern cities). "}<strong>{"Mid-range: €1,280"}</strong>{" (Rome-Florence-Venice classic, €128/day). "}<strong>{"Comfort: €2,800+"}</strong>{" (boutique hotels, Amalfi, guided tours). Add €250–450 for intercity trains and €150 for museums/activities. International flights from US are €450–900 September/May."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

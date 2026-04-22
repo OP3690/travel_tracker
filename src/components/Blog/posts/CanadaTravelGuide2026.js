@@ -182,10 +182,66 @@ export default function CanadaTravelGuide2026() {
         </ol>
 
         <h2 id="faq">9. FAQ</h2>
-        <h3>How long?</h3><p>Minimum <strong>10-14 days</strong>; ideally east OR west, not both.</p>
-        <h3>Best month?</h3><p><strong>June or September</strong>.</p>
-        <h3>Most underrated?</h3><p><strong>Newfoundland + Cape Breton</strong>.</p>
-        <h3>Is Canada safe?</h3><p>Very. One of the world\'s safest. Wildlife + weather are actual risks.</p>
+        <h3>How many days do I need to see Canada properly?</h3>
+        <p>
+          <strong>Minimum 10-14 days for one region (east OR west, not both)</strong> — Canada is the world{"'"}s 2nd-largest country and flying Toronto to Vancouver is 5 hours each way. A meaningful east trip covers Toronto + Montreal + Quebec City + Niagara in 10-12 days; a western trip covers Vancouver + Banff + Jasper + Calgary in 10-14 days. Cross-country needs 21+ days.
+        </p>
+        <h3>What is the single best month to visit?</h3>
+        <p>
+          <strong>June or September</strong> — June delivers 17+ hours of daylight, comfortable temperatures (18-24°C), and pre-peak prices. September adds fall foliage in Ontario + Quebec (peak usually Sept 25 - Oct 10) and clearer Rockies weather. Avoid July-August in Banff (crowds) and late summer if wildfire smoke is a concern (worsened 2020-2024).
+        </p>
+        <h3>Do I need a visa or ETA?</h3>
+        <p>
+          <strong>US citizens need only a passport</strong>. UK, EU, Australian, NZ, Japanese, and most visa-exempt passports need an <strong>eTA (Electronic Travel Authorization) — CAD$7, approved within minutes</strong> at canada.ca/eta. Valid 5 years, multiple entries, up to 6 months per stay. Non-exempt nationalities need a TRV (visitor visa) with 4-8 week processing.
+        </p>
+        <h3>Is Canada safe for travelers?</h3>
+        <p>
+          <strong>One of the world{"'"}s safest countries</strong> — violent crime is low even in major cities, public transport is secure, and solo female travel is completely routine. Real risks are environmental: <strong>extreme winter cold (-25°C is normal Dec-Feb in most of Canada), bear + wildlife encounters in the Rockies, and summer wildfire smoke</strong> causing poor air quality in July-August.
+        </p>
+        <h3>Do I need French to travel in Canada?</h3>
+        <p>
+          <strong>No — English works everywhere</strong>, including Montreal and Quebec City where hospitality is bilingual. In rural Quebec, eastern Quebec (Gaspé), and New Brunswick{"'"}s Acadian regions, a few French phrases (Bonjour, Merci, S{"'"}il vous plaît) are polite and appreciated. Canadian French (Québécois) sounds different from Parisian French — locals know.
+        </p>
+        <h3>What currency works and how should I pay?</h3>
+        <p>
+          <strong>Canadian Dollar (CAD, C$)</strong> — card acceptance is universal including tap, and US dollars are accepted in border towns but at poor exchange rates. Avoid airport currency desks. Wise, Revolut, or Charles Schwab debit cards work at any Canadian ATM without foreign fees. Always ask to pay in CAD (never "DCC" dynamic conversion which skims 4-8%).
+        </p>
+        <h3>Is tipping expected?</h3>
+        <p>
+          <strong>Yes — 15-18% at restaurants, 20% for exceptional service</strong>. This is North American standard, closer to US than UK. Tip C$1-2 per drink at bars, 15% on taxis/Ubers, C$2-5 per bag for porters, C$2-5/day for housekeeping, and 15-20% on tour guides. A 15% tip on all bills is the safe default.
+        </p>
+        <h3>How do I get around — train, plane, or drive?</h3>
+        <p>
+          <strong>Drive for the Rockies</strong> (Banff, Jasper, Icefields Parkway — there is no realistic alternative), <strong>VIA Rail for Toronto-Montreal-Quebec City</strong> (3h-4h Corridor trains, C$50-150 each), and <strong>fly between regions</strong> (Toronto-Vancouver 5h, WestJet + Air Canada from C$250). Intercity buses (Megabus, Rider Express) are cheapest but slow.
+        </p>
+        <h3>What should I pack for Canadian weather?</h3>
+        <p>
+          <strong>Layers — always layers</strong>. Summer: 18-28°C days, 10-15°C evenings (fleece essential for Rockies + east coast). Winter: -15 to -30°C, serious parka + insulated boots + thermals + balaclava required. Shoulder seasons: both sets. Banff summer mornings are 5°C and afternoons 25°C. Always pack rain layer (Vancouver + Maritimes are wet).
+        </p>
+        <h3>Is mobile data reliable across Canada?</h3>
+        <p>
+          <strong>Yes in cities and along major highways</strong> — Rogers + Bell + Telus are the big three with comparable coverage. An Airalo eSIM (US$20 for 10GB/30 days) works for most travelers. <strong>Expect dead zones in the Rockies backcountry, remote Newfoundland, and above the 60th parallel</strong>. Download offline maps before leaving Calgary or St. John{"'"}s.
+        </p>
+        <h3>Do I need travel insurance or health prep?</h3>
+        <p>
+          <strong>Absolutely — non-resident medical care is expensive</strong> (C$1,200 for ER visit, C$3,000+/day hospital). Provincial health plans do not cover foreigners. Get travel insurance from World Nomads, SafetyWing, or a good credit-card (Chase Sapphire Reserve, AmEx Platinum). No required vaccines beyond routine.
+        </p>
+        <h3>What about tipping in Quebec specifically?</h3>
+        <p>
+          <strong>Same 15-18% expected, but restaurant bills in Quebec show a "pre-tax amount" for tip calculation</strong> — do not tip on top of the 15% GST + QST taxes or you overtip by 3%. The POS terminal usually offers tip percentages on the pre-tax subtotal — pick 15-18% and you are right.
+        </p>
+        <h3>Best festivals to time a trip around?</h3>
+        <p>
+          <strong>Calgary Stampede (mid-July, cowboy culture), Toronto International Film Festival (early Sept), Montreal Jazz Festival (late June-early July, world{"'"}s largest), Quebec City Winter Carnival (late Jan-Feb)</strong>, Ottawa Tulip Festival (May), and Winnipeg Folk Festival (July). Indigenous pow wows across the country are free + welcoming.
+        </p>
+        <h3>Cultural etiquette I should know?</h3>
+        <p>
+          <strong>Canadians are genuinely polite — say "please, thank you, sorry"</strong> frequently and expect reciprocity. Queueing is sacred (never cut a line). Tim Hortons is a cultural institution — ordering a "double-double" (coffee, 2 cream, 2 sugar) earns nods. Do not compare Canada to the US or call Canadians American; it is a minor but real irritation.
+        </p>
+        <h3>What is the most underrated region to visit?</h3>
+        <p>
+          <strong>Newfoundland + Cape Breton (Nova Scotia)</strong> — rugged coast, humpback whales, icebergs (May-June), puffins, and the most culturally distinct communities in Canada. Both feel like another country. Cape Breton{"'"}s Cabot Trail is one of the world{"'"}s great drives. PEI and Northern Ontario (Algonquin Park) are also underrated.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

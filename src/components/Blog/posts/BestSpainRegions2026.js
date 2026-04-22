@@ -194,12 +194,36 @@ export default function BestSpainRegions2026() {
         />
 
         <h2 id="faq">4. FAQ</h2>
-        <h3>Best region for first-timers?</h3>
-        <p><strong>Andalucía + Catalonia</strong>. Do both over 10-14 days.</p>
-        <h3>Most underrated?</h3>
-        <p><strong>Galicia + Extremadura</strong>. Almost no foreign tourists.</p>
-        <h3>Best region for food?</h3>
-        <p><strong>Basque Country</strong>, then Catalonia, then Andalucía.</p>
+        <h3>Which regions should a first-timer combine?</h3>
+        <p>{"Andalusia plus Catalonia is the classic 10-14 day combo — Seville's cathedral, Granada's Alhambra, and Córdoba's Mezquita cover Moorish Spain, then AVE train 2h30 to Barcelona for Gaudí and the Catalan coast. Add Madrid as a 3-night transit hub. Alternate first-timer pick: Madrid + Basque Country (San Sebastián pintxos + Bilbao Guggenheim) if food is your priority."}</p>
+        <h3>What's Spain's most underrated region?</h3>
+        <p>{"Galicia in the northwest — green, Celtic-feeling, near-empty of foreign tourists. Santiago de Compostela (pilgrimage endpoint), the Rías Baixas for albariño wine and percebes, Cíes Islands ferry day-trip. Runner-up: Extremadura — Mérida Roman ruins, Cáceres old town, jamón-ibérico country. Both regions have hotel rates 30-40% below Andalusia."}</p>
+        <h3>Best region for food lovers?</h3>
+        <p>{"Basque Country (País Vasco) — San Sebastián has the world's highest Michelin-stars-per-capita, the Parte Vieja's 100+ pintxo bars, and txakoli vineyards an hour away. Bilbao has ramped up with Asador Etxebarri (regularly world #1). Runner-up: Catalonia for the Disfrutar/El Celler de Can Roca tier. Andalusia third for traditional tapas and sherry."}</p>
+        <h3>Best region for beaches?</h3>
+        <p>{"Balearic Islands (Mallorca, Menorca, Ibiza, Formentera) for Mediterranean cove beaches — Cala Macarella (Menorca) and Cala Mondragó (Mallorca) are postcard-level. Costa Brava (Catalonia) for rugged coves north of Barcelona. Costa de la Luz (Cádiz province) for wide Atlantic sand and surf. Canary Islands for year-round swimming (20-24°C water in February)."}</p>
+        <h3>Best region for a winter trip?</h3>
+        <p>{"Canary Islands hold 20-25°C in January — Tenerife, Gran Canaria, Lanzarote. Andalusia's interior (Seville, Granada, Córdoba) is cool and pleasant for sightseeing with near-zero crowds. Sierra Nevada above Granada is Europe's southernmost major ski area. Madrid and Barcelona are cheap and cultural in December-February — Christmas markets in Madrid are underrated."}</p>
+        <h3>Best region for wine lovers?</h3>
+        <p>{"La Rioja for world-famous reds (base in Logroño or Haro; winery hop in Laguardia and Elciego where Frank Gehry's Marqués de Riscal hotel sits). Ribera del Duero (Castilla y León) for bolder Tempranillo. Jerez (Andalusia) for sherry. Rías Baixas (Galicia) for crisp albariño. Penedès (Catalonia) for cava. Pick one region, base there 3-4 nights."}</p>
+        <h3>Best region for families with kids?</h3>
+        <p>{"Valencia — beaches, Oceanographic aquarium (Europe's biggest), City of Arts and Sciences for kids, Turia park. Catalonia for Barcelona's PortAventura theme park + Costa Brava beaches. Balearic Islands in shoulder season. Avoid Madrid in July-August heat and the Moorish city-tour triangle (Seville-Córdoba-Granada) with under-6s — too much cathedral, not enough playground."}</p>
+        <h3>Best region for luxury or honeymoon?</h3>
+        <p>{"Balearics (Deià and Palma for Mallorca, Santa Eulalia for Ibiza) for sea-view Relais & Châteaux. Andalusia's Parador circuit (Granada, Ronda, Ubeda) for historic castles converted to hotels. Marbella's Costa del Sol for high-end beach resorts. Basque Country for Michelin-starred gastronomy weekends. Book 6+ months ahead for peak-season suites."}</p>
+        <h3>Best region for hiking and outdoors?</h3>
+        <p>{"Picos de Europa (northern Spain — Asturias/Cantabria/León) for dramatic limestone and the Cares Gorge trail. Pyrenees (Aragon, Catalonia) for Ordesa National Park and Aigüestortes. Sierra Nevada for high-altitude ridges behind Granada. Canary Islands: Teide volcano (Tenerife), Caldera de Taburiente (La Palma). Camino de Santiago (800km across the north) is the marquee long-distance."}</p>
+        <h3>Which region has the best nightlife?</h3>
+        <p>{"Madrid — Malasaña, Chueca, and La Latina never stop; dinner at 22:00, bars until 03:00, clubs until 07:00. Barcelona's El Raval and El Born are less intense but excellent. Ibiza is its own universe May-October. Valencia has a strong university-town scene. Seville has intimate flamenco-bar nights (Casa Anselma) rather than big clubs."}</p>
+        <h3>Train or rental car — which is best?</h3>
+        <p>{"Train (Renfe AVE) between all major cities — Madrid-Seville 2h30, Madrid-Barcelona 2h30, Madrid-Málaga 2h30. Car essential for: Andalusian white villages (Ronda, Setenil, Frigiliana), Costa Brava coves, rural Basque Country, Rioja wineries, Picos de Europa. Hybrid: train to hub city, rent car 3-5 days for rural leg. Never rent in city centres — LEZ fines €200."}</p>
+        <h3>Which region is cheapest?</h3>
+        <p>{"Extremadura (Mérida, Cáceres) and rural Castilla-La Mancha. Hotels 40-50% below Barcelona, menú del día at €11. Andalusia's smaller cities (Jaén, Almería) and Galicia (Ourense, Lugo) are similarly cheap. Most expensive: Barcelona, San Sebastián, and the Balearics in July-August — rates double vs shoulder season."}</p>
+        <h3>Are the Canary Islands worth their own trip?</h3>
+        <p>{"Yes if you want winter sun, volcanic landscapes, or whale-watching — Tenerife, La Palma, and Lanzarote each deserve 5-7 days. Flights from Madrid or Barcelona are 2h45-3h15 (€40-80 on Ryanair/Vueling). Don't try to tack them onto a mainland trip for under a week — transit eats too much time. Year-round 20-25°C, water 19-24°C."}</p>
+        <h3>How do I combine regions on AVE without backtracking?</h3>
+        <p>{"Natural loops: Madrid → Seville → Córdoba → Granada → Madrid (Andalusia, 7 days). Barcelona → Valencia → Madrid (Catalonia-Levante-Madrid, 7-10 days). Madrid → Bilbao → San Sebastián → Pamplona → Barcelona (north loop, 10-12 days). Long loops use 1 internal flight (BCN-SVQ 1h45, €35-60) to skip a day of rail backtracking."}</p>
+        <h3>Which regions need the most advance booking?</h3>
+        <p>{"Balearics and Canaries in July-August: hotels 5-6 months ahead, flights 3-4. Andalusia during Semana Santa (Holy Week) and Feria de Abril: 9+ months. Pamplona for San Fermín (6-14 July): 8-10 months out or rates quintuple. Barcelona and Madrid are more flexible — 2-3 months typically enough outside peak."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

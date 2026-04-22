@@ -233,32 +233,49 @@ export default function InterrailEurailGuide2026() {
 
         <h2 id="faq">9. FAQ</h2>
         <h3>Is Interrail / Eurail actually worth it in 2026?</h3>
-        <p>
-          Only if you\'re doing 4+ long-distance trains without advance
-          booking. Otherwise individual tickets are cheaper.
-        </p>
-        <h3>Cheapest way to train around Europe?</h3>
-        <p>
-          Book individual <strong>TGV / Frecciarossa / ICE Super Economy</strong>
-          {' '}tickets 60-90 days ahead. Routinely €19-40 for routes that
-          cost €80+ walk-up.
-        </p>
+        <p>{"Only if you're doing "}<strong>{"4+ long-distance trains without advance booking"}</strong>{". If you can commit 60–90 days ahead, individual Super Economy tickets (TGV, Frecciarossa, ICE, Renfe AVE) are often 30–50% cheaper than a pass plus reservation fees. Passes win for "}<strong>{"spontaneous travellers, 5+ country itineraries, and heavy night-train users"}</strong>{"."}</p>
+
+        <h3>Which pass type should I pick?</h3>
+        <p><strong>{"Global Pass"}</strong>{" (33 countries) for multi-country trips; "}<strong>{"One Country Pass"}</strong>{" if you're focused on Italy, France, Spain, or Germany alone. "}<strong>{"Flexi (4/5/7 travel days in 1 month)"}</strong>{" suits most itineraries — beats continuous passes unless you're riding trains daily. Youth (under 27) saves 25%; Senior (60+) saves 10%; kids (4–11) travel free with a paying adult."}</p>
+
+        <h3>Pass pricing — what does it cost in 2026?</h3>
+        <p>{"Typical Global Pass prices: "}<strong>{"7 travel days: €430 adult / €344 youth"}</strong>{"; "}<strong>{"15 days continuous: €555 / €444 youth"}</strong>{"; "}<strong>{"1 month continuous: €816 / €653 youth"}</strong>{". One Country Pass (Italy): €173 for 4 days. Add €3–35 per reservation on top — reservations are where the hidden cost lives."}</p>
+
+        <h3>Do I need reservations with the pass?</h3>
+        <p>{"Yes on most high-speed and all night trains: "}<strong>{"TGV/TGV INOUI (€10–35), Frecciarossa (€13), AVE (€10–35), most Eurostar supplements"}</strong>{". German ICE, Dutch NS, Swiss SBB trains are reservation-optional. Book reservations "}<strong>{"via Eurail's Rail Planner app, DB Navigator, or Trenitalia"}</strong>{" as soon as your travel date opens (120 days ahead)."}</p>
+
+        <h3>Cheapest way to train around Europe without a pass?</h3>
+        <p>{"Book individual "}<strong>{"TGV / Frecciarossa / ICE / Eurostar / Renfe AVE Super Economy"}</strong>{" tickets 60–90 days ahead. Fares are routinely "}<strong>{"€19–40 for journeys that cost €80–180 walk-up"}</strong>{". Aggregator sites: "}<strong>{"Trainline, Omio, Rail Europe, or go direct to each operator"}</strong>{". Non-refundable fares are 30–40% cheaper than flex."}</p>
+
         <h3>Does the pass include Eurostar?</h3>
-        <p>
-          Eurail/Interrail passes give a <strong>reduced-fare</strong>
-          {' '}Eurostar (~£30 supplement on top of pass). It's still
-          cheaper than full-price tickets close to the date.
-        </p>
+        <p>{"Eurail/Interrail give a "}<strong>{"reduced-fare Eurostar"}</strong>{" (~£30 supplement on top of the pass, booked at Eurostar's Passholder Fare section). Still cheaper than walk-up but pricier than booking Standard Eurostar 60+ days ahead (£39). Only 1–2 pass-seats per train — book the minute your travel date is set."}</p>
+
         <h3>Can I use the pass in the UK?</h3>
-        <p>
-          Yes — UK is in the Eurail/Interrail network. Covers British
-          domestic trains but reservations may apply.
-        </p>
-        <h3>What about Russia / Belarus / Ukraine?</h3>
-        <p>
-          Not in the network. Russia + Belarus not recommended for 2026.
-          Ukraine is functional but travel advisory status applies.
-        </p>
+        <p>{"Yes — "}<strong>{"UK is in the Eurail/Interrail network since 2019"}</strong>{". Covers British domestic trains (Avanti, LNER, GWR). Reservations rarely required but often free — still worth booking for a guaranteed seat. "}<strong>{"Heathrow Express and Gatwick Express are NOT covered"}</strong>{" (separate commercial operators); use normal TfL rail instead."}</p>
+
+        <h3>What about Russia, Belarus, Ukraine?</h3>
+        <p><strong>{"Not in the Eurail/Interrail network"}</strong>{". Russia and Belarus are not recommended for travel in 2026 due to sanctions and sharp FCDO/State Department travel advisories. Ukraine is functional but under a war-zone advisory. The closest network edges are Poland (Warsaw, Przemyśl) and Romania (Iași)."}</p>
+
+        <h3>Are night trains back in 2026?</h3>
+        <p>{"Absolutely. "}<strong>{"ÖBB Nightjet"}</strong>{" now runs Paris–Berlin, Brussels–Vienna, Munich–Rome, Zurich–Amsterdam, Hamburg–Stockholm. "}<strong>{"European Sleeper"}</strong>{" runs Brussels–Prague and Amsterdam–Berlin. "}<strong>{"Couchette (6-bed shared) €35–55, private sleeper €110–180"}</strong>{". Pass holders pay only the reservation. Night trains save a hotel night and a travel day — huge net value."}</p>
+
+        <h3>Which countries are most worth hitting with the pass?</h3>
+        <p><strong>{"Central Europe (Czechia, Poland, Hungary, Slovakia, Austria)"}</strong>{" — short cheap hops + no-reservation trains + cheap beer. "}<strong>{"Italy"}</strong>{" for high-speed quality and long distances. "}<strong>{"Germany + Switzerland + Austria"}</strong>{" for scenic Alpine routes (Bernina, Glacier Express partly covered). Skip Spain/France if you'd pay for Super Economy anyway — pass math rarely beats the apps."}</p>
+
+        <h3>What about luggage — any rules?</h3>
+        <p>{"Generous. "}<strong>{"Up to 3 bags per person"}</strong>{" on almost all European trains; overhead racks and end-of-carriage storage. No weight limits, no check-in, no bag-fee surprises. "}<strong>{"Carry a cable lock"}</strong>{" to anchor your bag to the rack on overnight rides. Keep valuables on you. "}<strong>{"Eurostar alone"}</strong>{" has a 2-bag limit."}</p>
+
+        <h3>Can kids and seniors save extra?</h3>
+        <p><strong>{"Kids 4–11 travel free"}</strong>{" with an adult pass (bring passport). "}<strong>{"Under 4 free always"}</strong>{". "}<strong>{"Youth pass (under 27) = 25% off adult price"}</strong>{". "}<strong>{"Senior (60+) = 10% off"}</strong>{". Each adult pass covers up to 2 kids. Always carry passport IDs for pass checks — conductors verify age on the spot."}</p>
+
+        <h3>How do I book reservations — app or station?</h3>
+        <p><strong>{"Eurail's Rail Planner app"}</strong>{" handles most reservations within the pass ecosystem (€3–5 fees per reservation). "}<strong>{"DB Navigator"}</strong>{" for German routes, "}<strong>{"Trenitalia / Italo apps"}</strong>{" for Italian high-speed, "}<strong>{"SNCF Connect"}</strong>{" for French TGV. Station booking is possible but often 20–30 min queue; book ahead on the app."}</p>
+
+        <h3>Pass-holder perks beyond trains?</h3>
+        <p><strong>{"Discounts on ferries (Grimaldi, Superfast, Stena), select buses, and bike rentals"}</strong>{". "}<strong>{"Free Rhine river cruise (KD Line)"}</strong>{" between Koblenz and Mainz; "}<strong>{"discounted Greek ferries"}</strong>{" to the islands. Museum discounts in select cities (Basel, Prague). See the Eurail perks booklet — good for €50–100 of extra value."}</p>
+
+        <h3>Common mistakes first-time pass users make?</h3>
+        <p><strong>{"Not booking reservations early"}</strong>{" (TGV Paris-Marseille and French trains fill fast). "}<strong>{"Forgetting to fill in the travel diary"}</strong>{" (€50+ fine per empty row on mobile pass). "}<strong>{"Trying to ride Paris Métro, London Tube, Madrid Metro with the pass"}</strong>{" — not covered. "}<strong>{"Booking regional trains"}</strong>{" — the pass already covers them reservation-free."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

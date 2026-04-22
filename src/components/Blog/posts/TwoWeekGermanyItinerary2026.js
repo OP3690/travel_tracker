@@ -125,8 +125,62 @@ export default function TwoWeekGermanyItinerary2026() {
         <p><strong>Munich (4) → Neuschwanstein (1) → Berchtesgaden (2) → Nuremberg (2) → Regensburg (2)</strong>. Bavaria only.</p>
 
         <h2 id="faq">6. FAQ</h2>
-        <h3>10 days version?</h3><p>Drop Cologne or Heidelberg. 10-day: Berlin (3) → Dresden (2) → Munich (3) → Romantic Road (1).</p>
-        <h3>Best month?</h3><p><strong>May-June or September</strong>. Late Sept for Oktoberfest (need Munich booking 6 months out).</p>
+        <h3>Is the 14-day pace sustainable or rushed?</h3>
+        <p>
+          The pace is moderate — <strong>most cities get 2-3 nights</strong>, which is the right rhythm for Germany. Build in one unscheduled afternoon per week for slow coffee and museum follow-ups. If you hate changing hotels, pick Berlin (4) and Munich (4) as anchor bases and do day-trips (Dresden, Neuschwanstein) from those hubs.
+        </p>
+        <h3>Can I compress this into 10 days?</h3>
+        <p>
+          Yes — <strong>drop Cologne and Heidelberg</strong>, reduce to: Berlin (3) → Dresden (2) → Munich (3) → Romantic Road or Neuschwanstein (2). You keep Germany{"'"}s two anchor cities and one great castle, at the cost of the Rhine and Baroque Heidelberg. A clean 7-day version: just Berlin (3) + Munich (3) + Neuschwanstein (1).
+        </p>
+        <h3>What is the best month to do this itinerary?</h3>
+        <p>
+          <strong>May-June or September</strong> — long daylight, beer gardens open, 20-26°C, and no rain walls. Late September for Oktoberfest energy in Munich (but reserve hotels 6+ months out). December for Christmas markets (different itinerary — see our <Link to="/blog/germany-christmas-markets-2026">Christmas markets guide</Link>). Avoid November (grey) and August (humid + crowded).
+        </p>
+        <h3>Should I get a Deutschland-Ticket or buy ICE tickets separately?</h3>
+        <p>
+          <strong>This itinerary works better with individual ICE Sparpreis tickets</strong> (€17.90-59 each if booked 3+ months ahead via bahn.de) totaling €150-220. The Deutschland-Ticket (€58/month) only covers regional trains, not ICE — so it slows the trip by 2-3 hours per major leg. Get it only if you have 3+ weeks and love slow travel.
+        </p>
+        <h3>Do I need any internal flights for this route?</h3>
+        <p>
+          <strong>No</strong> — Germany is compact enough that trains beat flights on every route (when airport transfers are counted). Even Berlin → Munich is 4h15 by ICE vs 1h15 flight + 3h of transfers = a wash. Only consider flights (Eurowings, Lufthansa) if you extend to Sylt or need to combine with Amsterdam/Paris.
+        </p>
+        <h3>Carry-on or checked bag?</h3>
+        <p>
+          <strong>Carry-on only is the smart call</strong> — you are changing hotels 5-6 times, and German trains have limited luggage space (no overhead for big bags in some ICE cars). A 40L roller plus a small daypack covers 14 days in Germany{"'"}s mild May-September weather. December trips need warmer layers but still fit carry-on.
+        </p>
+        <h3>When should I book Neuschwanstein tickets?</h3>
+        <p>
+          <strong>At least 2 days ahead via hohenschwangau.de</strong> — Neuschwanstein caps entries and tickets sell out same-day in peak season. For a stress-free experience, book a guided tour from Munich (€50-75) that includes skip-the-line. Tuesday-Thursday visits are 30% less crowded than weekends.
+        </p>
+        <h3>What if I want to add Oktoberfest to this itinerary?</h3>
+        <p>
+          <strong>Book Munich hotels 6+ months ahead</strong> (prices triple to €250-500/night), reserve table-beer-hall spots (Augustiner, Hofbräuhaus, Spaten) 3-4 months ahead via the tent websites, and aim for weekday visits. The festival runs mid-September to first Sunday of October — your Munich block (days 6-8) aligns perfectly if timed right.
+        </p>
+        <h3>Doable with kids or grandparents?</h3>
+        <p>
+          <strong>Yes — Germany is stroller and senior-friendly</strong>, with every major city accessible by tram/U-Bahn. Drop Cologne (long hotel transfer) and replace with an extra night in Munich for slower rhythm. Kids love Miniatur Wunderland (Hamburg), Legoland Deutschland (near Munich), Neuschwanstein, and Berlin Zoo.
+        </p>
+        <h3>Can I reverse the route Munich-first?</h3>
+        <p>
+          Yes — <strong>Munich airport often has cheaper transatlantic arrivals</strong> than Berlin, and ending in Berlin for nightlife farewell makes sense. Reverse: Munich (3) → Romantic Road (2) → Heidelberg (1) → Frankfurt/Cologne (2) → Dresden (2) → Berlin (4). Same cities, different pacing.
+        </p>
+        <h3>What about wet-season or winter backup plans?</h3>
+        <p>
+          In rain, <strong>Germany{"'"}s museum density is world-class</strong> — Berlin{"'"}s Museum Island (Pergamon, Neues), Munich Residenz + Alte Pinakothek, Dresden Zwinger. In winter (Dec-Feb), swap outdoor day-trips for indoor thermal baths (Therme Erding, Baden-Baden), opera (Semperoper Dresden), and Christmas markets Dec 1-22.
+        </p>
+        <h3>Solo travelers vs couples — any tweaks?</h3>
+        <p>
+          <strong>Solo travelers should stay in Berlin Mitte and Munich Altstadt hostels</strong> (Generator, Wombats, MEININGER — €30-45/night, excellent social common rooms). Couples save 30-40% on lodging by default. Free walking tours (tip-based) in every city are the best solo on-ramp to meet other travelers.
+        </p>
+        <h3>When should I book international flights?</h3>
+        <p>
+          <strong>4-6 months out</strong> for best US-Germany fares (US$500-750 round-trip from major gateways), 3-4 months from the UK (€120-200 on Eurowings or Ryanair), and 2-3 months from within Europe. Tuesday-Thursday departures run 15-25% cheaper than Friday-Sunday.
+        </p>
+        <h3>Are hotel prices wildly different between cities?</h3>
+        <p>
+          Yes — <strong>Munich + Frankfurt are 40-60% more expensive than Berlin + Dresden + Leipzig</strong>, with Cologne and Hamburg in the middle. Mid-range Berlin: €90-140. Mid-range Munich during Oktoberfest: €300+. Use Dresden and Leipzig as cheaper base alternatives if your itinerary is flexible.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

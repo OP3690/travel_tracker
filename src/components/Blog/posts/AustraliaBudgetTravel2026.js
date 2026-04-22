@@ -167,16 +167,62 @@ export default function AustraliaBudgetTravel2026() {
         />
 
         <h2 id="faq">8. FAQ</h2>
-        <h3>Is Australia as expensive as Switzerland?</h3>
-        <p>Close — Switzerland is ~30% pricier overall but Australian alcohol + eating out is comparable.</p>
-        <h3>Can I do Australia on $80 USD/day?</h3>
-        <p>Yes with hostels + supermarket meals + discipline. Not in Uluru resort or Whitsundays-specific days.</p>
-        <h3>Cheapest time?</h3>
-        <p><strong>May + August</strong> outside tropical north. Domestic flights cheapest + school in session.</p>
-        <h3>Tipping?</h3>
-        <p><strong>Not expected.</strong> 5-10% for exceptional service only.</p>
-        <h3>Cards or cash?</h3>
-        <p>Cards everywhere. Physical cash is genuinely rare in Australia in 2026.</p>
+        <h3>Is Australia really as expensive as Switzerland?</h3>
+        <p>
+          Close, but not quite — Switzerland still beats Australia by about <strong>25-30% overall</strong>, especially on hotels and groceries. Where Australia genuinely rivals Zurich is alcohol (A$12-15 pints, A$45+ restaurant wine) and casual eating out (A$28 burger + chips). Everything else — flights, public transport, supermarkets, coffee — is comparable to the UK.
+        </p>
+        <h3>What is the realistic daily floor for a backpacker?</h3>
+        <p>
+          <strong>A$95-110/day (US$62-73)</strong> is achievable with dorm beds (A$35-45), supermarket breakfast + lunch, one hot meal from a bakery or Woolies hot bar (A$12-18), and public transport. Below A$90 you are either WWOOFing, working holiday, or sleeping in a campervan — possible, but not typical backpacker travel.
+        </p>
+        <h3>Is US$80/day actually possible?</h3>
+        <p>
+          Yes in Sydney, Melbourne, Adelaide, Perth — <strong>not in Uluru or the Whitsundays</strong>, where the Yulara resort monopoly makes A$160 the practical floor. Strategy: 10 days of budget cities (A$100/day avg) + 4 days of splurge regions (A$220/day). Averaged across 14 days you land at US$85-90.
+        </p>
+        <h3>What is the single cheapest month to visit?</h3>
+        <p>
+          <strong>May or August in the southern cities</strong> and shoulder-month April for tropical north — domestic flights drop 30-40%, hotel discounts run 25-35%, and the school year is in session so family destinations are quiet. Avoid school holidays (mid-April, late-June-mid-July, late-Sept, and Dec 20-Jan 31) when prices double.
+        </p>
+        <h3>What hidden costs catch budget travelers off guard?</h3>
+        <p>
+          <strong>Domestic flight baggage fees (Jetstar A$35-60 checked), reef-tour reef tax (A$7), Uluru national park fee (A$38/3 days), and one-way rental-car drop fees (A$150-400)</strong>. Less obvious: surcharges on credit cards at cafés (1-2%), weekend dining surcharges (10-15%), and public holiday surcharges (another 10-20%).
+        </p>
+        <h3>Which ATMs charge the lowest fees?</h3>
+        <p>
+          <strong>Major-bank ATMs (Commonwealth, Westpac, ANZ, NAB) charge no surcharge</strong> — typically just your home bank{"'"}s foreign transaction fee of 1-3%. Avoid Travelex, 7-Eleven, and convenience-store ATMs which stack A$4-8 per withdrawal. Use Wise or Revolut cards at major-bank ATMs for near-zero fees.
+        </p>
+        <h3>Cards or cash — what actually works in 2026?</h3>
+        <p>
+          <strong>Cards everywhere, including market stalls and taxis</strong> — contactless tap is the default and many small businesses no longer accept cash at all. Carry A$50 emergency cash for rare outback petrol stations and tipping a tour guide. Apple/Google Pay accepted at 95%+ of vendors.
+        </p>
+        <h3>Are Australian hostels actually good quality?</h3>
+        <p>
+          Mostly yes — YHA, Base, Nomads, and Wake Up! chains are clean, safe, with modern kitchens and laundry. <strong>Sydney and Melbourne dorms run A$35-50</strong>, regional beach towns A$28-38. Look for hostels that include breakfast and have BYO-friendly communal kitchens — that saves A$25/day alone.
+        </p>
+        <h3>How much does food realistically cost?</h3>
+        <p>
+          Supermarket self-catering (Woolies, Coles, Aldi): <strong>A$18-28/day</strong>. Café brunch + dinner out: A$65-85/day. Bakery pies + kebabs are the A$10-15 backpacker staple. BYO restaurants in VIC and NSW let you bring your own wine for a A$3-8 corkage, saving A$25-40 vs buying onsite.
+        </p>
+        <h3>Transport hacks for saving money?</h3>
+        <p>
+          <strong>Greyhound Whimit passes</strong> (15 days unlimited from A$299 on east coast) undercut flights for slow travelers, Opal card caps public transport at A$18.60/day in Sydney, and Jetstar Friday Frenzy sales drop Sydney-Melbourne to A$49. Avoid airport taxis — metro to city is A$22 max vs A$55+ taxi.
+        </p>
+        <h3>Can I work a working holiday visa to fund the trip?</h3>
+        <p>
+          Yes — the <strong>subclass 417/462 working holiday visa</strong> for ages 18-30 (35 for some nationalities) lets you work 6 months per employer, minimum wage A$24/hour, and easily save A$800-1,500/week doing hospitality, farm work, or retail. A 3-month work stint funds 6+ months of budget travel comfortably.
+        </p>
+        <h3>Student or youth discounts worth knowing?</h3>
+        <p>
+          <strong>ISIC card saves 10-20% on Greyhound, reef tours, and museum entries</strong>. YHA membership (A$25/year) saves 10% on YHA dorms. Most state galleries are free (NSW Art Gallery, NGV Melbourne), and the Sydney Opera House offers a A$25 youth ticket 2 hours before shows.
+        </p>
+        <h3>What free activities are actually good?</h3>
+        <p>
+          <strong>Bondi to Coogee coastal walk, Royal Botanic Gardens Sydney, NGV Melbourne, MONA free-for-locals Tuesday, all National Gallery state capitals</strong>, sunrise at Uluru, and every Australian beach. Free guided walking tours (tip-based) run daily in Sydney, Melbourne, Brisbane, and Adelaide — worth the A$15-20 tip.
+        </p>
+        <h3>Is tipping expected, and will skipping it save real money?</h3>
+        <p>
+          <strong>Tipping is genuinely not expected</strong> — the A$24 minimum wage means service staff are paid properly. Skipping tipping saves you 15-20% vs US travel instantly. A 5-10% round-up at high-end restaurants for exceptional service is appreciated but never obligatory, and taxi/Uber drivers never expect it.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

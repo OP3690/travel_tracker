@@ -173,19 +173,49 @@ export default function ThailandBudgetTravel2026() {
 
         <h2 id="faq">8. FAQ</h2>
         <h3>Is Thailand cheaper than Vietnam in 2026?</h3>
-        <p>Slightly more expensive — ~$20/day more at mid-range.</p>
+        <p>{"Slightly more expensive — about "}<strong>$15–25/day more at mid-range</strong>{". Vietnam still beats on beer, street food, and bus transport, while Thailand pulls ahead on infrastructure, air-conditioned transport, and island quality. Both are cheaper than Bali or Malaysia now. If budget is the only axis, Vietnam or Cambodia is the call; if ease is, Thailand wins."}</p>
 
-        <h3>Can I travel Thailand on $25/day?</h3>
-        <p>Yes, comfortably — outside Phuket peak season.</p>
+        <h3>Can I realistically travel Thailand on $25/day?</h3>
+        <p>{"Yes — outside Phuket and Koh Samui peak season (Dec–Feb). Budget breakdown: "}<strong>$8 hostel dorm, $8 street food, $3 bus/Grab, $4 activity, $2 misc</strong>{". Bangkok, Chiang Mai, and Krabi are all doable at $25; Phuket Patong in December will blow the budget unless you sleep 40 min inland in Kathu."}</p>
 
-        <h3>Cheapest month?</h3>
-        <p><strong>May-early June</strong>. Shoulder season. Hotels 25-40% off.</p>
+        <h3>What's the absolute cheapest month to visit?</h3>
+        <p><strong>{"May to early June"}</strong>{", plus September. Hotels are 25–40% off peak, domestic flights drop to $25–35, and tour-operator discounts hit 50% on Phi Phi day trips. The tradeoff: Andaman coast is rainy — if May, base on the Gulf side (Koh Samui) which stays drier until July."}</p>
 
-        <h3>Do I tip?</h3>
-        <p>Not expected but appreciated — round up at restaurants, 20-40 baht for massage.</p>
+        <h3>Tipping culture — what's expected?</h3>
+        <p>{"Tipping is not cultural but appreciated by hospitality staff. At restaurants, round up or leave "}<strong>20–40 THB</strong>{" if service charge isn't already on the bill. After a 1-hour massage, tip "}<strong>50–100 THB</strong>{". Hotel porters: 20 THB per bag. Grab drivers: round up. Never tip at street food stalls — the price is the price."}</p>
 
-        <h3>Credit cards accepted?</h3>
-        <p>In Bangkok + major hotels: yes. Elsewhere: cash. Bring $300 in cash equivalent for 2-week trip.</p>
+        <h3>Credit cards or cash?</h3>
+        <p>{"Cards work in Bangkok malls, 4-star hotels, chain restaurants, and most island resorts. Everywhere else is cash: street food, tuk-tuks, temples, ferries, night markets. Bring "}<strong>$300 cash equivalent for a 2-week trip</strong>{" and top up via ATM. Always choose 'charge in THB' to avoid dynamic-currency-conversion fees that inflate your bill 4–8%."}</p>
+
+        <h3>Which ATM card minimises fees?</h3>
+        <p>{"Thai bank ATMs charge "}<strong>150–220 THB per pull</strong>{" on top of your home bank. Use "}<strong>Wise, Revolut, Charles Schwab</strong>{" (US) or Monzo/Starling (UK) to refund fees. Withdraw 10,000–20,000 THB at a time to dilute the flat fee. Never use airport or tourist-zone ATMs branded 'EuroNet' — they're the worst for rates."}</p>
+
+        <h3>Hidden costs first-timers miss?</h3>
+        <p>{"Top culprits: "}<strong>National park fees</strong>{" (400 THB/person for Phi Phi, Ang Thong), ferry transfer to your island (400–1,500 THB round trip), 200 THB visa/temple entry at Grand Palace, 100 THB 'environmental fees' at resorts, and a 900 THB exit tax baked into flight fares. Budget $60–100 extra for a 2-week trip."}</p>
+
+        <h3>How do hostels in Thailand compare quality-wise?</h3>
+        <p>{"Excellent by Southeast Asian standards. Expect "}<strong>$8–12 for a dorm bed with aircon, pod curtains, lockers, and a pool</strong>{" in Bangkok and Chiang Mai. Top chains: Mad Monkey, Lub d, Slumber Party. Island hostels (Phi Phi, Koh Tao) run $15–20 and get noisy — private fan-only bungalows for $20 are better value if you can share."}</p>
+
+        <h3>Realistic food budget at three tiers?</h3>
+        <p><strong>{"Street only: $8/day"}</strong>{" (2 pad thai + som tum + fruit). "}<strong>{"Mid-range: $18/day"}</strong>{" (one sit-down meal, one street). "}<strong>{"Comfort: $45+/day"}</strong>{" (two restaurants, cocktails, smoothies). A 40 THB pad thai on Yaowarat is better than a 400 THB one in Siam Paragon — the budget tier often tastes best."}</p>
+
+        <h3>Any student or age discounts?</h3>
+        <p>{"Limited. Thai national parks and most temples charge foreign tourists a flat fee with no ISIC discount. "}<strong>AirAsia</strong>{" and State Railways of Thailand give ~15% off for students with ID on domestic routes, and many Chiang Mai cooking schools offer 10% student rate. Seniors 60+ get free entry to some temples but not all."}</p>
+
+        <h3>Best free or cheap activities?</h3>
+        <p>{"Bangkok: "}<strong>Wat Arun by sunset from the Khlong Saen Saep ferry (15 THB)</strong>{", Lumpini Park free aerobics, JJ Market browsing. Chiang Mai: Sunday Walking Street, Doi Suthep temple (no entry fee, 100 THB songthaew). Islands: every beach is free — Railay, Nui Bay, Ao Nang cliff walks. Skip the paid Phuket shows."}</p>
+
+        <h3>Can I work remotely on a tourist entry?</h3>
+        <p>{"Technically no for Thai employers, but the "}<strong>DTV visa (Destination Thailand Visa, launched 2024)</strong>{" gives digital nomads 180 days per entry for 5 years, ~$300 fee. Chiang Mai is Asia's cheapest serious nomad base: "}<strong>$350 studio + $200 food/coworking/transport = $550/month</strong>{". Fibre hits 300+ Mbps for $15/month."}</p>
+
+        <h3>Night train vs flight: which saves more?</h3>
+        <p>{"The "}<strong>2nd-class air-conditioned sleeper Bangkok→Chiang Mai</strong>{" is 1,000–1,300 THB and saves one hotel night — net cheaper than a $40 flight plus a $20 hostel. Book at 12go.asia 30 days out; upper bunks are $5 cheaper but feel cramped. It's also one of Thailand's iconic travel experiences."}</p>
+
+        <h3>Volunteering or work-exchange options?</h3>
+        <p><strong>{"Workaway and Worldpackers"}</strong>{" list 200+ Thai hosts — hostel reception, elephant sanctuary support, Muay Thai gyms in exchange for bed + meals. Typical commitment: 4 hours/day, 5 days/week, minimum 2-week stay. Elephant Nature Park's paid week-long volunteer programme ($500) is the gold standard for ethical wildlife work."}</p>
+
+        <h3>How much should I budget total for 2 weeks?</h3>
+        <p><strong>{"Backpacker: ~$530"}</strong>{" (14 × $25 + one flight). "}<strong>{"Mid-range: ~$1,185"}</strong>{" (14 × $75 + two flights + ferry). "}<strong>{"Comfort: ~$2,940"}</strong>{" (14 × $195 + private drivers + domestic business). Add your international flight ($700–1,400 from US/UK) and you have the true all-in number — Thailand stays excellent value at every tier."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

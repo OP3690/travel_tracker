@@ -181,12 +181,36 @@ export default function MexicanFoodGuide2026() {
         </ol>
 
         <h2 id="faq">12. FAQ</h2>
-        <h3>Best single Mexican dish?</h3>
-        <p><strong>Mole negro in Oaxaca</strong> or <strong>tacos al pastor in CDMX at 11 PM</strong>. Pick one.</p>
-        <h3>Is Mexican food safe from street carts?</h3>
-        <p>Yes with common sense — choose busy stalls with turnover. Stomach-issue rate is low.</p>
-        <h3>Vegetarian-friendly?</h3>
-        <p>Moderate. Quesadillas, tacos de hongos, enchiladas verdes are vegetarian. Vegan harder — lard is common in beans.</p>
+        <h3>What's the single must-try Mexican dish?</h3>
+        <p>{"Mole negro in Oaxaca — a 30-ingredient, slow-reduced sauce with chilies, chocolate, and spices — eaten at a family restaurant (Los Pacos, Tierra del Sol) is a spiritual experience. Runner-up: tacos al pastor at El Huequito or El Vilsito in CDMX at 22:00, carved off a vertical trompo. Pick one of these two before you leave the country."}</p>
+        <h3>Which cities are the real food capitals of Mexico?</h3>
+        <p>{"Mexico City for range and world-class tasting menus (Pujol, Quintonil, Contramar, Sud 777). Oaxaca for the '7 moles' tradition, tlayudas, mezcal, and the best markets in the Americas (20 de Noviembre). Puebla for moles and chalupas. Mérida for Yucatecan cuisine (cochinita pibil, papadzules). Tijuana for modern border cuisine and Baja-Med fusion. Veracruz and Mazatlán for seafood."}</p>
+        <h3>How vegetarian- and vegan-friendly is Mexican food?</h3>
+        <p>{"Moderately vegetarian-friendly but the traps are real — refried beans are often cooked with lard (manteca), and 'vegetarian' tacos sometimes come with chicken stock in rice. Say 'sin carne, sin manteca, sin caldo de pollo' explicitly. CDMX has 80+ dedicated vegan spots (Forever Vegano, Por Siempre Vegana Taqueria). Oaxaca, Puebla, and San Cristóbal have strong veg scenes; resort coasts are the weakest."}</p>
+        <h3>How safe is street food really, and how do I pick the right stall?</h3>
+        <p>{"Very safe at busy stalls with turnover — local queue is the best indicator. Good signs: tortillas pressed fresh on-site, meat cooked to order on a hot plancha or rotating trompo, disposable gloves or visible hygiene. Red flags: pre-made salsas in unrefrigerated bowls in the sun, empty stalls at 15:00 (meat's been sitting), raw vegetables sliced on a surface also used for raw meat."}</p>
+        <h3>How do I handle allergies and dietary restrictions?</h3>
+        <p>{"Spanish food-allergy cards work well: 'Soy alérgico/a a los cacahuates / a los mariscos / al gluten / a los lácteos.' Mole often contains peanuts and sesame — always ask. Ceviche has lime but can have soy in some modern takes. Gluten-free is tough at stalls (tortillas are corn and safe, but cross-contamination on a hot plancha is real). CDMX has the best allergy-aware scene."}</p>
+        <h3>What's the tipping culture at different restaurants?</h3>
+        <p>{"Sit-down restaurants 10-15% (look for 'propina incluida' on the bill — sometimes auto-added in tourist zones, don't double-tip). Taco stalls and street food: no tip expected, round up or leave a few pesos if you enjoyed the salsa. Fine dining in CDMX follows US-style 15-20% norms. Mezcalerías 10%. Hotel room service 10%, delivery drivers 10-15%."}</p>
+        <h3>What are the seasonal specialties worth planning around?</h3>
+        <p>{"Chiles en nogada (August-September, Independence Day season — walnut cream sauce, pomegranate) in Puebla. Pan de muerto (late October-Nov 2, Day of the Dead) nationwide. Chapulines (grasshoppers, peak in Oaxaca's rainy season July-September). Huitlacoche (corn fungus, autumn) in Puebla/CDMX. Escamoles ('Mexican caviar' — ant larvae, March-May) in central Mexico. Stone-crab season in Yucatán October-May."}</p>
+        <h3>Markets vs restaurants — where do I eat best?</h3>
+        <p>{"Markets are the soul: Mercado 20 de Noviembre (Oaxaca — get a tasajo or cecina from a grill row stall), Mercado de San Juan (CDMX — exotic meats and cheese), Mercado de Medellín (CDMX — Central/South American), Mercado Lucas de Gálvez (Mérida). Restaurants for long-cooked dishes (moles, cochinita pibil, mole poblano). Best combo: market breakfast, restaurant lunch, taco-stall dinner."}</p>
+        <h3>Are cooking classes and food tours worth it?</h3>
+        <p>{"Yes — Eat Mexico (CDMX) and Club Tengo Hambre (CDMX) run the best food tours at $75-120 for 3-4 hours. Seasons of My Heart (Oaxaca, Susana Trilling) is the gold standard for week-long immersive cooking classes. Los Dos (Mérida) for Yucatecan cuisine. Food tours beat cooking classes for first-timers — you learn where to eat for the rest of the trip."}</p>
+        <h3>How do I order mezcal and tequila without looking clueless?</h3>
+        <p>{"Mezcal: ask for 'espadín' (house, smooth entry) or 'tobalá' (wild, more expensive), served neat with orange slices and sal de gusano (worm salt). Never shoot mezcal — sip. Tequila: blanco (unaged, pure agave bite), reposado (2-12 months oak), añejo (1-3 years). Real agave spirits say '100% agave' on the label — anything else is mixto. Pair with sangrita, not lime and salt (that's cantina tradition, not quality-drinking)."}</p>
+        <h3>Is it safe to eat raw (ceviche, aguachile)?</h3>
+        <p>{"Yes at reputable seafood spots — the lime juice cures the protein in 20-40 minutes. Stick to busy ceviche/marisquería spots (Contramar CDMX, La Guerrerense Ensenada, Marisquería El Pescadito). Skip ceviche at taquerías that don't specialise or anywhere the fish looks grey. Aguachile is more raw (only 2-3 min in lime) — order only at dedicated spots."}</p>
+        <h3>What are the regional specialties I shouldn't miss?</h3>
+        <p>{"Oaxaca: 7 moles + tlayudas + mezcal. Yucatán: cochinita pibil + papadzules + sopa de lima. Puebla: mole poblano + chalupas + chiles en nogada. Mexico City: tacos al pastor + tacos de guisado + tortas. Veracruz: huachinango a la Veracruzana + mariscos. Baja: fish tacos + aguachile. Monterrey: cabrito (roast kid goat). Sonora: carne asada + flour tortillas. Each region is a separate cuisine."}</p>
+        <h3>What etiquette should I know at a mercado or taquería?</h3>
+        <p>{"Greet with 'buenos días' entering any stall. Point if your Spanish fails. Order tacos 'con todo' (with cilantro + onion + salsa) or 'sin' (without). Eat tacos with hands, fold in half, lean forward (never fork + knife). At mariscos: ceviche tostadas are eaten standing up. Pay the cook/cashier at a free-standing stall; leave 5-10 pesos round-up if you're feeling good."}</p>
+        <h3>How much should I budget for food per day?</h3>
+        <p>{"Backpacker $10-15: street tacos (30-50 pesos each), comida corrida lunch (80-120 pesos, 3 courses), supermarket or taco dinner. Mid-range $25-40: café breakfast, sit-down lunch, casual restaurant dinner with drinks. Comfort $60-100: one Pujol-tier splurge per trip ($120-180 without wine), otherwise proper restaurants with cocktails. Mezcal flights add $10-20 per session."}</p>
+        <h3>What's the biggest food-related regret travellers report?</h3>
+        <p>{"Eating only at resort buffets or TripAdvisor top-10 restaurants and skipping street stalls and mercados. The best food in Mexico is 50-pesos-per-plate on a plastic stool, not $40 fusion plates at white tablecloth places. Allocate at least 5 days of the trip to inland Mexico (CDMX, Oaxaca, Puebla) or the real food is invisible."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

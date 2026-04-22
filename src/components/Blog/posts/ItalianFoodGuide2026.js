@@ -200,12 +200,53 @@ export default function ItalianFoodGuide2026() {
         </ol>
 
         <h2 id="faq">13. FAQ</h2>
-        <h3>What's the #1 dish to try?</h3>
-        <p><strong>Pizza margherita at Da Michele in Naples</strong>. Or carbonara at Roscioli. Both near-spiritual.</p>
+        <h3>What's the single #1 dish to try?</h3>
+        <p><strong>{"Pizza margherita at L'Antica Pizzeria da Michele in Naples"}</strong>{" (via Cesare Sersale) — €5, 2 toppings only, and worth every minute of the queue. For pasta: "}<strong>cacio e pepe or carbonara at Salumeria Roscioli</strong>{" in Rome. Both are near-spiritual experiences that explain Italian food culture in one bite."}</p>
+
         <h3>Is Italian food vegetarian-friendly?</h3>
-        <p>Very. Many pastas, pizzas, and vegetable sides are vegetarian. Vegan is harder.</p>
+        <p>{"Very. Most pastas, pizzas ("}<strong>margherita, marinara, ortolana</strong>{"), and "}<strong>contorni</strong>{" (vegetable sides) are vegetarian by default. Learn "}<strong>"senza carne" (without meat)</strong>{" and check for hidden pancetta in pasta sauces. Vegan is tougher — butter, eggs, parmigiano sneak into everything. Rome and Milan have the best vegan-restaurant density; Puglia's "}<strong>cucina povera</strong>{" is accidentally vegan-heavy."}</p>
+
         <h3>How much should I budget for food?</h3>
-        <p>Backpacker: <strong>€18/day</strong>. Mid-range: <strong>€45/day</strong>. Comfort: <strong>€95+/day</strong> (with wine).</p>
+        <p><strong>{"Backpacker: €18/day"}</strong>{" (pizza al taglio, aperitivo buffets, supermarket breakfast). "}<strong>{"Mid-range: €45/day"}</strong>{" (one sit-down lunch or dinner, espresso + cornetto mornings, gelato). "}<strong>{"Comfort: €95+/day"}</strong>{" (full trattoria dinners, wine pairings, one Michelin lunch). Rome and Florence run 25% above smaller cities; Amalfi runs double."}</p>
+
+        <h3>Best cities for food — ranked?</h3>
+        <p><strong>{"1. Bologna"}</strong>{" (pasta heartland — tagliatelle al ragù, tortellini in brodo, mortadella). "}<strong>2. Naples</strong>{" (pizza birthplace, plus sfogliatella and ragù napoletano). "}<strong>3. Rome</strong>{" (the four Roman pastas + artichokes + suppli). "}<strong>4. Florence</strong>{" (bistecca alla fiorentina, ribollita). "}<strong>5. Palermo</strong>{" (arancini, pasta con le sarde, cannoli). Each offers a distinct tradition — never assume Italian food is monolithic."}</p>
+
+        <h3>What are the classic regional specialties I should time a trip around?</h3>
+        <p><strong>{"Emilia-Romagna"}</strong>{" for fresh-egg pastas, Parmigiano-Reggiano, balsamic. "}<strong>Tuscany</strong>{" for bistecca, pici, ribollita, pecorino. "}<strong>Piedmont</strong>{" for truffle season (Oct–Dec), agnolotti, Barolo. "}<strong>Sicily</strong>{" for arancini, cannoli, caponata. "}<strong>Puglia</strong>{" for orecchiette, burrata, focaccia barese. Each region has its own pasta, oil, and cheese identity."}</p>
+
+        <h3>How do I handle gluten, dairy, or nut allergies?</h3>
+        <p>{"Italy takes "}<strong>celiachia (celiac disease)</strong>{" seriously — every decent restaurant has a 'menu senza glutine' and pharmacies stock gluten-free pasta. Dairy is harder (everything has butter or parm). For nuts, learn "}<strong>{"'sono allergico/a a...'"}</strong>{" — pistachios and pine nuts are common in Sicilian desserts and Ligurian pesto. Carry a printed Italian allergy card for safety."}</p>
+
+        <h3>Do I tip at Italian restaurants?</h3>
+        <p>{"Minimally. Italian servers are salaried, not tip-dependent. "}<strong>Coperto (€2–5)</strong>{" is a bread/cover charge on the bill, not a tip. Round up €1–2 on trattoria bills; leave 5–10% at upscale restaurants if there's no 'servizio incluso'. "}<strong>Never tip a barista at the counter</strong>{" — leave small coins in the tip tray only if you want to."}</p>
+
+        <h3>Street food vs restaurants — which is better value?</h3>
+        <p>{"Both. Street food excels in "}<strong>Palermo (arancini, pane con la milza, sfincione)</strong>{", Naples (pizza fritta, cuoppo, taralli), and Florence (trippa, lampredotto panini). Restaurants dominate in "}<strong>Bologna, Piedmont, Tuscany</strong>{" where multi-course meals are the cultural unit. A good rule: "}<strong>south for street, north for sit-down</strong>{"."}</p>
+
+        <h3>What wine should I order with what dish?</h3>
+        <p><strong>{"Light whites (Vermentino, Verdicchio)"}</strong>{" with seafood; "}<strong>medium reds (Chianti, Barbera)</strong>{" with pasta al ragù; "}<strong>big reds (Barolo, Brunello)</strong>{" with bistecca; "}<strong>Franciacorta or Prosecco</strong>{" as aperitivo. Always ask for "}<strong>"il vino della casa" (house wine)</strong>{" — €3–6 for a quarter litre and usually from a nearby vineyard. Tipping the sommelier at trattorias is a faux pas."}</p>
+
+        <h3>Are markets worth a visit?</h3>
+        <p>{"Essential. "}<strong>Rome's Testaccio Market, Florence's Mercato Centrale, Bologna's Mercato di Mezzo, Palermo's Ballarò and Vucciria</strong>{" are all alive and affordable. Go late morning, bring a tote, snack as you walk — fresh mozzarella di bufala, prosciutto tastings, anchovies in lemon. "}<strong>Pay cash, bring €20 in small notes</strong>{" — some stalls don't take cards."}</p>
+
+        <h3>What's a "sagra" and why should I go?</h3>
+        <p><strong>{"Sagre are village food festivals"}</strong>{" — each celebrates one specific ingredient (truffle, chestnut, wild boar, porcini). Summer evenings in any Umbrian, Tuscan, or Piemontese town. €15–25 for a 3-course outdoor meal with the locals. "}<strong>Sagra del Tartufo in Alba (October)</strong>{" and Sagra delle Porcini in Borgo Val di Taro are top draws. Check "}<strong>italysagre.it</strong>{" for timing."}</p>
+
+        <h3>Best cooking class for travellers?</h3>
+        <p><strong>{"Rome: Pasta Grannies (Nonne Romane, €90, 3 hours, 4 pastas)"}</strong>{"; "}<strong>Bologna: La Vecchia Scuola Bolognese (€80, tagliatelle + tortellini + tortelloni)</strong>{"; "}<strong>Florence: Mama Florence (€120, full Tuscan menu)</strong>{". Half-day morning classes beat evenings — you cook and eat what you make, then still have the evening free. Book 2–4 weeks ahead."}</p>
+
+        <h3>Can I drink the tap water in restaurants?</h3>
+        <p>{"Yes — Italian tap is excellent everywhere. Most restaurants still push "}<strong>acqua minerale (€2–4)</strong>{" but asking for "}<strong>"acqua del rubinetto"</strong>{" (tap water) is increasingly accepted, especially in Milan, Bologna, and Rome. Public fountains — "}<strong>Rome's 2,500 nasoni</strong>{" — offer free cold drinking water. Bring a reusable bottle."}</p>
+
+        <h3>What are the rules about cappuccino after a meal?</h3>
+        <p><strong>{"Cappuccino is a morning drink — before 11 AM only"}</strong>{". After lunch or dinner, Italians drink espresso (or corretto, with grappa). Ordering a cappuccino after pasta outs you as a tourist but won't get you refused. "}<strong>Americano</strong>{" is also a tourist tell — ask for a 'caffè lungo' if you want something longer than a tiny espresso."}</p>
+
+        <h3>Seasonal specialties worth timing?</h3>
+        <p><strong>{"White truffles October–December"}</strong>{" (Alba, Acqualagna); "}<strong>porcini September–November</strong>{" (Tuscany, Umbria); "}<strong>artichokes (carciofi) February–April</strong>{" (Rome); "}<strong>fresh burrata March–August</strong>{" (Puglia); "}<strong>panettone November–January</strong>{" only. Gelato tastes best April–September when pistachios are fresh and dairy fattier. Avoid strawberry gelato in winter — it's dye."}</p>
+
+        <h3>Any "tourist trap" food signals to avoid?</h3>
+        <p><strong>{"Menus in 5 languages = avoid"}</strong>{". Menus with photos = usually avoid. 'Authentic Italian' or 'Tourist Menu' signage = always avoid. Waiter outside aggressively soliciting = avoid. Tables directly on Piazza Navona/Piazza San Marco = pay 200% markup for the view. The best trattorias are "}<strong>tucked 2–3 streets off the main piazza</strong>{", crowded with locals at 1:30 PM lunch."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

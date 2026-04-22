@@ -185,13 +185,52 @@ export default function TwoWeekEuropeItinerary2026() {
 
         <h2 id="faq">8. FAQ</h2>
         <h3>Can I do this in 10 days?</h3>
-        <p>Yes — drop Amsterdam or Prague. 10-day: London (3) → Paris (3) → Berlin (2) → Rome (2).</p>
-        <h3>Best month?</h3>
-        <p><strong>May or September</strong>. Warm, no crowds, best pricing.</p>
-        <h3>Can I reverse the route?</h3>
-        <p>Yes — fly into Rome first. Actually cheaper from US West Coast.</p>
+        <p>{"Yes, by dropping either Amsterdam or Prague. A tight 10-day version: "}<strong>London (3) → Paris (3) → Berlin (2) → Rome (2)</strong>{". Fewer travel days, more anchored time in each city. Below 10 days, drop Berlin entirely — the London-Paris-Amsterdam triangle via Eurostar works cleanly in 7–8 days."}</p>
+
+        <h3>What's the best month for this route?</h3>
+        <p><strong>{"May or September"}</strong>{" — mild weather (18–24°C), all attractions open, 25–35% lower hotel prices than July/August, and minimal tour-bus chaos. "}<strong>June</strong>{" is also excellent if you don't mind crowds. Avoid "}<strong>July–August in Paris/Rome (heat + tourist peak)</strong>{" and anything November–March unless Christmas markets are the draw."}</p>
+
+        <h3>Can I reverse the route and start in Rome?</h3>
+        <p>{"Yes — flying into Rome or Paris is often "}<strong>20–30% cheaper from US West Coast</strong>{" than London. Reverse route: Rome → Prague → Berlin → Amsterdam → Paris → London. You finish at the easiest airport (Heathrow) for a jet-lagged departure. Eurostar London→Paris is one-way-friendly; book 60+ days out for £39 fares."}</p>
+
         <h3>Do I need to book everything in advance?</h3>
-        <p>Trains + major museums + Eurostar: yes, 60+ days. Hotels: 30-60 days. Restaurants: week-of.</p>
+        <p><strong>{"Trains 60+ days out"}</strong>{" for Super Economy Eurostar (£39), Frecciarossa (€19–39), and ICE (€29). "}<strong>Major museums (Uffizi, Vatican, Louvre, Anne Frank House) 2 months out</strong>{" — they sell out. "}<strong>Hotels 30–60 days for May/September</strong>{". Restaurants a few days out for dinner; week-of for lunch. Day tours 2+ weeks for top-tier options."}</p>
+
+        <h3>How do I handle jet lag on day 1?</h3>
+        <p>{"Europe is "}<strong>5–9 hours ahead of the US</strong>{". Plan day 1 as a half-day — drop bags at hotel, walk the city centre for 2–3 hours, eat an early dinner at 6 PM, bed by 9. Aggressive morning sunlight on day 2 anchors your new clock. Avoid red-eye naps; melatonin 0.5 mg is optional assistance. First-day attempts at major museums waste your ticket."}</p>
+
+        <h3>Carry-on or checked bag?</h3>
+        <p><strong>{"Carry-on only almost always wins"}</strong>{" — European cobblestones, 19th-century hotels with tight lifts, narrow budget-airline seat allowances. A 40L softside bag fits Eurostar overhead racks, Ryanair carry-on, and every train luggage shelf. "}<strong>Laundry is €10–15 wash-and-fold</strong>{" in every city. Skip the American suitcase instinct; pack clothes that mix-and-match."}</p>
+
+        <h3>Eurail/Interrail Pass vs point-to-point tickets?</h3>
+        <p><strong>{"Point-to-point wins for most itineraries"}</strong>{". Six legs (London-Paris, Paris-Amsterdam, Amsterdam-Berlin, Berlin-Prague, Prague-Rome flight) booked 60 days out cost "}<strong>€200–280</strong>{" total. A 7-day Eurail Global Pass is €380+ plus reservation fees. Passes shine only if you're taking 6+ long trains without advance booking or doing heavy Central-European hops."}</p>
+
+        <h3>When should I use internal flights?</h3>
+        <p>{"When the train journey exceeds 6 hours. "}<strong>Prague → Rome</strong>{" is 12+ hours by train; fly Ryanair for €30–60 in 2 hours. "}<strong>Berlin → Barcelona, London → Athens</strong>{" — fly. Everything else: train. "}<strong>Avoid flying short-hops (Paris–Amsterdam, Frankfurt–Berlin)</strong>{" — trains are faster door-to-door once you count airport transfers."}</p>
+
+        <h3>How do Schengen day limits apply?</h3>
+        <p>{"This route uses 11 Schengen days (Paris-Amsterdam-Berlin-Prague-Rome) and 3 UK days. "}<strong>US, UK, CA, AU, NZ passports get 90 Schengen days per 180-day window</strong>{". If you've travelled Europe in the past 6 months, subtract those days. "}<strong>UK is no longer Schengen (post-Brexit)</strong>{" — counts separately. ETIAS (€7 pre-authorisation) launches late 2026."}</p>
+
+        <h3>Is this itinerary fine for solo travellers?</h3>
+        <p>{"Excellent for solos — all six cities have huge hostel scenes ($35–55 dorms at "}<strong>Generator, Wombat's, St. Christopher's</strong>{"), English is widely spoken, and transport is idiot-proof. Book female-only dorms if preferred. Join a "}<strong>Sandeman's free walking tour (tip €10)</strong>{" in each city to meet people fast. Berlin, Amsterdam, and Prague have the strongest solo social scenes."}</p>
+
+        <h3>Can I do this with kids (ages 6–12)?</h3>
+        <p>{"Yes, with tweaks. Cut one city (5 cities max, not 6). Pre-book "}<strong>Colosseum Kids Tour, Anne Frank House, Paris Catacombs for the ghoulish-minded</strong>{". Base in one hotel for 3+ nights to stabilise routines. Swap museum marathons for "}<strong>Tuileries playground, Hyde Park, Amsterdam canal boat, Olympia Park Berlin</strong>{". Most European kids eat adult food — ordering off-menu is standard."}</p>
+
+        <h3>Can elderly parents handle this pace?</h3>
+        <p>{"Cut to "}<strong>4 cities in 14 days, 3+ nights each</strong>{". Upgrade to Eurostar/Frecciarossa premium cars (€20–30 surcharge, quiet and roomy). Pre-book skip-the-line tickets everywhere to avoid standing queues. Use "}<strong>elevator-equipped hotels near metros</strong>{" (not cobbled boutiques). Skip Prague's steep castle hill — take the tram to the top and walk down."}</p>
+
+        <h3>Rainy-day backup plan?</h3>
+        <p>{"Every major city has an indoor 'escape kit'. "}<strong>London: Tate, British Museum, Borough Market</strong>{". "}<strong>Paris: Louvre, Musée d'Orsay, covered passages (Galerie Vivienne)</strong>{". "}<strong>Amsterdam: Rijksmuseum, Anne Frank, cafés</strong>{". "}<strong>Berlin: Museum Island, Topography of Terror, Markthalle Neun</strong>{". "}<strong>Rome: Vatican, Galleria Borghese, covered trattoria lunches</strong>{". Pre-book if possible; walk-up lines balloon in rain."}</p>
+
+        <h3>Where should I base for day-trips?</h3>
+        <p><strong>{"Paris for Versailles + Giverny"}</strong>{" (30–60 min each). "}<strong>Amsterdam for Zaanse Schans windmills + Haarlem</strong>{". "}<strong>Berlin for Potsdam + Sachsenhausen</strong>{". "}<strong>Rome for Tivoli + Ostia Antica</strong>{". Keep day-trips to days 3–5 of a city base when you've earned a break from the main sights. Book train tickets same-day."}</p>
+
+        <h3>Best ATM and cash strategy?</h3>
+        <p>{"Use "}<strong>Wise, Revolut, or Charles Schwab cards</strong>{" to refund ATM fees. Withdraw at "}<strong>bank-branded ATMs</strong>{" (Barclays, BNP, Deutsche Bank, Česká spořitelna) — never Euronet. Take €200–300 per country; cards work nearly everywhere. "}<strong>{"Always choose 'charge in EUR/GBP/CZK'"}</strong>{" (decline dynamic-currency-conversion) and watch for hidden fees at London-area ATMs."}</p>
+
+        <h3>Travel insurance — is it essential?</h3>
+        <p>{"Yes. "}<strong>€100,000+ medical + €500,000 evacuation + trip-interruption</strong>{" coverage. "}<strong>SafetyWing ($45/month)</strong>{" for nomadic travellers; "}<strong>Allianz, World Nomads</strong>{" for single-trip. Rail strikes in France and Germany are common — 'missed connection' cover is useful. EU pharmacies are excellent for minor issues without insurance claims."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

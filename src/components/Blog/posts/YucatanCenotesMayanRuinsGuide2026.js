@@ -187,14 +187,36 @@ export default function YucatanCenotesMayanRuinsGuide2026() {
         </BlogCallout>
 
         <h2 id="faq">8. FAQ</h2>
-        <h3>Days needed?</h3>
-        <p><strong>8-10 days</strong>. Less is rushed; 14 is leisurely.</p>
-        <h3>Chichén Itzá vs Uxmal?</h3>
-        <p>Chichén is more iconic; Uxmal is more beautiful + quieter. Visit both if you can.</p>
-        <h3>Is Cancún worth it?</h3>
-        <p>Only as an airport. Stay in Tulum, Playa, or Mérida instead.</p>
-        <h3>Rental car worth it?</h3>
-        <p>Yes for Yucatán state. ADO bus works for the Caribbean coast.</p>
+        <h3>How many days do I need for the Yucatán loop?</h3>
+        <p>{"Eight to ten days is the sweet spot — 2 nights Mérida, 2 Valladolid (for Chichén Itzá + cenotes), 2 Tulum, 1-2 Isla Holbox or Bacalar. Under 7 days you're just doing Chichén Itzá + one beach and missing the colonial towns. Fourteen days lets you add Uxmal, Calakmul deep-jungle ruins, and a proper Holbox stay."}</p>
+        <h3>Chichén Itzá vs Uxmal vs Cobá — which ruins matter most?</h3>
+        <p>{"Chichén Itzá is iconic and mandatory for first-timers (go 08:00 sharp — tour buses from Cancún arrive 11:00). Uxmal is arguably more beautiful, far quieter, and you can still climb some pyramids. Cobá lets you climb Nohoch Mul for jungle views. Ek Balam is a hidden gem 30 min from Valladolid. Do Chichén + one smaller site minimum."}</p>
+        <h3>Should I stay in Cancún Hotel Zone at all?</h3>
+        <p>{"No — use CUN airport and leave within 2 hours. The Hotel Zone is an American resort strip without Mexican character. Base in Playa del Carmen (1 night only if you need nightlife), Tulum (beach), Valladolid or Mérida (culture + cenote access), or Isla Mujeres (calm Caribbean swimming). Every single one is a better use of time and money."}</p>
+        <h3>Which city should I base in for cenote-hopping?</h3>
+        <p>{"Valladolid is the cenote capital — Cenote Suytun, X'Kekén, Samulá, Ik Kil, and Hubikú all within 20 minutes' drive. Tulum has Gran Cenote, Dos Ojos, and Calavera but costs 2-3x more per entry ($20-30 vs $5-8 in Valladolid) and pulls giant crowds. Mérida works as base too, with Cuzamá's horse-cart cenote tour one hour south."}</p>
+        <h3>Is it safe to swim in cenotes and what gear do I need?</h3>
+        <p>{"Yes — cenotes are spring-fed and crystal-clear, managed by Mayan ejidos (local collectives). Water stays around 24°C year-round. Bring water shoes (limestone slips), a rash guard if you burn easily, and a GoPro if you want photos — phones don't survive the splash. No sunscreen, no insect repellent in the water (banned as of 2024 in most sites). Most require a life vest and offer rentals for 30-50 pesos."}</p>
+        <h3>Do I need a rental car for the Yucatán?</h3>
+        <p>{"Strongly recommended for Yucatán state (Mérida + Valladolid area). Highways are flat, signed, and safer than Mexico stereotypes suggest; rentals run $30-55/day including mandatory Mexican liability insurance. The Caribbean coast (Tulum-Playa-Cancún) is fine via ADO bus. Avoid driving after dark — unlit livestock on rural highways is the real risk, not crime."}</p>
+        <h3>How do I avoid the Chichén Itzá tour-bus crush?</h3>
+        <p>{"Sleep in Valladolid (45 min away) the night before, leave at 07:30, arrive at 08:00 opening. By 11:00, buses from Cancún (3 hours each way) unleash the crowds. Visit the central Temple of Kukulcán first, then the ballcourt and the sacred cenote. You'll have the main pyramid mostly to yourself for 90 minutes. Book tickets online at INAH to skip the cash-only line."}</p>
+        <h3>What's the deal with sargassum seaweed?</h3>
+        <p>{"Since 2014, the Caribbean coast gets seasonal sargassum influxes — peak May-August, worst in Tulum, Playa, and Cancún. Beaches can be unswimmable for weeks with brown, smelly seaweed mats. The sargassum tracker app shows real-time maps. Yucatán's Gulf coast (Progreso, Celestún, Holbox) is largely sargassum-free. Shoulder-season travel (Nov-March) usually dodges the worst."}</p>
+        <h3>When is the best time to visit the Yucatán?</h3>
+        <p>{"November through April — dry, 26-30°C, calm seas, minimal sargassum. December-January is peak season (highest prices, Chichén Itzá packed). March is optimal: warm, dry, shoulder prices. Semana Santa (Holy Week) and Day of the Dead (Oct 31-Nov 2) are festive but expensive. September-October is hurricane peak and rainy — budget-friendly but risky."}</p>
+        <h3>What should I pack for cenote and ruin days?</h3>
+        <p>{"Water shoes (mandatory for cenotes), rash guard for sun protection, biodegradable sunscreen (Sun Bum Mineral, Stream2Sea — chemical sunscreens are banned in most cenotes), wide-brim hat, 2L water bottle, bug spray for Cobá's jungle paths, a small dry-bag for valuables, and athletic sandals for ruin walking. Don't forget 200+ pesos cash per person for cenote and parking fees."}</p>
+        <h3>Are the Yucatán beaches swimmable and family-friendly?</h3>
+        <p>{"Isla Mujeres' Playa Norte is the region's gold standard — calm, shallow, turquoise, kid-safe. Isla Holbox has 7km of shallow white sand (walk out 50m and still hip-deep). Playa Paraíso near Tulum is beautiful but crowded and increasingly eroded. Progreso (Gulf coast) is calm and family-oriented. Avoid Tulum beach in May-August sargassum season."}</p>
+        <h3>How pickpocket-prone are Tulum, Playa, and Mérida?</h3>
+        <p>{"Mérida and Valladolid are exceptionally safe — Mérida consistently ranks Mexico's safest city. Tulum has seen a crime spike 2022-2025 (cartel-related disputes, occasional shootings in nightclub zones) — stick to hotel-zone beach road, Uber after dark, avoid party clubs known for trouble. Playa del Carmen's 5th Avenue has pickpockets and aggressive touts but violent crime is rare."}</p>
+        <h3>What about booking windows for hotels?</h3>
+        <p>{"Tulum beachfront palapas and Isla Holbox boutiques: 4-6 months ahead for peak December-April. Mérida and Valladolid: 4-6 weeks typically enough. Day of the Dead (Oct 31-Nov 2) in Mérida: 6+ months. Cenote-zone cabañas in Valladolid have flexibility. Car rentals: book 3-4 weeks ahead; walk-up doubles the rate at CUN airport."}</p>
+        <h3>Reef-snorkel or cenote-dive — which is better?</h3>
+        <p>{"Cenote diving (Dos Ojos, Gran Cenote, Pit) is a bucket-list experience — cave formations, light beams, halocline layers. Reef snorkeling at Cozumel or Akumal is excellent for first-time snorkelers (turtles at Akumal are guaranteed). Serious divers should head to Cozumel for reef walls. Cenotes open-water snorkel is calm and kid-friendly; cave/cavern dives require advanced certification."}</p>
+        <h3>What's the biggest Yucatán mistake travellers make?</h3>
+        <p>{"Staying in Cancún Hotel Zone and doing Chichén Itzá as a 12-hour bus day trip — you arrive at the ruin during the worst crowd hour (12:00), miss the cenote stop at a decent spot, and eat a box lunch in a touristy village. Base in Valladolid or Mérida for 2-3 nights instead. Second mistake: skipping Uxmal because 'we already saw Chichén.' Uxmal is often more impressive."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

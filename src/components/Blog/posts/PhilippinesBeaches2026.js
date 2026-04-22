@@ -337,30 +337,49 @@ export default function PhilippinesBeaches2026() {
         <h2 id="faq">4. FAQ</h2>
 
         <h3>Which Philippine beach is most beautiful?</h3>
-        <p>
-          By our panel's composite score: <strong>Nacpan Beach
-          (Palawan)</strong>. By global fame: White Beach (Boracay).
-        </p>
+        <p>{"By our panel's composite score (sand quality, water color, scenery, crowds, access): Nacpan Beach in Palawan — 4 km of unbroken cream-colored sand with an offshore view of Cadlao Island. By global fame: White Beach on Boracay. By wildlife interest: Sabitang Laya in the Caramoan Peninsula. Different beaches for different trip priorities."}</p>
 
         <h3>Is Boracay worth visiting in 2026?</h3>
-        <p>
-          Yes — the 2018 cleanup worked. It's cleaner and better
-          organized than pre-2018. Just avoid Station 2 if you want
-          peace.
-        </p>
+        <p>{"Yes — the 2018 closure and cleanup worked, and the island is cleaner, better zoned and less overbuilt than pre-2018. Station 1 is the upscale family side, Station 3 the quiet budget end, and Station 2 is the loud party strip to avoid if you want peace. Come in May or October for a 40% price drop versus December-March."}</p>
 
         <h3>What's the best month for beaches overall?</h3>
-        <p>
-          <strong>February–April</strong>. Dry, warm water, minimal
-          typhoon risk.
-        </p>
+        <p>{"February through April delivers the best combination — dry, 27-30 C air temps, 28 C water, minimal typhoon risk, and the calmest seas for island-hop boat tours. January is nearly as good but water is slightly cooler. Avoid June-November (southwest monsoon) on the Palawan/Boracay side; the Pacific coast (Siargao, Samar) works year-round."}</p>
 
         <h3>Can I see turtles?</h3>
-        <p>
-          Yes — reliably at Apo Island (off Negros), Moalboal (Cebu),
-          and during sea-turtle nesting season (May–Sept) on several
-          beaches in Palawan.
-        </p>
+        <p>{"Yes, reliably at Apo Island off Negros (green sea turtles on almost every dive or snorkel), Moalboal in Cebu, and at the Turtle Sanctuary in Apo Reef. Nesting season runs May-September with hatchling releases at Tabon Cave Complex in Palawan. Always maintain 3 meters distance and never touch or chase — fines apply and enforcement is real."}</p>
+
+        <h3>Which beach is best for first-time Philippines visitors?</h3>
+        <p>{"Nacpan Beach in El Nido, Palawan — it combines iconic scenery (twin-beach headland with panoramic views), easy access from El Nido town (30 min by tricycle for 500 pesos), swim-safe shore break, and excellent beachside barbecue shacks. A close second for non-Palawan visitors: Alona Beach on Panglao, Bohol — same postcard sand with broader restaurant options."}</p>
+
+        <h3>Are the famous beaches overcrowded?</h3>
+        <p>{"Some genuinely are in peak season — Boracay's Station 2 and El Nido town beach pack shoulder-to-shoulder December-March. But 95% of Philippine beaches are not crowded even at their peak. Nacpan never hits Boracay density, and islands like Balabac, Siquijor's Salagdoong, or Siargao's Daku are near-empty even in peak. Crowds cluster where Instagram-famous names do."}</p>
+
+        <h3>What's the best beach for snorkeling?</h3>
+        <p>{"Balicasag Island off Panglao, Bohol — reliable encounters with turtles, clownfish and the occasional reef shark in clear 10m+ visibility. Runners-up: Apo Island off Negros (best turtle concentration), Moalboal's sardine run (millions of sardines year-round, close to shore), and Sumilon Island's sandbar. Bring reef-safe sunscreen — mineral-only, required by marine park regulations."}</p>
+
+        <h3>What's the best beach for families with young kids?</h3>
+        <p>{"White Beach on Boracay (long flat shore break, shallow water 50m out, food and bathroom infrastructure), Alona Beach on Panglao, and Sabang Beach near Puerto Galera. All three have lifeguards, shaded chair rentals and immediate access to medical clinics. Avoid Siargao's Cloud 9 area (surf waves) and Siquijor's Kagusuan Beach (cliff access) with small children."}</p>
+
+        <h3>Which beach is best for surfers?</h3>
+        <p>{"Siargao for world-class right-hand reef breaks (Cloud 9, Quicksilver, Tuason Right) — the competitive world tour stops here. La Union (Luzon) is the best beginner beach with mellow beach breaks at San Juan. For 2026, typhoon swell windows hit Siargao August-November; dry-season March-May is flat but the island remains beautiful with lessons available year-round."}</p>
+
+        <h3>Which beach has the best sunset?</h3>
+        <p>{"Nacpan Beach in Palawan wins for pure scale (4 km of sand facing due west with Cadlao Island silhouetted). Kalanggaman Island near Leyte delivers a spit-of-sand sunset unlike anywhere else. On Boracay, walk to the Station 1 end of White Beach for the cleanest horizon. Puka Shell Beach on Boracay is better for sunrise than sunset."}</p>
+
+        <h3>How safe is swimming — are there jellyfish or sharks?</h3>
+        <p>{"Safe for 99% of visitors. Box jellyfish incidents are rare but occur August-October on Palawan's western beaches; carry vinegar and check daily beach postings. Reef sharks are common in diving spots but have never caused a documented human attack in Philippine waters. The genuine danger is underestimating currents — strong riptides at Nagsasa Cove, Patar Beach and Siargao's GL2."}</p>
+
+        <h3>What are the environmental fees I should expect?</h3>
+        <p>{"El Nido Eco-Tourism Development Fee: 400 pesos, valid 10 days. Coron Island Ancestral Domain fee: 200 pesos. Boracay Environmental Fee: 150 pesos per stay. Panglao-Alona: 100 pesos. Pay in cash at the entry checkpoint, keep receipts, and you will be asked to show them at some beaches and boat tours. Factor $10-15 per trip into your budget."}</p>
+
+        <h3>Can I camp on beaches?</h3>
+        <p>{"Rarely and only with permission. Camping is effectively banned on Boracay, El Nido town beach and most Panglao beaches. Legal beach camping exists at Nagsasa Cove (Zambales), Anawangin Cove, and a handful of remote Palawan islands with local boatman-arranged permits. Tent rentals run 400-600 pesos per night; most campers go through a guide for safety and permitting."}</p>
+
+        <h3>How do island-hopping boat tours work?</h3>
+        <p>{"Joiner tours run daily on set routes for 1,200-1,800 pesos per person including lunch. Book through your hotel or at the El Nido/Coron tour desks — never from beach hustlers. Private bangka charters run 6,500-12,000 pesos for the boat (up to 8 people), and let you pick your own beach stops. Tip the boat crew 100-200 pesos per person at trip end — it is standard."}</p>
+
+        <h3>What should I pack specifically for Philippine beaches?</h3>
+        <p>{"Reef-safe mineral sunscreen (chemical sunscreens banned in El Nido and several marine parks), water shoes for rocky entries, a dry bag, quick-dry microfiber towel, a rash guard or UPF shirt for sun protection during 2-3 hour boat tours, and a small underwater camera or phone housing. Skip the bulky snorkel gear — tours always provide it."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

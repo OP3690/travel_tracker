@@ -196,18 +196,49 @@ export default function BestThailandIslands2026() {
 
         <h2 id="faq">4. FAQ</h2>
         <h3>Best Thai island for first-time visitors?</h3>
-        <p>
-          <strong>Krabi (Railay base) + Phi Phi day-trip</strong>. You get
-          the iconic Thai beach experience without Phuket's crowds.
-        </p>
-        <h3>Best for diving?</h3>
-        <p><strong>Koh Tao</strong>. Cheapest + best PADI certification in the world.</p>
-        <h3>Best for couples?</h3>
-        <p><strong>Koh Yao Noi or Railay</strong>. Quiet, romantic, boutique.</p>
-        <h3>Best for partying?</h3>
-        <p><strong>Koh Phangan Full Moon Party</strong>. Legendary.</p>
-        <h3>Which is most instagrammable?</h3>
-        <p><strong>Phi Phi</strong> (Maya Bay) and <strong>Railay</strong> (Phra Nang Beach).</p>
+        <p><strong>{"Krabi (Railay or Ao Nang base) with a Phi Phi day-trip"}</strong>{" — you get the iconic limestone-karst Thai beach without Phuket's Patong chaos. Railay has no cars, 4 beaches within a 10-minute walk, and world-class rock climbing. Stay 4–5 nights minimum; one day for Phi Phi, one for Hong Islands, two for beach and climbing."}</p>
+
+        <h3>Best Thai island for diving?</h3>
+        <p><strong>{"Koh Tao"}</strong>{" — the cheapest place on earth to get PADI Open Water certified at around "}<strong>9,800–11,000 THB for the 3–4 day course</strong>{" including accommodation. 40+ dive schools, calm Gulf waters, whale sharks Feb–May. More advanced: Similan Islands live-aboard from Phuket (Oct–May, $500–900 for 4 days) offers better visibility but twice the price."}</p>
+
+        <h3>Best Thai island for couples and honeymoons?</h3>
+        <p><strong>{"Koh Yao Noi or Railay"}</strong>{" top the quiet-romantic list — no nightlife, boutique-only lodging, sunset longtail cruises. For pure luxury, "}<strong>Phuket's Amanpuri or Sri Panwa</strong>{" and Koh Samui's Six Senses Samui are the honeymoon benchmarks ($600+/night). Koh Lanta's west-coast resorts are an under-the-radar couples pick."}</p>
+
+        <h3>Best Thai island for partying?</h3>
+        <p><strong>{"Koh Phangan"}</strong>{" hosts the Full Moon Party (Haad Rin beach, 20,000+ people monthly) — legendary but chaotic. "}<strong>Koh Samui's Chaweng</strong>{" has nightclub culture year-round; "}<strong>Phuket's Bangla Road</strong>{" in Patong is the 24/7 option. Avoid Full Moon night if you value sleep — book 3+ km inland or skip the island entirely."}</p>
+
+        <h3>Which island is most Instagram-worthy?</h3>
+        <p><strong>{"Phi Phi's Maya Bay"}</strong>{" (reopened 2022 with visitor caps; pre-book morning slots) and "}<strong>Railay's Phra Nang Beach</strong>{" with its phallic-shrine cave lead the list. For karst drama, "}<strong>James Bond Island (Koh Tapu) in Phangnga Bay</strong>{" is the one-shot icon. Best shots are before 9 AM — Phi Phi tour boats arrive by 10."}</p>
+
+        <h3>Best Thai island for families with kids?</h3>
+        <p><strong>{"Koh Lanta"}</strong>{" — long flat beaches, shallow swim zones, relaxed pace, no nightlife noise, and a free car ferry from Krabi town. "}<strong>Phuket's Kata and Karon</strong>{" are the runners-up with big family resorts and zoos/waterparks nearby. Avoid Koh Phi Phi (no roads, party crowd) and Koh Phangan (Full Moon vibes) with young kids."}</p>
+
+        <h3>Best island for budget backpackers?</h3>
+        <p><strong>{"Koh Tao for divers, Koh Lipe for remote paradise, Koh Lanta for laid-back"}</strong>{". Dorm beds run "}<strong>400–600 THB/night</strong>{", bungalows "}<strong>600–1,200 THB</strong>{". Skip Phuket and Samui's west coast — even hostels cost $30+ in high season. Koh Phangan outside Full Moon week is surprisingly cheap ($20 bungalows in Thong Sala)."}</p>
+
+        <h3>Best island for hiking and nature?</h3>
+        <p><strong>{"Koh Tao's Fraggle Rock viewpoint"}</strong>{", Koh Phangan's Bottle Beach trail (2 hours each way), and "}<strong>Koh Chang's interior jungle</strong>{" (Klong Plu waterfall hike) deliver the best walks. For wild feel, head to "}<strong>Koh Kood</strong>{" — barely developed, crystal water, 30 km² of jungle and waterfalls. Koh Chang's elephant sanctuaries (ethical) are worth a half-day."}</p>
+
+        <h3>Ferry or domestic flight to the islands?</h3>
+        <p>{"Phuket and Koh Samui have airports — fly direct from Bangkok ($35–90, 80 min). For Phi Phi, Krabi, Lanta, Tao, Phangan there's no airport — fly to the nearest mainland (Krabi KBV or Surat Thani URT) then ferry (1–3 hours, 400–1,500 THB). Book ferries via 12Go or at the pier; skip 'combo transfers' sold in Bangkok hostels — markup is 40%."}</p>
+
+        <h3>Gulf side or Andaman side — which coast?</h3>
+        <p>{"Depends on when you go. "}<strong>Andaman (Phuket, Krabi, Phi Phi)</strong>{" is at its best Nov–April and wet June–October. "}<strong>Gulf (Samui, Phangan, Tao)</strong>{" flips: best Jan–Sep, wettest Oct–Dec (the 'NE monsoon' brings rough ferries). If you visit in July, pick Gulf; in January, pick Andaman; in March, either works."}</p>
+
+        <h3>How many islands can I combine in 10 days?</h3>
+        <p>{"Two at most, done properly. Good combos: "}<strong>Phi Phi + Koh Lanta</strong>{" (both Andaman, same ferry route), "}<strong>Koh Samui + Koh Phangan</strong>{" (Gulf, 30 min ferry apart), "}<strong>Koh Tao + Koh Phangan</strong>{". Hopping three islands in 10 days means 1–2 ferry days and minimal beach time. One island for 7 nights usually beats three for 3."}</p>
+
+        <h3>Are the islands safe after dark?</h3>
+        <p>{"Yes, with caveats. Violent crime is rare. The real risks: "}<strong>drunk scooter accidents</strong>{" (leading cause of tourist deaths — never ride after sunset), drink-spiking on Koh Phangan during Full Moon, and rip currents at Karon, Kata, and Railay during monsoon (red flags posted, swim between flags only)."}</p>
+
+        <h3>Can I island-hop with just a carry-on?</h3>
+        <p>{"Absolutely recommended. Speedboats and ferries charge nothing for hand luggage but charge 200–400 THB per checked bag. Roller suitcases struggle on sandy paths and long-tail boat loading. "}<strong>45L backpack beats wheels</strong>{" on every island trail. Laundry is 60–80 THB/kg at every bungalow reception."}</p>
+
+        <h3>Best Thai island for digital nomads?</h3>
+        <p><strong>{"Koh Lanta"}</strong>{" has become Thailand's island nomad capital — dedicated coworking spaces (Kohub, KoHub Annex), strong fibre, long-stay bungalows at $500–800/month. "}<strong>Koh Phangan (Srithanu area)</strong>{" is the wellness-nomad alternative — yoga, Ecstatic Dance, Beach Time coworking. Phuket is fine for lifestyle but too expensive at $1,500+/month."}</p>
+
+        <h3>Any islands to actively avoid in 2026?</h3>
+        <p><strong>{"Patong Beach (Phuket)"}</strong>{" if you want quiet — it's a 24-hour tourist strip with inflated prices. "}<strong>Koh Samet and Pattaya-area islands</strong>{" get weekend-overrun by Bangkok day-trippers and have murky water. "}<strong>Koh Chang's White Sand Beach</strong>{" has suffered erosion — pick Lonely Beach or Klong Prao instead. Avoid any island during its wet-season peak (Phi Phi in September is a ghost town with 9m ferry swells)."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

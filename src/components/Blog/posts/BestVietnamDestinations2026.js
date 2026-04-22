@@ -143,9 +143,62 @@ export default function BestVietnamDestinations2026() {
         ]} />
 
         <h2 id="faq">4. FAQ</h2>
-        <h3>First-time destination?</h3><p><strong>Hoi An + Hanoi + Halong</strong>.</p>
-        <h3>Most underrated?</h3><p><strong>Ninh Binh</strong>.</p>
-        <h3>Best island?</h3><p><strong>Phu Quoc</strong>.</p>
+        <h3>Best destinations for a first-time Vietnam visit?</h3>
+        <p>
+          <strong>Hanoi + Halong Bay + Hoi An</strong> is the unbeatable first-timer trio — northern capital energy, a UNESCO-protected karst bay overnight cruise, and a lantern-lit central-coast old town. Add Ninh Binh (90 min from Hanoi) or Mekong Delta (2 hours from HCMC) if you have 10+ days. See our <Link to="/blog/two-week-vietnam-itinerary-2026">2-week itinerary</Link>.
+        </p>
+        <h3>What is the most underrated Vietnamese destination?</h3>
+        <p>
+          <strong>Ninh Binh</strong> — often called "Halong Bay on land" with limestone karsts rising out of rice paddies, sampan boat rides at Trang An or Tam Coc, and the spectacular Mua Cave viewpoint. Only 90 minutes south of Hanoi, massively less crowded than Halong, and easier on the budget (homestays US$12-25/night). Phong Nha caves and Hue are also deeply underrated.
+        </p>
+        <h3>Best Vietnamese island?</h3>
+        <p>
+          <strong>Phu Quoc</strong> — the largest Vietnamese island, white-sand beaches, world{"'"}s longest sea cable car, and excellent seafood markets. Flight from HCMC (50 min, US$40-80). Runners-up: <strong>Con Dao</strong> for secluded luxury + diving, and <strong>Cat Ba</strong> as a base for Lan Ha Bay (quieter alternative to Halong).
+        </p>
+        <h3>Best destination for a cultural + old-town experience?</h3>
+        <p>
+          <strong>Hoi An</strong> — UNESCO World Heritage ancient town, daily lantern-lit evenings, excellent cooking classes, and best-quality tailored clothing in Vietnam (Yaly, Bebe, A Dong — 3-5 days turnaround). Hue is the other cultural stronghold with the Imperial Citadel + emperor tombs, plus bún bò Huế at its source.
+        </p>
+        <h3>Best destination for mountain + trekking adventure?</h3>
+        <p>
+          <strong>Sapa</strong> for terraced rice paddies + homestays with Hmong, Dao, and Tay ethnic minorities — 5h overnight train from Hanoi. The <strong>Ha Giang Loop</strong> (4 days, 350 km motorbike circuit near Chinese border) is the more adventurous alternative — Vietnam{"'"}s best-kept secret until recently, now popular with backpackers.
+        </p>
+        <h3>Best beach destinations beyond Phu Quoc?</h3>
+        <p>
+          <strong>Mui Ne</strong> for wind-surfing + sand dunes (4 hours from HCMC), <strong>Nha Trang</strong> for snorkeling + mass-market beach, and <strong>An Bang + Cua Dai</strong> near Hoi An for chilled beach days. Da Nang{"'"}s My Khe Beach is Vietnam{"'"}s urban beach. Quy Nhon is the under-the-radar pick for empty beaches + seafood.
+        </p>
+        <h3>Best destination for food?</h3>
+        <p>
+          <strong>Hoi An</strong> — cao lầu + white rose + banh mi (Bánh Mì Phượng is legendary), plus cooking classes are world-class. <strong>Hanoi</strong> for pho + bún chả + cha ca. <strong>HCMC</strong> for southern variety + international crossover. See our <Link to="/blog/vietnamese-food-guide-2026">Vietnamese food guide</Link> for dishes.
+        </p>
+        <h3>Best destination for nightlife?</h3>
+        <p>
+          <strong>Ho Chi Minh City{"'"}s Bui Vien Street + District 1</strong> for backpacker nightlife, rooftop bars (Chill Skybar, EON51), and craft beer (Pasteur Street Brewing). Hanoi{"'"}s Ta Hien Street (bia hoi corner) for cheap local draft beer culture. Da Nang and Nha Trang have beach-club scenes; Hoi An is quiet after 11pm.
+        </p>
+        <h3>North, Central, or South — which first?</h3>
+        <p>
+          <strong>North-to-south is the classic flow</strong> (Hanoi → Halong → Ninh Binh → Hue → Hoi An → HCMC → Mekong) because weather windows align with autumn/winter visitors. South-to-north works equally well for summer visitors. Either way, fly between far-flung legs to avoid 20-hour bus or train journeys.
+        </p>
+        <h3>Best destination for families with kids?</h3>
+        <p>
+          <strong>Hoi An</strong> — car-free old town, lantern workshops, cooking classes, beach 3km away — is the easiest Vietnamese destination for families. Phu Quoc for beach + VinWonders water park. Avoid Hanoi + HCMC with small kids during rush hour (motorbike chaos is intense). Ages 7+ love Halong Bay cruises.
+        </p>
+        <h3>Best destination for luxury travelers?</h3>
+        <p>
+          <strong>Six Senses Con Dao (remote island, US$800+/night), InterContinental Danang (Son Tra Peninsula), Four Seasons Nam Hai (Hoi An beach), JW Marriott Phu Quoc, Indochina Junk (Halong cruises)</strong> are the top-tier picks. Vietnam punches above its weight in luxury at 30-50% of Maldives/Thailand prices.
+        </p>
+        <h3>Best destination for UNESCO World Heritage sites?</h3>
+        <p>
+          Vietnam has 8 UNESCO sites — <strong>Halong Bay, Hoi An Ancient Town, My Son Sanctuary (Cham ruins), Hue Complex of Monuments, Phong Nha-Ke Bang (caves), Trang An Landscape (Ninh Binh), Thang Long Imperial Citadel (Hanoi), Ho Citadel</strong>. A well-planned 3-week trip can hit 6 of them.
+        </p>
+        <h3>Best destination for day-trips from Hanoi?</h3>
+        <p>
+          <strong>Ninh Binh (90 min — best day trip in Vietnam)</strong>, Perfume Pagoda (2 hours, pilgrimage site), Bat Trang Ceramics Village (45 min), and Mai Chau (3 hours, rural Thai ethnic village). Halong Bay is technically possible but overnight cruises are far better. Tam Dao and Ba Vi National Park for cooler mountain escapes.
+        </p>
+        <h3>Best destination for history enthusiasts?</h3>
+        <p>
+          <strong>Hue</strong> for Imperial Citadel + Forbidden Purple City + emperor tombs, <strong>HCMC</strong> for War Remnants Museum + Reunification Palace + Cu Chi Tunnels, and <strong>Dien Bien Phu</strong> (far northwest) for battlefield history. My Son Sanctuary (near Hoi An) for Cham civilization ruins dating to 4th century.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

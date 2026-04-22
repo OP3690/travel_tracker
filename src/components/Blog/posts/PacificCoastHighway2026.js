@@ -410,38 +410,49 @@ export default function PacificCoastHighway2026() {
         <h2 id="faq">11. PCH FAQ</h2>
 
         <h3>How long is the Pacific Coast Highway?</h3>
-        <p>
-          California State Route 1 is <strong>655 miles</strong>. Most
-          travelers drive the San Francisco-to-San Diego section (~500
-          miles) in 5–7 days.
-        </p>
+        <p>{"California State Route 1 is 655 miles end to end. Most travelers drive the San Francisco-to-San Diego section (roughly 500 miles) in 5–7 days; the northern Leggett-to-San Francisco section adds another 155 miles and two extra days if you include the Lost Coast detour."}</p>
 
         <h3>Can you drive the PCH in 3 days?</h3>
-        <p>
-          Physically yes, but you'll skip almost everything worth
-          stopping for. <strong>5 days is the minimum</strong> for a
-          reasonable pace; 7 is the sweet spot.
-        </p>
+        <p>{"Physically yes, but you will skip almost every pullout worth stopping for. 5 days is the realistic minimum, 7 is the sweet spot, and 10 days lets you add Hearst Castle, Mendocino and a night of wine tasting in Paso Robles without racing the sunset through Big Sur."}</p>
 
         <h3>Is Big Sur open in 2026?</h3>
-        <p>
-          As of April 2026, yes — the full Big Sur segment is open.
-          Check Caltrans.gov 48 hours ahead; winter rain occasionally
-          closes it 1–3 days at a time.
-        </p>
+        <p>{"As of April 2026, yes — the full Big Sur segment is open to through traffic. Always check Caltrans.gov within 48 hours of driving; winter rain closes Rocky Creek or Cape San Martin 1–3 days at a time, and the 2023 Regent's Slide bypass still has occasional one-way holds during storms."}</p>
 
         <h3>Is the PCH dangerous to drive?</h3>
-        <p>
-          No more than any mountain coast road — but the Big Sur
-          cliffside stretch rewards a slow, focused driver. Stop at
-          every pullout instead of gawking on the move.
-        </p>
+        <p>{"No more than any mountain coast road, but the Big Sur cliffside stretch (Carmel to San Simeon) rewards a slow, focused driver. Stop at every signed pullout instead of gawking while moving, never overtake in blind curves, and if you are nervous driving southbound puts you on the inland lane with a wall instead of a 500-ft drop."}</p>
 
         <h3>Is there cell service on the PCH?</h3>
-        <p>
-          Spotty between Monterey and San Luis Obispo (Big Sur). Full
-          coverage everywhere else.
-        </p>
+        <p>{"Spotty between Carmel and Ragged Point (the full Big Sur corridor) — expect no signal for roughly 80 miles on Verizon and AT&T. Download Google Maps offline and save podcasts or Spotify playlists in advance; full coverage resumes at Cambria and stays solid all the way to San Diego."}</p>
+
+        <h3>What's the best direction to drive — north to south or south to north?</h3>
+        <p>{"North to south every time. Southbound puts you on the ocean side of the road, where every pullout, every photo stop and every cliff edge is 15 feet from your passenger door instead of a dangerous left turn across traffic. Start in San Francisco, end in San Diego or Los Angeles."}</p>
+
+        <h3>What is the best time of year for the PCH?</h3>
+        <p>{"Late April through early June and all of September delivers the best combination — wildflowers, clear skies, 65–72 F, and 40% fewer RVs than July-August. Winter (Dec-Feb) is whale-migration season but closes the road frequently; summer fog (June-August) regularly hides the coastline until 11 AM."}</p>
+
+        <h3>Where should I stay along the way?</h3>
+        <p>{"Work around the two bottlenecks first — Big Sur lodging (Post Ranch, Ventana, Glen Oaks) and San Simeon/Cambria book 6+ months out for weekends. Good one-night picks in order: Sausalito or Half Moon Bay, Monterey/Carmel, Big Sur, Cambria or Paso Robles, Santa Barbara, Santa Monica or Laguna Beach."}</p>
+
+        <h3>How much does a PCH road trip cost in 2026?</h3>
+        <p>{"Budget $250–$350 per day for two people including a mid-range rental, gas, one Big Sur splurge night, and dinners at landmarks like Nepenthe. Mid-range travelers land at $450–$600 per day if they stay in Carmel and Santa Barbara; Post Ranch Inn alone runs $1,800+ per night and sells out regardless."}</p>
+
+        <h3>Can I rent a car in San Francisco and drop it in San Diego?</h3>
+        <p>{"Yes — one-way drops between SFO and SAN typically add $150–$250 per rental, which is cheaper than flying back to reposition. Book through Enterprise, Hertz or Avis direct (not a broker) to avoid surprise drop fees, and avoid LAX airport returns if possible — LAX return surcharges are notoriously steep."}</p>
+
+        <h3>Do I need a convertible?</h3>
+        <p>{"It is iconic but practical reality: Big Sur fog, coastal wind and roof-up driving 60% of the time make a comfortable SUV or crossover the smarter pick for most people. If you must go drop-top, rent it for just the 2–3 sunny days around Santa Barbara and Malibu rather than the whole trip."}</p>
+
+        <h3>Are there tolls on the PCH?</h3>
+        <p>{"Just two: the Golden Gate Bridge northbound-to-San Francisco return ($9.75, electronic only — no cash booth) and a few Los Angeles freeway express lanes you can avoid. Most rental companies auto-enroll you in their tolling program for a fee; decline it and it will still bill you through the license plate."}</p>
+
+        <h3>Can I do the PCH with kids?</h3>
+        <p>{"Yes, and it is one of the best US family road trips — but cap driving at 3 hours a day and stack kid-friendly stops: Monterey Bay Aquarium, elephant seals at Piedras Blancas, Hearst Castle (kids love the zebras), Santa Barbara Zoo, and Legoland near San Diego. Skip Big Sur hiking under age 7."}</p>
+
+        <h3>Is the PCH accessible for RVs or big vehicles?</h3>
+        <p>{"Most of it yes, but Big Sur's tight curves and 15% grades near Bixby Bridge are genuinely stressful for anything longer than 28 feet. Several pullouts ban vehicles over 25 ft, and campgrounds like Pfeiffer Big Sur cap RVs at 32 ft. Class B vans and truck campers have no issues anywhere on the route."}</p>
+
+        <h3>What's the single best stop most people skip?</h3>
+        <p>{"Point Reyes National Seashore, 90 minutes north of San Francisco — the Cypress Tree Tunnel, Drakes Beach and the Pierce Point Road tule elk herds deliver the trip's quietest wildlife half-day. Second-best under-visited: San Simeon's elephant seal rookery at Piedras Blancas, free year-round and best in January-February."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

@@ -162,11 +162,66 @@ export default function BanffCanadianRockiesGuide2026() {
         </p>
 
         <h2 id="faq">8. FAQ</h2>
-        <h3>Days needed?</h3><p><strong>5-7 days</strong>. Less rushes the Icefields; more is perfect.</p>
-        <h3>Moraine Lake access?</h3><p>Shuttle or commercial tour only. Book 3+ months ahead.</p>
-        <h3>Best hike?</h3><p><strong>Plain of Six Glaciers (Lake Louise)</strong> for first-timers; <strong>Larch Valley</strong> for fall.</p>
-        <h3>Rental car needed?</h3><p>Yes — absolutely. Pick up Calgary (YYC).</p>
-        <h3>Cheaper alternative base?</h3><p><strong>Canmore</strong>. 30 min to Banff, 20% cheaper.</p>
+        <h3>How many days do I actually need in the Rockies?</h3>
+        <p>
+          <strong>5-7 days is the sweet spot</strong> — anything less rushes the Icefields Parkway and misses Moraine Lake{"'"}s logistics window. A minimum 3-day visit covers Banff + Lake Louise + Moraine + one Jasper day; 7-10 days lets you hike the classics (Plain of Six Glaciers, Larch Valley, Wilcox Pass) and explore Yoho + Kootenay park additions.
+        </p>
+        <h3>How do I actually access Moraine Lake in 2026?</h3>
+        <p>
+          <strong>Private cars are banned year-round</strong> — access is via Parks Canada shuttle (C$8, book at parkscanadareservations.ca 2-3 months ahead) or commercial tour operator (Pursuit, Banff Jasper Collection, Moraine Lake Bus Company). Shuttles start before dawn for sunrise viewers. Walking or biking is also permitted on the access road.
+        </p>
+        <h3>What is the single best hike for first-timers?</h3>
+        <p>
+          <strong>Plain of Six Glaciers (Lake Louise, 14 km, 6 hours)</strong> — starts from Lake Louise shoreline, climbs moderate grade past the Victoria Glacier, ends at a teahouse with homemade pie (cash only, C$10-15). The best single day-hike in Banff. For shorter: Johnston Canyon Lower + Upper Falls (5 km, 2 hours) is accessible year-round.
+        </p>
+        <h3>When is the best month for a Rockies trip?</h3>
+        <p>
+          <strong>Late June through mid-July</strong> for wildflowers + long days + open trails; <strong>mid-September</strong> for golden larches (Larch Valley peaks Sept 20-30) + minimal crowds + clear air. Avoid August (peak crowds, wildfire smoke increasingly common), November (between seasons, nothing operating), and early June (trails still snow-covered above 2000m).
+        </p>
+        <h3>Do I absolutely need a rental car?</h3>
+        <p>
+          <strong>Yes — pick up at Calgary (YYC)</strong>. Public transit exists within Banff town (Roam bus) and to Lake Louise, but Icefields Parkway, Jasper, Yoho, and most trailheads require a car. 4WD is not needed; any standard AWD works year-round (snow tires required Nov 1-Mar 31 by law).
+        </p>
+        <h3>What is the cheapest base for budget travelers?</h3>
+        <p>
+          <strong>Canmore</strong> — 30 minutes from Banff town, 20-25% cheaper on hotels (C$180-250 vs C$280-400 in Banff), better local restaurants, and still has a Parks Canada gate on your drive in. Also: HI Banff Alpine Centre hostel (C$50-70/night) and Castle Mountain hostel for ultra-budget.
+        </p>
+        <h3>Banff or Jasper — which is better?</h3>
+        <p>
+          <strong>Banff has the icons</strong> (Lake Louise, Moraine, Banff Springs Hotel) and better facilities; <strong>Jasper has bigger wilderness, less crowds, and darker night skies (Dark Sky Preserve)</strong>. Ideal split for 7 days: 4 nights Banff + 2 nights Jasper + 1 night en-route at Saskatchewan River Crossing (Columbia Icefield area).
+        </p>
+        <h3>When should I book everything?</h3>
+        <p>
+          <strong>Banff hotels 4-6 months ahead</strong> (sell out May-September), Moraine Lake shuttle 2-3 months ahead, Lake Louise Chateau + Banff Springs 6+ months ahead, Rocky Mountaineer 4-6 months ahead, restaurants in Banff town 2-4 weeks ahead in peak season. Campsites open for booking in January — full by March.
+        </p>
+        <h3>Is it safe — bears, wildlife, weather?</h3>
+        <p>
+          <strong>Yes with basic precautions</strong> — carry bear spray (C$50 local, airlines do not allow carry-on), make noise on trails, store food properly, and never approach wildlife. Grizzly + black bear sightings happen but maulings are very rare. Weather can swing 20°C in a day — always carry rain + warm layer even in July. Cell service dies outside Banff + Jasper towns.
+        </p>
+        <h3>Is the Parks Canada Discovery Pass worth it?</h3>
+        <p>
+          <strong>Absolutely — C$75.25 for annual unlimited entry to all Parks Canada sites</strong>, vs C$11/day day passes. Pays for itself after 7 days of park time. Covers Banff, Jasper, Yoho, Kootenay, Waterton, Glacier (BC) — essentially all Rockies parks. Buy online or at the park entrance gate.
+        </p>
+        <h3>Best luxury Rockies experiences worth splurging on?</h3>
+        <p>
+          <strong>Fairmont Chateau Lake Louise (C$800-1,800/night), Fairmont Banff Springs (C$600-1,400), and Post Hotel Lake Louise (C$500-900)</strong> are the three iconic luxury hotels. For unique: sleep aboard the Rocky Mountaineer train (C$2,500-4,000 for 2 days Vancouver-Banff-Jasper), ice-climbing + helicopter tours (C$650-1,200), and Mt Assiniboine Lodge backcountry helicopter access.
+        </p>
+        <h3>Kid-friendly Rockies activities?</h3>
+        <p>
+          <strong>Yes — Lake Louise canoe rental (C$145/hour but unforgettable), Johnston Canyon (5 km mostly boardwalk), Banff Gondola (C$62 kids 6-17), Columbia Icefield Skywalk + Athabasca Glacier tour</strong>, and Upper Hot Springs swimming (C$16 adults, C$8 kids). Most Banff hotels have kids{"'"}s clubs in summer.
+        </p>
+        <h3>Can I see northern lights in Banff or Jasper?</h3>
+        <p>
+          <strong>Jasper yes — it is a Dark Sky Preserve</strong>, with occasional aurora visible September-March when solar activity is high. Banff has more light pollution but edge-of-town viewing works. <strong>Yellowknife (Northwest Territories) is the reliable Canadian aurora destination</strong> — 240+ aurora nights per year, book 6 months ahead for winter.
+        </p>
+        <h3>How do I combine Banff with Calgary or Vancouver?</h3>
+        <p>
+          <strong>Fly into Calgary (YYC), drive 90 minutes to Banff, 3-4 hours to Jasper, 7-8 hours to Vancouver via Icefields + Sun Peaks</strong> — one-way rental drop from Calgary to Vancouver is C$150-400 extra but worth it. Alternative: Rocky Mountaineer train YVR-Banff-Jasper or YVR-Banff in 2-3 days.
+        </p>
+        <h3>What photo spots absolutely cannot be missed?</h3>
+        <p>
+          <strong>Moraine Lake Rockpile at sunrise (5-7am, park the day before if possible), Lake Louise from the Chateau dock, Peyto Lake overlook, Wedge Pond mirror reflections at dawn</strong>, Athabasca Falls, Spirit Island (Maligne Lake boat tour, Jasper). Larch Valley in the last week of September is Canada{"'"}s most photographed fall scene.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

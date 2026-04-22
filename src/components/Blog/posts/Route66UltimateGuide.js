@@ -475,60 +475,49 @@ export default function Route66UltimateGuide() {
         <h2 id="faq">10. Route 66 FAQ</h2>
 
         <h3>Is Route 66 still drivable in 2026?</h3>
-        <p>
-          Yes. Approximately <strong>85% of the original 1926-1985
-          alignment remains drivable</strong>, with dedicated "Historic
-          Route 66" brown signage in all eight states. The other 15% is
-          either buried under the parallel interstate or rerouted around
-          flood-damaged bridges. Turn-by-turn brown signs will walk you
-          through every skip.
-        </p>
+        <p>{"Yes — roughly 85% of the original 1926-1985 alignment is still drivable, with 'Historic Route 66' brown signage across all eight states. The remaining 15% is either buried under the parallel interstate or rerouted around flood-damaged bridges. The 2026 centennial celebration has driven fresh federal and state investment in signage, so wayfinding is better this year than it has been in a decade."}</p>
 
         <h3>How long does Route 66 take to drive?</h3>
-        <p>
-          Non-stop: 38 hours. Realistically, <strong>10 to 14 days</strong>{' '}
-          at a pace that lets you actually see the road. Under 10 days and
-          you're effectively just driving the interstate with brown signs.
-        </p>
+        <p>{"Non-stop on interstates it is 38 driving hours. Realistically 10–14 days at a pace that lets you actually see the Mother Road, including 2 rest days. Under 10 days you are effectively just driving the interstate with brown signs; 14 days is the sweet spot for first-timers, and 3 weeks opens up Grand Canyon, Santa Fe and Petrified Forest side trips without rushing."}</p>
 
         <h3>What's the best direction to drive Route 66?</h3>
-        <p>
-          Chicago → Santa Monica (westbound) is the traditional direction
-          and — for most travelers — the better one. The sun stays behind
-          you in the afternoon, the anticipation of reaching the Pacific
-          builds naturally, and the terrain grows visually more dramatic as
-          you go.
-        </p>
+        <p>{"Chicago to Santa Monica (westbound) is the traditional direction and the better one for most travelers. The afternoon sun stays behind you, anticipation of reaching the Pacific builds naturally, and the terrain grows visually more dramatic as you cross from prairies into desert into mountains into coast. Eastbound suits travelers who live on the West Coast and want to end in a major airport city rather than LAX."}</p>
 
         <h3>Can I drive Route 66 in a rental car?</h3>
-        <p>
-          Yes, and it's actually the most popular way. <strong>One-way
-          rental</strong> from Chicago O'Hare to Los Angeles LAX runs
-          about $550–$900 in April/October rates. Book early — the Mother
-          Road's anniversary year has pushed one-way fees up sharply.
-        </p>
+        <p>{"Yes, and it is the most popular way to do it. One-way rentals from Chicago O'Hare to LAX run about $550–$900 in April/October pricing, plus $150–$400 in drop fees depending on agency. Book early — the centennial anniversary has pushed one-way fees up sharply — and choose Enterprise or National over budget brands for easier one-way drop acceptance."}</p>
 
         <h3>Is Route 66 safe to drive solo?</h3>
-        <p>
-          Overwhelmingly yes. Cell-service gaps and desert heat are the
-          genuine risks, not crime. Carry water, a paper atlas and a
-          printed list of hotels with confirmation numbers. The{' '}
-          <a
-            href="https://historic66.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Historic66.com route-description site
-          </a>{' '}
-          is still the gold-standard free resource for solo drivers.
-        </p>
+        <p>{"Overwhelmingly yes. Cell-service gaps (the Mojave from Needles to Amboy; the Texas panhandle west of Amarillo) and summer desert heat are the genuine risks, not crime. Carry 4 liters of water, a paper Rand McNally atlas, a printed hotel list with confirmation numbers, and a real spare tire — skip the donut. Solo women report the trip feels safer than most European solo road trips."}</p>
 
         <h3>What's the one thing most first-time drivers get wrong?</h3>
-        <p>
-          They plan too far per day. Route 66 isn't an interstate — the
-          entire point is to leave it to get back on it. 100 Mother Road
-          miles a day is plenty.
-        </p>
+        <p>{"They plan too many miles per day. Route 66 is not an interstate — the whole point is leaving the interstate to stop at the Blue Whale, the Gemini Giant, the Cadillac Ranch. Cap your daily driving at 180–220 miles (roughly 100 genuine Mother Road miles plus detours), and you will actually see the road instead of passing it at 75 mph."}</p>
+
+        <h3>What's the best time of year to drive Route 66?</h3>
+        <p>{"Late April through early June and all of September deliver the best conditions — 65-85 F across most of the route, lowest summer tourist volumes, and no snow in the Chicago-St. Louis leg. July-August brings 105+ F heat through Arizona and the Mojave; December-February closes some New Mexico and Arizona passes. October adds golden-hour lighting that photographers rave about."}</p>
+
+        <h3>How much does a Route 66 trip cost in 2026?</h3>
+        <p>{"Budget $2,800–$4,200 per person all-in for 14 days (solo) including rental, gas (roughly $450), lodging ($90-140/night at mid-range motels), food and attractions. Two travelers sharing halve the lodging and rental costs — expect $4,500–$6,800 total for the couple. Gas-to-route-distance ratio is roughly $700 for a mid-size car at current pump prices."}</p>
+
+        <h3>Which Route 66 states are the most interesting?</h3>
+        <p>{"New Mexico, Arizona and Oklahoma punch hardest per mile. New Mexico delivers Gallup, Santa Fe detour, Tucumcari's neon-lit motel row; Arizona has the best preserved stretches (Seligman, Hackberry, Oatman); and Oklahoma has more original alignment miles than any other state plus the best stretch of classic roadside Americana (Pops 66, Route 66 Museum in Clinton)."}</p>
+
+        <h3>Are the famous motels along Route 66 still open?</h3>
+        <p>{"Many yes, and they are booking 3–6 months out in 2026's centennial year. Must-book classics: Blue Swallow Motel (Tucumcari, NM), Wigwam Village #6 (Holbrook, AZ), El Rancho Hotel (Gallup, NM), and the Boots Court (Carthage, MO). Expect $90–$160 per night; amenities are basic but the vintage neon alone is worth the price."}</p>
+
+        <h3>What's the single must-stop on the route?</h3>
+        <p>{"If forced to pick one, the Cadillac Ranch west of Amarillo, TX — ten half-buried Cadillacs spray-painted over every day, free and open 24/7. Runners-up for the 'cannot miss' list: the Blue Whale in Catoosa OK, the Wigwam Motels, the Gemini Giant in Wilmington IL, and the Santa Monica Pier end-of-trail sign."}</p>
+
+        <h3>Do I need a 4WD or special vehicle?</h3>
+        <p>{"No — any normal passenger car handles 99% of the route since paved alignments are in good shape. A handful of pre-interstate alignments (Devil's Elbow in Missouri, the Oatman Pass in Arizona) have sharp switchbacks and steep grades that make RVs and trailers over 30 feet uncomfortable. Convertibles are iconic but impractical once the Mojave crossover hits July heat."}</p>
+
+        <h3>Can I do Route 66 with kids?</h3>
+        <p>{"Yes, and the Americana roadside attractions are legitimately kid-friendly — dinosaur museums in Illinois, the Meramec Caverns in Missouri, the Oatman burros roaming free in Arizona, the Wigwam Motels. Cap driving at 3 hours a day, factor in two hotel-pool afternoons a week, and bring tablets for the Texas panhandle and Mojave stretches where scenery becomes repetitive."}</p>
+
+        <h3>Should I visit the Grand Canyon as a detour?</h3>
+        <p>{"Yes, nearly everyone does — the detour from Williams, AZ is only 60 miles each way to the South Rim and adds just a full day to the itinerary. The Grand Canyon Railway from Williams is a fun substitute for driving. Time it so you arrive at the South Rim in late afternoon for sunset, overnight near the park, and hit Route 66 again by noon the next day."}</p>
+
+        <h3>What should I pack for Route 66 that I might forget?</h3>
+        <p>{"Paper atlas (cell coverage genuinely drops), small daypack for roadside walks, good sunglasses and SPF 50 (desert sun is brutal through windshields), ear plugs (old motels are noisy), a cooler for gas-station picnics, and a real camera if you care about photos — phones struggle with high-contrast desert light. Also cash for cash-only diners and Navajo trading posts."}</p>
 
         <h2 id="related">Keep Reading on StampYourMap</h2>
 

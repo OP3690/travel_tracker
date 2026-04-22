@@ -257,15 +257,52 @@ export default function EuropeTravelGuide2026() {
 
         <h2 id="faq">10. Europe FAQ</h2>
         <h3>How long should I spend in Europe?</h3>
-        <p>Minimum <strong>10-14 days</strong> for first timers. Sweet spot <strong>2-4 weeks</strong>.</p>
+        <p>{"Minimum "}<strong>10–14 days</strong>{" for first-timers — anything shorter and you're collecting airport boarding passes instead of experiences. Sweet spot is "}<strong>2–4 weeks</strong>{", covering 3–5 cities at a humane pace. Anything over 6 weeks needs visa planning (Schengen 90/180 rule). Rule of thumb: minimum 3 nights per city, 5 nights for capitals like Paris or Rome."}</p>
+
         <h3>Best country for first-timers?</h3>
-        <p><strong>Italy</strong>. Friendliest, best food, iconic sights, manageable logistics.</p>
-        <h3>Is Europe expensive?</h3>
-        <p>Western = yes. Central/Eastern = no. Balkans = cheapest. Portugal is the "cheap Western" exception.</p>
-        <h3>Euro everywhere?</h3>
-        <p>No — 21 EU countries use Euro. UK uses GBP; Switzerland uses CHF; Czechia CZK; Poland PLN; Hungary HUF; Croatia switched to EUR Jan 2023.</p>
-        <h3>Is the Interrail Pass worth it?</h3>
-        <p>Only if you\'re doing 4+ long train journeys. Individual tickets booked 60 days ahead are often cheaper.</p>
+        <p><strong>{"Italy"}</strong>{" — friendliest people, best food, iconic sights (Colosseum, Vatican, Uffizi, Pompeii), and manageable logistics with excellent high-speed trains. "}<strong>Portugal and Spain</strong>{" tie for runners-up: cheap, sunny, good food, relaxed pace. Avoid France, Germany, or Switzerland as your first-ever Europe trip — amazing but higher culture-shock for newcomers."}</p>
+
+        <h3>Is Europe expensive in 2026?</h3>
+        <p>{"Depends heavily on region. "}<strong>Western (UK, Ireland, France, Netherlands, Switzerland)</strong>{" — yes, €150–250/day mid-range. "}<strong>Southern (Spain, Italy, Greece, Portugal)</strong>{" — moderate, €100–150/day. "}<strong>Central/Eastern (Czechia, Poland, Hungary)</strong>{" — €60–90/day. "}<strong>Balkans (Albania, North Macedonia, Bosnia)</strong>{" — €40–60/day. Portugal is the 'cheap Western' exception until Lisbon prices catch up."}</p>
+
+        <h3>Is the Euro used everywhere?</h3>
+        <p>{"No — "}<strong>20 EU countries + Montenegro, Kosovo, San Marino, Andorra</strong>{" use Euro. "}<strong>UK uses GBP, Switzerland CHF, Czechia CZK, Poland PLN, Hungary HUF, Sweden SEK, Denmark DKK, Norway NOK</strong>{". Croatia joined the Euro January 2023; Bulgaria is scheduled for 2026 Q1. Carry a single Wise or Revolut card that holds all currencies to avoid conversion fees."}</p>
+
+        <h3>Is the Interrail/Eurail Pass worth it?</h3>
+        <p>{"Only if you're doing "}<strong>4+ long-distance train journeys without advance booking</strong>{". Individual "}<strong>Super Economy tickets 60–90 days ahead</strong>{" on Frecciarossa, TGV, ICE, and Renfe AVE are often 40–60% cheaper than pass + reservation fees. Passes win for spontaneous travel, night-train chains, and multi-country crossings in Central Europe."}</p>
+
+        <h3>Schengen rules — how do they actually work?</h3>
+        <p><strong>{"90 days in any rolling 180-day window"}</strong>{" across all 27 Schengen countries combined (not per country). If you've spent 60 days in Europe in the past 6 months, you only have 30 left. "}<strong>UK, Ireland, Croatia joined partially; Romania/Bulgaria joined air/sea 2024</strong>{". "}<strong>ETIAS (€7 pre-authorisation)</strong>{" launches late 2026 for non-EU travellers."}</p>
+
+        <h3>Best time of year to visit Europe?</h3>
+        <p><strong>{"May and September"}</strong>{" — the 'shoulder sweet spots' with 20–25°C, half the crowds of July/August, and 25–35% cheaper hotels. "}<strong>June</strong>{" great for northern Europe (Norway, Scotland, Iceland). "}<strong>October–November</strong>{" cheap and moody, great for cities but wet for countryside. Avoid August in Paris and Rome — locals leave, many restaurants shut."}</p>
+
+        <h3>Are there safety concerns for American/Asian travellers?</h3>
+        <p>{"Europe is overall very safe — violent crime against tourists is extremely rare. Real risks are "}<strong>pickpockets (Barcelona Las Ramblas, Rome Termini, Paris Métro line 1, Prague Old Town)</strong>{" and tourist-zone scams. Keep wallets in front pockets, bags zipped across the body. Avoid unlit parks late at night in any capital. Women alone is broadly safe; Southern Europe has more catcalling than harm."}</p>
+
+        <h3>Language barrier — do I need to learn one?</h3>
+        <p>{"English is functional in every major tourist city, especially Nordic countries, Netherlands, Germany, and hospitality workers anywhere. Southern Europe (rural Italy, Spain, Greece, Portugal) and Eastern Europe benefit from a phrasebook. "}<strong>Google Translate offline mode</strong>{" for each country saves data. Learn 'hello, please, thank you, cheers' in the local language — locals visibly warm up."}</p>
+
+        <h3>Best transport between cities?</h3>
+        <p><strong>{"High-speed trains (Eurostar, Frecciarossa, TGV, ICE, Renfe AVE)"}</strong>{" beat flights for 2–4 hour city pairs — city-centre to city-centre, no security, no baggage fees. Fly only for 600+ km or islands (Greece, Malta, Sicily). Budget airlines ("}<strong>Ryanair, Wizz, easyJet</strong>{") are cheap but strict on carry-on (55×40×20cm). Night trains are back — "}<strong>ÖBB Nightjet, European Sleeper</strong>{" for Paris–Berlin, Amsterdam–Vienna."}</p>
+
+        <h3>Cash or card culture?</h3>
+        <p><strong>{"Card-dominant: UK, Ireland, Scandinavia, Netherlands, Belgium, Austria, Switzerland"}</strong>{". "}<strong>Cash useful: Germany, France (small shops), Italy (small towns), Greece, Portugal, Eastern Europe</strong>{". Carry €50–100 per country. Use "}<strong>Wise, Revolut, or Charles Schwab</strong>{" to avoid fees. Always choose 'charge in local currency' at terminals and ATMs."}</p>
+
+        <h3>Tipping across Europe — one rule?</h3>
+        <p>{"No single rule. "}<strong>UK/Ireland: 10–12%</strong>{" at sit-down restaurants. "}<strong>France: round up, €1–2 is plenty</strong>{". "}<strong>Italy/Spain/Portugal: round up or 5–10% for excellent service</strong>{". "}<strong>Germany/Austria: say the rounded total when you hand over payment</strong>{". "}<strong>Nordics: service included, no tipping needed</strong>{". Hotel porters €1–2/bag everywhere."}</p>
+
+        <h3>Health insurance and healthcare?</h3>
+        <p>{"Buy travel insurance with "}<strong>€50,000+ medical + evacuation</strong>{" — "}<strong>SafetyWing, World Nomads, Allianz</strong>{". EU citizens use EHIC/GHIC cards. Public hospitals in Western Europe deliver excellent care for emergencies; pharmacies (green cross) handle minor issues with English-speaking staff. Carry prescriptions in original labelled packaging at border crossings."}</p>
+
+        <h3>What's the best connectivity setup?</h3>
+        <p><strong>{"eSIM via Airalo, Holafly, or Ubigi"}</strong>{" covers the whole continent from $25 for 10 GB / 30 days. "}<strong>EU roaming is free</strong>{" for EU-issued SIMs (so if you'll be in Europe long-term, buy a Spanish or German SIM and use it everywhere). UK SIMs now have roaming surcharges post-Brexit — use eSIM instead."}</p>
+
+        <h3>Cultural etiquette rules worth knowing?</h3>
+        <p><strong>{"Cover shoulders/knees in churches"}</strong>{" (Rome, Spain, Greece). "}<strong>Greet shopkeepers with "bonjour/buongiorno/hola" when entering</strong>{" — silence is rude. "}<strong>Don't ask for tap water in Italy/France/Spain without saying please</strong>{". "}<strong>In Germany, be punctual to the minute</strong>{". "}<strong>Nordics value personal space and silence on public transport</strong>{" — don't make loud small talk."}</p>
+
+        <h3>Packing essentials for varied climates?</h3>
+        <p><strong>{"Layered clothing"}</strong>{" (fleece, packable rain shell, linen shirt); "}<strong>Comfortable walking shoes that aren't sneakers</strong>{" (Europeans dress up more); "}<strong>Universal plug adapter (Type C/E/F/G depending on country)</strong>{"; "}<strong>Reusable water bottle</strong>{" for tap refills; "}<strong>Small crossbody zip bag</strong>{" (pickpocket deterrent). Skip US-style cargo shorts unless touring a beach resort."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

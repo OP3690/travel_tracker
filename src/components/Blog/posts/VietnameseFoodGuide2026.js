@@ -136,9 +136,66 @@ export default function VietnameseFoodGuide2026() {
         </ol>
 
         <h2 id="faq">10. FAQ</h2>
-        <h3>Best single dish?</h3><p><strong>Pho Thin in Hanoi</strong> — the original, since 1979.</p>
-        <h3>Vegetarian-friendly?</h3><p>Moderate. Many pho places serve pho chay (veg). "Chay" = vegetarian.</p>
-        <h3>Food budget?</h3><p>Backpacker: <strong>$6/day</strong>. Mid: <strong>$15/day</strong>. Comfort: <strong>$35+/day</strong>.</p>
+        <h3>What is the single best Vietnamese dish to try first?</h3>
+        <p>
+          <strong>Pho at Pho Thin on Lo Duc Street in Hanoi</strong> (since 1979, original stir-fried beef pho, 70,000 VND / US$2.80) — the single most iconic Vietnamese meal experience. Runners-up: bún chả at Bún Chả Hương Liên (where Obama + Bourdain ate), bánh mì at Bánh Mì Phượng in Hoi An, and cao lầu at Morning Glory Hoi An.
+        </p>
+        <h3>Which city is the best for food overall?</h3>
+        <p>
+          <strong>Hoi An for variety and cooking classes</strong> (cao lầu, white rose, banh xeo, and excellent teaching), <strong>Hanoi for pho + bún chả + cha ca</strong> (northern classics at their source), and <strong>HCMC for southern variety + international crossover</strong>. Hue for imperial cuisine (bún bò Huế). Each region has genuinely distinct flavors.
+        </p>
+        <h3>How vegetarian-friendly is Vietnamese food?</h3>
+        <p>
+          <strong>Moderate — Vietnam has a strong Buddhist vegetarian tradition</strong> where "chay" = vegetarian. Many pho places serve pho chay (mushroom + tofu), and dedicated chay restaurants exist in every city. Hoi An, Hue, and HCMC all have excellent dedicated vegan/vegetarian restaurants (Minh Hien in Hue is legendary). Be cautious: nuoc mam (fish sauce) is in many default dishes; ask "khong có nước mắm" for no fish sauce.
+        </p>
+        <h3>Are allergies and dietary restrictions handled well?</h3>
+        <p>
+          <strong>Peanut + shellfish allergies need caution</strong> — peanuts are in many dishes (pho garnish, spring rolls dip, satay), and fish sauce / shrimp paste in many sauces. Write allergies in Vietnamese on a card (show at restaurants) and stick to mid-range places where English is better. Gluten-free is easier: rice noodles are the default base.
+        </p>
+        <h3>Where do I find the best street food?</h3>
+        <p>
+          <strong>Hanoi Old Quarter (Hang Bac, Hang Buom, Cha Ca streets) and HCMC{"'"}s District 4 (Vĩnh Khánh Street seafood alley)</strong>, plus Hoi An{"'"}s Phan Chu Trinh street and Hue{"'"}s Đông Ba Market. Eat on tiny plastic stools at busy stalls — the busier the turnover, the fresher the food. Avoid dead-quiet stalls with pre-cooked pots sitting out.
+        </p>
+        <h3>Is tipping expected at Vietnamese restaurants?</h3>
+        <p>
+          <strong>Not traditionally — tipping is not expected at street food or casual places</strong>. At nicer restaurants and tourist-focused eateries, 5-10% is increasingly appreciated. Round up the bill to the nearest 10,000 or 50,000 VND. Do not leave cash at street stalls; it creates confusion. Tour cooking-class guides welcome 100,000-200,000 VND tips (US$4-8).
+        </p>
+        <h3>What regional specialties absolutely cannot be missed?</h3>
+        <p>
+          <strong>North: pho bò + chả cá Lã Vọng + bún chả + bánh cuốn. Central: cao lầu + white rose + mì Quảng + bún bò Huế. South: hủ tiếu + bánh xèo + canh chua + caramelized pork belly</strong>. Each region has a unique approach to the same base ingredients (rice, herbs, fish sauce, pork).
+        </p>
+        <h3>How should I approach pho properly?</h3>
+        <p>
+          <strong>Add lime juice, torn herbs (Thai basil, cilantro, culantro), chili, bean sprouts, and a squeeze of hoisin or sriracha</strong> — Vietnamese customize each bowl to taste. Eat within 5 minutes of arrival: pho wilts fast as noodles soak broth. Slurping is normal. Hanoi pho is simpler + clearer; Saigon pho is sweeter + herbier.
+        </p>
+        <h3>Is street food safety a real concern?</h3>
+        <p>
+          <strong>Generally very safe — Vietnamese street food has high turnover meaning fresh ingredients</strong>, and the cuisine relies on heat + fermentation for safety. Rules of thumb: eat where locals eat (crowded stalls), avoid pre-cooked meats sitting in warmers, peel fruit yourself. First 3-4 days, ease in; carry Imodium + oral rehydration for safety.
+        </p>
+        <h3>Markets vs restaurants — what{"'"}s the best strategy?</h3>
+        <p>
+          <strong>Breakfast + lunch at markets + street stalls (US$1-3/meal), dinner at mid-range restaurants for atmosphere (US$6-15)</strong>. The best Vietnamese food is genuinely on the street, not in restaurants. Cooking classes bridge both — you learn market shopping + restaurant techniques. Avoid the "tourist restaurant" trap with English-only menus and high prices.
+        </p>
+        <h3>When is seasonal specialty time?</h3>
+        <p>
+          <strong>Lunar New Year (Tet, late Jan-Feb): bánh chưng sticky-rice cakes, mứt candied fruit. Summer (May-Aug): bún mắm with prawns, fresh fish sauces. Autumn: mooncakes for Mid-Autumn Festival. Year-round: pho, spring rolls, fresh herbs</strong>. Northern winter (Dec-Feb) brings hot pot + chả cá popularity.
+        </p>
+        <h3>Food budget per day — realistic numbers?</h3>
+        <p>
+          <strong>Backpacker US$5-8/day</strong> (3 street meals + 2 cafés), <strong>mid-range US$15-25/day</strong> (mix of street + restaurant), <strong>comfort US$35-60/day</strong> (fine dining + cocktails). Local beer (Bia Saigon, Hanoi Bia Hoi) is US$0.50-1.50; imported beers + cocktails push US$4-8. Excellent Vietnamese coffee is US$1-2.
+        </p>
+        <h3>Are cooking classes worth the money?</h3>
+        <p>
+          <strong>Absolutely yes in Hoi An</strong> — Red Bridge Cooking School, Morning Glory, and Tra Que Village classes (US$30-55) include market tour + 4-5 dishes + eating lunch. Hanoi Cooking Centre teaches pho from scratch. HCMC{"'"}s Vietnam Cookery Centre covers southern cuisine. The hands-on market shopping is as valuable as the cooking itself.
+        </p>
+        <h3>How safe is the ice in drinks?</h3>
+        <p>
+          <strong>Usually safe at established cafés and restaurants (ice made from filtered water in factory blocks with a hole in the middle)</strong>. Be suspicious of irregular-shaped ice chips at random street stalls. Bottled water-based drinks (bubble tea, cà phê sữa đá) are almost always safe. When uncertain, order "không đá" (no ice).
+        </p>
+        <h3>Best coffee culture in Vietnam?</h3>
+        <p>
+          <strong>Vietnam is the world{"'"}s 2nd-largest coffee producer</strong> and has a unique coffee culture — cà phê sữa đá (strong drip coffee with condensed milk + ice), egg coffee (Giảng in Hanoi invented it), coconut coffee (Cộng Cà Phê chain), and salt coffee (Hue). US$1-3 per coffee, dense + bold, often 3x stronger than Western coffee.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

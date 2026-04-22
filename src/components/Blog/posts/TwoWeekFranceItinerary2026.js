@@ -163,14 +163,36 @@ export default function TwoWeekFranceItinerary2026() {
         </p>
 
         <h2 id="faq">7. FAQ</h2>
-        <h3>Can I do this in 10 days?</h3>
-        <p>Yes — drop Loire or Bordeaux. 10-day: Paris (4) → Bordeaux (2) → Provence (2) → Nice (2).</p>
-        <h3>Reverse the route?</h3>
-        <p>Yes — fly into Nice, end in Paris. Often cheaper from US East Coast.</p>
-        <h3>Rent a car?</h3>
-        <p>Only for Loire + Provence regions, not cities. TGV for intercity.</p>
-        <h3>Kids-friendly?</h3>
-        <p>Yes — Disneyland Paris day-trip fits easily after Versailles.</p>
+        <h3>Can I compress this 14-day route into 10 days?</h3>
+        <p>{"Yes — drop either Loire or Bordeaux and tighten Provence to two nights: Paris (4) → Bordeaux (2) → Avignon (2) → Nice (2). Any shorter than 10 days and you're spending more time in stations than at châteaux. Don't try to fit Corsica or the Alps into a 10-day loop — they need a separate trip."}</p>
+        <h3>Should I reverse the route and fly into Nice?</h3>
+        <p>{"Absolutely — EasyJet, Delta, and United often price NCE (Nice) arrivals €80-180 cheaper than CDG from the US East Coast in shoulder season. Reversing lets you acclimate slowly in Provence (fewer crowds, warmer nights) and end in Paris with energy for the big-hitter sights. The TGV runs the same both directions."}</p>
+        <h3>When should I rent a car on this itinerary?</h3>
+        <p>{"Only for the Loire and Provence legs — cities are a nightmare for parking (€30-45/day) and Paris, Lyon, Bordeaux, and Nice have Crit'Air low-emission zones that fine non-compliant plates €68. Pick up a compact at the Tours TGV station or Avignon Centre and return it before re-entering any city. Automatic transmissions cost 30-40% more — book early."}</p>
+        <h3>Is this trip doable with kids, and what should I adjust?</h3>
+        <p>{"Very doable for ages 6+. Swap one Louvre day for Disneyland Paris (RER A from central Paris in 40 minutes), add a boat ride on the Dordogne, and build in a beach afternoon at Cannes or Nice. Under-4s ride TGV free and museums are typically free under 18; plan 90-minute museum blocks, not 3-hour marathons, to avoid meltdowns."}</p>
+        <h3>How do I handle jet lag on arrival day in Paris?</h3>
+        <p>{"Book an arrival hotel for early check-in (Hôtel Malte Opéra or similar, €140-180 with 11am guaranteed), shower, and force yourself outside for a 2-hour walk along the Seine. Eat a light lunch, no nap longer than 45 minutes, and stay up until 21:00 local. Save the Louvre for day 2 or 3 — you'll remember nothing on day 1."}</p>
+        <h3>When should I book TGV tickets for the best prices?</h3>
+        <p>{"SNCF's booking window opens exactly 4 months out to the day — set a calendar reminder and buy at 07:00 Paris time when inventory drops. Super Economy fares (€29-55) sell out in 24-48 hours on peak routes; buying 30 days out typically costs 2-3x more. Ouigo (SNCF's low-cost brand) is cheaper again but stops at outer stations."}</p>
+        <h3>Can I rely on carry-on only for two weeks in France?</h3>
+        <p>{"Yes, and it's genuinely the right call — TGV luggage racks are narrow, Paris walk-ups rarely have lifts, and cobbled streets destroy rolling wheels. A 40L backpack or 35L spinner plus a packable daypack handles the whole trip if you plan two laundry cycles (€6-9 at self-service lavomatics in Lyon and Nice). Skip the checked bag tax and the carousel wait."}</p>
+        <h3>What if it rains for three days straight in Paris or Brittany?</h3>
+        <p>{"Build a rainy-day B plan for every stop: Louvre + Musée d'Orsay in Paris, Musée des Confluences in Lyon, the Mucem in Marseille, and the Palais des Papes in Avignon are all excellent in bad weather. Breton rain is atmospheric — Saint-Malo's ramparts are spectacular under grey skies. Move planned picnics indoors to a covered market like Les Halles de Lyon."}</p>
+        <h3>Is this route good for solo travellers or couples?</h3>
+        <p>{"Couples get the best value — double rooms at €110-160/night beat two hostel beds, and TGV seats are sold in pairs. Solo travellers save money at hostels (St Christopher's Paris at €45, Hello Lyon at €38) and find instant company on food-tour meetups. Both styles do fine; the only real adjustment is booking one cheaper hotel room vs two hostel dorms."}</p>
+        <h3>How accessible is this itinerary for older travellers or mobility issues?</h3>
+        <p>{"Paris Metro lines 1 and 14 are fully step-free; most others aren't. TGVs have wheelchair spots (book via SNCF Accès Plus 48h ahead). Book ground-floor or lift-equipped hotels (filter on Booking.com), add one extra night per stop to slow the pace, and hire private transfers (€80-120) between train stations and hotels to skip luggage-on-stairs hell."}</p>
+        <h3>What's the backup plan if a TGV strike hits mid-trip?</h3>
+        <p>{"French rail strikes usually give 48h notice via SNCF's Info Trafic app. Fallback: BlaBlaCar (ride-share, €25-50 per leg), FlixBus/BlaBlaBus overnight coaches, or a one-way Europcar rental. Travel insurance with strike coverage (World Nomads, AXA) reimburses extra lodging. Don't panic-buy refundable flights; strikes typically last 1-3 days."}</p>
+        <h3>Can I add a London or Barcelona extension?</h3>
+        <p>{"Yes — Paris-London is 2h15 on Eurostar (€59-130 booked early) and Paris-Barcelona is 6h30 direct TGV (€39-89). Add 3 nights minimum per city or skip it; a 2-night add-on wastes half the time on trains. Schengen clock matters: London is outside, Barcelona inside — a 14-day France + 3-day Barcelona adds up against your 90/180 allowance."}</p>
+        <h3>What's the biggest itinerary mistake to avoid?</h3>
+        <p>{"Moving hotels every day. Three nights minimum per base (Paris, Loire, Bordeaux, Provence, Nice), two nights only if unavoidable. Daily packing kills the trip — you spend 90 minutes a day in transit and arrive exhausted at each new city. Use day trips (Versailles from Paris, Saint-Émilion from Bordeaux) to see more without changing beds."}</p>
+        <h3>How much should I budget for this itinerary per person?</h3>
+        <p>{"Backpacker at €70/day = €980, mid-range at €175/day = €2,450, and comfort at €425/day = €5,950 — not counting flights or TGV. Add €220-320 per person for TGV legs booked 60+ days out, and €40-80 for metro and local transit. Build in a €150 buffer for one splurge meal (think Bocuse-disciple bistro in Lyon)."}</p>
+        <h3>Is it worth shifting Corsica or the Alps into this plan?</h3>
+        <p>{"Only if you can extend to 18-21 days. Corsica needs a ferry or flight from Nice/Marseille plus a car (4 nights minimum to justify it); Chamonix and the Alps add a 2h30 TGV to Annecy plus 1h40 bus. Both are superb but they replace, not supplement — swap Loire + Bordeaux for Alps + Corsica if mountain/island is your priority."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

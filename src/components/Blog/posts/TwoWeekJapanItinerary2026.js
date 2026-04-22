@@ -212,29 +212,49 @@ export default function TwoWeekJapanItinerary2026() {
         <h2 id="faq">8. FAQ</h2>
 
         <h3>Can I do this in 10 days?</h3>
-        <p>
-          Yes — drop Hakone and Hiroshima. 10-day version:{' '}
-          Tokyo (3) → Kanazawa (2) → Kyoto (3) → Osaka (2) → return.
-        </p>
+        <p>{"Yes — drop Hakone and Hiroshima. The best 10-day compression: Tokyo (3 nights) → Kanazawa (2) → Kyoto (3) → Osaka (2) and return from KIX. You still cover the essential arc of modern Tokyo, traditional Kanazawa, temple-dense Kyoto and food-focused Osaka. Under 10 days is not enough to justify the long-haul flight and $600+ in JR costs."}</p>
 
         <h3>Can I do this in 21 days?</h3>
-        <p>
-          Yes — add <strong>Hokkaido (4 days)</strong> between Tokyo and
-          Kanazawa, or <strong>Okinawa (4 days)</strong> at the end.
-        </p>
+        <p>{"Yes — add Hokkaido (4 nights in Sapporo/Furano/Otaru) between Tokyo and Kanazawa for summer/winter contrast, or Okinawa (4 nights Naha + Ishigaki) at the end for beach wind-down. A 21-day plan also works well splitting into 'food Japan' (Fukuoka + Osaka + Kyoto) and 'classic Japan' (Tokyo + Kanazawa + Takayama)."}</p>
 
-        <h3>Is this good in November (foliage)?</h3>
-        <p>
-          Yes — actually the single best month. Kyoto's foliage in mid-
-          November is the famous one; Kanazawa's Kenrokuen is arguably
-          better.
-        </p>
+        <h3>Is this good in November for foliage?</h3>
+        <p>{"Yes, actually the single best month for the classic itinerary. Kyoto's momiji peaks November 15-25 at Tofukuji, Eikando and the Arashiyama bamboo grove — the foliage rivals or exceeds sakura for scenery. Kanazawa's Kenrokuen garden hits peak foliage around the same time and is less crowded. Book 4-6 months ahead for mid-November as ryokans and good hotels sell out fast."}</p>
 
         <h3>Can I reverse the route?</h3>
-        <p>
-          Yes. Fly into Osaka (KIX) instead of Tokyo and do it backward.
-          Actually slightly cheaper flights from the US west coast.
-        </p>
+        <p>{"Yes. Fly into Osaka (KIX) instead of Tokyo, start in Osaka-Kyoto while you are jet-lagged (temple-walking suits slow recovery better than Tokyo nightlife), then finish in Tokyo where you can use leftover energy for shopping, museums and departure flights. Flights from the US West Coast into KIX are often $80-150 cheaper than Narita."}</p>
+
+        <h3>What's the pace like — is this too aggressive?</h3>
+        <p>{"The standard 14-day pace (2-4 nights per base) works for most travelers, including first-timers. If you are over 60, traveling with small children, or have mobility concerns, bump Tokyo to 5 nights and Kyoto to 5 nights and cut Hiroshima — less transit, same highlight coverage. First-time Japan travelers consistently report wishing they had moved less, not more."}</p>
+
+        <h3>Do I need a JR Pass in 2026?</h3>
+        <p>{"For this itinerary in 2026 — probably not. After the 2023 price hike the 14-day JR Pass costs around 80,000 yen, while this route's single shinkansen tickets total roughly 55,000-60,000 yen. Buy individual tickets via Smart EX or Klook. Consider the regional Kansai-Hokuriku Pass (Kyoto-Osaka-Kanazawa for about 19,000 yen) as a cheaper partial option."}</p>
+
+        <h3>How do I handle jet lag from North America/Europe?</h3>
+        <p>{"Arrive into Narita/Haneda after noon local time, check in, walk outside for 90 minutes of sunlight, eat a real dinner, and sleep by 10 PM. Do not nap on day 1. Take melatonin (3mg) at 9 PM for the first 3 nights. Save Tokyo's more mentally-demanding days (teamLab, Tsukiji tour) for day 3+; spend day 2 on outdoor walks like Meguro River and Yoyogi Park."}</p>
+
+        <h3>Carry-on or checked bag?</h3>
+        <p>{"Strongly prefer carry-on only. Shinkansen overhead space is strict (oversized-bag reservations now required), Japanese hotel rooms are genuinely small (22 sqm typical business hotel), and Japanese apartments and ryokans have zero storage for a 30-inch spinner. A 40-45L backpack or 21-inch roller is ideal. Use luggage forwarding (Yamato Takkyubin) between cities if you must bring a big bag — 2,000 yen, next-day."}</p>
+
+        <h3>Should I book internal flights instead of trains?</h3>
+        <p>{"Only for Hokkaido, Okinawa, and Fukuoka. For the Tokyo-Kyoto-Hiroshima core, shinkansen is faster city-center-to-city-center and equally priced after you factor airport transfers. If your itinerary includes Kyushu (Fukuoka) or Hokkaido, Peach, Jetstar and ANA domestic flights for 8,000-15,000 yen beat 7-hour train journeys."}</p>
+
+        <h3>Can I do this with kids?</h3>
+        <p>{"Absolutely — Japan is the easiest major Asian country to travel with kids. Add teamLab Planets (Tokyo), Ghibli Museum (book 6 months ahead), Kyoto Railway Museum, Osaka Aquarium Kaiyukan, and Universal Studios Japan. Drop the kaiseki and Gion walk; keep shinkansen rides (kids love them) and ryokan onsens at family-friendly places with private baths. Pack car-sickness meds for Hakone loop day."}</p>
+
+        <h3>How does this change for solo versus couples?</h3>
+        <p>{"Solo travelers save dramatically by using capsule hotels (2,500-4,500 yen) and single rooms; join a food tour on Day 2-3 for instant friends. Couples should splurge on one ryokan night (Hakone or Takayama) and one fine-dining meal. Both benefit from the Tokyo omakase booking culture — solo travelers actually get better counter seats at Sushi Saito, Sushi Tokami and Quintessence."}</p>
+
+        <h3>Rainy-day backup plan for Kyoto?</h3>
+        <p>{"Rain in Kyoto actually improves many experiences — Fushimi Inari shrine under umbrellas is less crowded and more photogenic; Nanzen-ji and Ginkaku-ji moss gardens glow. Indoor rainy-day picks: Kyoto Railway Museum, Nijo Castle, the underground Kyoto Station observation deck, Nishiki Market food tour, and a tea ceremony at Camellia Garden. Bring a clear plastic umbrella — sold at every conbini for 500 yen."}</p>
+
+        <h3>What should I NOT do on a first 2-week trip?</h3>
+        <p>{"Do not add Hokkaido or Okinawa on your first trip — each deserves 5+ days and cannibalizes Honshu time. Do not try to visit all 15 major Kyoto temples (pick 5 and do them properly). Do not skip a ryokan night; it is the single most unique cultural experience and cannot be recreated at a regular hotel. Do not over-research restaurants — spontaneous izakaya finds are half the joy."}</p>
+
+        <h3>When should I book this trip?</h3>
+        <p>{"Sakura season (March 25-April 10): 6 months ahead minimum. Momiji (mid-November): 4-5 months ahead. Summer (June-August): 2-3 months is fine. Off-peak (February, early June, late September): 4-6 weeks works. Ryokans and Kyoto machiya always book first — lock those in before anything else, even before flights."}</p>
+
+        <h3>How much budget do I need for 14 days?</h3>
+        <p>{"Budget (2 travelers sharing): $4,500-5,800 total excluding flights — hostels plus conbini meals plus shinkansen. Mid-range: $7,500-9,500 total — business hotels plus mid-range restaurants plus 1 ryokan night. Comfort: $13,000-17,000 — 4-star hotels plus 2 ryokan nights plus 2 fine-dining meals. Flights add $2,000-3,600 per couple. Current weak yen makes this 25-35% cheaper than 2019."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

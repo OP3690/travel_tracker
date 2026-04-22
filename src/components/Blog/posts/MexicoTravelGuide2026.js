@@ -195,16 +195,38 @@ export default function MexicoTravelGuide2026() {
         </ol>
 
         <h2 id="faq">9. Mexico FAQ</h2>
-        <h3>How long?</h3>
-        <p>Minimum <strong>10 days</strong>. Sweet spot <strong>14-21 days</strong>.</p>
-        <h3>Mexico City worth it?</h3>
-        <p>Absolutely yes. Arguably the most exciting city in the Americas.</p>
-        <h3>Currency?</h3>
-        <p>Mexican peso (MXN). Roughly <strong>17 MXN = $1 USD</strong> in April 2026. USD widely accepted in tourist areas but you get worse rates.</p>
-        <h3>Is it safe for solo female travelers?</h3>
-        <p>Yes in tourist Mexico with standard precautions. Consider female-only tour companies for hiking/deep Oaxaca.</p>
-        <h3>Tipping?</h3>
-        <p>10-15% at restaurants, 10-20 pesos for bellhops, round up for Uber.</p>
+        <h3>How long should a first trip to Mexico be?</h3>
+        <p>{"Ten days is the realistic minimum (CDMX 4 + one region: Oaxaca, Yucatán, or Baja), 14-21 days is the sweet spot for multi-region trips. Under a week forces you into an all-inclusive resort mindset and misses the country's real range — colonial cities, ancient ruins, cenotes, surf coasts, and the best food scene in the Americas."}</p>
+        <h3>Is Mexico City (CDMX) worth visiting, and how many days?</h3>
+        <p>{"Absolutely yes — CDMX is arguably the most exciting city in the Americas right now. Plan 4-5 nights: Centro Histórico + Palacio de Bellas Artes, Condesa/Roma cafés and taquerías, Coyoacán for Frida Kahlo's house, Teotihuacán pyramids day trip, Xochimilco colourful boats. Altitude (2,240m) takes 24-48h to adjust — go easy on day one."}</p>
+        <h3>What's the currency and exchange strategy?</h3>
+        <p>{"Mexican peso (MXN), roughly 17-18 MXN to 1 USD in 2026. USD is widely accepted in Cancún, Cabo, and tourist zones but you get 10-15% worse rates than exchanging pesos. Use a no-foreign-fee card (Wise, Revolut, Charles Schwab) at BBVA, Santander, or HSBC ATMs. Avoid airport exchange counters — rates are brutal."}</p>
+        <h3>How safe is Mexico for tourists in 2026?</h3>
+        <p>{"Tourist Mexico is significantly safer than US headlines suggest — CDMX's Roma/Condesa, Yucatán, Oaxaca, Guanajuato, and the Baja Sur coast are low-risk with normal precautions. Avoid inter-city bus travel after dark in cartel-affected states (Guerrero, Michoacán, Tamaulipas, Sinaloa's interior). Uber is safer than street taxis in CDMX; use well-reviewed ADO first-class buses for intercity."}</p>
+        <h3>Is Mexico safe for solo female travellers?</h3>
+        <p>{"Yes in tourist zones with standard precautions — CDMX (Roma/Condesa), Oaxaca city, Mérida, Tulum, San Cristóbal, Guanajuato all have strong female-solo traveller communities. Book female-friendly hostels (Hostel Mundo Joven, Selina), use Uber not street taxis, and skip Cabo nightlife solo. Consider female-only tour groups for remote hikes and mezcal/cenote day-trips."}</p>
+        <h3>What's the best time of year to visit?</h3>
+        <p>{"November to April is the dry season — Yucatán 26-30°C and sunny, CDMX 22-24°C and pleasant, Baja whale-watching January-March. May-June is hot everywhere. July-October is rainy (afternoon showers) and hurricane season for the Yucatán and Pacific. Day of the Dead (Oct 31-Nov 2) and Semana Santa (Holy Week) are magical but pricey."}</p>
+        <h3>Do I need a visa and tourist card?</h3>
+        <p>{"US/UK/Canada/EU/AU/NZ passport holders don't need a visa — you get an FMM tourist card (up to 180 days) on arrival at any airport. From January 2026, the digital FMM is standard; land border crossings still issue paper slips. Save the slip — you need it on departure or face a 500 MXN fine. Over-stays incur fines at the airport exit."}</p>
+        <h3>How's the language barrier — do I need Spanish?</h3>
+        <p>{"Basic Spanish transforms the trip. English is solid in Cancún, Cabo, Tulum, and Playa del Carmen tourist corridors; patchy in CDMX outside hotels; limited in Oaxaca, Chiapas, and rural areas. Learn buenos días, por favor, gracias, cuánto cuesta, and la cuenta. Google Translate offline pack works well; locals reward any Spanish effort with warmth."}</p>
+        <h3>What's the deal with tipping?</h3>
+        <p>{"More expected than Europe, less than US: 10-15% at restaurants (propina often included on the bill — check), 20-50 pesos for hotel bellhops and housekeeping per day, 10-20% for Uber (optional), 20-100 pesos for tour guides per day. Never tip gas-station attendants more than 10 pesos; 10-20 at grocery baggers. Round up street-taco stalls if you want."}</p>
+        <h3>How do I get around between cities?</h3>
+        <p>{"ADO and ADO-GL first-class buses are the gold standard — CDMX-Oaxaca 6.5h for 800-1,200 pesos, CDMX-Puebla 2h for 350 pesos. Internal flights (Volaris, Viva Aerobús, Aeroméxico) connect CDMX to Cancún (2h, $60-150), Oaxaca, Mérida, and Cabo cheaply. Rental car for Yucatán and Baja; skip rentals in CDMX — traffic and parking are punishing."}</p>
+        <h3>Is altitude sickness a real concern in CDMX?</h3>
+        <p>{"Mild headaches and fatigue day 1-2 at 2,240m for sensitive travellers; serious altitude sickness is rare. Arrive, hydrate heavily (3L water daily), skip alcohol day 1, walk slowly, and sleep 8+ hours. If you're flying on to higher spots (Toluca 2,660m, Puebla 2,135m), build in one CDMX rest day first. Tacos don't cause altitude sickness — don't blame them."}</p>
+        <h3>Is Mexican tap water safe to drink?</h3>
+        <p>{"No — stick to bottled or filtered water for drinking and brushing teeth. Ice at mid-range and up restaurants is almost always made from purified water (safe); street-cart ice is riskier. Most hotels provide a water dispenser. Salads at tourist-area restaurants are fine; skip fresh vegetables at taco stalls. Imodium and electrolyte tabs are smart to pack."}</p>
+        <h3>How do phones and internet work?</h3>
+        <p>{"Buy a Telcel SIM at Oxxo (80-200 pesos + data plan) or use an Airalo eSIM ($15-30 for 5-10GB). T-Mobile US includes Mexico on Magenta plans. LTE coverage is excellent in cities and tourist zones; patchy in Chiapas mountains and Baja's East Cape. Free Wi-Fi is widespread in cafés, hotels, and ADO bus stations."}</p>
+        <h3>Do I need travel insurance and what about healthcare?</h3>
+        <p>{"Yes — private hospitals (ABC Medical, Hospital Ángeles) in CDMX/Cancún are world-class but a routine ER visit runs $300-800 USD, hospitalisation $3,000+/day. Pharmacies (Farmacia del Ahorro, Benavides) handle many needs over-the-counter. SafetyWing or IMG policies cover $50k+ medical plus evacuation for ~$50/month. Traveler's diarrhoea is the single most common issue."}</p>
+        <h3>Can I drink tequila and mezcal without being targeted?</h3>
+        <p>{"Yes — Mexican bars are safe and social. Drink at bar counter, not tables for strangers; never leave your drink unattended; stick to named spirits (blanco, reposado, añejo) and skip anything that tastes weirdly sweet. Mezcalerías in CDMX Roma (La Clandestina, Bósforo) are iconic. Cabo's Zona Dorada after midnight is where most scam stories originate — use Uber, travel in pairs."}</p>
+        <h3>What's the biggest mistake first-time visitors make?</h3>
+        <p>{"Flying into Cancún and staying in the Hotel Zone, then saying 'I did Mexico.' The Hotel Zone is a US-style resort strip, not Mexico. Spend 3 nights there if you must, then go inland — Valladolid cenotes, Mérida colonial streets, Oaxaca's markets, CDMX. The Mexico worth travelling for is 90% outside resort corridors."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

@@ -437,40 +437,49 @@ export default function UsStatesRanked2026() {
         <h2 id="faq">9. FAQ: Ranking the Ranking</h2>
 
         <h3>What's the single best state for a first-time visitor to the US?</h3>
-        <p>
-          <strong>California</strong>, by a wider margin than most rankings
-          let on. It delivers ocean, mountains, desert, wine country,
-          Hollywood, and two world-class cities in a single trip —
-          with the country's most convenient airports and rental-car
-          logistics.
-        </p>
+        <p>{"California, by a wider margin than most rankings suggest. It delivers ocean, mountains, desert, wine country, Hollywood and two world-class cities in a single trip, with the country's most convenient airports (SFO, LAX, SAN) and the cleanest rental-car logistics. A 10-day loop from San Francisco to San Diego covers more 'iconic America' per mile than any other state."}</p>
 
         <h3>What's the best state for a second or third US trip?</h3>
-        <p>
-          <strong>Utah</strong>. The "Mighty Five" national parks in one
-          state, paired with Salt Lake City's food scene, is the single
-          most under-appreciated repeat-visitor itinerary in the country.
-        </p>
+        <p>{"Utah. The Mighty Five national parks (Zion, Bryce, Capitol Reef, Arches, Canyonlands) cluster into one 470-mile road trip, paired with Salt Lake City's increasingly sophisticated food scene and one of the country's cheapest international airports. It is the single most under-appreciated repeat-visitor itinerary in North America."}</p>
 
         <h3>Which US state surprises travelers the most?</h3>
-        <p>
-          <strong>West Virginia</strong> and <strong>New Mexico</strong> tie
-          in our panel data. Both consistently get "didn't expect
-          this" reactions.
-        </p>
+        <p>{"West Virginia and New Mexico tie in our panel data — both consistently produce 'did not expect this' reactions. New River Gorge, the Cass Scenic Railroad and Seneca Rocks in WV, and Bandelier, Chimayo and White Sands in NM, all punch dramatically above their weight in recognition but are underrated for on-the-ground experience."}</p>
 
         <h3>Are these rankings based on locals or tourists?</h3>
-        <p>
-          Travelers only. We deliberately excluded resident-friendliness
-          metrics (cost of living, schools, job market) — this is a
-          <em> visitor </em> ranking, not a "best state to live in" list.
-        </p>
+        <p>{"Travelers only. We deliberately excluded resident-friendliness metrics like cost of living, schools and job market — this is a visitor ranking, not a 'best state to live in' list. Our panel filters to people making at least one trip to the state specifically for travel purposes, not business commutes or family visits."}</p>
 
         <h3>When will this list be updated?</h3>
-        <p>
-          Annually, in Q1 of every year. The 2027 edition will drop in
-          February 2027.
-        </p>
+        <p>{"Annually, in Q1 of every year. The 2027 edition will drop in February 2027 with new NPS visitation data, a refreshed panel survey (we are expanding to 20,000 respondents), and weightings adjusted for climate-driven changes — wildfire and hurricane exposure will matter more every year going forward."}</p>
+
+        <h3>How much does a state's climate factor into the ranking?</h3>
+        <p>{"Climate weight is 15% of the composite score, and it matters a lot — Arizona's July heat, Minnesota's February cold, and Louisiana's June humidity all push those states down versus their summer or shoulder-season ceilings. California, Hawaii, North Carolina and Oregon benefit most from the year-round-pleasant weighting."}</p>
+
+        <h3>Which states are ranked lower than they deserve?</h3>
+        <p>{"Mississippi is the single biggest editorial sleeper — Highway 61's blues trail, the Gulf coast's casinos and Biloxi beaches, and Oxford's literary history all deserve more attention than the state's #45 finish suggests. North Dakota (Theodore Roosevelt NP, Lewis & Clark Trail) and Arkansas (Hot Springs, Buffalo National River) also punch above their rank."}</p>
+
+        <h3>How long should a full US states-by-states tour take?</h3>
+        <p>{"Realistically 3–5 years of regular travel, not a single road trip. Driving all 50 non-stop requires a minimum of 65 days just for Alaska and Hawaii logistics alone, plus roughly 13,000 miles across the Lower 48. Most completionists chip away in regional batches — 6-8 trips of 3-4 states each over a decade."}</p>
+
+        <h3>Is it cheaper to visit the top-ranked states in off-season?</h3>
+        <p>{"Yes, dramatically — California, Hawaii, Florida and Colorado all drop 30–50% in shoulder months (May and September-October for most; Jan-Feb for beach states). Utah's Mighty Five are actually better in April and October than in summer. The three states where off-season fully doesn't work: Alaska (closed), North Dakota (frozen) and Maine (partially shuttered)."}</p>
+
+        <h3>Which state has the best food scene?</h3>
+        <p>{"Louisiana for pure regional specificity (Creole, Cajun, New Orleans coffee culture), California for breadth and quality, and New York for diversity. Oregon, Tennessee (Nashville hot chicken + Memphis BBQ), and New Mexico are the three most under-credited food states on the ranking."}</p>
+
+        <h3>How do you weight national parks versus cities?</h3>
+        <p>{"The composite splits roughly 35% nature/outdoors, 25% cities/culture, 20% food and drink, 15% climate/seasonality and 5% cost/logistics. That tilt favors states with both strong national-park presence and anchor cities — California, Utah, Washington and Arizona all benefit; states that are strong in only one dimension (e.g. Nevada's nature or Iowa's cities) fall to the middle."}</p>
+
+        <h3>What's the best state for outdoor adventure?</h3>
+        <p>{"Alaska tops our adventure sub-ranking, followed by Colorado, Utah and Montana. If you narrow to 'adventure without needing a bush plane,' Colorado wins — ski resorts, national parks, 14ers, mountain biking trail networks and Denver as a base are unmatched. Washington and Oregon tie for best coastal-plus-alpine combination."}</p>
+
+        <h3>Which states are hardest to 'visit well' in one trip?</h3>
+        <p>{"Texas (800 miles from El Paso to Houston), Alaska (three separate regions each needing their own trip), California (1,050-mile coastline plus Sierra and deserts), and Michigan (Upper vs Lower peninsulas). All four genuinely want at least two dedicated visits to cover their range."}</p>
+
+        <h3>Are there states that dropped sharply year-over-year?</h3>
+        <p>{"Hawaii dropped 6 places since 2023, driven by Maui wildfire recovery, peak-pricing fatigue and a small but real rise in visitor-hostility reports. Louisiana dropped 4 places on hurricane-rebuild delays. California held steady at #1 despite wildfire concerns — tourism infrastructure absorbed the shocks well."}</p>
+
+        <h3>How do you handle DC, Puerto Rico and the territories?</h3>
+        <p>{"DC is included as an honorary 'state' for ranking purposes (it finishes #17 on culture and history alone). Puerto Rico, USVI and Guam are not in this ranking but will be in the separate 'US Territories' guide dropping in Q2 2026. Washington DC gets ranked because it is the top domestic-visited non-state destination in the country."}</p>
 
         <h2 id="related">Keep Reading</h2>
 

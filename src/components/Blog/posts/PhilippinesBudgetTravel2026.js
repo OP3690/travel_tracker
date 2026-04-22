@@ -360,37 +360,49 @@ export default function PhilippinesBudgetTravel2026() {
         <h2 id="faq">9. FAQ</h2>
 
         <h3>Is the Philippines cheaper than Thailand?</h3>
-        <p>
-          Yes, by about <strong>14% in 2026</strong>. Hotels are 20-30%
-          cheaper; food is ~10% cheaper; tours are comparable.
-        </p>
+        <p>{"Yes, by roughly 14% in 2026 on equivalent itineraries. Hotels run 20-30% cheaper outside Palawan peak season, food is about 10% cheaper, and tours are comparable. The real savings come in lesser-known islands (Siquijor, Camiguin, Bantayan) where a full day's travel costs less than a single beachfront beer in Phuket."}</p>
 
         <h3>Can you really travel the Philippines on $25/day?</h3>
-        <p>
-          Yes, outside peak-season Palawan and Boracay. You'll sleep in
-          dorms and eat mostly local — but nothing about that is a
-          deprivation.
-        </p>
+        <p>{"Yes, outside peak-season Palawan and Boracay. You will sleep in dorms (300-500 pesos/night), eat mostly at carinderias and markets (80-150 pesos/meal), and take jeepneys and tricycles instead of Grab. Nothing about that is a deprivation — some of the country's best food (sisig, silog, lechon) is served at the cheapest stalls."}</p>
 
         <h3>Is Palawan significantly more expensive?</h3>
-        <p>
-          Yes. Budget 20-30% above national averages. El Nido's peak-
-          season hotels are the single biggest cost driver.
-        </p>
+        <p>{"Yes, budget 20-30% above the national average. El Nido's peak-season hotels (Dec-March) are the single biggest cost driver — a basic guesthouse that runs 1,200 pesos in September jumps to 2,800 pesos in February. Coron is 10-15% cheaper than El Nido for equivalent quality, and Port Barton is the genuinely budget-friendly Palawan option."}</p>
 
-        <h3>Are credit cards accepted?</h3>
-        <p>
-          In 4-star+ hotels and Manila/Cebu restaurants — yes. Elsewhere,
-          mostly cash. Bring 20,000 pesos (~$360) in cash for a 2-week
-          trip.
-        </p>
+        <h3>Are credit cards accepted, or is it cash-first?</h3>
+        <p>{"In 4-star+ hotels, Manila/Cebu malls, and Boracay/El Nido upmarket restaurants — yes. Everywhere else, mostly cash. Bring 20,000 pesos (~$360) in cash for a 2-week trip, plus a Wise or Revolut card for fee-free ATM withdrawals. Note that 7-Eleven and most sari-sari stores are cash-only regardless of where you are."}</p>
 
         <h3>Is tipping expected?</h3>
-        <p>
-          Yes but moderately. 10% at sit-down restaurants; 50-100 pesos
-          for boat crews; round up for taxis. Not expected at
-          carinderias or street food.
-        </p>
+        <p>{"Moderately, not heavily. 10% at sit-down restaurants when no service charge is added; 50-100 pesos per day for boat crews and tour guides; round up for Grab and taxi drivers. Not expected at carinderias, street food stalls or jeepney rides. Hotel housekeeping appreciates 50 pesos per day but it is never expected."}</p>
+
+        <h3>What's the cheapest month to visit?</h3>
+        <p>{"September or early October — you are technically in typhoon season but weather is usually still decent across Palawan and Cebu/Bohol, hotels drop 30-50% versus peak, and domestic flights are at their annual low. November is slightly pricier but equally quiet. The absolute budget-killer months are Dec 20-Jan 5 and Holy Week."}</p>
+
+        <h3>What's the realistic daily floor for long-term budget travel?</h3>
+        <p>{"Around $20-22 per day if you stay 30+ days, cook half your own meals, use weekly hostel rates, and avoid Palawan/Boracay. Ultra-budget digital nomads in Siargao, Dumaguete and Cebu City manage $650-750 per month all-in including accommodation. Dropping below $20 a day is possible but sacrifices island-hop experiences — not worth it."}</p>
+
+        <h3>What are the hidden costs most people miss?</h3>
+        <p>{"Environmental fees (El Nido charges 400 pesos ETDF, Coron adds 200 pesos, Boracay 150 pesos/day), domestic airport terminal fees (100-200 pesos), bangka boat port fees (50-100 pesos), and 'joiner tour' vs 'private tour' upcharges. A 2-week trip easily accumulates $40-60 in these micro-fees, all cash-only."}</p>
+
+        <h3>What ATMs give the best rates?</h3>
+        <p>{"BPI, BDO and Metrobank are the most reliable and cap at 10,000 pesos per withdrawal with a 250 peso fee. HSBC branches offer 40,000 peso withdrawals with the same fee if you have a partner bank. Security Bank has no withdrawal fees for Visa cards but limits to 15,000 pesos. Avoid airport ATMs (poor rates) and never use standalone 'Euronet' ATMs (worst fees)."}</p>
+
+        <h3>Are hostels safe and decent quality?</h3>
+        <p>{"Yes — Philippine hostels in Manila, Cebu, El Nido, Siargao and Siquijor are among the best in Southeast Asia, with strong English-speaking staff, secure lockers and social common areas. Top picks: Frendz Hostel El Nido, Harana Surf Resort Siargao, Mad Monkey Cebu, Spin Designer Hostel El Nido. Dorm prices range 350-700 pesos/night."}</p>
+
+        <h3>How much do meals actually cost?</h3>
+        <p>{"Carinderia (local canteen) meal with rice and two ulam: 80-150 pesos. Silog breakfast at a turo-turo: 100-160 pesos. Mid-range restaurant main: 250-450 pesos. Upmarket dinner with drinks: 1,200-2,500 pesos. Beer at a sari-sari store: 50-70 pesos; at a tourist bar: 150-250 pesos. Coffee at a specialty cafe: 150-200 pesos."}</p>
+
+        <h3>How can I save on inter-island flights?</h3>
+        <p>{"Set Google Flights alerts 6-8 weeks out; Cebu Pacific runs piso sale flash sales (literally 1-peso base fares) 3-4 times a year. Fly Cebu as a hub (many routes are 30-40% cheaper than equivalent Manila-originating flights). For short hops under 400 km, overnight 2GO RoRo ferries are $15-25 versus $60+ flights — slower but saves a hotel night."}</p>
+
+        <h3>Do student or youth discounts work?</h3>
+        <p>{"ISIC student cards occasionally get 10-20% off museum entries in Manila and Cebu and selected dive shops in Moalboal and Panglao. Age-based senior discounts (60+) for Filipinos do not extend to foreign visitors. The biggest 'discount' for young travelers is hostels and joiner tours — always book the shared joiner option over private."}</p>
+
+        <h3>What free activities are genuinely worth doing?</h3>
+        <p>{"Most beaches are free with only a small 50-100 peso environmental fee (Nacpan, Duli, Sabang Beach, Daku Island for the day). Intramuros walking in Manila, Rizal Park, Taoist Temple Cebu, San Juanico Bridge, and most Bohol countryside loops are free. Sunrise at Mt. Guiting-Guiting and Cadlao Island are 100% free and absolutely world-class."}</p>
+
+        <h3>Are working holiday visas available?</h3>
+        <p>{"Not in the formal Australia/NZ sense — the Philippines has no reciprocal working holiday program. However the 36-month tourist visa extension plus cheap cost of living makes it a popular digital-nomad base. Many travelers stay 3-6 months on extensions working remotely; coworking spaces in BGC, Cebu IT Park and Siargao charge $100-180/month for 24/7 desks and fiber internet."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

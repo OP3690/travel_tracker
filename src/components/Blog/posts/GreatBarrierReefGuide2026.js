@@ -162,10 +162,62 @@ export default function GreatBarrierReefGuide2026() {
         </p>
 
         <h2 id="faq">7. FAQ</h2>
-        <h3>Days needed?</h3><p><strong>3-5 days in Port Douglas/Cairns</strong>. 1 rainforest day + 2-3 reef days.</p>
-        <h3>Can I snorkel? Or do I need to dive?</h3><p>Snorkeling is genuinely sufficient — reef tops are 1-3m below surface.</p>
-        <h3>Best month?</h3><p><strong>June-September</strong>. Dry + no stingers + excellent visibility.</p>
-        <h3>Is the reef dying?</h3><p>Yes but not evenly. Outer reefs are still healthy. Go while you can.</p>
+        <h3>How many days do I actually need at the reef?</h3>
+        <p>
+          <strong>3-5 days minimum in Port Douglas or Cairns</strong> — budget one day for Daintree/Cape Tribulation rainforest, 2-3 days for outer-reef snorkel/dive tours (factoring weather cancellations), and a buffer day for recovery or a scenic flight. A single day-trip works but feels rushed and does not allow for weather backup.
+        </p>
+        <h3>Cairns or Port Douglas as a base?</h3>
+        <p>
+          <strong>Port Douglas</strong> wins for atmosphere (village feel, better restaurants, closer to Daintree) and is 30 min closer to Agincourt + Opal Reef on the outer edge. <strong>Cairns</strong> wins for budget options, diving school choices, airport proximity, and nightlife. Splurge travelers pick Port Douglas; backpackers pick Cairns.
+        </p>
+        <h3>Can I just snorkel, or do I need to scuba dive?</h3>
+        <p>
+          <strong>Snorkeling is genuinely sufficient</strong> — reef tops sit 1-3m below the surface and most of the color and fish life is in the top 5m. Reef operators provide stinger suits, fins, mask, and floatation noodles free. Intro-dive options (no certification needed, A$130-180 extra) go to 10m with an instructor — worth it if you are curious, not essential.
+        </p>
+        <h3>Best months to visit the reef?</h3>
+        <p>
+          <strong>June-September</strong> is peak — dry season, no stingers, 20-25m visibility, 26°C water, and humpback whales pass offshore. October-November is the quiet-crowds sweet spot with still-good conditions. <strong>Avoid January-March</strong> (wet season, stingers, cyclone risk cancels 2-3 tours per week).
+        </p>
+        <h3>Which operators should I actually book?</h3>
+        <p>
+          <strong>Quicksilver (Port Douglas → Agincourt outer reef, A$295)</strong> and Wavelength (small-group Opal Reef, A$275) are the premium picks for quality and reef access. Sailaway delivers a more relaxed catamaran experience, and Poseidon is the top dive-focused operator. Avoid the A$150 budget pontoons to inner reefs — visibility and coral are markedly worse.
+        </p>
+        <h3>Day-trip vs liveaboard — which is better?</h3>
+        <p>
+          <strong>Liveaboards (2-7 nights on boats like Spirit of Freedom, Mike Ball, Reef Encounter) reach the outer Ribbon Reefs and Osprey Reef</strong> — inaccessible from day trips and with far healthier coral. Prices A$1,800-4,500 for 3-7 nights. Day trips win for flexibility and cost; liveaboards win for serious divers and quality.
+        </p>
+        <h3>Is the reef actually dying — should I still go?</h3>
+        <p>
+          <strong>Bleaching is real but not uniform</strong> — inshore reefs near Cairns have lost 30-50% of coral cover since 2016, but outer reefs (Agincourt, Opal, Ribbon) remain vibrant. Operators now monitor daily and redirect to healthy sites. Go with a premium outer-reef operator now; the experience in 2026 is still world-class.
+        </p>
+        <h3>How do I snorkel responsibly without damaging coral?</h3>
+        <p>
+          <strong>Never touch or stand on coral</strong> (it dies from contact), use only reef-safe mineral sunscreen (Blue Lizard, Stream2Sea — zinc/titanium oxide), and keep fins at least 50 cm above the reef. Premium operators check sunscreen at boarding. Do not feed fish, chase turtles, or collect anything — fines are A$22,000+ for protected species.
+        </p>
+        <h3>Best reef tours for kids?</h3>
+        <p>
+          <strong>Quicksilver{"'"}s Agincourt pontoon</strong> has a lagoon-style kids{"'"} snorkel area, semi-submarine tours, and underwater observatory — ideal for ages 5+ and non-swimmers. Sunlover Reef also has the Marine World pontoon with helicopter add-ons. Passions of Paradise sailing catamaran takes the whole family in a smaller-group setting.
+        </p>
+        <h3>Luxury reef experiences worth the splurge?</h3>
+        <p>
+          <strong>Heron Island resort (coral cay, A$600+/night, snorkel directly from the beach)</strong> and Lizard Island (A$2,500+/night, private island, cod hole diving) are the top-tier stays. For a single-day splurge, Quicksilver{"'"}s helicopter + pontoon combo (A$730) flies one-way over the reef — unreal perspective.
+        </p>
+        <h3>When should I book everything?</h3>
+        <p>
+          <strong>Outer-reef tours 2-4 weeks ahead in peak season</strong>, liveaboards 3-6 months, Heron/Lizard Island 6+ months. Last-minute tours exist in shoulder season. Book the reef tour for your <strong>second or third day</strong> in Cairns/Port Douglas so you have a backup day if weather cancels.
+        </p>
+        <h3>What wildlife can I realistically see and when?</h3>
+        <p>
+          <strong>Turtles year-round, reef sharks + rays year-round, minke whales June-July (dwarf minke — close encounters in the Ribbon Reefs), humpback whales July-October, manta rays year-round at Lady Elliot Island</strong>. Clownfish, parrotfish, wrasse, Maori wrasse — on every single trip. Dwarf minke season from Cairns is world-class.
+        </p>
+        <h3>Is the reef safe — stingers, sharks, crocodiles?</h3>
+        <p>
+          <strong>Stingers (box + irukandji jellyfish) are the only real concern</strong>, November-May; operators provide stinger suits and net-enclosed swim zones. Sharks at the reef are reef whitetips and blacktips (harmless, 1-2m). Crocodiles are estuarine, not reef — never swim in rivers or mangrove estuaries in the tropical north, only the open ocean.
+        </p>
+        <h3>Photography tips for the reef?</h3>
+        <p>
+          <strong>GoPro Hero 12+ or Olympus TG-7 are both excellent</strong> — use a red filter below 3m to restore color, and shoot on cloudy mornings for best light penetration. Many operators rent underwater cameras (A$40-60/day) if you do not want to buy. Ban the flash; it scares fish and washes out the frame.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

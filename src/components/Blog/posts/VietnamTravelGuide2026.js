@@ -144,10 +144,66 @@ export default function VietnamTravelGuide2026() {
         </ol>
 
         <h2 id="faq">8. FAQ</h2>
-        <h3>Days needed?</h3><p><strong>10-14 days</strong> minimum; 17-21 ideal.</p>
-        <h3>North vs South?</h3><p>Do both. Fly between.</p>
-        <h3>Safety?</h3><p>Very safe. Motorbike traffic is the only real danger.</p>
-        <h3>English?</h3><p>Basic in tourism. Google Translate voice works well.</p>
+        <h3>How many days do I need to see Vietnam properly?</h3>
+        <p>
+          <strong>10-14 days is the minimum</strong> for Hanoi + Halong Bay + Hoi An + Ho Chi Minh City (covering north, central, and south). The sweet spot is <strong>17-21 days</strong>, which adds Ninh Binh, Hue, Mekong Delta, or Sapa. Vietnam is longer than California and deserves more time than most travelers budget — the north and south are genuinely different countries culturally.
+        </p>
+        <h3>North Vietnam or South Vietnam if I have to choose?</h3>
+        <p>
+          <strong>Do both — fly between them (Vietjet/Bamboo Airways, US$30-70)</strong>. If forced to pick: North for scenery + culture (Halong Bay, Ninh Binh, Sapa, Hanoi{"'"}s Old Quarter, traditional Vietnamese food), South for urban energy + Mekong + tropical beaches (Ho Chi Minh City, Mekong Delta, Phu Quoc). Central (Hoi An, Hue) is the balance of both.
+        </p>
+        <h3>Is Vietnam safe for travelers?</h3>
+        <p>
+          <strong>Very safe — violent crime is extremely rare and solo female travel is routine</strong>. The real danger is motorbike traffic: walk at a constant slow pace (never stop mid-crossing) and scooters flow around you. Beware of petty scams (rigged taxi meters, overcharged cyclo rides) — always use Grab app. Do not rent a motorbike without a license + experience.
+        </p>
+        <h3>How much English is spoken?</h3>
+        <p>
+          <strong>Basic English in all tourism contexts</strong> (hotels, tours, mid-range restaurants, cafés in Hanoi/HCMC/Hoi An) — beyond tourism, English drops sharply. Google Translate voice-mode is your friend; download Vietnamese for offline use. Younger Vietnamese (under 30) speak much more English than older generations.
+        </p>
+        <h3>Do I need a visa, and how does the e-visa work?</h3>
+        <p>
+          <strong>Most nationalities need an e-visa (US$25, single entry, 90 days)</strong> — apply at evisa.xuatnhapcanh.gov.vn (official site; beware copycat sites charging US$80+). Processing 3-5 business days. Some nationalities get visa-exemption: UK, France, Germany, Italy, Spain, Japan, Korea get 45 days visa-free; Nordics get 15 days. Always check current rules 30+ days before travel.
+        </p>
+        <h3>What currency and payment methods work?</h3>
+        <p>
+          <strong>Vietnamese Dong (VND) — expect to be a millionaire (US$40 = 1,000,000 VND)</strong>. Cash is king: carry 500,000-2,000,000 VND. Cards accepted at mid-range hotels, restaurants, and supermarkets, but small cafés, street food, markets, and homestays are cash-only. ATMs widely available (withdraw 2,000,000-5,000,000 VND, 50,000 VND fee).
+        </p>
+        <h3>What is the best month to visit?</h3>
+        <p>
+          <strong>March-April or October-November</strong> — the whole country has good weather in those windows. North is cool + clear (18-25°C), center is dry (Hoi An peak), south is pleasant. Avoid July-August (wet, hot, crowded domestically) in the north. Tet (Lunar New Year, late Jan-Feb) shuts down much of the country for 5-7 days.
+        </p>
+        <h3>Is tipping expected?</h3>
+        <p>
+          <strong>Not expected but increasingly appreciated</strong> — 5-10% at restaurants, round up taxi/Grab fares, tip tour guides 100,000-200,000 VND/day (US$4-8), and spa staff 50,000-100,000 VND. Do not tip at street food stalls. Hotel porters get 20,000-50,000 VND/bag. A small envelope for Halong cruise crew (US$10-20/guest) is customary.
+        </p>
+        <h3>How do I get around between cities?</h3>
+        <p>
+          <strong>Fly between major regions (Hanoi ↔ Danang ↔ HCMC on Vietjet/Bamboo Airways for US$30-70)</strong> — saves 15+ hours on buses or overnight trains. Sleeper trains (SE1-SE4) Hanoi-Danang-HCMC are experiential (US$30-80). Buses (Futa, Hoang Long) are cheapest but slow. Grab + Xanh SM (electric taxi) for cities; motorbike taxis (Grab Bike) for short trips.
+        </p>
+        <h3>How good is mobile data and connectivity?</h3>
+        <p>
+          <strong>Excellent and cheap</strong> — Viettel, MobiFone, Vinaphone all offer tourist SIMs with 10-30GB for US$4-12 at airport kiosks. Airalo eSIM (US$8 for 5GB/30 days) works on arrival without needing a physical SIM. WiFi is universal in cafés + hotels; some hotels offer portable pocket WiFi rental.
+        </p>
+        <h3>Vaccines and health prep?</h3>
+        <p>
+          <strong>No required vaccines, but Hepatitis A + typhoid + tetanus are recommended</strong> by most travel-health boards. Travel insurance is essential — hospital care in Vietnam is affordable out-of-pocket but evacuation to Bangkok or Singapore for serious cases runs US$20,000-50,000. Pack oral rehydration salts, Imodium, and a basic anti-diarrhea kit.
+        </p>
+        <h3>Can I drink the tap water?</h3>
+        <p>
+          <strong>No — drink bottled or filtered water only</strong> (500,000 VND / US$0.25-0.50 for 1.5L). Ice in drinks at established cafés and restaurants is usually safe (made from filtered water). Brush teeth with bottled water for safety. Hotels provide 2 bottles/day free. Carry a LifeStraw or SteriPen to reduce plastic.
+        </p>
+        <h3>What cultural etiquette should I know?</h3>
+        <p>
+          <strong>Remove shoes before entering temples + many homes, dress modestly at pagodas (covered shoulders + knees), and do not touch anyone{"'"}s head</strong> (considered sacred). Accept and receive items with two hands. Avoid pointing feet at Buddha statues. The communist government restricts photography at some buildings — ask before photographing people or government buildings.
+        </p>
+        <h3>Best festivals to experience?</h3>
+        <p>
+          <strong>Hoi An Full Moon Lantern Festival (14th day of lunar month monthly)</strong>, Mid-Autumn Festival (September full moon), Tet Lunar New Year (late January-February, but note most businesses close), and Hue Festival (biennial, April). Reunification Day (April 30) + Labor Day (May 1) bring domestic travel crowds.
+        </p>
+        <h3>What should I pack that people forget?</h3>
+        <p>
+          <strong>Modest-temple clothing (scarf, long pants), mosquito repellent (DEET 30%+), diarrhea medication, and a small umbrella</strong> (tropical downpours daily in wet season). Sunscreen is expensive in Vietnam; bring from home. A light sweater for Halong cruises (breezy evenings) and Sapa/north mountain regions (cool year-round).
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

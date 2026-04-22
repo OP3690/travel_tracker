@@ -166,16 +166,36 @@ export default function MexicoBudgetTravel2026() {
         />
 
         <h2 id="faq">8. FAQ</h2>
-        <h3>Is Mexico cheaper than Colombia?</h3>
-        <p>Slightly pricier — about $15/day more at mid-range.</p>
-        <h3>Can I travel Mexico on $30/day?</h3>
-        <p>Yes — outside Tulum + Cabo. Mexico City + Oaxaca + Mérida especially.</p>
-        <h3>Cheapest month?</h3>
-        <p><strong>September or October</strong> (hurricane season — you get risk + reward). Or January on the low end of peak.</p>
-        <h3>Cards or cash?</h3>
-        <p>Cards in cities + tourist areas. Cash for street food, small towns. Always carry $20-40 worth of pesos.</p>
-        <h3>Tipping?</h3>
-        <p>10-15% at restaurants. Round up for Uber. 20-50 pesos for bellhops.</p>
+        <h3>Is Mexico cheaper than Colombia or Guatemala?</h3>
+        <p>{"Roughly $10-15/day more expensive than Colombia at mid-range, and similar to Guatemala. Hostels $14-22 (vs Colombia's $10-18), street meals 40-80 pesos ($2.50-4.50), ADO first-class buses pricier than Colombian equivalents. Where Mexico wins: more developed tourism infrastructure, better food quality, safer tourist corridors, and English is more widely spoken in the Yucatán."}</p>
+        <h3>Can I realistically travel Mexico on $30/day?</h3>
+        <p>{"Yes — outside Tulum, Cabo, and Playa del Carmen. CDMX (Roma hostels $18-25, taco stalls 30-50 pesos), Oaxaca ($14 dorms, comida corrida 80 pesos), Mérida ($16 hostels), and San Cristóbal de las Casas all sustain $30/day comfortably. Tulum blows the budget instantly — $35 hostel dorms, $12 beach loungers, $8 coffees. Avoid it on tight budgets."}</p>
+        <h3>What are the cheapest months to visit?</h3>
+        <p>{"September-October is cheapest but it's Atlantic hurricane season — Yucatán hotels 40-60% off peak, but a named storm every 2-3 years disrupts a week. Late January-early March on the shoulder of peak is the best risk/reward — dry season prices with smaller crowds than December or Easter. Avoid Día de los Muertos (Oct 31-Nov 2) and Semana Santa — rates triple in Oaxaca and CDMX."}</p>
+        <h3>Cards or cash — what's the split?</h3>
+        <p>{"Cards in cities, restaurants, hotels, Uber, and tourist-zone shops. Cash for taco stalls, mercados, small-town buses, tips, and most street food. Carry 400-800 pesos ($22-45) daily; withdraw 3,000-5,000 pesos per ATM visit to minimise fees. Many street vendors now accept SPEI transfers via WhatsApp — requires a Mexican bank account, so not an option for tourists."}</p>
+        <h3>Tipping rules at each tier?</h3>
+        <p>{"Restaurants 10-15% (check bill for 'propina incluida'), Uber round up or 10%, ADO bus drivers don't tip, hotel bellhops 20-50 pesos, housekeeping 30-50 pesos per day, tour guides 100-300 pesos per day depending on length, gas-station attendants 5-10 pesos. Street taco stalls no tip expected; round up if the salsa saved your soul."}</p>
+        <h3>How do I avoid ATM and card fees?</h3>
+        <p>{"Use BBVA, Santander, HSBC, or Scotiabank ATMs — they charge 30-45 pesos ($1.80-2.50) plus no extra surcharges. Avoid Banorte (higher fees) and any ATM with 'Cashpool' or 'Intercam' branding (150+ pesos fees). Always decline dynamic currency conversion — choose pesos, let your home bank convert. Wise, Revolut, and Charles Schwab cards reimburse ATM fees monthly."}</p>
+        <h3>How good are Mexican hostels?</h3>
+        <p>{"Excellent and improving fast — Selina (CDMX Roma, Tulum, Oaxaca, Playa) and Mundo Joven are the premium brands with private rooms $35-70 and dorms $18-28, co-working, rooftop bars. Independent boutique hostels (Hostel Mundo Nuevo Oaxaca, Casa Candiles Mérida) run $14-22 with better breakfast. Cancún Hotel Zone hostels don't really exist — stay in Cancún Centro or Playa del Carmen instead."}</p>
+        <h3>What do meals realistically cost per day?</h3>
+        <p>{"Backpacker $10-14: 30-peso tacos breakfast, 80-peso comida corrida lunch (3 courses), 100-peso tacos/tlayudas dinner, one 40-peso beer. Mid-range $25-35: café breakfast, sit-down lunch, casual restaurant dinner with 2 drinks. Splurge $60-100: Pujol or Quintonil CDMX tasting menu ($120 without wine) once, otherwise casual upscale at $30-45/meal."}</p>
+        <h3>What transport hacks save the most money?</h3>
+        <p>{"ADO buses > internal flights for distances under 700 km (CDMX-Oaxaca $50 bus vs $80-120 flight + taxi). Book Volaris 'Ultra Low Cost' 3-4 months ahead: CDMX-Cancún from $40 one-way. BlaBlaCar-style 'ride shares' don't really exist in Mexico — use ADO or Volaris. Uber intercity isn't allowed; Didi competes with Uber and is sometimes 20% cheaper in CDMX."}</p>
+        <h3>Are student or youth discounts legit?</h3>
+        <p>{"Yes at most archaeological sites and museums for Mexican students with school ID; international students with ISIC cards are hit-or-miss. INAH (national sites like Chichén Itzá, Teotihuacán) charges 90-620 pesos with no international-student discount. Sunday is free for Mexican nationals only — foreign visitors still pay full. Under-13 and over-60 get 50% off almost everywhere."}</p>
+        <h3>Best free activities?</h3>
+        <p>{"CDMX: Museum of Anthropology free Sunday (Mexican nationals only — foreigners pay 95 pesos still), Chapultepec Park always free, Zócalo cultural events. Oaxaca: Templo de Santo Domingo free, Benito Juárez Market for ambience-not-purchase. Mérida: Paseo de Montejo Sunday cycling 08:00-12:30. Most city cathedrals free. Free walking tours in CDMX (tip 100-200 pesos)."}</p>
+        <h3>Are working-holiday or volunteer exchanges realistic?</h3>
+        <p>{"Mexico doesn't have formal working-holiday visas for Americans/Europeans. Workaway and WWOOF hosts across Oaxaca, Chiapas, and Baja exchange ~4 hours daily work for free food + housing. Surf-camp seasonal work in Sayulita, Puerto Escondido pays in tips only. The 180-day tourist card (FMM) is long enough for most extended stays without visa complications."}</p>
+        <h3>What hidden costs blow up budgets?</h3>
+        <p>{"Cenote entry 150-300 pesos each (plan for 5-8 cenotes = $45-120), Chichén Itzá + Tulum ruins = 1,200 pesos, night club covers in Cancún $20-40, beach-club day passes in Tulum $20-60, Tulum-Cancún taxi 1,500 pesos if you get ripped off (ADO is 190). Tulum specifically charges 'environmental fees' at beaches and ruins that add up fast."}</p>
+        <h3>Hostel, Airbnb, or boutique — best value?</h3>
+        <p>{"Couples: Airbnb private rooms in Roma/Condesa (CDMX) or Centro (Mérida) for $35-55 beat hostels on comfort. Solos: hostels win for price and social scene. Boutique hotels ($70-140 in colonial cities) hit the sweet spot for 30+ year olds. Hotels Misión and Hotel Hacienda chains offer colonial-style rooms at 1,200-2,200 pesos with pools."}</p>
+        <h3>Is travel insurance worth it on a budget trip?</h3>
+        <p>{"Yes — a $35/month SafetyWing or IMG policy covers a $3,000 private hospital stay that any serious stomach bug could trigger. Mexican public hospitals are free or cheap but variable quality; private (ABC Medical, Hospital Ángeles) require insurance or $500+ cash upfront. Check credit card benefits — Chase Sapphire and Amex Platinum include strong medical coverage."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

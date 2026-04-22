@@ -198,14 +198,36 @@ export default function BestMexicoDestinations2026() {
         />
 
         <h2 id="faq">4. FAQ</h2>
-        <h3>Best for first-timers?</h3>
-        <p><strong>Mexico City + Yucatán</strong>. Classic combo.</p>
-        <h3>Most underrated?</h3>
-        <p><strong>Oaxaca</strong>. Genuinely world-class and undervisited.</p>
-        <h3>Safest?</h3>
-        <p>Mérida, Oaxaca, San Miguel de Allende — all exceptionally safe for tourism.</p>
-        <h3>Beach destination to skip?</h3>
-        <p>Cancún (the hotel zone specifically — overbuilt). Go to Tulum, Playa, or Isla Mujeres instead.</p>
+        <h3>Which destinations should a first-timer combine?</h3>
+        <p>{"Mexico City (3-4 nights) + Yucatán (Mérida or Valladolid 3 + Tulum 2) is the classic 10-day combo — urban food capital + ruins + cenotes + beach. Under 10 days: do CDMX + Oaxaca instead (5 + 3 nights) for a pure culture-and-food immersion. Cancún Hotel Zone shouldn't be anyone's first Mexico trip — it's a US-style resort strip, not Mexico."}</p>
+        <h3>What's Mexico's most underrated destination?</h3>
+        <p>{"Oaxaca — genuinely world-class and still undervisited by non-Mexicans. The city has the best food scene in Mexico (7 moles, mezcal, street-market culture), Monte Albán ruins 40 minutes uphill, and Mitla and Hierve el Agua as day trips. Runner-up: San Cristóbal de las Casas (Chiapas) for indigenous markets and highland villages. Both are 40-50% cheaper than Yucatán tourist corridors."}</p>
+        <h3>Which destinations are the safest for nervous travellers?</h3>
+        <p>{"Mérida (consistently ranked Mexico's safest city), San Miguel de Allende, Guanajuato, Puerto Vallarta's Zona Romántica, Oaxaca city, and Tulum (pre-2024 crime spike; still safer than most US cities). Safe by day but exercise night caution: CDMX Roma/Condesa, Playa del Carmen, Cabo. Skip: Acapulco (serious cartel violence), inland Guerrero and Michoacán, Nuevo Laredo border region."}</p>
+        <h3>Should I skip Cancún entirely?</h3>
+        <p>{"The Hotel Zone, largely yes — it's a US-style high-rise strip with American restaurant chains and tourist-markup prices. Cancún Centro (downtown) is fine and cheap for 1-2 nights as a transit base. For Caribbean beach, Tulum, Isla Mujeres, or Isla Holbox are far more authentic. Playa del Carmen sits in the middle — walkable, good food, but overbuilt on 5th Avenue. Use CUN airport, leave immediately."}</p>
+        <h3>Best destination combo for beach + culture?</h3>
+        <p>{"CDMX (3) + Oaxaca (3) + Puerto Escondido (3) — colonial culture, ruins, mezcal, then Pacific surf beaches. Alternative: Mérida (3) + Valladolid (2) + Tulum (2) for Yucatán ruins + cenotes + Caribbean beach. Puerto Escondido is cheaper, more Mexican, and has superb surf; Tulum is more Instagram, more expensive, and more crowded."}</p>
+        <h3>Best destination for families with kids?</h3>
+        <p>{"Yucatán — Valladolid or Mérida as base, cenotes daily (kids love Ik Kil and Suytun), Chichén Itzá early morning, Xcaret and Xel-Há eco-parks. Puerto Vallarta for whale-watching (January-March) and calm Banderas Bay beaches. Isla Mujeres is small, safe, and golf-cart explorable. Avoid Cabo San Lucas for under-6s — rough surf; La Paz is safer water."}</p>
+        <h3>Best destination for honeymooners?</h3>
+        <p>{"Tulum for beachfront palapa suites (Be Tulum, Nômade, Azulik — $400-900/night), Isla Holbox for low-key barefoot luxury ($200-400), Valle de Guadalupe (Baja wine country) for adults-only boutique wineries, Sayulita/San Pancho for a Pacific honeymoon. Los Cabos (One&Only Palmilla, Esperanza, Chileno Bay) for full-resort luxury. Book 4-6 months out for peak December-April."}</p>
+        <h3>Best destination for solo travellers?</h3>
+        <p>{"CDMX Roma/Condesa (huge expat scene, easy-to-meet hostels like Selina and Casa Pepe), Oaxaca (food-tour groups cement friendships), Puerto Escondido (surf and hostel community), San Cristóbal de las Casas (backpacker hub), and Sayulita (international surf/yoga crowd). Skip Cabo Hotel Zone and Cancún Hotel Zone — expensive and couples-heavy."}</p>
+        <h3>Best destination for a luxury trip?</h3>
+        <p>{"Los Cabos (Pedregal, Palmilla, Chileno Bay), Riviera Nayarit (Four Seasons Punta Mita, One&Only Mandarina), Tulum beachfront (Casa Malca, Nômade), Valle de Guadalupe (Bruma, Banyan Tree Veya). CDMX for urban luxury (Four Seasons Reforma, Las Alcobas, St. Regis). Mérida/Yucatán for hacienda-hotel conversions (Chablé Yucatán, Hacienda Xcanatún)."}</p>
+        <h3>Which destination has the best food scene?</h3>
+        <p>{"Oaxaca first (7 moles, tlayudas, mezcal, 20 de Noviembre market) — arguably best in Latin America. CDMX second (Pujol, Quintonil, Contramar, plus $2 tacos al pastor). Puebla third (mole poblano, chiles en nogada, chalupas). Mérida owns Yucatecan cuisine (cochinita pibil, sopa de lima). Tijuana is the modern dark-horse (Baja-Med fusion, Caesar salad's birthplace)."}</p>
+        <h3>Which destination has the best beaches?</h3>
+        <p>{"Tulum for Instagram-palm beaches (crowded + pricey). Isla Holbox for shallow turquoise and flamingos. Isla Mujeres for calm swimming at Playa Norte. Bacalar for 7 shades of blue in a fresh-water lagoon. Puerto Escondido for surf. Sayulita for mellow surf village vibe. Cabo (Playa del Amor + Medano) for dramatic desert-meets-sea. Each has a distinct vibe — pick by style."}</p>
+        <h3>Best destination for cenotes and diving?</h3>
+        <p>{"Yucatán peninsula — Valladolid area has the densest cluster (Ik Kil, Suytun, X'Kekén, Dzitnup), Tulum's Cenote Dos Ojos and Gran Cenote for diving/snorkeling, Cuzamá's cenote tour by horse-cart for adventure. Diving: Cozumel for reef (Palancar Gardens, Santa Rosa Wall) is top-5 worldwide. La Paz (Baja) for sea lions and hammerheads."}</p>
+        <h3>Best destination for ancient ruins?</h3>
+        <p>{"Chichén Itzá (Yucatán, most iconic + most crowded — go 08:00 sharp), Palenque (Chiapas jungle setting, arguably most atmospheric), Teotihuacán (day trip from CDMX, massive pyramids), Monte Albán (Oaxaca, mountaintop city), Tulum (cliff-top Mayan ruins, go early). See at least two on any first trip — single-site travellers miss the range."}</p>
+        <h3>How do I get between destinations efficiently?</h3>
+        <p>{"ADO first-class buses for distances under 700 km (CDMX-Puebla 2h, CDMX-Oaxaca 6.5h, Mérida-Tulum 4h). Domestic flights on Volaris, Viva Aerobús, Aeroméxico for longer hops (CDMX-Cancún 2h, CDMX-Los Cabos 2h30, $40-120 booked early). Car rental for Yucatán peninsula and Baja Sur; skip rentals for CDMX and Oaxaca city."}</p>
+        <h3>What's the biggest destination-mistake first-timers make?</h3>
+        <p>{"Splitting time between Cancún Hotel Zone and Tulum — both are tourist bubbles. Instead: 2-3 nights CDMX to calibrate your sense of what Mexico actually tastes and looks like, then the Yucatán or Oaxaca for depth. Travellers who skip the interior and do resort-coast-only consistently report the trip felt flat — because they missed Mexico itself."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

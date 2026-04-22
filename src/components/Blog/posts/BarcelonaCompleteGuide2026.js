@@ -196,14 +196,36 @@ export default function BarcelonaCompleteGuide2026() {
         />
 
         <h2 id="faq">10. FAQ</h2>
-        <h3>Days needed?</h3>
-        <p><strong>4-5 days</strong>. Less is rushed; more is saturation.</p>
-        <h3>Best Gaudí sight?</h3>
-        <p><strong>Sagrada Familia</strong>. Unquestionable.</p>
-        <h3>Is Las Ramblas worth it?</h3>
-        <p>Walk it once for orientation. Don't eat there. Real food is 5 blocks away.</p>
-        <h3>When to buy tickets?</h3>
-        <p>Sagrada Familia + Park Güell + Casa Batlló — 1 month ahead peak. 1 week ahead shoulder.</p>
+        <h3>How many days do I need in Barcelona?</h3>
+        <p>{"Four to five days is the sweet spot — one for Sagrada Família + Gaudí (Passeig de Gràcia block), one for Gothic + El Born + Barceloneta, one for Park Güell + Gràcia + Tibidabo, one for Montjuïc (MNAC, castle, cable car), and an optional fifth for a Montserrat or Girona day trip. Under 3 days and you rush the top sights; over 6 days repeats start."}</p>
+        <h3>Which neighbourhood should I book for lodging?</h3>
+        <p>{"Eixample (around Passeig de Gràcia) for first-timers — central, walkable to Sagrada Família, and mid-range hotels at €140-220. El Born for atmosphere, tapas bars, and boutique hotels. Gràcia for a local, village-feel base 20 minutes from centre. Barceloneta for beach access. Avoid El Raval's western edge at night and Lloret-style package-tourist hotels on the coast."}</p>
+        <h3>Which Gaudí sight is the must-see if I only pick one?</h3>
+        <p>{"Sagrada Família — book the €36 tower-access ticket for the unmatched view and the stained-glass interior in morning light. Park Güell (€14) is second (go at sunrise to skip the crowd tide). Casa Batlló (€35) is the third — more Instagrammable than La Pedrera (Casa Milà, €28), though both are good. Casa Vicens (Gaudí's first house) is underrated at €18."}</p>
+        <h3>When exactly should I book the big Gaudí tickets?</h3>
+        <p>{"Sagrada Família, Park Güell, and Casa Batlló all sell out peak-season slots 3-4 weeks ahead — book the moment flights are confirmed. Morning slots (09:00-10:30) give best light and smallest crowds. Shoulder season (late October to March except Christmas) 1 week ahead is fine. Tower access at Sagrada Família is the most-constrained ticket — book first."}</p>
+        <h3>Is Las Ramblas worth visiting?</h3>
+        <p>{"Walk it once for orientation (Plaça de Catalunya down to Columbus monument, 20 minutes) and visit La Boqueria market (enter from Ramblas side before 11:00 to beat the crush). Don't eat at any restaurant on Ramblas itself — menus are tourist-tax priced at €18-30 for mediocre paella. Real food is 3-5 blocks into El Born or El Raval's Carrer de Joaquín Costa."}</p>
+        <h3>How bad is the pickpocket problem really?</h3>
+        <p>{"Barcelona is the pickpocketing capital of Europe — and the metro L3 (Liceu, Plaça de Catalunya, Sagrada Família), Las Ramblas, and the Sagrada Família queue are hotspots. Use a crossbody bag worn to the front, never a back-pocket wallet, and keep phone off restaurant tables. Violent crime is genuinely rare; the risk is pure theft. Travel insurance for stolen phones is worth €30."}</p>
+        <h3>What are the best day trips from Barcelona?</h3>
+        <p>{"Montserrat (monastery + hiking, 1h by R5 train + funicular, day trip), Girona + Costa Brava beaches (38-min AVE then car, best as overnight), Figueres Dalí Theatre-Museum (1h15 by AVE), Sitges beach town (40-min commuter train), and Tarragona Roman ruins (1h15 AVE). Pick one; don't try a Montserrat + Sitges same-day — transit wastes the trip."}</p>
+        <h3>Barcelona with kids — what works?</h3>
+        <p>{"PortAventura theme park (1h15 by train, or Ferrari Land adjacent), Barcelona Aquarium at Port Vell, the Magic Fountain show at Plaça d'Espanya (weekend nights), Parc de la Ciutadella boat rental, and Tibidabo's old-school amusement park with city views. Most kids under 7 hit wall after 90 minutes in Sagrada Família — keep museum blocks short."}</p>
+        <h3>Barcelona's beaches — any good, or skip them?</h3>
+        <p>{"Barceloneta and Bogatell (Olympic port) are fine for a quick swim between sights but crowded, urban, and pickpocket-dense. Real beaches: 40-min train to Sitges (clean, gay-friendly, family-friendly), or rent a car to reach Costa Brava coves north (Cala Sa Tuna, Cala Montjoi). Water is swimmable late May to early October (19-24°C)."}</p>
+        <h3>Where do locals actually eat (not tourist traps)?</h3>
+        <p>{"El Born (Bar del Pla, Cal Pep), Gràcia (La Pubilla, Bar Bodega Quimet), Sant Antoni (Bar Calders, Els Sortidors del Parlament), and Poble-sec (Quimet & Quimet for standing-room conservas). Avoid anything on Ramblas, Passeig del Born's main drag, or directly outside a monument. The rule: real menús del día are €13-17, posted in Catalan only, and full of locals at 14:30."}</p>
+        <h3>Best nightlife districts by style?</h3>
+        <p>{"El Raval for grimy cool (Bar Marsella absinthe bar since 1820). El Born for elegant cocktails (Paradiso speakeasy, routinely World's 50 Best). Poble-sec's Carrer de Blai for pintxo-bar hopping. Port Olímpic and Opium/Pacha for superclubs (24:00-06:00, dress smart). Gay nightlife centres on Eixample Gaixample and Sitges on weekends."}</p>
+        <h3>Best month to visit?</h3>
+        <p>{"Late April through June and mid-September to mid-October are peak — 20-27°C, swimmable sea, manageable crowds. July-August brings 30-34°C and doubled hotel rates. Christmas and New Year are festive (Fira de Santa Llúcia market, La Pedrera lit up). Avoid Mobile World Congress (late February/early March) — hotel prices triple for the four days."}</p>
+        <h3>How do I get to and from BCN airport cheaply?</h3>
+        <p>{"The Aerobús (A1/A2) runs 05:00-00:30 from both terminals to Plaça de Catalunya in 35 min for €7.25. Metro L9 Sud runs slower (45-55 min) for €5.50 with a transfer. A taxi to central Eixample is €30-40 flat rate. Rodalies R2 Nord train is €4.60 but slower and requires a transfer. Book Aerobús with your hotel transfer if arriving after 22:00."}</p>
+        <h3>Is Barcelona accessible for wheelchairs and mobility issues?</h3>
+        <p>{"Mostly yes — metro lines L2, L9, L10, and L11 are fully step-free; older lines L3 and L5 have many non-accessible stations. Sagrada Família, La Pedrera, and most museums are wheelchair-friendly. Gothic Quarter cobbles and Gràcia's narrow streets are the tough spots; book a hotel with a lift (not all old Eixample buildings have one)."}</p>
+        <h3>What's the biggest mistake first-timers make?</h3>
+        <p>{"Skipping pre-booked Sagrada Família tickets and standing in the 90-minute queue, then eating a €26 'paella' lunch on Las Ramblas, then doing Park Güell in the 14:00 heat without reserved entry. Pre-book the three big Gaudí sights, eat 3 blocks off any tourist strip, and save afternoons for Barceloneta beach or a siesta — sightseeing pace after 15:00 in summer heat is miserable."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

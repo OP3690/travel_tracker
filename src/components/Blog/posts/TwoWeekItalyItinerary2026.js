@@ -181,11 +181,49 @@ export default function TwoWeekItalyItinerary2026() {
 
         <h2 id="faq">8. FAQ</h2>
         <h3>Can I do this in 10 days?</h3>
-        <p>Yes — drop Cinque Terre + Amalfi, or compress both to 1 day each. 10-day: Rome (3) → Florence + Tuscany (3) → Venice (2) → Amalfi (2).</p>
-        <h3>Best month?</h3>
-        <p><strong>September</strong>. Weather is perfect, prices drop, crowds thin.</p>
+        <p>{"Yes, with cuts: drop Cinque Terre + Amalfi, or compress both to 1 day each. A tight 10-day version is "}<strong>Rome (3) → Florence + Tuscany (3) → Venice (2) → Amalfi (2)</strong>{". Anything shorter and you're collecting train stations instead of cities. For true 7-day trips, pick Rome + Florence + one third city and skip the coast."}</p>
+
+        <h3>What's the best month for this route?</h3>
+        <p><strong>{"September"}</strong>{" is the outright winner — 25°C highs, sea still warm, prices 20–30% below August peak, and Tuscan vineyards in harvest. "}<strong>May</strong>{" is a close second for temperate weather and flowers. Avoid August: Italians are on holiday, many Rome/Florence shops close, Amalfi prices peak, and heat reaches 37°C."}</p>
+
         <h3>Can I reverse the route?</h3>
-        <p>Yes. Fly into Naples/Milan/Venice and loop.</p>
+        <p>{"Yes — flying into Naples, Venice, or Milan often beats Rome on price. A strong reverse route: "}<strong>Milan (2) → Cinque Terre (2) → Florence (3) → Rome (4) → Amalfi (3)</strong>{", ending in Naples for your flight home. Loops work better than point-to-point; one-way rental cars are penalised €50–150."}</p>
+
+        <h3>Do I need to book everything in advance?</h3>
+        <p><strong>{"Frecciarossa/Italo trains 60 days out"}</strong>{" for €19–39 Super Economy fares (walk-up is €80+); Colosseum and Vatican "}<strong>2 months ahead</strong>{" (they sell out); Uffizi tickets 2–4 weeks; hotels 6–8 weeks for May/September; Amalfi ferries day-of. Restaurants in Rome/Florence need a 2-day heads-up for dinner."}</p>
+
+        <h3>How do I handle jet lag on day 1?</h3>
+        <p>{"Italy is "}<strong>6 hours ahead of US East Coast, 9 ahead of West Coast, 1 ahead of UK</strong>{". Plan day 1 as a walking half-day — land, drop bags, gelato, a slow passeggiata, early dinner at 7 PM, bed by 9. Morning sun on day 2 resets your clock. Skip red-eye naps longer than 20 minutes. A shot of espresso after lunch is culturally required and helps the adjustment."}</p>
+
+        <h3>Carry-on only or checked bag?</h3>
+        <p><strong>{"Carry-on is almost always better"}</strong>{" — Italian cobblestones destroy wheeled suitcases, every hotel has stairs, trains require lifting bags to overhead racks, and laundry is €10 wash-and-fold at most cities. A 40L softsided bag fits Ryanair/easyJet carry-on limits and every Frecciarossa overhead bin."}</p>
+
+        <h3>Eurail/Interrail or point-to-point tickets?</h3>
+        <p><strong>{"Point-to-point wins for this itinerary"}</strong>{". Book 5 Frecciarossa legs (Rome-Florence, Florence-Venice, Venice-Milan, Milan-La Spezia, Naples-Rome) 60 days out for €95–140 total. A 7-day Eurail Italy Pass costs €219 plus €13 reservation fees — only worth it if you add Sicily overnight trains or repeat cities."}</p>
+
+        <h3>What about internal flights — worth it?</h3>
+        <p>{"Rarely for mainland Italy. "}<strong>Rome-Milan by train is 3 hours city-centre to city-centre</strong>{"; the 1-hour flight takes 4+ hours door-to-door once you count transfers and security. Fly only for "}<strong>Sicily or Sardinia add-ons</strong>{" — Ryanair Naples-Palermo for €25–60 saves 12 hours vs the overnight train and ferry."}</p>
+
+        <h3>Schengen day-count rules?</h3>
+        <p>{"The "}<strong>90/180 rule</strong>{" applies: max 90 days across all 27 Schengen countries in any rolling 180-day window. This 14-day Italy trip uses 14 days of your allowance. If you've already spent 60 days elsewhere in Europe in the past 6 months, recount carefully. Track via EU's official "}<strong>Schengen calculator</strong>{" tool."}</p>
+
+        <h3>Is this route fine for solo travellers?</h3>
+        <p>{"Italy is one of Europe's easiest solo trips — cities are walkable, trains reliable, hotels welcoming. Dinner alone is normal; sit at the bar or order a "}<strong>tasting menu</strong>{" to avoid one-table awkwardness. Rome, Florence, and Cinque Terre have strong hostel scenes ($35–55 dorms). Amalfi is more couples-heavy — base in Salerno instead for better solo value."}</p>
+
+        <h3>Can I do this with young kids (ages 5–10)?</h3>
+        <p>{"Yes with tweaks: cut Cinque Terre hikes, add "}<strong>Rome's Explora Children's Museum and the Colosseum underground tour</strong>{", replace Amalfi's cliff drives with a ferry-based day. Kids eat pasta and gelato without complaint. Avoid Venice vaporetti during 9 AM tour-group rush. Pack a lightweight stroller — Italian sidewalks punish bulky ones."}</p>
+
+        <h3>Elderly travellers — any modifications?</h3>
+        <p>{"Stay 4 nights minimum per city to cut travel days. Use "}<strong>executive lounge access on Frecciarossa Gold fares (€25 upgrade)</strong>{" for quiet waiting. Skip the Vatican climb (551 stairs), Florence's Duomo climb (463 stairs), and Cinque Terre's trail sections — take the ferry between villages instead. Pre-book "}<strong>skip-the-line museum tickets</strong>{" to avoid standing queues."}</p>
+
+        <h3>Rainy-day backup for Cinque Terre or Amalfi?</h3>
+        <p>{"Cinque Terre: the "}<strong>Cinque Terre Card + train</strong>{" still works in rain — duck between villages by the 10-minute train, eat long lunches of trofie al pesto, visit the Monterosso Fegina tower. Amalfi in rain: Pompeii and Herculaneum are open all weather; Capri's Blue Grotto shuts in swell, so swap to a cooking class in Sorrento instead."}</p>
+
+        <h3>Best ATM and cash strategy?</h3>
+        <p>{"Use "}<strong>{"bank-branded ATMs ('bancomat')"}</strong>{" at BNL, Intesa, or UniCredit — never Euronet. "}<strong>Wise or Charles Schwab cards</strong>{" refund fees. Pull €200–300 at a time, always choose 'charge in EUR,' and avoid withdrawals inside train stations where fees spike. Cards work nearly everywhere but keep €50 cash for taxis, churches, and small-town cafés."}</p>
+
+        <h3>Day-by-day packing cheat sheet?</h3>
+        <p><strong>{"Layered outfit for churches (cover knees/shoulders)"}</strong>{", one nicer dinner outfit for Amalfi, sturdy walking shoes, swimsuit and beach towel (not in every hotel), sun hat, a 500ml bottle to refill at Rome's nasoni, EU adapter (type F or L), and a tiny umbrella for sudden Tuscan afternoon showers in May/September."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

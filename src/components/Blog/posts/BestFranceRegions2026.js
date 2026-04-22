@@ -189,14 +189,36 @@ export default function BestFranceRegions2026() {
         />
 
         <h2 id="faq">4. FAQ</h2>
-        <h3>Best region for first-timers?</h3>
-        <p><strong>Île-de-France + Provence</strong>. Classic combo.</p>
-        <h3>Most underrated?</h3>
-        <p><strong>Grand Est (Alsace)</strong>. Colmar + Strasbourg + wine route.</p>
-        <h3>Most French-feeling countryside?</h3>
-        <p><strong>Dordogne</strong> (Nouvelle-Aquitaine) — medieval villages + caves + foie gras country.</p>
-        <h3>Best winter region?</h3>
-        <p><strong>Auvergne-Rhône-Alpes</strong> for skiing; <strong>Grand Est</strong> for Christmas markets.</p>
+        <h3>Which region should a first-timer pick after Paris?</h3>
+        <p>{"Île-de-France plus Provence-Alpes-Côte d'Azur is the classic 10-14 day combo — Paris's monuments, then 2h40 TGV to Avignon for lavender fields, Luberon villages, and Mediterranean beaches near Cassis. It covers the country's biggest contrasts in one trip. Alternate first-timer pick: Île-de-France + Grand Est (Strasbourg + Colmar) if you visit in Dec for Christmas markets."}</p>
+        <h3>What's France's most underrated region?</h3>
+        <p>{"Grand Est — specifically Alsace, where Colmar and Strasbourg's pastel half-timbered old towns rival the postcard image of Germany or Switzerland. The Route des Vins d'Alsace winds 170km past Riesling and Gewurztraminer vineyards with tastings at €5-12. Bonus: trains from Paris hit Strasbourg in 1h50, yet it sees a fraction of Provence's crowds."}</p>
+        <h3>Which region feels most 'classically French countryside'?</h3>
+        <p>{"The Dordogne (Nouvelle-Aquitaine) — medieval villages like Sarlat, Domme, and La Roque-Gageac perched over the river, prehistoric cave art at Lascaux IV, foie gras and duck confit on every menu, and castles at Beynac and Castelnaud. Rent a car for 4-5 days and base yourself in Sarlat. It's the France that Francophiles return to after doing Paris three times."}</p>
+        <h3>Best region for a winter trip?</h3>
+        <p>{"Auvergne-Rhône-Alpes for skiing (Chamonix, Val Thorens, Méribel, Les Arcs) — the world's largest linked ski area, December-April. Grand Est (Strasbourg, Colmar, Metz, Reims) for late November to 23 December Christmas markets — arguably Europe's best. Paris is atmospheric and cheaper in Jan-Feb; avoid Provence in deep winter (mistral wind, much closed)."}</p>
+        <h3>Best region for beaches and Mediterranean vibes?</h3>
+        <p>{"PACA (Provence-Alpes-Côte d'Azur) — the French Riviera from Saint-Tropez to Menton. Cleanest swimmable beaches are Plage de Paloma (Cap Ferrat), Plage Mala (Cap d'Ail), and the Calanques National Park east of Marseille. July-August is packed and pricey; late May-June and September give you 24-27°C water with 40% fewer people."}</p>
+        <h3>Best region for wine lovers?</h3>
+        <p>{"Nouvelle-Aquitaine for Bordeaux (base in the city; day-trip to Saint-Émilion, Margaux, Pauillac). Bourgogne-Franche-Comté for Burgundy (base in Beaune; Côte de Nuits and Côte de Beaune villages). Grand Est for Champagne (Reims + Épernay) and Alsatian whites. Pick one region and go deep — Bordeaux + Burgundy in the same trip is a 6-hour drive apart."}</p>
+        <h3>Best region for families with young kids?</h3>
+        <p>{"Île-de-France for the obvious Disneyland Paris + Parc Astérix combo, plus the Jardin d'Acclimatation and dozens of kid-friendly museums. PACA runner-up: beaches, the Marineland near Antibes, and gentle hikes in the Luberon. The Dordogne is excellent for slightly older kids (8+) who love caves, castles, and kayaking. Avoid super-rural Brittany or Corsica with toddlers — long drives kill the day."}</p>
+        <h3>Best region for a second or third French trip?</h3>
+        <p>{"Bretagne (Brittany) for coastline, Saint-Malo's ramparts, Celtic music festivals, and cider country; Corsica for raw Mediterranean mountains-meet-sea (2-3 hour flight from Paris, 5-hour ferry from Nice); or Pays de la Loire + Centre-Val de Loire for the châteaux-and-cycling circuit. Repeat visitors also love Auvergne's volcanic Puys for wild, empty-feeling France."}</p>
+        <h3>Which region is cheapest for a budget traveller?</h3>
+        <p>{"Occitanie — Toulouse, Montpellier, and Carcassonne have €25 dorms, €14 lunch formules, and free Roman-ruin walking. Centre-Val de Loire (Tours, Orléans, château towns) is also cheap off-season. PACA in July-August is the opposite — hotel rates double and beach cafés charge €8 for a Coke. Avoid Île-de-France in peak months if budget is tight."}</p>
+        <h3>How do I combine two regions without wasting days on transit?</h3>
+        <p>{"Use Paris as a transit hub: almost every region connects via TGV from Paris in under 4 hours (Bordeaux 2h10, Marseille 3h10, Strasbourg 1h50, Nice 5h45, Rennes 1h30). Combining Provence + Bordeaux? Take the direct Marseille-Bordeaux TGV (6h15) rather than routing through Paris. Always book 60 days ahead for €35-55 fares."}</p>
+        <h3>Which region is best for driving vs staying on trains?</h3>
+        <p>{"Train-friendly: Île-de-France, Grand Est (Alsace wine route villages have shuttle buses), PACA (coastal rail along the Riviera). Car-required: Dordogne, Luberon villages in Provence, Corsica, rural Brittany, Loire châteaux. Hybrid: train to a hub city (Tours, Avignon, Sarlat) and rent a car only for the rural leg (3-5 days, €35-55/day)."}</p>
+        <h3>Where's the best hiking in France?</h3>
+        <p>{"Auvergne-Rhône-Alpes owns the highlights: the Tour du Mont Blanc (11-day classic around Chamonix), the GR20 in Corsica (Europe's toughest long-distance trail), the Calanques near Marseille for sea-cliff day hikes, and the Pyrenees (Occitanie) for dramatic lake-and-cirque loops around Gavarnie. Shoulder months June and September are prime — July-August is hot and crowded."}</p>
+        <h3>Which region has the best nightlife scene?</h3>
+        <p>{"Paris is the obvious winner — Pigalle cocktail dens, Belleville and Oberkampf for indie bars, Marais for LGBTQ+ nightlife. Lyon punches above its weight on Pentes de la Croix-Rousse. Nice and Marseille are Mediterranean-casual; Saint-Tropez is celebrity-priced. Bordeaux's Quai de Paludate and Montpellier's Comédie come alive for student-age travellers."}</p>
+        <h3>Which region is best for a luxury or honeymoon trip?</h3>
+        <p>{"PACA (Cap d'Antibes, Saint-Jean-Cap-Ferrat, Saint-Tropez) for sea-facing Relais & Châteaux; Bourgogne for château-hotels surrounded by Grand Cru vines; Loire for Renaissance-castle B&Bs in Chenonceau and Chambord villages. Paris has the big-name palace hotels (Ritz, Le Bristol, Plaza Athénée, €1,400+/night). Book early — top suites sell out 6-9 months out in peak months."}</p>
+        <h3>Is Corsica worth a separate trip or can I squeeze it in?</h3>
+        <p>{"Worth its own 7-10 day trip. Flights from Paris take 1h40 (€80-180 round-trip); the overnight ferry from Nice/Marseille is 5-11 hours (€55-110 foot passenger, more with a car). A car is essential on the island. Don't tack on 3 nights to a mainland trip — you'll spend more time in transit than on the beach."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

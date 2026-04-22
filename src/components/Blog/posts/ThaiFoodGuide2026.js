@@ -190,13 +190,49 @@ export default function ThaiFoodGuide2026() {
 
         <h2 id="faq">11. FAQ</h2>
         <h3>Single best Thai dish to start with?</h3>
-        <p><strong>Pad Thai at Thip Samai</strong>. Iconic for a reason.</p>
-        <h3>Where's the best street food?</h3>
-        <p><strong>Bangkok's Yaowarat (Chinatown) at night</strong>. The single best street-food street in Asia.</p>
-        <h3>Is Thai food safe from street carts?</h3>
-        <p>Yes — stick to busy stalls with visible turnover. Thai street food is some of the safest in Asia.</p>
+        <p>{"For a first meal, order "}<strong>pad thai goong at Thip Samai</strong>{" (Bangkok, 313 Maha Chai Rd) — the egg-wrapped original since 1966 for 90 THB. For something more defining of Thailand's flavour, try "}<strong>tom yum goong</strong>{" at any Isaan-run shop; the sour-spicy-aromatic balance is what Thai cooking is actually about."}</p>
+
+        <h3>Where's the best street food in the country?</h3>
+        <p><strong>{"Bangkok's Yaowarat (Chinatown) after 6 PM"}</strong>{" is arguably the best street-food street in Asia — bird's-nest soup, Michelin-starred crab omelette at Jay Fai, grilled squid, oyster omelettes, all on one 1 km stretch. Runners-up: Chiang Mai's Chang Phueak Gate (the 'Cowboy Hat Lady' khao kha moo) and Phuket's Lock Tien food court."}</p>
+
+        <h3>Is Thai street food safe to eat?</h3>
+        <p>{"Yes — stick to busy stalls with visible turnover and cooked-to-order heat. "}<strong>Thai street food is among the safest in Asia</strong>{" because rapid turnover means nothing sits. Avoid pre-cut fruit from tourist zones, undercooked seafood at buffets, and ice from hand-chipped blocks (machine ice in cafes is fine). Carry activated charcoal tablets just in case."}</p>
+
         <h3>How much should I budget for food?</h3>
-        <p>Backpacker: <strong>$8/day</strong> (street only). Mid-range: <strong>$18/day</strong>. Comfort: <strong>$45+/day</strong>.</p>
+        <p><strong>{"Backpacker: $8/day"}</strong>{" (street food only — 40 THB pad thai, 50 THB som tum, 70 THB khao man gai). "}<strong>{"Mid-range: $18/day"}</strong>{" (one sit-down meal daily at a nice Thai restaurant). "}<strong>{"Comfort: $45+/day"}</strong>{" (restaurants, cocktails, smoothies, one chef-driven tasting per trip). The cheapest food is often the best — don't upgrade just because."}</p>
+
+        <h3>I'm vegetarian/vegan — will I survive?</h3>
+        <p>{"Vegetarian yes, vegan harder because "}<strong>fish sauce (nam pla) and shrimp paste (kapi)</strong>{" are in nearly everything. Learn "}<strong>jay</strong>{" (pure vegan, Buddhist-style, yellow-flag shops) and "}<strong>mang-sa-wirat</strong>{" (vegetarian). Chiang Mai has Asia's best vegan scene — try Reform Kafé, Goodsouls, and the Sunday Walking Street jay stalls."}</p>
+
+        <h3>How do I handle peanut or seafood allergies?</h3>
+        <p>{"Carry a Thai allergy card (printable at AllergyAction.org) reading "}<strong>{"'phom/chan phae thua'"}</strong>{" (I'm allergic to peanuts) or seafood equivalents. Peanuts are sprinkled on pad thai, som tum, and countless sauces; "}<strong>shrimp paste (kapi)</strong>{" hides in curry paste and som tum dressing. Always say 'mai sai' (don't add) to be safe. Top-tier hotels and chain restaurants take allergies seriously."}</p>
+
+        <h3>Do I tip at Thai restaurants?</h3>
+        <p>{"Not expected, always appreciated. At street stalls and food courts, no tip. At mid-range restaurants, round up or leave "}<strong>20–40 THB</strong>{" if service charge isn't on the bill. At upscale restaurants a 10% service charge is often included — check before adding more. Never tip at night markets where price is by negotiation."}</p>
+
+        <h3>What are the must-try regional specialties?</h3>
+        <p>{"North (Chiang Mai): "}<strong>khao soi</strong>{" (coconut-curry noodle soup) and "}<strong>sai oua</strong>{" (herb sausage). Northeast (Isaan): "}<strong>larb</strong>{", "}<strong>som tum</strong>{", and grilled catfish with sticky rice. South: "}<strong>massaman curry</strong>{" (Muslim-influenced) and "}<strong>khao mok gai</strong>{" (Thai biryani). Central: pad thai, tom yum, green curry. Each region has a distinct chili-to-sour-to-sweet balance."}</p>
+
+        <h3>What wine or drink pairs with Thai food?</h3>
+        <p><strong>{"Chilled Singha or Chang beer"}</strong>{" (60 THB/bottle) is the locals' choice and it works — the cold bitterness cuts chili heat. For wine, skip reds (the tannins clash) and pick "}<strong>off-dry Riesling or Gewürztraminer</strong>{"; for cocktails, try Thai lime-leaf gin tonics. Best value: a "}<strong>Thai iced tea (cha yen)</strong>{" mellows anything too spicy."}</p>
+
+        <h3>Markets vs restaurants — which is better?</h3>
+        <p>{"Both — different strengths. Markets (Or Tor Kor, Klong Toey) are freshest and cheapest with ingredients you'll never see at restaurants. Sit-down restaurants do better on elaborate central-Thai royal cuisine (Nahm, Bo.lan). Rule of thumb: "}<strong>street for staples, restaurants for showpieces</strong>{". The Michelin Bib Gourmand list is 80% stalls."}</p>
+
+        <h3>Seasonal specialties worth timing a trip for?</h3>
+        <p><strong>{"Mango sticky rice"}</strong>{" peaks April–June (nam dok mai mango season) — outside this window you get Filipino mango imports. "}<strong>Durian</strong>{" is best May–August (monthong variety). November–January brings "}<strong>ripe pomelo and rambutan</strong>{". Crab is freshest January–March when the roe is fat."}</p>
+
+        <h3>Best Thai cooking class for travellers?</h3>
+        <p>{"In Chiang Mai, "}<strong>Thai Farm Cooking School</strong>{" (800 THB / 6 dishes / market tour included) is the gold standard — full day in a 2-acre farm. Bangkok's "}<strong>Silom Thai Cooking School</strong>{" and Baipai Cooking School both cost $35–45 for 4–5 dishes. Book morning classes; afternoon heat makes wok work miserable."}</p>
+
+        <h3>Market etiquette — what should I know?</h3>
+        <p>{"Don't haggle on food prices (fixed). Do point or use Google Translate — vendors appreciate the attempt. Eat standing or at the tiny stools; don't walk and eat at religious sites. Many stalls run out by 7 PM at Or Tor Kor and by 2 PM at morning markets. Carry 20/50/100 THB notes — 1,000 THB bills frustrate vendors."}</p>
+
+        <h3>How spicy is "Thai spicy" really?</h3>
+        <p>{"Genuinely hot — think scotch-bonnet level for "}<strong>som tum Isaan (phet thammada)</strong>{". Tourist restaurants dial it down by default. Ask for "}<strong>phet nit noi</strong>{" (little spicy) or "}<strong>mai phet</strong>{" (not spicy) to calibrate. Keep sugar or sticky rice on hand, not water — capsaicin is oil-soluble. Mango sticky rice resets your palate beautifully."}</p>
+
+        <h3>Unusual foods worth trying at least once?</h3>
+        <p><strong>{"Insect cart"}</strong>{" on Khao San Road (crickets, silkworms, bamboo worms — 20 THB a cone, surprisingly good); "}<strong>hoi thod</strong>{" (crispy oyster omelette) at Yaowarat; "}<strong>koi soi</strong>{" raw-beef larb in Isaan (for the adventurous); and a "}<strong>durian ice cream</strong>{" at Or Tor Kor market if full fruit intimidates you."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

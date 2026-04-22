@@ -160,14 +160,36 @@ export default function TwoWeekMexicoItinerary2026() {
         </p>
 
         <h2 id="faq">7. FAQ</h2>
-        <h3>10-day version?</h3>
-        <p>Drop Oaxaca or Mérida. 10-day: Mexico City (4) → Yucatán (3) → Tulum (3).</p>
-        <h3>Best month?</h3>
-        <p><strong>January-April</strong> or <strong>November</strong>.</p>
-        <h3>Safe to self-drive?</h3>
-        <p>Yucatán: yes. Baja: yes. Rural interior (Oaxaca, Chiapas): guided group tours preferred.</p>
-        <h3>Reverse route?</h3>
-        <p>Yes — fly into Cancún, end in Mexico City. Often cheaper from US East Coast.</p>
+        <h3>Can I compress this route into 10 days?</h3>
+        <p>{"Yes — drop either Oaxaca or Mérida: Mexico City (4) → Yucatán/Valladolid (3) → Tulum (3). Under 10 days and you lose depth at every stop. If culture is the priority, do CDMX (4) + Oaxaca (5) and skip the coast entirely — you'll eat better. Beach priority? CDMX (3) + Yucatán (4) + Tulum (3)."}</p>
+        <h3>What's the best month for this itinerary?</h3>
+        <p>{"November to April — dry season, Yucatán 26-30°C, CDMX 22-24°C pleasant, whales in Baja if you swing west. Day of the Dead (Oct 31-Nov 2) is magical in CDMX and Oaxaca but prices double and rooms sell out 6 months ahead. Avoid June-October: hot, humid, and Atlantic hurricane risk September-October in the Yucatán."}</p>
+        <h3>Should I reverse the route and fly into Cancún?</h3>
+        <p>{"Often cheaper — CUN flights from US East Coast run $120-280 roundtrip vs MEX $200-400. Reversing lets you acclimate on the coast, adjust to heat and altitude separately, and end culture-heavy in CDMX. Internal one-way Volaris CUN-MEX is $50-100. Flight home from CDMX often cheaper than from Cancún for West Coast travellers."}</p>
+        <h3>Should I rent a car or use buses?</h3>
+        <p>{"Hybrid: ADO first-class bus between cities (CDMX-Oaxaca 6.5h for 800-1,200 pesos), flight into Mérida or Cancún, then rent a car for 4-5 days in the Yucatán to chase cenotes and pueblos. Mandatory Mexican liability insurance (~$25/day) is often missing from cheap online quotes — always budget it separately. Skip car rental in CDMX entirely."}</p>
+        <h3>Is self-driving safe in Mexico?</h3>
+        <p>{"Yucatán: very safe, flat, signed. Baja Sur: safe on main highways, 4WD advised on dirt roads. Oaxaca coast: ok but narrow mountain roads; night driving not recommended anywhere. Chiapas interior and Guerrero: skip rentals, use guided tours. Never drive after dark, always use toll roads (cuota) not free (libre), and fuel up whenever you see Pemex — stations are scarce on back roads."}</p>
+        <h3>How do I handle jet lag and altitude in CDMX?</h3>
+        <p>{"CDMX sits at 2,240m — day 1 go light, hydrate 3L, skip alcohol, sleep 9 hours. Book a hotel with early check-in in Roma or Condesa (not Centro Histórico for first night, too chaotic). Don't schedule Teotihuacán for day 1; do it on day 3 when acclimated. East Coast travellers have a 1-2 hour time change — mild."}</p>
+        <h3>Can I do this trip with kids?</h3>
+        <p>{"Yes, for ages 6+. Yucatán cenotes, Xcaret/Xel-Há parks near Playa del Carmen, Chichén Itzá (kids love the Mayan acoustic handclap echo), and CDMX's Chapultepec Park with its zoo and Museum of Anthropology work well. Skip long bus legs (CDMX-Oaxaca 6.5h is brutal with toddlers) — fly Aeroméxico for 850-1,500 pesos. Add a resort beach day per kid."}</p>
+        <h3>Can I pack carry-on only for two weeks?</h3>
+        <p>{"Yes — a 40L backpack handles it. Pack layers (CDMX evenings 12-15°C, Yucatán 30°C), swim gear, water shoes for cenotes, a light long-sleeve for mosquitos/sun, and one long-sleeve collared shirt for nicer CDMX dinners. Volaris and Viva Aerobús charge extra for anything above 10kg carry-on — measure strictly."}</p>
+        <h3>What should I pre-book vs. show up for?</h3>
+        <p>{"Pre-book: flights, CDMX hotels in Roma/Condesa (best boutiques sell out 6-8 weeks ahead), Chichén Itzá early-morning slot, Día de los Muertos hotels if visiting, and any Valladolid cenote tour. Show up for: taco stalls, mezcalerías, most markets. ADO bus tickets can be bought 24h ahead on the app — no need to book a month out except Day of the Dead."}</p>
+        <h3>Is the Yucatán-to-Baja route doable in two weeks?</h3>
+        <p>{"Tight but possible: CDMX (3) → Oaxaca (3) → Yucatán (4) → Baja (4). Requires two internal flights (MEX-OAX-MEX-CUN and CUN-SJD via MEX, total 8-10 flight hours). Realistically, pick one coast — Yucatán for ruins/cenotes OR Baja for whales/Pacific — and save the other for a future trip. Trying both exhausts and you miss depth."}</p>
+        <h3>How accessible is Mexico for older travellers?</h3>
+        <p>{"CDMX and Mérida have modern hotels with lifts; Oaxaca and San Cristóbal have cobbled streets and steep climbs. Archaeological sites (Chichén Itzá, Monte Albán, Palenque) involve long walks on uneven stone — bring proper shoes. Private drivers ($80-120/day for a car + driver) beat bus travel for comfort. Build in 4-night stays per base to reduce packing/unpacking."}</p>
+        <h3>How much should I budget per person?</h3>
+        <p>{"Backpacker $35/day × 14 = $490. Mid-range $80/day = $1,120. Comfort $180/day = $2,520. Add $150-300 for one internal flight, $80-120 for 4 days car rental in Yucatán, and $100-180 for Chichén Itzá + Monte Albán + Palenque entries + guides. Flights into MEX/CUN from US run $180-400 roundtrip."}</p>
+        <h3>Is the food safe at street taco stands?</h3>
+        <p>{"Yes at busy stalls with high turnover — local queue = safe. Look for: stalls with a line of locals, tortillas made on-site, meat cooked to order on a hot plancha. Avoid: empty stalls mid-afternoon (meat's been sitting), pre-made salsas in unrefrigerated bowls, and anything with raw vegetables. Imodium + electrolytes in the daypack handle the rare stomach issue."}</p>
+        <h3>What's the rainy-day backup in each city?</h3>
+        <p>{"CDMX: Museum of Anthropology (world-class, indoor, 2-3 hours easily), Palacio de Bellas Artes, Frida Kahlo house. Oaxaca: Mercado 20 de Noviembre for food, Santo Domingo church + cultural centre. Yucatán: Valladolid's Casa de los Venados private art collection, Mérida's Gran Museo del Mundo Maya. Rain is short and afternoon; mornings usually stay dry."}</p>
+        <h3>What's the one itinerary mistake most people make?</h3>
+        <p>{"Trying to stay in Tulum and day-trip to Chichén Itzá + Valladolid + multiple cenotes — you'll spend 3+ hours daily on cramped minivan tours. Base in Valladolid or Mérida for 3 nights instead; you're 45 minutes from Chichén Itzá, cheaper, and get real Yucatecan food. Save Tulum for 2 nights at the tail end if beach time is important."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

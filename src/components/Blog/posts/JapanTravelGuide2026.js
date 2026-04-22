@@ -320,36 +320,49 @@ export default function JapanTravelGuide2026() {
         <h2 id="faq">11. Japan FAQ</h2>
 
         <h3>How long should I spend in Japan?</h3>
-        <p>
-          Minimum <strong>10 days</strong>. Sweet spot is{' '}
-          <strong>14–17 days</strong>. For a satisfying first trip, plan
-          at least 2 weeks.
-        </p>
+        <p>{"Minimum 10 days to justify the long-haul flight. The sweet spot is 14-17 days for a first trip — enough for Tokyo (4-5 nights), Kyoto (4 nights), one alternate region (Hakone, Kanazawa or Hiroshima), and a 1-2 night ryokan experience. Under 10 days you will spend too much ratio on transit; over 21 days and Japan fatigue is real without a day-trip detour."}</p>
+
+        <h3>Do I need a visa?</h3>
+        <p>{"Citizens of 68 countries (US, UK, EU, Australia, Canada, South Korea, Singapore) get 90 days visa-free. You must have at least 6 months passport validity and the automated gate system ('J-SKIP') launched in 2024 makes immigration a 90-second process at Narita and Haneda. Longer stays or working trips require a proper visa arranged before departure."}</p>
 
         <h3>Is English widely spoken?</h3>
-        <p>
-          In tourism hubs (Tokyo, Kyoto, Osaka) — yes, at basic level. In
-          rural areas — limited. Google Translate voice mode works well.
-        </p>
+        <p>{"In tourism hubs (Tokyo, Kyoto, Osaka, Hiroshima) yes — at basic-to-functional level, and train stations, ticket machines and restaurant menus are almost universally bilingual. In rural Japan (Tohoku, Kyushu interior, San'in coast) English coverage drops sharply. Google Translate's camera and voice modes work brilliantly and most travelers rely on them daily."}</p>
 
         <h3>Is Japan safe?</h3>
-        <p>
-          Exceptionally. One of the top 5 safest countries on earth. Solo
-          travel, including solo female travel, is safer in Japan than
-          almost anywhere.
-        </p>
+        <p>{"Exceptionally — one of the top 5 safest countries on earth. Solo travel, including solo female travel, is safer in Japan than almost anywhere else; children ride the Tokyo subway alone at age 7. The realistic risks are natural (earthquakes, typhoons in September-October) and scams are vanishingly rare. Bag-on-chair cafe reservation culture is normal and genuine."}</p>
 
         <h3>Can I use my credit card?</h3>
-        <p>
-          In Tokyo: mostly yes. Elsewhere: carry cash. 7-Eleven ATMs
-          accept foreign cards and are everywhere.
-        </p>
+        <p>{"In Tokyo and Osaka chain stores, hotels and mid-to-high-end restaurants, yes (Visa and Mastercard widely; Amex less so). Outside major cities and at small izakayas, ramen shops, shrines and ryokans — cash-only is very common. Always carry 20,000-30,000 yen in cash. 7-Eleven ATMs (and Japan Post ATMs) accept foreign cards 24/7 and are the most reliable option."}</p>
 
         <h3>Should I book accommodation far in advance?</h3>
-        <p>
-          <strong>Yes</strong> — 3-6 months for cherry-blossom and autumn
-          foliage weeks; 1-2 months otherwise. Good ryokans book up first.
-        </p>
+        <p>{"Yes — 3-6 months ahead for cherry-blossom weeks (late March-early April) and autumn foliage (mid-November). Good ryokans and Kyoto machiya houses book up 6+ months out for peak season. Off-peak (February, June, September) you can often book 2-4 weeks ahead. Golden Week (April 29-May 5) and Obon (mid-August) are near-impossible without 6+ months of planning."}</p>
+
+        <h3>What's the best way to handle transportation?</h3>
+        <p>{"The JR Pass doubled in price in late 2023 and no longer pays off for most itineraries — do the math on single tickets first via Smart EX or Klook. For 2026, Suica or PASMO IC cards handle all local trains/buses/metros; the Tokyo-Kyoto-Tokyo shinkansen costs about 28,000 yen as individual tickets. Regional passes (Kansai Thru Pass, Hokuriku Arch) often beat the national JR Pass."}</p>
+
+        <h3>What currency and how much cash should I carry?</h3>
+        <p>{"Japanese yen (JPY). Exchange rate is roughly 155 yen to 1 USD in April 2026, close to 35-year weak-yen lows, which makes Japan 30-40% cheaper in USD terms than pre-pandemic. Carry 20,000-30,000 yen cash at all times for small restaurants, shrines and rural purchases. 7-Eleven ATMs are your best friend; avoid currency exchange kiosks at airports."}</p>
+
+        <h3>How much does a trip to Japan cost?</h3>
+        <p>{"Budget: $100-130 per day (hostels, conbini + ramen meals, local transit). Mid-range: $220-300 per day (3-star business hotels, sit-down restaurants, 1-2 ryokan nights). Comfort: $450+ per day (4-star hotels, occasional kaiseki dinners, private guide). Flights from the US/Europe add $1,000-1,800 round-trip. Two weeks mid-range for two people typically runs $8,000-11,000 excluding flights."}</p>
+
+        <h3>Is tipping expected?</h3>
+        <p>{"No — tipping is actively discouraged and in most cases considered rude. Do not tip at restaurants, taxis, hotels or ryokans. The Japanese concept of omotenashi (hospitality) treats good service as an obligation, not something negotiated for tips. The single exception: traditional ryokans occasionally accept a small envelope (2,000-5,000 yen) discreetly handed to the nakai on arrival — still uncommon."}</p>
+
+        <h3>What should I pack?</h3>
+        <p>{"Good walking shoes (Tokyo averages 18,000 steps per day), slip-on shoes for temples and ryokans (you remove shoes constantly), a small day pack for coin lockers, a portable charger, cash wallet for small notes, and a towel (some public baths charge for towel rental). In winter pack thermal layers; Japanese heating is space-heater-only in older ryokans and rooms feel cold."}</p>
+
+        <h3>What are the most important cultural etiquette rules?</h3>
+        <p>{"Remove shoes at any raised entry (houses, ryokans, temples, some restaurants), never tip, keep voice low on trains (no phone calls), do not eat or drink while walking, queue in neat lines at stations, bow slightly when thanking someone, and never stab chopsticks upright in rice (funeral symbolism). Onsen etiquette: wash thoroughly before entering, no swimsuits, and tattoos may bar entry at traditional baths."}</p>
+
+        <h3>Is connectivity good and what SIM should I get?</h3>
+        <p>{"Exceptional — Japan has 99% 5G coverage in populated areas. Buy an Airalo or Ubigi eSIM before departure ($18-30 for 10-20GB/30 days) or a physical Sakura Mobile SIM at Narita/Haneda airports. Pocket wifi rentals (Ninja WiFi) are popular with groups sharing a device. Public free wifi is spotty outside chain cafes — stick with cellular data."}</p>
+
+        <h3>What festivals or events should I time my trip around?</h3>
+        <p>{"Sakura (late March-early April), Gion Matsuri in Kyoto (July), Obon (mid-August, ancestor festivals), Nebuta Matsuri in Aomori (early August), momiji fall foliage (mid-November Kyoto), Setsubun (February 3), New Year shrine visits (January 1-3), and Sapporo Snow Festival (early February). Golden Week and Obon double hotel prices but deliver unmatched cultural experiences if you plan early."}</p>
+
+        <h3>Are there health concerns I should prepare for?</h3>
+        <p>{"Very few — Japan has world-class healthcare, tap water is safe everywhere, and hygiene standards are exceptional. Carry travel insurance (treatment is expensive if you are uninsured). Summer humidity causes heat exhaustion in July-August; winter dryness causes skin issues. Most prescription medications are available but bring a doctor's note for any controlled substance (Adderall and some cold medicines are banned)."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

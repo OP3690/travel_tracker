@@ -254,13 +254,49 @@ export default function BestEuropeanBeaches2026() {
 
         <h2 id="faq">6. FAQ</h2>
         <h3>Best beach in Europe?</h3>
-        <p><strong>Navagio (Greece)</strong> is the iconic winner. <strong>Ksamil (Albania)</strong> is the value winner.</p>
-        <h3>Most underrated?</h3>
-        <p>The <strong>Albanian Riviera</strong> and <strong>Sardinia's Golfo di Orosei</strong>.</p>
+        <p><strong>{"Navagio (Shipwreck Beach, Zakynthos, Greece)"}</strong>{" is the iconic winner — accessible only by boat, shipwreck on golden sand, turquoise water. "}<strong>{"Ksamil (Albania)"}</strong>{" is the value winner with the same Ionian turquoise at 30% of Greek prices. "}<strong>{"Cala Goloritzé (Sardinia)"}</strong>{" is the hikers' alternative."}</p>
+
+        <h3>Most underrated beach destinations?</h3>
+        <p>{"The "}<strong>{"Albanian Riviera (Dhërmi, Himarë, Ksamil)"}</strong>{", "}<strong>{"Sardinia's Golfo di Orosei"}</strong>{", "}<strong>{"Portugal's Alentejo Coast (Comporta, Vila Nova de Milfontes)"}</strong>{", "}<strong>{"Montenegro's Sveti Stefan"}</strong>{", and "}<strong>{"Croatia's Cres and Lošinj islands"}</strong>{". All deliver Riviera-quality water at 40–60% less than their famous neighbours."}</p>
+
         <h3>Best country overall for beaches?</h3>
-        <p><strong>Greece</strong>. Variety, quality, still-reasonable prices.</p>
+        <p><strong>{"Greece"}</strong>{" — variety (6,000 islands), quality (turquoise Aegean + Ionian), still reasonable prices, and a culture built around the sea. "}<strong>{"Spain"}</strong>{" is a close second (Costa Brava + Balearics + Canaries). "}<strong>{"Portugal, Italy, Croatia"}</strong>{" follow. Skip France and the UK for pure-beach holidays — better inland."}</p>
+
         <h3>Cheapest beach holiday in Europe?</h3>
-        <p><strong>Albanian Riviera</strong>. About €35/day for a genuinely great beach experience.</p>
+        <p><strong>{"Albanian Riviera"}</strong>{" at "}<strong>{"€35–45/day"}</strong>{" — Ksamil's turquoise for a fraction of Corfu prices. Ferry from Corfu is "}<strong>{"€20, 30 min"}</strong>{". Runner-up: "}<strong>{"Bulgarian coast (Sozopol, Nessebar)"}</strong>{" at €40/day. "}<strong>{"Turkey's Aegean (Datça, Marmaris off-strip)"}</strong>{" at €45/day, post-lira devaluation."}</p>
+
+        <h3>Best beach for families with kids?</h3>
+        <p><strong>{"Algarve (Praia da Marinha, Albufeira) in Portugal"}</strong>{" — shallow warm water, flat sand, kid-friendly resorts. "}<strong>{"Spain's Costa del Sol"}</strong>{" (Marbella, Nerja), "}<strong>{"Croatia's Makarska Riviera"}</strong>{" (pebble but calm), "}<strong>{"Bulgaria's Sunny Beach"}</strong>{". Avoid Greek island beaches with strong drop-offs for toddlers."}</p>
+
+        <h3>Best beach for couples/honeymoons?</h3>
+        <p><strong>{"Santorini (Red Beach, Kamari) + Milos (Sarakiniko)"}</strong>{" for the volcanic drama, "}<strong>{"Capri (Faraglioni cliffs)"}</strong>{", "}<strong>{"Ibiza's Es Cavallet"}</strong>{" for relaxed luxury, "}<strong>{"Amalfi's Arienzo Beach"}</strong>{" (300 steps down from Positano). The Greek Cyclades and Italian Amalfi dominate the luxury-beach conversation."}</p>
+
+        <h3>Best beach for partying?</h3>
+        <p><strong>{"Ibiza (Playa d'en Bossa, Salinas)"}</strong>{" is the world's premier beach-party destination — "}<strong>{"Pacha, Ushuaïa, DC10"}</strong>{" season May–October. Runner-ups: "}<strong>{"Mykonos Super Paradise"}</strong>{", "}<strong>{"Zrce Beach (Pag, Croatia)"}</strong>{" for festival culture, "}<strong>{"Albufeira Old Town strip (Algarve)"}</strong>{" for cheaper party beaches."}</p>
+
+        <h3>Best beach for surfers?</h3>
+        <p><strong>{"Nazaré (Portugal) for giant waves"}</strong>{" — world-record 80-foot waves at Praia do Norte in winter. "}<strong>{"Ericeira (Portugal)"}</strong>{" for everyday surfing. "}<strong>{"San Sebastián's Zurriola (Spain)"}</strong>{", "}<strong>{"Biarritz (France)"}</strong>{" for Atlantic swell. "}<strong>{"Cornwall's Fistral (UK)"}</strong>{" for gritty northern surf."}</p>
+
+        <h3>Best beach for diving and snorkelling?</h3>
+        <p><strong>{"Malta (Blue Hole + Gozo)"}</strong>{" for world-class visibility and cave diving, "}<strong>{"Sardinia's Capo Testa"}</strong>{", "}<strong>{"Menorca (Cala Macarella)"}</strong>{" for clear Mediterranean, "}<strong>{"Azores"}</strong>{" for Atlantic pelagics and manta rays. "}<strong>{"Cyprus's Cape Greco"}</strong>{" for easy shore dives. Best visibility is July–September."}</p>
+
+        <h3>Best beach for hiking + beach combos?</h3>
+        <p><strong>{"Cinque Terre (Liguria)"}</strong>{" — village-to-village Sentiero Azzurro with Monterosso swim stops. "}<strong>{"Samaria Gorge to Agia Roumeli (Crete)"}</strong>{" for a 16 km hike ending at a swim beach. "}<strong>{"Amalfi's Path of the Gods"}</strong>{" ending in Positano swim. "}<strong>{"Sardinia's Selvaggio Blu"}</strong>{" — 5-day trek with daily swim stops."}</p>
+
+        <h3>When's beach season in Europe?</h3>
+        <p><strong>{"Mediterranean: June–September"}</strong>{" (sea 22–26°C). "}<strong>{"May and October"}</strong>{" are warm on land but the water is cold. "}<strong>{"Atlantic (Portugal, Spain, France)"}</strong>{": July–September only — Atlantic waters stay under 20°C. "}<strong>{"Baltic, UK"}</strong>{": July and August only, and even then 15–17°C water. Plan accordingly."}</p>
+
+        <h3>Ferry or fly to the Greek islands?</h3>
+        <p><strong>{"Fly direct to Santorini, Mykonos, Crete, Rhodes"}</strong>{" — domestic hops cost €40–90 and save 6–10 hours vs ferry. "}<strong>{"Ferry for short-hops between islands"}</strong>{" (Mykonos → Naxos → Paros) or for car transport. Athens' "}<strong>{"Piraeus port"}</strong>{" overnight ferries €30–70 with couchette. Book "}<strong>{"FerryHopper or Blue Star"}</strong>{" directly."}</p>
+
+        <h3>Which beaches have crowd problems in 2026?</h3>
+        <p><strong>{"Navagio (Zakynthos), Santorini's Red Beach, Dubrovnik's Banje, Cala Mariolu (Sardinia)"}</strong>{" all enforce daily visitor caps and pre-booking windows. Arrive at opening or pre-book the day before. "}<strong>{"Maya Bay, Positano, Ksamil in August"}</strong>{" are packed — go shoulder-season (May, September, October) for 60% fewer people."}</p>
+
+        <h3>Any nudist or naturist beaches to know about?</h3>
+        <p><strong>{"Cap d'Agde (France)"}</strong>{" is Europe's largest naturist village. "}<strong>{"Playa de Es Cavallet (Ibiza), Stinissa (Cres, Croatia), Paradise Beach (Mykonos), Cala Torre Argentina (Sardinia)"}</strong>{" all have accepted nude sections. Check signage — Europe is generally relaxed but local etiquette varies."}</p>
+
+        <h3>Safety and sustainability at European beaches?</h3>
+        <p><strong>{"Blue Flag"}</strong>{" is the gold-standard environmental cert — 400+ Greek beaches, 300+ Spanish, 200+ Italian hold it. Sea-urchins and jellyfish ("}<strong>{"medusa in Italian, medusas in Spanish"}</strong>{") are more common in August. Reef-safe sunscreen is mandatory at some protected beaches (Balearics, Sardinia's Archipelago La Maddalena). Always respect posted flags."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

@@ -162,12 +162,36 @@ export default function TwoWeekSpainItinerary2026() {
         </p>
 
         <h2 id="faq">7. FAQ</h2>
-        <h3>Can I do 10 days?</h3>
-        <p>Yes — drop Valencia + 1 Andalucía city. 10-day: Madrid (3) → Seville (2) → Granada (2) → Barcelona (3).</p>
-        <h3>Best month?</h3>
-        <p><strong>May, September, October</strong>. Avoid July-August in Andalucía.</p>
-        <h3>Reverse route?</h3>
-        <p>Yes — fly into Barcelona, end in Madrid.</p>
+        <h3>Can I realistically do this itinerary in 10 days?</h3>
+        <p>{"Yes — drop Valencia and tighten Andalusia to one city: Madrid (3) → Seville (2) → Granada (2) → Barcelona (3). Under 10 days and you're spending more time on AVEs than plazas; either add a week or commit to Madrid + Barcelona only. Ten days is intense but workable — 14 is noticeably more pleasant."}</p>
+        <h3>What's the best month to run this route?</h3>
+        <p>{"April-early June and mid-September to October win — 20-28°C, shoulder prices, and Andalusia is bearable (not 42°C like August). July-August turns Seville and Córdoba into furnaces; Madrid half-empties as locals flee. March is nice everywhere except the cool north; November is quiet and cheap but wet in Basque Country."}</p>
+        <h3>Should I reverse the route and fly into Barcelona?</h3>
+        <p>{"Absolutely — flights from the US East Coast to BCN are often €80-150 cheaper than MAD in shoulder season, and ending in Madrid gives you a cheap onward hop to Lisbon or Porto. Reverse routing also lets you acclimate on the coast before hitting the inland heat of Córdoba and Seville. AVE fares are identical either direction."}</p>
+        <h3>When should I book AVE tickets for the best prices?</h3>
+        <p>{"Renfe opens booking 60-90 days ahead with 'Promo' and 'Promo+' fares starting at €18-30 (Madrid-Barcelona, Madrid-Seville). Same-day walk-up runs €110-140. Ouigo España and Iryo (low-cost competitors on Madrid-Barcelona and Madrid-Valencia) start at €9-25 booked 2-3 months out. Set a calendar reminder — fares rise quickly as the train fills."}</p>
+        <h3>Do I need internal flights or is rail enough?</h3>
+        <p>{"Rail is enough for everything except the islands (Mallorca, Ibiza, Canaries) and Galicia if you're short on time. Vueling and Ryanair fly Barcelona-Seville in 1h45 for €30-60 booked early; it saves a day over the train (5h30). For the classic 14-day loop Madrid-Seville-Granada-Valencia-Barcelona, AVE beats flying every time on total door-to-door time."}</p>
+        <h3>Can I pack carry-on only for two weeks?</h3>
+        <p>{"Easily — a 40L backpack or 35L spinner plus a daypack. AVE luggage racks are tight, Barcelona and Madrid metros have stairs without elevators at many stations, and you'll walk cobbled streets daily. Plan one laundry cycle mid-trip (€6-9 at self-service lavomatics; most hostels have facilities). Ryanair's 10kg cabin limit is genuinely enforced — measure before you leave."}</p>
+        <h3>How do I handle jet lag on arrival day?</h3>
+        <p>{"Book a hotel with early check-in guarantee (many Madrid hotels allow 11:00-noon for a €15-25 fee); shower, walk El Retiro park for 2 hours, eat a light lunch, and force yourself to stay awake until 22:00 local. Save the Prado and major sights for day 2. Spanish dinner at 21:30 actually works in your favour — matches East Coast body clock."}</p>
+        <h3>Is this itinerary good with kids, and how should I adjust?</h3>
+        <p>{"Very good for ages 6+. Swap one museum day in each city for a park (Retiro in Madrid, Parc de la Ciutadella in Barcelona, Maria Luisa in Seville) plus a flamenco show kids enjoy (Casa Patas Madrid, El Palacio Andaluz Seville). Add one Valencia beach day. Under-4s ride Renfe free; 4-13 at 40% off. Spain is stroller-tolerant but cobbled streets in Granada Albaicín are brutal."}</p>
+        <h3>Can I add Portugal (Lisbon or Porto) to this route?</h3>
+        <p>{"Yes — Madrid-Lisbon is a 7h overnight train (€30-60) or 1h15 flight (€35-70 on Ryanair/TAP); Seville-Lagos via Faro is a 4h bus for €25. Add 3 nights minimum in Lisbon. Porto pairs well with Galicia (Santiago-Porto is 3h by bus). Don't try a 2-night Lisbon tack-on — you waste 60% on transit."}</p>
+        <h3>Is this trip doable for solo travellers or better as a couple?</h3>
+        <p>{"Both work. Couples get better value on hotel rooms (€85-140 doubles beat two dorm beds). Solos thrive on Spain's social food culture — tapas crawls, food tours, and Spanish-language meetups. Basque pintxo bars are particularly solo-friendly (standing crowd, easy conversation). Hostels across Spain are modern and safe: Casa Gracia (Barcelona), The Hat (Madrid), The Nomad (Seville)."}</p>
+        <h3>What's the rainy-day backup plan per city?</h3>
+        <p>{"Madrid: Prado + Reina Sofía + Thyssen art-triangle combo ticket. Barcelona: Sagrada Família, Picasso Museum, MNAC. Seville: Cathedral, Real Alcázar, Metropol Parasol. Granada: Alhambra audio tour (still magical in rain), Cartuja monastery. Valencia: City of Arts and Sciences oceanarium. Rain is genuinely rare April-October except in San Sebastián and the north."}</p>
+        <h3>What's the one scheduling mistake people make?</h3>
+        <p>{"Not pre-booking Alhambra tickets (Granada) and Sagrada Família (Barcelona) — Alhambra General Tickets sell out 2-3 months ahead for peak months and it's the one sight you genuinely cannot substitute. Book the moment your flights are set. Also pre-book Prado skip-the-line and Real Alcázar morning slots."}</p>
+        <h3>How accessible is this route for older travellers?</h3>
+        <p>{"Adjust pace to 3 nights minimum per stop (cut to 12-day version: Madrid 3, Seville 3, Barcelona 3, Valencia 3), book hotels with lifts (not all boutique hotels in Granada Albaicín have them), and use taxis or Cabify (€5-12 city rides) liberally. AVE offers wheelchair service with 48h notice via Atendo. Avoid Granada's steep Albaicín cobbles if balance is a concern."}</p>
+        <h3>How much should I budget per person for this itinerary?</h3>
+        <p>{"Backpacker €50/day × 14 = €700. Mid-range €100/day = €1,400. Comfort €220/day = €3,080. Add €120-180 for AVE legs booked early, €40-60 for metro/buses, and €80-150 for Alhambra + Sagrada Família + Prado entries. Flights into Madrid or Barcelona from the US are €450-850 roundtrip shoulder season."}</p>
+        <h3>What if a Renfe strike or delay hits mid-trip?</h3>
+        <p>{"Check Renfe's app Info Trafico for advance strike notices. Fallbacks: BlaBlaCar ride-shares (€20-40 between major cities), ALSA buses (Madrid-Seville 6h30 for €22), or last-minute Ouigo/Iryo on competing high-speed routes. Travel insurance with rail-strike coverage reimburses extra lodging. Strikes are typically announced 5-10 days ahead and last 1-3 days."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

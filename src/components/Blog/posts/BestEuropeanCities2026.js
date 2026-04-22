@@ -263,13 +263,49 @@ export default function BestEuropeanCities2026() {
 
         <h2 id="faq">5. FAQ</h2>
         <h3>Best city for a first-time Europe trip?</h3>
-        <p><strong>Rome or Paris</strong>. Both are must-visits; order doesn\'t matter.</p>
-        <h3>Most underrated?</h3>
-        <p><strong>Porto</strong> or <strong>Ljubljana</strong>.</p>
+        <p><strong>{"Rome or Paris"}</strong>{" — both are must-visits and order doesn't matter. Rome wins on ancient history and food scale; Paris on art, architecture, and pastries. Both have direct transatlantic flights, English-friendly tourism, and countless iconic attractions. Pair them on a 10-day trip and you've seen two of the world's great cities."}</p>
+
+        <h3>Most underrated cities in Europe?</h3>
+        <p><strong>{"Porto, Ljubljana, Valencia, Thessaloniki, Gdansk"}</strong>{" all overdeliver. "}<strong>{"Porto"}</strong>{" beats Lisbon on charm and value; "}<strong>{"Ljubljana"}</strong>{" is an Instagram-ready mini-capital nobody's heard of; "}<strong>{"Valencia"}</strong>{" delivers paella, beaches, and half of Barcelona's prices; "}<strong>{"Thessaloniki"}</strong>{" has Greece's best food scene; "}<strong>{"Gdansk"}</strong>{" is the Baltic's prettiest secret."}</p>
+
         <h3>Cheapest quality city break?</h3>
-        <p><strong>Krakow</strong> or <strong>Budapest</strong>.</p>
+        <p><strong>{"Krakow or Budapest"}</strong>{" for €60/day mid-range — beautiful old towns, world-class food, cheap craft beer, and tons of history. "}<strong>{"Sofia, Bucharest, Belgrade"}</strong>{" even cheaper at €45/day. "}<strong>{"Porto"}</strong>{" is the Western-Europe outlier at €75/day — still cheaper than Lisbon for better food."}</p>
+
         <h3>Best for a solo trip?</h3>
-        <p><strong>Amsterdam</strong> — walkable, safe, English-first.</p>
+        <p><strong>{"Amsterdam"}</strong>{" leads — walkable, safe day and night, English-first hospitality, excellent hostels with social scenes, and it's genuinely fun to wander canals alone. Runners-up: "}<strong>{"Berlin"}</strong>{" (techno scene, huge expat community), "}<strong>{"Copenhagen"}</strong>{" (safest city in Europe), "}<strong>{"Lisbon"}</strong>{" (easygoing, great nomad community)."}</p>
+
+        <h3>Best city for foodies?</h3>
+        <p><strong>{"Bologna"}</strong>{" (pasta heartland), "}<strong>{"San Sebastián"}</strong>{" (pintxos per square metre world record), "}<strong>{"Naples"}</strong>{" (pizza birthplace + street food), "}<strong>{"Lyon"}</strong>{" (France's unofficial food capital), "}<strong>{"Istanbul"}</strong>{" (kebab, meze, Turkish breakfast). Skip Paris if pure food value matters — Lyon and Bologna deliver more per euro."}</p>
+
+        <h3>Best city for museums and art?</h3>
+        <p><strong>{"Paris"}</strong>{" (Louvre + Orsay + Orangerie + Rodin), "}<strong>{"Florence"}</strong>{" (Uffizi + Accademia + Duomo), "}<strong>{"Madrid"}</strong>{" (Prado + Reina Sofía + Thyssen — the 'golden triangle'), "}<strong>{"Amsterdam"}</strong>{" (Rijksmuseum + Van Gogh), "}<strong>{"Vienna"}</strong>{" (Kunsthistorisches + Belvedere). "}<strong>{"Berlin's Museum Island"}</strong>{" for ancient artefacts."}</p>
+
+        <h3>Best city for architecture?</h3>
+        <p><strong>{"Barcelona"}</strong>{" (Gaudí: Sagrada Família, Park Güell, Casa Batlló), "}<strong>{"Vienna"}</strong>{" (Imperial Habsburg), "}<strong>{"Prague"}</strong>{" (Gothic + Baroque + Art Nouveau in 2 km²), "}<strong>{"Porto"}</strong>{" (azulejo-tiled churches), "}<strong>{"Rome"}</strong>{" (ancient + Renaissance + Baroque, all in one walk). "}<strong>{"Helsinki"}</strong>{" for modernism lovers."}</p>
+
+        <h3>Best city for nightlife?</h3>
+        <p><strong>{"Berlin"}</strong>{" (techno: Berghain, Watergate, open Friday–Monday), "}<strong>{"Madrid"}</strong>{" (clubs open 1–6 AM), "}<strong>{"Belgrade"}</strong>{" (river-raft clubs in summer), "}<strong>{"Barcelona"}</strong>{" (beach clubs + Raval bars), "}<strong>{"Tbilisi"}</strong>{" (Bassiani club + wine bars). Berlin is the clear winner if hardcore electronic music is the goal."}</p>
+
+        <h3>Best city for a romantic weekend?</h3>
+        <p><strong>{"Paris"}</strong>{" (obviously — Eiffel at night, Pont des Arts, canal walks), "}<strong>{"Venice"}</strong>{" (gondola at sunset, empty alleys at 10 PM), "}<strong>{"Prague"}</strong>{" (Charles Bridge at dawn, Vltava views), "}<strong>{"Lisbon"}</strong>{" (Alfama fado nights), "}<strong>{"Bruges"}</strong>{" (medieval canals, chocolate, craft beer). All great 3-night escapes."}</p>
+
+        <h3>Best city for families with kids?</h3>
+        <p><strong>{"Copenhagen"}</strong>{" (Tivoli Gardens, National Aquarium, bike-friendly streets), "}<strong>{"Amsterdam"}</strong>{" (NEMO science museum, canal boats, Vondelpark), "}<strong>{"Barcelona"}</strong>{" (beach + Park Güell + Camp Nou), "}<strong>{"London"}</strong>{" (Natural History Museum, Science Museum, most free), "}<strong>{"Berlin"}</strong>{" (LEGOLAND, DDR Museum, huge parks)."}</p>
+
+        <h3>Best weekend city-break from North America?</h3>
+        <p><strong>{"Lisbon or Dublin"}</strong>{" — shortest flight times (5–6 hours from NYC), English-friendly, affordable, plenty of 3-day itineraries. "}<strong>{"Reykjavik"}</strong>{" for an adventure twist (Blue Lagoon, Golden Circle). Skip Eastern Europe if you have only 3–4 days — the extra 2 hours of flight eats a day."}</p>
+
+        <h3>Best shoulder-season city pick?</h3>
+        <p><strong>{"Seville or Valencia"}</strong>{" in April and October (warm, no crowds), "}<strong>{"Budapest"}</strong>{" in late March (thermal baths still a draw, hotels 40% off), "}<strong>{"Berlin"}</strong>{" in May (Karneval der Kulturen, parks alive), "}<strong>{"Lisbon"}</strong>{" in November (still warm, fewer day-trippers)."}</p>
+
+        <h3>Best city for walking and car-free travel?</h3>
+        <p><strong>{"Amsterdam, Copenhagen, Utrecht, Ghent, Ljubljana"}</strong>{" — all compact, bike-friendly, and actively car-restricted. "}<strong>{"Venice"}</strong>{" is the only major city with zero cars at all. "}<strong>{"Barcelona's Gothic Quarter, Paris's Marais, Prague's Old Town"}</strong>{" are walkable core zones you'll love even if the outer city is car-heavy."}</p>
+
+        <h3>Which cities should I skip if crowded?</h3>
+        <p><strong>{"Dubrovnik, Venice, Santorini, Amsterdam"}</strong>{" in July–August hit 'over-tourism' caps. Consider alternatives: "}<strong>{"Split instead of Dubrovnik, Trogir instead of Split, Milos instead of Santorini, Utrecht instead of Amsterdam"}</strong>{". If you must visit the famous ones, go April–May or late September."}</p>
+
+        <h3>Best city for digital nomads and long stays?</h3>
+        <p><strong>{"Lisbon"}</strong>{" (D7/Digital Nomad Visa, huge scene, €1,400/month lifestyle), "}<strong>{"Berlin"}</strong>{" (freelancer visa, cheap rent for Western Europe), "}<strong>{"Prague"}</strong>{" (EU-central, €900/month, Zivno visa), "}<strong>{"Tbilisi"}</strong>{" (1-year visa-free for 90+ countries, €700/month), "}<strong>{"Barcelona"}</strong>{" (expensive but unmatched lifestyle)."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

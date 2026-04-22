@@ -147,9 +147,66 @@ export default function CanadianFoodGuide2026() {
         />
 
         <h2 id="faq">10. FAQ</h2>
-        <h3>Best dish?</h3><p><strong>Poutine at La Banquise</strong> or <strong>smoked meat at Schwartz\'s</strong>. Both Montreal.</p>
-        <h3>Tipping?</h3><p>15-18% at restaurants. 20% for exceptional service.</p>
-        <h3>Food budget?</h3><p>Backpacker: <strong>C$40/day</strong>. Mid: <strong>C$75/day</strong>. Comfort: <strong>C$150+/day</strong>.</p>
+        <h3>What is the single must-try Canadian dish?</h3>
+        <p>
+          <strong>Poutine at La Banquise in Montreal</strong> (open 24/7, 30+ variants, the essential version is classic fries + cheese curds + gravy for C$10-12) — or <strong>smoked meat at Schwartz{"'"}s</strong> (medium-fat hand-cut, C$14-18). Both Montreal institutions are worth the line. Runners-up: Tim Hortons double-double + 10-pack Timbits for authentic everyday Canadian breakfast.
+        </p>
+        <h3>Which Canadian city is the best food destination?</h3>
+        <p>
+          <strong>Montreal is Canada{"'"}s food capital</strong> — bagels, smoked meat, poutine, French bistros, Jewish delis, and modern Québécois fine dining at Toqué and Joe Beef. <strong>Toronto</strong> has the deepest international food scene (Hong Kong-level dim sum in Markham, 100+ cuisines). Vancouver for seafood + Asian; Halifax for lobster + scallops.
+        </p>
+        <h3>Is tipping always expected?</h3>
+        <p>
+          <strong>Yes — 15-18% at sit-down restaurants, 20% for exceptional service</strong>. Tip on the pre-tax amount (not including 15% GST + QST in Quebec or 13% HST in Ontario). Card terminals suggest 18%, 20%, 22% — 15% is the fair floor. Do not tip at Tim Hortons, McDonald{"'"}s, counter-service cafés, or takeaway.
+        </p>
+        <h3>How vegetarian-friendly is Canadian food?</h3>
+        <p>
+          <strong>Urban Canada is very vegetarian-friendly</strong> — Montreal, Toronto, and Vancouver have hundreds of dedicated veg/vegan restaurants. Even poutine now has vegan versions at La Banquise (vegan gravy, fake curds). Rural Maritimes and Prairies are harder; expect pasta + salad fallbacks outside cities. Supermarkets widely stock plant-based options.
+        </p>
+        <h3>Are allergies and dietary restrictions handled well?</h3>
+        <p>
+          <strong>Yes — Canadian food-safety regulations require menu allergen info</strong>, and servers are trained on cross-contamination. Gluten-free options are widespread. Peanut + tree-nut awareness is strong (many schools are nut-free by policy). For severe allergies, carry a written card and call ahead at smaller rural restaurants.
+        </p>
+        <h3>What regional specialties are a must-try?</h3>
+        <p>
+          <strong>Quebec: tourtière, sugar pie, cabane à sucre (sugar shack meals in spring). Maritimes: lobster roll, scallops, Solomon Gundy. Prairies: perogies (Ukrainian-Canadian), Saskatoon berry pie. BC: salmon candy, spot prawns. Ontario: butter tarts, peameal bacon. Territories: bannock, Arctic char, muskox</strong>.
+        </p>
+        <h3>Where do I find the best lobster roll?</h3>
+        <p>
+          <strong>Peggy{"'"}s Cove or Halifax (Nova Scotia)</strong> for the classic Atlantic style — fresh-picked knuckle + claw meat, light mayo, butter-toasted split-top roll (C$22-32). PEI{"'"}s Covehead Wharf and Cows Creamery are local legends. Avoid Toronto or Montreal "lobster rolls" — the seafood is flown in and 50% more expensive.
+        </p>
+        <h3>Is Canadian maple syrup actually different?</h3>
+        <p>
+          <strong>Yes — Quebec produces 70% of the world{"'"}s supply</strong>, and spring (late Feb-April) sugar shack (cabane à sucre) experiences like Érablière du Lac-Beauport serve maple-glazed all-you-can-eat meals (C$40-60). Grade A "Amber Rich Taste" is the versatile daily grade; "Very Dark Strong Taste" is the cooking-baking favorite. Real maple syrup costs C$15-25 per 500ml.
+        </p>
+        <h3>Where should I eat seafood on a budget?</h3>
+        <p>
+          <strong>Nova Scotia wharves (Digby, Peggy{"'"}s Cove, Lunenburg) for lobster rolls C$18-24, PEI for mussels (C$12-15) and scallops</strong>, Vancouver{"'"}s Granville Island for salmon candy + spot prawns (seasonal May-June), and Halifax{"'"}s Hydrostone Market for fishmonger cooking. Avoid Toronto + Montreal for cheap seafood; the inland markup is brutal.
+        </p>
+        <h3>What is bannock and where can I try it?</h3>
+        <p>
+          <strong>Bannock is Indigenous Canadian fry-bread or baked-bread</strong> — filling, simple, and increasingly featured at Indigenous-run restaurants like Tea-N-Bannock (Toronto), NishDish (Toronto), and Salmon n{"'"} Bannock (Vancouver). Often served with elk or bison chili. It is a genuine entry point into Canadian Indigenous food culture.
+        </p>
+        <h3>Canadian wine — is it any good?</h3>
+        <p>
+          <strong>Yes — Niagara (Ontario) for ice wine and riesling, Okanagan Valley (BC) for pinot noir and syrah</strong>. Ice wine is a Canadian specialty (grapes picked frozen, intense sweet dessert wine, C$50-120/half-bottle). Okanagan wineries rival California at lower prices. Nova Scotia Tidal Bay white wines are emerging. BYO laws vary by province.
+        </p>
+        <h3>Food budget per day — realistic numbers?</h3>
+        <p>
+          <strong>Backpacker C$35-45/day</strong> (Tim Hortons breakfast, poutine/bagel lunch, cooked dinner in hostel), <strong>mid-range C$75-95/day</strong> (one nice meal + casual eats), <strong>comfort C$150+/day</strong> (restaurant dinners with wine). Alcohol is expensive — C$8-10/pint, C$12-18/cocktail, C$45+ restaurant wine bottles.
+        </p>
+        <h3>Are cooking classes or food tours worth it?</h3>
+        <p>
+          <strong>Food tours in Montreal (Local Montreal Food Tours, Spade & Palacio) at C$80-120 are excellent</strong> for understanding Jewish + French Canadian heritage. Granville Island food tour (Vancouver) for seafood + West Coast. Cooking classes: Montreal{"'"}s Mezza Luna (Italian-Quebecois fusion) and Toronto{"'"}s Dish Cooking Studio.
+        </p>
+        <h3>Best bakeries and coffee culture?</h3>
+        <p>
+          <strong>Montreal bagels at St-Viateur (24/7, C$1.50 each — hand-rolled, wood-fired)</strong> and Fairmount Bagel are rivals; try both. Tim Hortons is the mass-market coffee institution (cheap C$2 medium); third-wave coffee (Pilot Coffee Toronto, 49th Parallel Vancouver) matches Portland/Melbourne quality. Portuguese + Italian bakeries in Little Italy districts are gold.
+        </p>
+        <h3>What seasonal specialties should I chase?</h3>
+        <p>
+          <strong>Spring (March-April): sugar shacks + fiddleheads. Summer: BC salmon + wild Saskatoon berries + Niagara peaches. Fall: Ontario apples + wild mushrooms + Montreal smoked meat{"'"}s peak season. Winter: ice wine, tourtière, comfort stews</strong>. Plan your trip around what is in season locally for the best food experiences.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

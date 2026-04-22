@@ -193,12 +193,36 @@ export default function FrenchFoodGuide2026() {
         </ol>
 
         <h2 id="faq">13. FAQ</h2>
-        <h3>Best single dish to try?</h3>
-        <p><strong>Steak frites at Le Relais de l'Entrecôte</strong> OR <strong>croissant at Du Pain et des Idées</strong>.</p>
-        <h3>Vegetarian-friendly?</h3>
-        <p>Moderate. Paris + Lyon have excellent options. Rural France relies on cheese + bread + salad + vegetable sides.</p>
-        <h3>Daily food budget?</h3>
-        <p>Backpacker: <strong>€20/day</strong> (boulangerie + picnic). Mid: <strong>€40/day</strong>. Comfort: <strong>€95+/day</strong> (with wine).</p>
+        <h3>What's the one dish every first-timer has to try?</h3>
+        <p>{"Steak frites at Le Relais de l'Entrecôte (Paris, multiple locations) — one menu, one knife-cut sirloin in a secret herb-butter sauce, unlimited fries, €32 with a glass of wine. For bread, a morning croissant and pain des amis at Du Pain et des Idées (10th arr.) is worth a 20-minute queue. Pick one splurge and one everyday classic; the rest follows naturally."}</p>
+        <h3>Which cities are the actual food capitals?</h3>
+        <p>{"Lyon is France's undisputed food capital — bouchons like Daniel et Denise, Café des Fédérations, and the 15+ Bocuse-alumni restaurants. Paris has range and the 'best of everything' depth; Marseille wins for seafood and bouillabaisse at Chez Fonfon; Nice owns socca and niçoise cuisine; Strasbourg dominates Alsatian winstubs with tarte flambée and choucroute."}</p>
+        <h3>How vegetarian- and vegan-friendly is French food?</h3>
+        <p>{"Moderately vegetarian-friendly, genuinely hard for strict vegans. Paris and Lyon have excellent dedicated spots (Le Potager du Marais, Abattoir Végétal, Culture Vegan) and apps like HappyCow show 150+ vegan restaurants in Paris alone. Rural France defaults to cheese, bread, salad, ratatouille, and vegetable tarts; say 'Je suis végétarien(ne), pas de viande, pas de poisson' — lardons hide in 'green' salads."}</p>
+        <h3>How do I handle gluten, nut, or dairy allergies?</h3>
+        <p>{"EU law requires restaurants to disclose 14 major allergens on request, but not always on menus; learn 'Je suis allergique au gluten/aux noix/au lactose — pouvez-vous vérifier avec le chef?' Paris has excellent gluten-free bakeries (Noglu, Chambelland) and celiac-aware restaurants (look for 'Sans Gluten' certification). Rural areas are trickier — stick to grilled meats, plain rice, and ask twice."}</p>
+        <h3>What's the real tipping culture in restaurants?</h3>
+        <p>{"Service is included by law ('service compris', 15% built into prices), so you never tip 18-20% like in the US. Leave €1-2 for coffee or a casual lunch, round up taxis, and tip 5-10% at a proper dinner if the server was exceptional. Leaving a 20% tip makes you look uninformed, not generous — save that money for better wine."}</p>
+        <h3>Is French street food actually a thing?</h3>
+        <p>{"Yes, regionally: crêpes and galettes everywhere, socca (chickpea pancake) in Nice, pan-bagnat (tuna sandwich) on the Riviera, tarte flambée from Alsatian market stalls, and Paris's jambon-beurre baguette (the nation's #1 street meal). Food trucks have exploded — Paris has Cantine California and Le Refectoire. It's not Bangkok, but you won't starve on €6 lunches."}</p>
+        <h3>When are the seasonal specialties worth planning around?</h3>
+        <p>{"Oysters and coquilles Saint-Jacques peak November-March; white asparagus in April-May; strawberries and cherries from Provence in May-June; tomatoes and figs August-September; game (venison, wild boar) and truffles October-February; Alsatian choucroute and raclette November-February. Plan one meal around what's in-season — menus rotate and it's visibly better."}</p>
+        <h3>Markets vs restaurants — where do I actually eat better?</h3>
+        <p>{"Markets are for picnic ingredients (Marché Bastille, Marché d'Aligre, Marché des Capucins in Bordeaux), not sit-down meals — though Lyon's Halles Paul Bocuse, Marseille's Noailles, and Nice's Cours Saleya have excellent stall-dining. Restaurants are for cooked classics. Best combo: market-sourced lunch picnic on a bench, restaurant dinner. Total spend €25-35 vs €60+ for two restaurant meals."}</p>
+        <h3>How do I avoid the tourist-trap restaurants near landmarks?</h3>
+        <p>{"Use the 300-metre rule: walk three blocks from any major sight before choosing. Red flags: menus in 6 languages, photos of every dish, hosts shouting at you from the doorway, 'French onion soup + escargots + steak' combo deals for €29. Green flags: single-language chalkboard menu changing daily, locals eating solo with a carafe, a French-only website with no online reservations."}</p>
+        <h3>Are cooking classes worth it, and which are best?</h3>
+        <p>{"Absolutely — a half-day market tour + hands-on class in Paris (La Cuisine Paris, Le Foodist) runs €110-160 and you leave with skills and lunch. In Lyon, Plum Lyon Teaching Kitchen is the gold standard. Provence has Patricia Wells's reputation plus cheaper alternatives in Avignon. Book 2-3 weeks ahead for small-group classes (6-8 people); hotel-concierge recs are often kickbacks."}</p>
+        <h3>How do I order wine without looking clueless?</h3>
+        <p>{"Ask for a 'pichet' (pitcher, 25 or 50 cl) or 'un verre de rouge/blanc' — the house wine by the glass is €4-7 and usually a regional pick. Say 'qu'est-ce que vous conseillez avec ça?' (what do you recommend with this?) and let the server pair it. Rules of thumb: Sancerre or Chablis with oysters, Côtes-du-Rhône with lamb, Burgundy red with beef, Alsace Riesling with choucroute."}</p>
+        <h3>What do real French breakfasts and lunches look like?</h3>
+        <p>{"Breakfast is tiny: espresso or café au lait plus a tartine (buttered baguette) or a single viennoiserie, standing at a café counter for €3-5. Lunch is the big meal — two courses plus coffee at a 'formule' for €16-22, often taken 12:30-14:00. Dinner starts at 19:30-21:00 and mirrors lunch size. Expecting a hot breakfast buffet is an American hotel thing, not French."}</p>
+        <h3>What's market etiquette I should know?</h3>
+        <p>{"Never touch produce — the vendor picks and weighs; just point and say 'un kilo, s'il vous plaît' or '200 grammes'. Say 'Bonjour' arriving and 'Merci, bonne journée' leaving. Bring small bills (€5-20) and a cloth bag. Markets run roughly 08:00-13:30 and vanish by 14:00 — the last 30 minutes have discounts but picked-over selection."}</p>
+        <h3>Is it safe to eat raw (oysters, steak tartare, carpaccio)?</h3>
+        <p>{"Yes — France has strict cold-chain rules and raw preparations are everyday food. Oysters are safer than US equivalents (most are farmed in clean Atlantic and Mediterranean beds) and rarely cause issues. Steak tartare and beef carpaccio from a decent brasserie are low-risk; skip it at tourist-row places. Pregnant travellers should still avoid raw seafood and unpasteurised cheese."}</p>
+        <h3>How much should I realistically budget for food per day?</h3>
+        <p>{"Backpacker €20-25/day: boulangerie breakfast, picnic lunch, supermarket dinner with a €4 wine. Mid-range €40-55: proper sit-down lunch formule, casual bistro dinner, one glass of wine. Comfort €90-130: café breakfast, bistro lunch, proper dinner with a half-bottle of regional wine. Add €150-250 once for a Michelin-starred splurge if it's on your list."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

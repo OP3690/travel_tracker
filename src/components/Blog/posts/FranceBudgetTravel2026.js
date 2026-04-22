@@ -175,16 +175,36 @@ export default function FranceBudgetTravel2026() {
         />
 
         <h2 id="faq">8. FAQ</h2>
-        <h3>Is France cheaper than Italy?</h3>
-        <p>Marginally more expensive (~€20/day at mid-range). Bigger accommodation gap; food costs similar.</p>
-        <h3>€60/day really possible?</h3>
-        <p>Yes — with dorms + lunch formules + supermarket dinners. Outside Paris peak season.</p>
-        <h3>Cheapest month?</h3>
-        <p><strong>November or early March</strong>. Hotels 30-40% off. Ski resorts are opposite (peak in Jan-Feb).</p>
-        <h3>Cards accepted?</h3>
-        <p>Almost everywhere. Carry €30-50 cash for small cafés + markets.</p>
-        <h3>Tipping?</h3>
-        <p>Service included. Round up €1-2 or leave 5% for exceptional service.</p>
+        <h3>Is France genuinely more expensive than Italy or Spain?</h3>
+        <p>{"Marginally yes — France runs €15-25/day higher than Italy at mid-range, mostly on accommodation (Paris hotels hit €160+/night vs Rome's €120). Food costs are similar once you ditch tourist-zone restaurants; a lunch formule at €17-22 is the same game as Italy's menu del giorno. Spain is clearly cheaper — expect €30/day less than France in shoulder season."}</p>
+        <h3>Is €60/day in France actually realistic, or clickbait?</h3>
+        <p>{"Realistic if you stick to dorms (€28-38 outside Paris), boulangerie breakfasts (€3-5), one lunch formule (€17), and a supermarket dinner (€8). Paris blows the budget — expect €85-95/day even at hostels like Les Piaules. Provincial cities (Lyon, Bordeaux, Strasbourg) and off-peak months are where €60/day holds up for weeks."}</p>
+        <h3>What are the absolute cheapest months to visit?</h3>
+        <p>{"Mid-January (post-ski in cities), November, and early March offer hotels 30-45% below summer rates and near-empty museums. Avoid the Christmas markets window (late Nov-Dec 23) in Alsace — Strasbourg hotels triple. Ski regions invert the pattern: Chamonix and Val d'Isère peak in Feb and are cheapest in late April and October."}</p>
+        <h3>Are cards accepted everywhere or do I still need cash?</h3>
+        <p>{"Contactless Visa/Mastercard is accepted in 95%+ of cafés, bakeries, and metros — many Parisian bakeries now refuse cash under €5. Carry €50-80 cash for rural markets, village bakeries, public toilets in train stations (€0.70), and tip jars. Withdraw from BNP Paribas, Crédit Agricole, or Société Générale ATMs — they charge zero network fees to foreign cards."}</p>
+        <h3>How do I avoid ATM and card fees completely?</h3>
+        <p>{"Use a no-foreign-fee card like Wise, Revolut, Chase Sapphire, or Schwab; at the ATM always choose 'decline conversion' to let your home bank convert (saves 3-8%). Skip Euronet machines (orange-and-blue, 10%+ surcharge) and any ATM inside a convenience store. Big-bank ATMs are free or €1-2 max."}</p>
+        <h3>How much do hostels really cost, and are they decent?</h3>
+        <p>{"Dorm beds run €28-45 across France (€35-55 in Paris summer). Quality brands like Generator, The People, St Christopher's, and Les Piaules have bars, co-working lounges, and modern showers — comparable to €80 budget hotels. Outside Paris, independent hostels (Away Hostel Lyon, Hello Lyon) drop to €25-32 with better breakfast included."}</p>
+        <h3>What are realistic daily meal costs at each budget tier?</h3>
+        <p>{"Backpacker €18-22: boulangerie breakfast, supermarket sandwich lunch, cooked hostel-kitchen dinner. Mid-range €35-45: two-course bistro lunch + casual bistrot dinner with a carafe. Splurge €80+: proper dinner with wine at a neighbourhood bistro, with the Michelin-starred blowout reserved for one night only. Lunch formules (entrée + plat or plat + dessert, €16-22) are France's budget secret."}</p>
+        <h3>What transport hacks save the most money?</h3>
+        <p>{"TGV Max (€79/month, under-28s) gives unlimited TGV travel — one month pays off three long legs. Ouigo (SNCF's low-cost line) runs Paris-Lyon from €10 and Paris-Marseille from €19, but stops at outer stations (Paris-Austerlitz vs Gare de Lyon). BlaBlaCar rides cost €22-38 for Paris-Lyon; FlixBus overnight Paris-Nice is €29-45 vs €95+ by TGV walk-up."}</p>
+        <h3>Do student discounts and youth cards actually work?</h3>
+        <p>{"Yes — EU under-26s enter all national museums free (Louvre, Orsay, Versailles, Arc de Triomphe), and SNCF's Carte Avantage Jeune (€49/year, 12-27) cuts TGV fares 30%. Bring your passport as proof of age; ISIC cards are less consistently accepted than an EU ID card or passport. Over-26? The Carte Avantage Adulte (€49) saves 30% too, paying back after 3-4 TGV legs."}</p>
+        <h3>What free activities should I prioritise in Paris?</h3>
+        <p>{"Musée Carnavalet (Paris history, always free), every national museum on the first Sunday of the month (book the timed slot at 09:00 sharp), Père Lachaise cemetery, Promenade Plantée elevated park, the Mosquée de Paris gardens, and dawn walks along the Canal Saint-Martin. The €0 list alone fills 3 good days — save museum budget for the Louvre."}</p>
+        <h3>Are working-holiday visas a realistic way to travel France cheaply?</h3>
+        <p>{"For Australians, Canadians, New Zealanders, Argentines, and several others, the PVT/Working Holiday Visa (18-35, 12 months) lets you top up savings with seasonal work — grape harvest in September-October pays €60-90/day plus food, and ski-lift or chalet work covers winter. Savings potential is modest (France isn't Australia) but it solves the 90-day Schengen limit."}</p>
+        <h3>What hidden costs blow up traveller budgets?</h3>
+        <p>{"Tourist tax (taxe de séjour) of €1-5/night per person, not shown in pre-pay totals; timed-entry booking fees at the Louvre and Versailles (€3-5 each); city bike-rental deposits (€150 hold on the card); and €1-2 per baguette-and-croissant snack that adds up to €15/day. Water at restaurants is free (ask for 'une carafe d'eau'), don't order the €6 bottled."}</p>
+        <h3>Is it cheaper to cook, or to eat the menu-of-the-day lunch?</h3>
+        <p>{"Lunch formules at €16-22 beat cooking for time-and-quality ratio — you cannot assemble a €16 meal of that quality. Cook dinner instead: hostel kitchens or Airbnbs plus a €25 Monoprix grocery run feeds two people two dinners. Markets close by 13:30; Lidl and Aldi are 30-40% cheaper than Carrefour for staples."}</p>
+        <h3>How do I get from CDG/ORY to Paris without paying €60 for a taxi?</h3>
+        <p>{"CDG: RER B direct to Gare du Nord/Châtelet in 35 minutes for €11.80. ORY: Orlybus to Denfert-Rochereau (€11.50) or the new Metro Line 14 extension (€11.80). Avoid unmarked 'taxi' touts at arrivals — flat-rate official taxi to Right Bank is €56, Left Bank €65 (and no surge pricing allowed by law)."}</p>
+        <h3>Is travel insurance worth it on a tight budget?</h3>
+        <p>{"Yes — a €30 policy from SafetyWing or World Nomads covers a €2,000 medical visit, strike-related rebooking, and stolen iPhone. A single Paris ER visit can eat your entire accommodation budget. Check your credit card (Chase Sapphire Reserve, Amex Platinum) first — primary travel medical coverage is often included."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

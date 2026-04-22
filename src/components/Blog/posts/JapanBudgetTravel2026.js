@@ -290,36 +290,49 @@ export default function JapanBudgetTravel2026() {
         <h2 id="faq">9. FAQ</h2>
 
         <h3>Is Japan really more expensive than Thailand?</h3>
-        <p>
-          In 2026: yes, about <strong>2x</strong>. Accommodation is the
-          biggest gap ($90 vs $40). Food is surprisingly close.
-        </p>
+        <p>{"In 2026 yes, roughly 2x on equivalent itineraries. Accommodation is the biggest gap ($90-130/night mid-range in Japan versus $40-65 in Thailand). Food surprisingly is only 20-30% more expensive — a bowl of ramen costs 900 yen (~$6) and conbini meals run $4-6. The weak yen has closed the gap considerably versus 2019 levels."}</p>
 
         <h3>Can you really do Japan on $60/day?</h3>
-        <p>
-          Yes — outside Tokyo peak sakura week. You'll stay in dorms, eat
-          conbini + ramen, skip taxis. Nothing about that is a
-          deprivation in Japan.
-        </p>
+        <p>{"Yes, outside Tokyo sakura peak week. You will stay in dorms (3,000-4,000 yen), eat conbini breakfasts and 800-yen ramen dinners, use IC-card transit, and skip taxis and paid attractions. Nothing about that is a deprivation in Japan — conbini food is world-class, standing-soba is genuinely delicious, and free experiences (shrines, Imperial Palace gardens, Yanaka neighborhood walks) are abundant."}</p>
 
         <h3>Is the JR Pass always worth it?</h3>
-        <p>
-          Since the 2023 price hike — no. Only worth it if you're doing
-          Tokyo → Kyoto → Hiroshima or visiting 4+ cities. Do the math in
-          our <Link to="/blog/japan-travel-guide-2026">main guide</Link>.
-        </p>
+        <p>{"Since the 2023 price hike, no — only worth it if you are doing Tokyo-Kyoto-Hiroshima and a 4th city, or 4+ cities in under 10 days. For a standard Tokyo-Kyoto-Osaka itinerary, individual tickets via Smart EX or Klook run 30-40% cheaper. Check our full JR Pass calculation in the Japan guide and always price your exact route before buying the pass."}</p>
 
         <h3>Can I use credit cards?</h3>
-        <p>
-          In Tokyo + 4-star hotels: yes. Elsewhere: cash. Bring ¥40,000
-          (~$270) in cash for a 2-week trip.
-        </p>
+        <p>{"In Tokyo, Osaka and 4-star+ hotels, chain restaurants and department stores, yes — Visa and Mastercard widely accepted. Outside major cities and at small izakayas, ramen shops, shrines and ryokans, cash-only is common. Bring 30,000-40,000 yen ($200-270) in cash for a 2-week trip, and use 7-Eleven or Japan Post ATMs for fee-free foreign-card withdrawals."}</p>
 
         <h3>Is tipping expected?</h3>
-        <p>
-          No — never. Occasionally rude to try. The only exception is a
-          small gift (not cash) for ryokan hosts at departure.
-        </p>
+        <p>{"Never — tipping is considered rude in most contexts, including restaurants, taxis and hotels. Fine-dining waiters have returned cash tips chasing tourists down the street. The one mild exception: ryokan guests occasionally hand a small envelope (3,000-5,000 yen) discreetly to the nakai on arrival as gratitude for personal service, though even this is optional and increasingly rare."}</p>
+
+        <h3>What's the cheapest month to visit Japan?</h3>
+        <p>{"Mid-January through early March (excluding Chinese New Year) and mid-June. Flights from the US drop $400-600 versus April/November peaks; hotels drop 30-40%. Ski towns (Hokkaido, Nagano) are expensive in winter but Honshu cities are exceptionally cheap. Late September to early October (post-summer, pre-foliage) is another sweet spot for 25-35% savings."}</p>
+
+        <h3>What's the realistic daily floor for a backpacker?</h3>
+        <p>{"Around $45-55 per day if you stay 30+ nights at weekly capsule hotel rates, eat only conbini and cheap ramen, walk everywhere in compact cities and use 18 Ticket (3-day unlimited JR local trains, 12,050 yen). Digital nomads in Fukuoka, Osaka and Hiroshima manage $1,400-1,700 per month with a shared Airbnb. Tokyo alone costs 30-40% more than regional cities at every price point."}</p>
+
+        <h3>What are the hidden costs travelers miss?</h3>
+        <p>{"Luggage forwarding (Yamato Takkyubin, 2,000-2,500 yen per bag between cities), coin-locker fees (500-800 yen/day), temple and garden entry (300-600 yen each add up fast in Kyoto — budget 5,000 yen/day), shinkansen oversized-bag reservations (now mandatory for bags over 160cm total), and IC-card initial deposit (500 yen). All small individually, meaningful in aggregate."}</p>
+
+        <h3>What are the best ATMs for foreign cards?</h3>
+        <p>{"7-Eleven (Seven Bank) ATMs are the gold standard — 24/7, 100% foreign-card compatibility, clear English interface, no fees from the ATM side (your home bank may charge). Japan Post ATMs are the second-best, though some close overnight. Avoid Japanese bank ATMs — many reject foreign cards. Withdrawal limits are typically 100,000 yen per transaction."}</p>
+
+        <h3>Are hostels and capsule hotels decent in Japan?</h3>
+        <p>{"Excellent — Japan's hostel and capsule hotel scene is the best in Asia. Recommended: Grids Nihonbashi East, Nine Hours Shinjuku, First Cabin (premium capsules), K's House Kyoto, and Piece Hostel Sanjo. Expect 2,800-4,500 yen for a dorm bed, 4,500-6,500 for a capsule. Facilities are spotless, always include free wifi and often free public baths."}</p>
+
+        <h3>How cheap can meals actually be?</h3>
+        <p>{"Conbini (7-Eleven, Family Mart, Lawson) full meal: 500-700 yen including drink. Standing soba/udon: 400-500 yen. Ramen shop: 900-1,200 yen. Gyudon chains (Yoshinoya, Sukiya): 500-700 yen. Sushi conveyor-belt chain (Kura, Genki): 120-220 yen per plate, total 1,500-2,200 yen. You can eat very well on 1,500-2,000 yen ($10-13) per day if you know the chains."}</p>
+
+        <h3>How do I save on accommodation?</h3>
+        <p>{"Book well in advance for sakura/momiji (prices double); use Rakuten Travel or Jalan (Japanese-market OTAs with lower rates than Booking.com for domestic hotels); stay at APA Hotel, Toyoko Inn or Super Hotel business-chain brands for 7,500-9,500 yen twin rooms; consider 2 nights at a ryokan as your splurge and compress-save elsewhere. Kyoto is 25-35% cheaper if you sleep in Osaka and train in."}</p>
+
+        <h3>What transport hacks save the most money?</h3>
+        <p>{"Seishun 18 Kippu (only sold March-April, July-September, December-January — 5 day passes of unlimited local JR trains for 12,050 yen — Tokyo-Kyoto in one day if you are patient), overnight buses (Willer Express, Tokyo-Osaka for 4,500-7,000 yen and saves a hotel night), and regional passes (Kansai Thru Pass, Hokuriku Arch Pass, JR East Pass) that specifically beat individual tickets on targeted routes."}</p>
+
+        <h3>Are student or youth discounts available?</h3>
+        <p>{"ISIC student cards get 10-30% off many museum entries, teamLab, Ghibli Museum, and some temples. Youth (under 26) discounts exist on specific JR Pass products (JR East Youth Pass, JR Pass for 12-25). Universal Studios Japan and Tokyo Disney offer student pricing on weekdays. ANA and JAL domestic fares have no youth discount; Peach and Jetstar frequently run flash sales for all ages."}</p>
+
+        <h3>What free activities are genuinely worth doing?</h3>
+        <p>{"Shinjuku Gyoen's free admission days, Tokyo Metropolitan Government Building observation deck (free, better views than Skytree), Meiji Shrine, Yoyogi Park Sunday rockabilly dancers, Yanaka Ginza walk, Kyoto's Fushimi Inari (free), Philosopher's Path, Arashiyama bamboo grove, Osaka Castle Park (paid only for tower entry), and most neighborhood festivals. Budget 60-70% of your time on free experiences."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

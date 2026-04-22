@@ -190,14 +190,50 @@ export default function BangkokCompleteGuide2026() {
         </ul>
 
         <h2 id="faq">10. Bangkok FAQ</h2>
-        <h3>Is 5 days too long or too short?</h3>
-        <p>Right amount. 3 days feels rushed; 7 days feels too many temples.</p>
-        <h3>What's the best rooftop bar?</h3>
-        <p><strong>Vertigo + Moon Bar</strong> for views; <strong>Octave</strong> for cocktails.</p>
-        <h3>Is Bangkok safe?</h3>
-        <p>Yes. Scams exist (tuk-tuk overcharge, gem shop "deal"). Violent crime is exceptionally low.</p>
-        <h3>When to go?</h3>
-        <p><strong>November–February</strong>. Hot-dry March-May is 95°F+.</p>
+        <h3>Is 5 days too long or too short for Bangkok?</h3>
+        <p><strong>{"5 days is the right amount"}</strong>{" for a first visit. 3 days means rushing temples, markets, and a day-trip; 7 days feels repetitive unless you layer in a Muay Thai class, cooking school, and day-trip to Ayutthaya or Kanchanaburi. If you're combining with islands, 4 days works; solo culture trip, 6 days shines."}</p>
+
+        <h3>What's the best neighbourhood to stay in?</h3>
+        <p><strong>{"Sukhumvit (Nana/Asok/Phrom Phong)"}</strong>{" for first-timers — BTS SkyTrain access, walkable, huge hotel density, great food. "}<strong>Silom</strong>{" for the business traveller and rooftop-bar fans; "}<strong>Riverside (Charoen Krung)</strong>{" for boutique hotels and the Chao Phraya ferry; "}<strong>Banglamphu/Khao San</strong>{" for backpackers. Avoid Chinatown for sleeping — too loud, no metro."}</p>
+
+        <h3>Best rooftop bars in 2026?</h3>
+        <p><strong>{"Vertigo + Moon Bar (Banyan Tree)"}</strong>{" and "}<strong>Sirocco (Lebua)</strong>{" hold up for the view; "}<strong>Octave (Marriott Thonglor)</strong>{" wins on cocktails and vibe; "}<strong>Tichuca</strong>{" (lit-tree top floor) is the newer Instagram favourite. Dress code enforced (no shorts or flip-flops), minimum spend 600–900 THB. Sunset 6:30 PM — arrive by 5:45 for a seat."}</p>
+
+        <h3>Is Bangkok safe for travellers?</h3>
+        <p>{"Yes — violent crime against tourists is exceptionally rare. The real risks are "}<strong>scams (tuk-tuk overcharge, gem shop "closed today" detour, fake tourist police)</strong>{" and scooter accidents. Solo women have few issues; standard precautions apply in Khao San and Soi Cowboy bars. Keep passport copy, not the real thing, when out at night."}</p>
+
+        <h3>When's the best time to visit Bangkok specifically?</h3>
+        <p><strong>{"November to February"}</strong>{" is ideal — highs of 31°C, low humidity, cool evenings. March to May is brutal at "}<strong>35–40°C (95–104°F)</strong>{" with high humidity. June to October is rainy season: daily 1-hour downpours, usually late afternoon. Songkran (Apr 13–15) is the water-fight festival — fun once, chaotic if you need to get around."}</p>
+
+        <h3>How do I get from BKK airport to the city?</h3>
+        <p><strong>{"Airport Rail Link to Phaya Thai (45 THB, 26 min)"}</strong>{" then BTS or taxi is the budget winner. "}<strong>Grab taxi</strong>{" to Sukhumvit runs 400–550 THB with tolls, 45 min off-peak, 75 min rush hour. Skip the taxi touts at arrivals — always take the 'Public Taxi' queue downstairs. For Don Mueang (DMK), the A1/A2 airport buses run to Mo Chit BTS for 30 THB."}</p>
+
+        <h3>What's the fastest way around Bangkok?</h3>
+        <p><strong>{"BTS SkyTrain and MRT"}</strong>{" — 16–62 THB per ride, beats traffic. The "}<strong>Chao Phraya express boat</strong>{" (orange flag, 20 THB) is the scenic hack for riverside temples. Grab for door-to-door. "}<strong>Avoid taxis in rush hour</strong>{" (4–7 PM) — Sathorn to Sukhumvit can take 90 minutes. Always refuse drivers who claim the meter is broken."}</p>
+
+        <h3>Are tuk-tuks worth taking at all?</h3>
+        <p>{"One ride for novelty, preferably at night in Chinatown or around Khao San. They quote tourists "}<strong>3–5× the fair rate</strong>{" and often detour to gem-shop commission traps. Use Grab for honest pricing. A fair Khao San → Grand Palace tuk-tuk should be 80–120 THB, not 400. Negotiate hard and walk away if the driver won't budge."}</p>
+
+        <h3>Grand Palace dress code and tricks?</h3>
+        <p>{"Strict: "}<strong>shoulders and knees covered, no see-through</strong>{". Free sarongs available (200 THB deposit). Tickets "}<strong>500 THB include Wat Phra Kaew</strong>{". Ignore anyone outside the gate saying 'palace closed today' — scam. Arrive at opening 8:30 AM to beat crowds and heat. Budget 2 hours."}</p>
+
+        <h3>Street food — where and when?</h3>
+        <p><strong>{"Yaowarat (Chinatown) after 6 PM"}</strong>{" is non-negotiable — Jay Fai's crab omelette (Michelin-starred), Nai Ek pork noodles, oyster omelettes. Daytime: "}<strong>Or Tor Kor Market</strong>{" (cleanest) and "}<strong>Soi 38 Thong Lor</strong>{". Avoid Khao San food carts — overpriced tourist quality. Carts with 10+ locals queueing are always worth the wait."}</p>
+
+        <h3>Best day-trip from Bangkok?</h3>
+        <p><strong>{"Ayutthaya"}</strong>{" — 1.5 hours north by train ($1.50) or minivan. UNESCO ruins of the old Siamese capital, rent a bike for 50 THB and cover 5 temples in half a day. "}<strong>Maeklong Railway Market + Amphawa floating market</strong>{" (Friday–Sunday) is the other strong pick. Skip the Damnoen Saduak floating market — too staged for tourists."}</p>
+
+        <h3>Is Bangkok good for families with kids?</h3>
+        <p>{"Yes. "}<strong>SEA LIFE Ocean World (Siam Paragon), Dream World amusement park, Safari World</strong>{" all target families. Rooftop pools at most mid-range hotels. "}<strong>Lumpini Park</strong>{" for monitor-lizard spotting. Skip Chatuchak with toddlers (too crowded on weekends). Grab an air-conditioned songthaew in Chinatown — tuk-tuk fumes and kids don't mix."}</p>
+
+        <h3>Can I drink the water or brush teeth with it?</h3>
+        <p>{"No tap water — bottled only ("}<strong>7–15 THB per 1.5 L</strong>{" at 7-Eleven, on every corner). Tooth-brushing with tap is generally fine for adults short-term, but many travellers use bottled to be safe. Ice at restaurants and cafes is machine-made and reliable; street-cart ice from delivery bags is also fine."}</p>
+
+        <h3>Where to shop — malls or markets?</h3>
+        <p>{"Both. "}<strong>Chatuchak Weekend Market</strong>{" (Saturday–Sunday, 15,000 stalls) for clothes, souvenirs, vintage. "}<strong>MBK Center</strong>{" for electronics and cheap knockoffs. "}<strong>Siam Paragon and EmQuartier</strong>{" for Western brands and food courts. "}<strong>ICONSIAM</strong>{" for the riverside experience. Bargain at markets (start at 50%); malls are fixed-price."}</p>
+
+        <h3>Getting cash and currency exchange tips?</h3>
+        <p><strong>{"SuperRich green/orange"}</strong>{" (BTS Chit Lom and Pratunam branches) gives the best THB rate for USD/EUR/GBP — better than banks and way better than airport kiosks (which lose 4–6%). ATMs charge 220 THB per withdrawal. Withdraw 10,000+ THB at a time; use Wise or Charles Schwab card to get the fee refunded."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

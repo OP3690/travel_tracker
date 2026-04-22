@@ -190,12 +190,36 @@ export default function SpanishFoodGuide2026() {
         </ol>
 
         <h2 id="faq">13. FAQ</h2>
-        <h3>Best single dish to try?</h3>
-        <p><strong>Jamón Ibérico de Bellota</strong> + a glass of fino sherry. Cacophony of flavour.</p>
-        <h3>Vegetarian-friendly?</h3>
-        <p>Moderate. Lots of tomato/olive oil dishes. Many tapas are vegetarian (patatas bravas, pimientos de Padrón, tortilla).</p>
-        <h3>Food budget?</h3>
-        <p>Backpacker: <strong>€15/day</strong>. Mid: <strong>€30/day</strong>. Comfort: <strong>€70/day</strong>.</p>
+        <h3>What's the single must-try dish on a first Spain trip?</h3>
+        <p>{"Jamón Ibérico de Bellota with a glass of fino sherry (Jerez or Manzanilla) — nothing else in Spanish cuisine hits the same umami-salt-nutty trifecta. Try it at Mercado de San Miguel (Madrid) or a proper Andalusian tabanco. Runner-up: a pintxo crawl in San Sebastián's Parte Vieja, working through 4-6 bars with a txakoli glass at each (total €18-25)."}</p>
+        <h3>Which Spanish cities are the real food capitals?</h3>
+        <p>{"San Sebastián — more Michelin stars per capita than anywhere on earth, plus Spain's best pintxo scene. Madrid for classical Spanish cooking (Lhardy, Casa Lucio, Sala de Despiece). Barcelona for Catalan cuisine and avant-garde (Disfrutar is arguably the world's #1 restaurant). Seville for tapas history and free-tapa culture in Triana. Valencia for proper wood-fired paella."}</p>
+        <h3>How vegetarian- and vegan-friendly is Spanish food?</h3>
+        <p>{"Moderately vegetarian-friendly, improving fast for vegans. Patatas bravas, pimientos de Padrón, tortilla española (no meat), pan con tomate, espinacas con garbanzos, and gazpacho are everywhere. Watch out: many 'vegetable' dishes include jamón or chorizo — say 'sin carne, sin jamón, sin pescado' explicitly. HappyCow shows 100+ vegan spots in Madrid and Barcelona; rural Spain is harder."}</p>
+        <h3>How do I handle gluten, nut, or shellfish allergies?</h3>
+        <p>{"EU law requires disclosure of 14 major allergens; ask 'tengo alergia a X — pueden confirmar con el cocinero?' Spain has a strong celiac association (FACE) — look for the spiked-wheat logo and 'sin gluten' menus, widely available in Madrid and Barcelona. Shellfish is genuinely hard to avoid in coastal cities (Galicia, Valencia) — cross-contamination is common at tapas bars."}</p>
+        <h3>What's the tipping culture at tapas bars and restaurants?</h3>
+        <p>{"Almost nonexistent. Round up €0.20-1 at a tapas bar, leave €1-2 for a €20 lunch, and 5-8% only at a proper sit-down dinner if service was exceptional. Never tip 15-20% — it looks uninformed, and the staff don't expect it. Tapas bars often skip tips entirely as locals do; the bartender keeps change as a round-up tip rather than a formal percentage."}</p>
+        <h3>Are free tapas with drinks really still a thing?</h3>
+        <p>{"Yes, in specific cities: Granada and León are the free-tapa capitals (a €2.50 caña comes with an actual plate of food — croquetas, tortilla, jamón). Salamanca, Almería, and parts of Jaén follow suit. Seville and Madrid largely charge for tapas. Order 3-4 cañas at different bars in Granada and you've eaten dinner for €10-12."}</p>
+        <h3>What are the best seasonal specialties and when?</h3>
+        <p>{"Calçots (grilled spring onions with romesco, Catalonia, January-March), espárragos blancos (white asparagus, April-May), caracoles (snails, spring), gazpacho and ajoblanco (peak summer), matanza sausages (November-December), angulas (baby eels, December-January, expensive), and mushrooms/níscalos in Catalonia autumn. Jamón Ibérico cures best November-March. Plan one meal around what's in-season."}</p>
+        <h3>Tapas bars, tabernas, or restaurants — where's the best food?</h3>
+        <p>{"Tapas bars for variety and atmosphere (Bar Sanlúcar in Madrid, El Rinconcillo in Seville). Old-school tabernas for classical slow-cooked Spanish food (stews, rabo de toro, cochinillo). Sit-down restaurants for paella, mariscadas, and fine dining. Best combo for a day: café breakfast, menú del día lunch at a taberna, tapas crawl dinner."}</p>
+        <h3>Are cooking classes worth it, and which are best?</h3>
+        <p>{"Yes — Cooking Point (Madrid) and Paella Experience (Valencia, with an actual Valencian family) are the benchmarks at €65-110 for 3-4 hours including market tour and lunch. San Sebastián Food runs world-class pintxo tours (€95). Book 2-3 weeks ahead for small groups (6-8 people). Hotel-concierge recs often include kickbacks — book direct."}</p>
+        <h3>How do I order wine and sherry without looking clueless?</h3>
+        <p>{"Ask for 'una copa de la casa' (house glass, €2.50-4) or name the region: 'un rioja', 'un ribera', 'un albariño' (Galician white, pairs with seafood), 'un txakoli' (Basque white). Sherry is region-specific — fino and manzanilla are dry and cold, amontillado and oloroso are richer. Say 'recomendación?' and let the bartender pair it."}</p>
+        <h3>Is Spanish street food good, and what should I try?</h3>
+        <p>{"Less street-food than market-food. Spain's secret weapon is the Mercado — San Miguel (Madrid), La Boqueria (Barcelona), Central de Valencia, Triana (Seville). Bocadillo de calamares at Madrid's Plaza Mayor, churros con chocolate at San Ginés (24h in Madrid), bunyols in Valencia for Las Fallas, empanadas gallegas in the north. Food trucks are growing but still niche."}</p>
+        <h3>What's the deal with the Spanish eating schedule?</h3>
+        <p>{"Breakfast 08:00-10:00 (light — coffee + tostada or a churro). Lunch is the main meal 14:00-16:00 (menú del día, 3 courses + wine for €13-18). Tapas hour 19:30-21:30. Dinner sit-down 21:00-midnight. Real kitchens don't open for dinner before 20:30. Trying to eat dinner at 18:00 means tourist-zone restaurants only."}</p>
+        <h3>Is it safe to drink tap water and eat raw seafood?</h3>
+        <p>{"Tap water is safe nationwide — locals in Madrid, Alicante, and Seville often prefer bottled for taste, but it won't make you ill. Raw seafood (oysters in Galicia, anchoas marinated in vinegar) is excellent and low-risk at reputable restaurants. Skip mariscos from non-refrigerated tapas displays in peak summer heat. Boquerones al ajillo (anchovies in garlic) are cured, not raw."}</p>
+        <h3>How should I behave at a traditional tapas bar?</h3>
+        <p>{"Stand at the bar (cheaper than sitting), order by pointing if your Spanish is weak ('uno de esto, por favor'), pile napkins on the floor like locals (yes really, in old-school bars), and keep a mental tab — the bartender will write it on the counter in chalk or remember it. Don't order everything at once; pace it with one drink + one tapa per round."}</p>
+        <h3>How much should I budget for food per day?</h3>
+        <p>{"Backpacker €15-20: supermarket breakfast, menú del día lunch (€13-16), free-tapa bar dinner in Granada/León. Mid-range €30-45: café breakfast, proper menú lunch, tapas dinner with wine (€18-25). Comfort €70-90: café breakfast, restaurant lunch, proper sit-down dinner with a bottle of Rioja. One Michelin-starred splurge adds €150-350 per person."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

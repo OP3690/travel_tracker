@@ -269,31 +269,49 @@ export default function JapaneseFoodGuide2026() {
         <h2 id="faq">12. FAQ</h2>
 
         <h3>What's the single best dish to try?</h3>
-        <p>
-          <strong>Tonkotsu ramen in Hakata (Fukuoka)</strong> OR an
-          <strong> omakase sushi meal in Tokyo</strong>. One hits $10, one
-          hits $200, both are transcendent.
-        </p>
+        <p>{"Tonkotsu ramen in Hakata (Fukuoka) or an omakase sushi meal in Tokyo — one costs $10, one costs $200, both are transcendent in entirely different ways. If forced to pick one for a first-time visitor: omakase at a $80-120 counter spot (not the $300+ tier) delivers the single most memorable food experience in the country and is genuinely achievable for most travelers."}</p>
 
         <h3>Is Japanese food safe?</h3>
-        <p>
-          Yes, exceptionally — tap water is drinkable, hygiene is world-
-          leading, raw fish is the safest in the world.
-        </p>
+        <p>{"Yes, exceptionally — tap water is drinkable everywhere, hygiene is world-leading, and raw fish handling is the safest on earth due to strict refrigeration and HACCP compliance. Even convenience-store sushi and onigiri are safer than most restaurant kitchens elsewhere. The one edge case: fugu (blowfish) — only eat it at licensed specialist restaurants, never as a shortcut test."}</p>
 
         <h3>Where's the best street food?</h3>
-        <p>
-          <strong>Osaka's Dotonbori</strong> (takoyaki + okonomiyaki) and
-          <strong> Fukuoka's Yatai</strong> (evening ramen carts). Both
-          are pure joy.
-        </p>
+        <p>{"Osaka's Dotonbori (takoyaki, okonomiyaki, kushikatsu — the neon heart of kuidaore culture) and Fukuoka's Nakasu Yatai (evening ramen and yakitori carts lining the river) are the two standout scenes. Tokyo's street food is more dispersed — Ameyoko in Ueno, Yanaka Ginza, and the Monzen-Nakacho canal are the best pockets. Kyoto's Nishiki Market is officially a 'food market' but functions as a standing street-food alley."}</p>
 
         <h3>How much should I budget for food?</h3>
-        <p>
-          Backpacker: <strong>$18/day</strong> (conbini + ramen). Mid-
-          range: <strong>$38/day</strong> (izakayas + cafes). Comfort:
-          <strong> $85+/day</strong> (sit-down + 1-2 special meals).
-        </p>
+        <p>{"Backpacker: $18/day — conbini breakfast + standing soba lunch + ramen dinner. Mid-range: $38/day — cafe breakfast + izakaya lunch + a proper sit-down dinner with one beer. Comfort: $85+/day including 1-2 special meals (kaiseki, omakase). Splurge tier: $250-600 for a single Michelin-starred tasting menu, which is 30-40% cheaper than equivalent Paris or New York due to the weak yen."}</p>
+
+        <h3>What are the best cities for food?</h3>
+        <p>{"Tokyo for range and quality (279 Michelin stars — more than any city on earth), Osaka for casual street-food and kuidaore culture, Kyoto for kaiseki traditional multi-course dining, Fukuoka (Hakata) for ramen and yatai, Sapporo for miso ramen and Hokkaido seafood/dairy, and Kanazawa for sushi using Sea of Japan-caught fish. Each deserves at least 2 days on a food-focused trip."}</p>
+
+        <h3>What are the signature seasonal specialties?</h3>
+        <p>{"Spring: takenoko (bamboo shoots), sakura mochi, katsuo. Summer: unagi (eel), somen cold noodles, kakigori shaved ice. Autumn: matsutake mushrooms, saury (sanma), chestnuts and persimmons. Winter: fugu (blowfish), kani (king crab), oden. Each season has dedicated restaurants menus, and kaiseki meals intentionally reflect that season's ingredients — timing your trip around a specific season genuinely changes the food."}</p>
+
+        <h3>Are there good vegetarian options?</h3>
+        <p>{"Harder than you would think — dashi (fish stock) and bonito flakes are in almost everything, including 'vegetable' dishes. Best vegetarian ecosystem: shojin ryori (Buddhist temple cuisine) at Koyasan, Kyoto temple restaurants, and Tokyo spots like Ain Soph or T's TanTan. Download the HappyCow app, carry a Japanese allergy card ('I cannot eat any meat, fish or dashi'), and stick to chain restaurants that list allergens clearly."}</p>
+
+        <h3>How does tipping and ordering etiquette work?</h3>
+        <p>{"Never tip — it is considered rude. Sit down, wait to be greeted, use the oshibori (hot towel) before ordering, never pour your own beer (pour for others and they will pour for you), say 'itadakimasu' before eating and 'gochisousama deshita' after. At sushi counters, eat sushi with fingers (acceptable and often preferred), dip fish-side in soy sauce not rice-side."}</p>
+
+        <h3>How do I handle food allergies?</h3>
+        <p>{"Japan has improving but inconsistent allergy labeling. Chain restaurants (McDonald's, Mos Burger, Coco Ichibanya) have clear allergen charts; traditional restaurants often cannot guarantee cross-contamination. Carry a laminated bilingual allergy card for serious allergies, and note that shellfish and soy are ubiquitous. Peanut allergies are rare in Japan so peanut-allergic travelers are generally safer than in Southeast Asia."}</p>
+
+        <h3>What's Japanese spice tolerance like?</h3>
+        <p>{"Almost nothing is genuinely spicy by Thai/Indian/Mexican standards. Wasabi is hot in sharp bursts but not lingering. Ichimi and shichimi togarashi (chili pepper blends) are mild. Mapo tofu, spicy ramen (karamiso), and Okinawan chili oil are the main spicy exceptions. If you love heat, seek out Shinjuku's Sun Mall 'Hell Ramen' series or 4-alarm Korean-Japanese restaurants in Shin-Okubo."}</p>
+
+        <h3>What are the best food markets versus restaurants?</h3>
+        <p>{"Markets for sampling and ingredients: Toyosu outer market (Tokyo), Nishiki (Kyoto), Kuromon (Osaka), Omicho (Kanazawa), Nijo Market (Sapporo). Restaurants for proper meals. Toyosu's tuna auction is now behind glass at 5:30 AM but the outer market sushi-for-breakfast spots (Sushi Dai, Daiwa Sushi) are the single best pre-10am breakfast in Japan. Book Sushi Dai 90 minutes in line or arrive at 6 AM."}</p>
+
+        <h3>Are cooking classes worth doing?</h3>
+        <p>{"Yes — hands-on classes are among the best-value cultural experiences in Japan. Top picks: Tadaku or Cooking Sun Kyoto (3-hour kaiseki workshop, 9,000-12,000 yen), Tokyo Kitchen in Asakusa (sushi rolling), and Miyagino in Kanazawa (home-style Hokuriku cooking). Market-tour-plus-class combos work best for first-timers. Avoid hotel-based classes — they are expensive and teach generic 'Japanese food.'"}</p>
+
+        <h3>What should I try that tourists rarely order?</h3>
+        <p>{"Yakitori parts menu beyond the breast — tsukune (meatball), negima (leek-and-thigh), bonjiri (chicken tail). Kujira (whale, at licensed restaurants only), hoteru (fish roe), natto (fermented soybeans — an acquired taste worth attempting), horumon (offal at Osaka yakiniku), and the seasonal kyo-yasai (Kyoto heirloom vegetables). Don't skip unpretentious izakaya menus for Michelin-star spots exclusively."}</p>
+
+        <h3>What drinks pair with Japanese food?</h3>
+        <p>{"Japanese draft beer (Asahi Super Dry, Kirin Ichiban) with izakaya food, sake with sushi (junmai daiginjo for elegant meals, junmai for casual), highball (whisky-and-soda) with yakitori, shochu (sweet potato) with Kyushu food, and umeshu (plum wine) as a dessert drink. For tea culture, match hojicha with grilled dishes and gyokuro with light sweets. Natural-wine scenes are exploding in Tokyo and Kyoto."}</p>
+
+        <h3>Do I need reservations at popular spots?</h3>
+        <p>{"For Michelin-star restaurants: 2-6 months ahead, often via hotel concierge or American Express Platinum concierge. For popular ramen and sushi counters: walk-in with 30-90 minute queues. For kaiseki at ryokan: included in the stay (book the ryokan 4+ months ahead). OmakaseTokyo, Pocket Concierge and TableCheck are the English booking platforms for mid-to-upper-tier spots."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

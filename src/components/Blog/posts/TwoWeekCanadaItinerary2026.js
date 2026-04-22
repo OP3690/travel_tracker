@@ -141,9 +141,62 @@ export default function TwoWeekCanadaItinerary2026() {
         <p><strong>Toronto (2) → Algonquin PP (2) → Montreal (2) → Charlevoix (3) → Quebec (3) → Mont-Tremblant (2)</strong>. Mid-September to mid-October only.</p>
 
         <h2 id="faq">7. FAQ</h2>
-        <h3>10-day version?</h3><p>Pick east (Toronto + Quebec) OR west (Banff + Vancouver), not both.</p>
-        <h3>Best month?</h3><p><strong>June or September</strong>. September adds fall colors.</p>
-        <h3>Rental car necessary?</h3><p>Yes for Banff/Jasper week. Not needed in cities.</p>
+        <h3>Is 14 days enough to see both east and west Canada?</h3>
+        <p>
+          <strong>Barely — and only if you accept one transcontinental flight</strong> (5 hours Toronto-Vancouver) and limit each coast to 7 days. The honest answer is that 14 days is better spent deep-diving one side; 18-21 days lets you do both coasts with breathing room. See our <Link to="/blog/canada-travel-guide-2026">Canada guide</Link> for region-by-region planning.
+        </p>
+        <h3>Can I compress this into 10 days?</h3>
+        <p>
+          <strong>Yes — pick east OR west, not both</strong>. East 10-day: Toronto (2) → Niagara (1) → Montreal (3) → Quebec City (2) → Charlevoix or Ottawa (2). West 10-day: Vancouver (3) → Whistler (1) → Jasper (2) → Banff (3) → Calgary (1). Each is a complete, unhurried trip.
+        </p>
+        <h3>What is the best month for this itinerary?</h3>
+        <p>
+          <strong>June or September</strong> — June has long days (sunset 10pm in Banff), blooming wildflowers, and no wildfire smoke. September adds spectacular fall colors in Ontario/Quebec (peak Sept 25-Oct 10) and clearer Rockies weather. July-August has the best swim temperatures but Banff is overwhelmed and wildfire smoke is a growing risk.
+        </p>
+        <h3>Do I absolutely need a rental car?</h3>
+        <p>
+          <strong>Yes for Banff + Jasper week (no realistic alternative)</strong> — book at Calgary (YYC) for Rockies trips, Toronto (YYZ) for eastern drives. <strong>Do NOT rent a car in Toronto, Montreal, Vancouver city centers</strong> — parking is C$35-55/day and these cities are well-served by transit. Pick up after the city portions, drop before the next city.
+        </p>
+        <h3>How much should I book ahead, and when?</h3>
+        <p>
+          <strong>Banff hotels 4-6 months ahead</strong> (they sell out May-September), <strong>Moraine Lake shuttle 2-3 months ahead</strong> (no cars allowed; Parks Canada-only shuttles), VIA Rail 3-4 months ahead for Corridor discount fares, flights 4-6 months ahead. Restaurants in Banff + Tofino book out 2-4 weeks ahead in peak season.
+        </p>
+        <h3>VIA Rail or fly between Toronto and Montreal?</h3>
+        <p>
+          <strong>VIA Rail wins</strong> — Toronto-Montreal is 5h15 downtown-to-downtown on a comfortable train (C$50-150), vs flying 1h15 + 3 hours of transfers (no real time savings) and C$250-450 air fares. Book Escape fares 30+ days out for the cheapest. Business class includes meals + wine for C$140-200.
+        </p>
+        <h3>Carry-on only or checked bag?</h3>
+        <p>
+          <strong>Checked bag is the call for this trip</strong> — you will have 2-3 hotel changes per week, bulky Rockies hiking gear (boots, fleece, rain shell), and potential shopping in Montreal + Niagara. A 55L checked bag + daypack is the right kit. Within-Canada flights (WestJet, Air Canada) include 1 checked bag for C$30-40.
+        </p>
+        <h3>What is the wet-season or wildfire backup plan?</h3>
+        <p>
+          <strong>August wildfire smoke is the biggest modern risk</strong> — Alberta + BC have had 3-5 heavy-smoke weeks annually since 2020. Backup: move west portion to June or early September, add Vancouver Island (Tofino, Ucluelet) as ocean-air alternative, or pivot entirely to eastern Canada. Atlantic Canada rarely smokes.
+        </p>
+        <h3>Doable with kids or grandparents?</h3>
+        <p>
+          <strong>Yes — Canada is exceptionally family-friendly</strong>. Kids love Niagara, Banff Lake Louise, Vancouver Aquarium, and Montreal{"'"}s Science Centre. For grandparents: drop Jasper (long drive), add extra night in Banff, use the Rocky Mountaineer train (Vancouver-Banff luxury, C$2,500+) instead of driving the Icefields. Slow the pace by 2-3 days.
+        </p>
+        <h3>Solo or couple — different recommendations?</h3>
+        <p>
+          <strong>Solo travelers: hostel bases in Banff (HI Banff Alpine Centre, Samesun), Vancouver (HI Downtown), Montreal (HI Auberge Saint-Louis)</strong> and join group day-tours for the Icefields Parkway (Pursuit Banff Jasper Collection). Couples save on lodging but pay the same for park passes and car rentals.
+        </p>
+        <h3>Can I reverse the route Vancouver-first?</h3>
+        <p>
+          Yes — <strong>Vancouver arrivals are often cheaper from Asia/Pacific</strong> than Toronto, and ending in Toronto or Montreal for flights home works well. Reverse: Vancouver (3) → Whistler (1) → Jasper (2) → Banff (3) → Calgary → Toronto (2) → Niagara (1) → Montreal (2) → Quebec City (2). Pacing identical.
+        </p>
+        <h3>When is fall foliage really at peak?</h3>
+        <p>
+          <strong>Ontario + Quebec: Sept 25 - Oct 12</strong> (peak roughly Oct 4-8 in Algonquin, Laurentians, Charlevoix). Nova Scotia + New Brunswick peak slightly earlier (Sept 20-Oct 5). The Rockies have golden larches Sept 15-30 (Larch Valley, Banff). Book fall-foliage trips 6 months ahead — peak week hotels sell out.
+        </p>
+        <h3>What is the Parks Canada Discovery Pass and is it worth it?</h3>
+        <p>
+          <strong>CAD$75.25 for unlimited entry to all 80+ Parks Canada sites for a year</strong> — pays for itself after 7 days at C$11/day day-passes. A must-buy for any Rockies itinerary (Banff, Jasper, Yoho, Waterton). See our <Link to="/blog/banff-canadian-rockies-guide-2026">Banff guide</Link> for full Rockies logistics.
+        </p>
+        <h3>What if I want to add Newfoundland or PEI?</h3>
+        <p>
+          <strong>Add 7-10 days minimum</strong> — both are island destinations requiring ferries or flights and deserve proper time. A 3-week itinerary: 14-day core + 7-day Atlantic extension (Halifax → Cape Breton → PEI → Newfoundland). Atlantic June-September is ideal; winter is beautiful but logistics triple in difficulty.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

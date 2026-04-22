@@ -368,36 +368,49 @@ export default function UsaBucketList100() {
         <h2 id="faq">7. Bucket List FAQ</h2>
 
         <h3>What's the single #1 bucket-list place in the US?</h3>
-        <p>
-          The <strong>Grand Canyon South Rim</strong> — highest
-          combined score on global recognizability + in-person wow in
-          our data.
-        </p>
+        <p>{"The Grand Canyon South Rim — highest combined score on global recognizability plus in-person 'wow' across our panel of 12,400 travelers. It is open year-round, fully accessible without hiking, and the rim drive alone delivers the list's best ROI for effort. Most visitors' regret is not staying for sunset."}</p>
 
         <h3>What's the best underrated pick on this list?</h3>
-        <p>
-          <strong>#67 Theodore Roosevelt National Park</strong> or{' '}
-          <strong>#95 New River Gorge</strong>. Both are world-class
-          parks with single-digit percent of the crowds of the
-          famous ten.
-        </p>
+        <p>{"Theodore Roosevelt National Park in North Dakota (#67) or West Virginia's New River Gorge (#95). Both are world-class parks with single-digit percent of the crowds Yellowstone or Zion get, and both pair perfectly with longer road trips — Teddy R. with the Black Hills/Badlands and New River Gorge with the Blue Ridge Parkway."}</p>
 
         <h3>How many of these can a normal person actually do?</h3>
-        <p>
-          Our panel median is <strong>31 of 100</strong> over a lifetime
-          of traveling. The 75th percentile hits 58. The rare 100-
-          finisher took 8 to 15 years — and they almost all say the
-          <em> working through the list</em> was the point, not the
-          finishing.
-        </p>
+        <p>{"Our panel median is 31 of 100 completed over a lifetime of domestic travel. The 75th percentile hits 58, and the rare 100-finishers took 8–15 years start to finish. Almost every completionist says the working-through-the-list phase was the point — the 100th stamp felt anticlimactic compared to the first fifty."}</p>
 
         <h3>Why only 2 per state when some states clearly have more?</h3>
-        <p>
-          The constraint is the value. A bucket list with 10 from
-          California and 0 from North Dakota isn't a US bucket list —
-          it's a California list. Two per state forces geographic
-          diversity and makes the whole country feel reachable.
-        </p>
+        <p>{"The constraint is the value. A bucket list with 10 from California and 0 from North Dakota is not a US bucket list — it is a California list. Two picks per state forces geographic diversity, makes the whole country feel reachable, and pushes travelers into under-visited regions like Appalachia, the Plains and the Upper Midwest."}</p>
+
+        <h3>How long does it take to visit all 100 on a road trip?</h3>
+        <p>{"Realistically 18–24 months if you drive aggressively, live in a van, and sacrifice most other obligations. More achievable: split it into 6 regional loops (New England, South, Midwest, Mountain West, Southwest, West Coast) of 3-4 weeks each, over 3-5 years. Flying between clusters saves roughly 30% of total time but doubles the cost."}</p>
+
+        <h3>What's the most expensive item on the list?</h3>
+        <p>{"The Alaska cruise or Denali flightseeing combination, which runs $4,000–$7,000 per person by the time you add the Kenai Fjords extension. Hawaii's volcano-and-beach combination (Big Island + Kauai) is second at roughly $3,500 per person. The cheapest high-impact picks are Chicago architecture cruise and the Santa Fe Plaza at under $60 total."}</p>
+
+        <h3>Which bucket-list items are best for families with young kids?</h3>
+        <p>{"Anything involving boats, beaches or big animals beats anything requiring a 6-mile uphill hike. Great picks under age 10: Kennedy Space Center, Monterey Bay Aquarium, San Antonio River Walk, Mount Rushmore, Charleston carriage tours, Washington DC museums, the St. Louis Arch, and Yellowstone's Old Faithful. Avoid Angels Landing, the Narrows and Havasu Falls until they're teenagers."}</p>
+
+        <h3>Are any of these places inaccessible or restricted in 2026?</h3>
+        <p>{"A handful: Havasu Falls (#53) requires a reservation lottery that opens February 1; Antelope Canyon (#12) is Navajo-tour-only; Angels Landing (#9) needs a permit via Recreation.gov lottery; and Denali's Park Road past mile 43 remains closed through 2027 for the Pretty Rocks landslide repair. Book all four 3–6 months ahead."}</p>
+
+        <h3>How do I prioritize if I only have a week?</h3>
+        <p>{"Pick one corridor, not one-off flights. Utah's Mighty Five (Zion, Bryce, Capitol Reef, Arches, Canyonlands) covers 5 bucket-list items in 7 days for the cost of one rental car and a round trip to Las Vegas. New England fall foliage (Acadia, White Mountains, Vermont covered bridges) is similarly efficient in October."}</p>
+
+        <h3>Is the list the same for international visitors and Americans?</h3>
+        <p>{"Mostly yes, but international visitors should bias toward the iconic, car-light picks — Grand Canyon South Rim, NYC Central Park, Las Vegas Strip, New Orleans French Quarter, Yosemite Valley. Americans have the luxury of weekend-scale trips to quirky items like Marfa, Taliesin West or the Mall of America that international visitors rarely prioritize."}</p>
+
+        <h3>What's the most physically demanding item?</h3>
+        <p>{"The Grand Canyon rim-to-rim day hike (#2 in difficulty) — 24 miles and 6,000 ft elevation change, genuinely dangerous in summer heat. Second is the Half Dome cables climb in Yosemite at 14–17 miles round-trip with exposure. Both require months of training and a permit; attempting either unfit is the most common cause of national-park search-and-rescue calls."}</p>
+
+        <h3>Should I do the hardest items first or save them for last?</h3>
+        <p>{"Do the physically demanding ones first — in your 30s and 40s, not your 60s. Rim-to-rim hikes, Havasu Falls backpacking and Denali flightseeing all reward fitness. Save the culinary and cultural picks (New Orleans Jazz Fest, Charleston food tours, Broadway) for later in life when knees object to 3,000-ft descents."}</p>
+
+        <h3>Does the order of the list imply ranking?</h3>
+        <p>{"Loosely — items 1-10 are the consensus 'can't-miss' picks (Grand Canyon, Yellowstone, NYC, Yosemite, etc.), while 90-100 are regional gems most Americans themselves have never visited. In practice most travelers build their own order around geography and time of year rather than the list's numbering."}</p>
+
+        <h3>How did you pick the 100?</h3>
+        <p>{"We combined three data sources: NPS visitation, TripAdvisor 'things to do' rankings by state, and our 2025 StampYourMap panel of 12,400 travelers rating their most memorable trips. Items needed to score in the top 20% across at least two sources and satisfy the 2-per-state constraint, with editorial tie-breaks for geographic and cultural diversity."}</p>
+
+        <h3>Can I really check these off on StampYourMap?</h3>
+        <p>{"Yes — every bucket-list item on this page maps to a region or national-park stamp in the app, and you can see live completion percentages across the 50 states. The free tier includes unlimited stamping, so tracking your way through the 100 costs nothing and generates a shareable keepsake map once you hit 25+ items."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

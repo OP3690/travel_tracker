@@ -211,14 +211,38 @@ export default function SpainTravelGuide2026() {
         </ol>
 
         <h2 id="faq">9. Spain FAQ</h2>
-        <h3>How long?</h3>
-        <p>Minimum <strong>10 days</strong>. Sweet spot <strong>14-17 days</strong>.</p>
-        <h3>Is Spanish spoken everywhere?</h3>
-        <p>Castilian Spanish yes. Regional languages coexist: Catalan (Catalonia), Euskara (Basque), Galego (Galicia). English limited outside tourism.</p>
-        <h3>Madrid vs Barcelona?</h3>
-        <p>Do both. Madrid is grander and more "Spanish"; Barcelona is more photogenic and international.</p>
-        <h3>Safety?</h3>
-        <p>Very safe. Pickpocketing is the one real issue (Las Ramblas + metro).</p>
+        <h3>How long should a first trip to Spain actually be?</h3>
+        <p>{"Ten days is the realistic minimum to cover Madrid, Barcelona, and one southern city; 14-17 days is the sweet spot and lets you add Seville, Granada, San Sebastián, or a Costa Brava beach stop without living on AVE trains. Under a week forces you into single-city mode (Barcelona or Madrid), which is fine but underplays Spain's regional diversity."}</p>
+        <h3>Is Castilian Spanish spoken everywhere, or do I need regional languages?</h3>
+        <p>{"Castilian (castellano) is spoken and understood nationwide — learn it for travel. Catalonia (Barcelona), Basque Country (San Sebastián, Bilbao), Galicia, and Valencia have co-official regional languages, but nobody expects tourists to speak them. English fluency is patchy outside tourism zones — decent in Barcelona and Madrid centres, sparse in Andalusian pueblos and small Galician towns."}</p>
+        <h3>Madrid or Barcelona — if I can only pick one?</h3>
+        <p>{"Barcelona for first-timers and photographers — Gaudí, beaches, walkable core, Michelin density. Madrid for art lovers and food nerds — the Prado/Reina Sofía/Thyssen triangle, old-school tabernas, and more 'authentic' everyday Spanish life. Both deserve 3 nights minimum. The AVE train between them takes 2h30 for €30-60 booked early, so picking one is rarely necessary."}</p>
+        <h3>How safe is Spain for solo and female travellers?</h3>
+        <p>{"Extremely safe for violent crime — Spain regularly ranks top-10 globally. Real risk is pickpocketing: Las Ramblas and Sagrada Família queues in Barcelona, Puerta del Sol and Madrid metro line 1, Plaza de España in Seville. Use a crossbody bag, never back-pocket wallets, and ignore 'is this your wallet?' distraction scams. Late-night Spain is genuinely safer than most of Europe — dinners run till midnight without concern."}</p>
+        <h3>What's the best time of year to visit?</h3>
+        <p>{"April-June and September-October are ideal — daytime 20-28°C, warm but not the 40°C inferno that July-August brings to Seville and Madrid. Andalusia in August is brutal (42°C possible); coastal Spain and the north (San Sebastián, Galicia) stay manageable. December-February is cool and quiet in cities, with excellent off-peak hotel rates; ski season runs in the Pyrenees and Sierra Nevada."}</p>
+        <h3>Do I tip in Spain, and how much?</h3>
+        <p>{"Tipping is minimal. Round up at a café (10-20 cents), leave €1-2 at a casual lunch, and 5-10% only at a proper sit-down dinner if the service was good. Locals often leave nothing. No tip for taxis beyond rounding up; no tip for hotel bellhops unless they haul five bags. Over-tipping is received well but never expected."}</p>
+        <h3>Is Spain cheap, or has it gotten expensive?</h3>
+        <p>{"Cheaper than France or Italy at every budget level — expect €50-60/day backpacker, €90-120 mid-range, €200+ comfort. Barcelona and San Sebastián are the two outliers at 25-35% above the rest. Madrid is a genuine bargain for a European capital. Wine and coffee remain laughably cheap (€1.20 espresso, €2.50 glass of rioja)."}</p>
+        <h3>Do I need a car, or can I train everywhere?</h3>
+        <p>{"Train for cities — Renfe's AVE is excellent (Madrid-Seville 2h30, Madrid-Barcelona 2h30, Madrid-Málaga 2h30). Car for Andalusian white villages (Ronda, Frigiliana), Costa Brava, rural Basque Country, or Galician coast. Mixed trip: train between hubs, one rental car for 3-5 days in the countryside. Never rent in cities — parking is punishing and LEZ (Low Emission Zone) fines hit €200."}</p>
+        <h3>How does the Spanish eating schedule actually work?</h3>
+        <p>{"Breakfast light (coffee + tostada) at 08:00-10:00. Lunch is the big meal at 14:00-16:00 — restaurants serve the menú del día (€12-18, three courses + drink). Tapas and pincho crawls start 19:30-21:00. Dinner sit-down runs 21:00-midnight. Trying to eat dinner at 18:00 means tourist-trap zones only — real kitchens aren't open yet."}</p>
+        <h3>What are the best cities for different travel styles?</h3>
+        <p>{"Architecture and beach: Barcelona. Food and museums: Madrid, San Sebastián. History and Moorish heritage: Granada, Córdoba, Seville. Surf and green coast: San Sebastián, A Coruña. Nightlife: Madrid and Ibiza. Family-friendly: Valencia and Málaga (beach + culture balance). Honeymoon: Mallorca, Marbella, or a Parador-hotel road trip through Andalusia."}</p>
+        <h3>What's the deal with siesta — do businesses really close?</h3>
+        <p>{"In small towns and rural Andalusia, many shops and pharmacies close 14:00-17:00 on weekdays; in Madrid and Barcelona centre most stay open continuously. Museums often close on Mondays. Restaurants commonly close between lunch (16:00) and dinner (20:30), so plan afternoon snacks. Sunday is the quietest day nationwide — markets open, most non-food retail closed."}</p>
+        <h3>Do I need a visa, and what about ETIAS in 2026?</h3>
+        <p>{"Spain is Schengen — US/UK/AU/CA/NZ get 90 days visa-free per 180-day period. ETIAS launches late 2026 — budget €7 and 10 minutes online for the authorisation, valid 3 years. Passport must be valid at least 3 months beyond planned departure; stamp-entry is still required at the airport."}</p>
+        <h3>How's connectivity — SIM, eSIM, or roaming?</h3>
+        <p>{"Excellent. An Airalo, Holafly, or Orange eSIM (€15-35 for 10-20GB) activates pre-arrival and works Schengen-wide. Movistar and Vodafone sell prepaid SIMs at airport kiosks for €15-25. US carriers like T-Mobile include Spain but throttle after a few GB. Free public Wi-Fi is widespread in cafés, AVE stations, and city centres."}</p>
+        <h3>Are tap water and food safe everywhere?</h3>
+        <p>{"Tap water is safe nationwide though it tastes mineral-heavy in Madrid, Alicante, and parts of Andalusia — locals often drink bottled. Food safety is excellent. Pharmacies (green cross) handle minor illness confidently and sell many medications over-the-counter that elsewhere need prescription. Carry travel insurance — non-EU visitors pay €60-200 for a GP visit."}</p>
+        <h3>What festivals are worth planning a trip around?</h3>
+        <p>{"Las Fallas (Valencia, 15-19 March), Semana Santa (Seville, Holy Week), Feria de Abril (Seville, two weeks after Easter), San Fermín (Pamplona, 6-14 July), La Tomatina (Buñol, last Wed of August), La Mercè (Barcelona, 24 September), Christmas and Three Kings (Madrid/Barcelona, Dec-Jan 6). Book hotels 6-9 months out for festival dates — rates triple."}</p>
+        <h3>What etiquette should I know before arriving?</h3>
+        <p>{"Greet shop owners with 'Hola' or 'Buenos días' entering, 'Adiós' leaving. Don't eat dinner at 18:00 and expect real cuisine. Dress cover-shoulders-and-knees for cathedrals (Sagrada Família, Seville Cathedral). Don't snap your fingers at waiters; a quiet 'perdona' and raised hand works. Cheek-kisses (two, right then left) are standard between acquaintances — follow the local's lead."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

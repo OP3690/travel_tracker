@@ -127,10 +127,62 @@ export default function VietnamBudgetTravel2026() {
         ]} />
 
         <h2 id="faq">8. FAQ</h2>
-        <h3>Cheaper than Thailand?</h3><p>Yes — $10/day less at mid-range.</p>
-        <h3>$25/day possible?</h3><p>Yes easily — streets food + hostel + bus.</p>
-        <h3>Cheapest month?</h3><p><strong>May-early June</strong> or <strong>September</strong>.</p>
-        <h3>Tipping?</h3><p>5-10% at restaurants; not expected at street food.</p>
+        <h3>Is Vietnam cheaper than Thailand?</h3>
+        <p>
+          <strong>Yes — about US$8-12/day less at mid-range</strong> and significantly cheaper for food (street pho US$1-2 in Hanoi vs US$2-3 pad thai in Bangkok). Accommodation is comparable, but alcohol and tours in Vietnam are much cheaper. Vietnam is currently one of Southeast Asia{"'"}s best value destinations alongside Cambodia and Laos.
+        </p>
+        <h3>Is US$25/day actually possible?</h3>
+        <p>
+          <strong>Yes, easily</strong> — hostel dorms (US$6-9), 3 street-food meals (US$5-8 total), public buses (US$1-3), and free activities (temples, walking tours, beaches). You can comfortably do Vietnam on US$25/day, and aggressive budgeters get to US$18-20. Below US$15/day requires homestay or cooking, which is less common in Vietnam than Thailand.
+        </p>
+        <h3>What is the cheapest month to visit?</h3>
+        <p>
+          <strong>May-early June and September</strong> — shoulder-season flights + hotels drop 30-40%, though you trade-off weather (wet, hot in the north). Avoid Tet (late Jan-Feb, prices double, services close) and international holiday weeks (Christmas, Chinese New Year). April and October are the sweet-spot for best weather + reasonable prices.
+        </p>
+        <h3>Tipping culture — how much, where?</h3>
+        <p>
+          <strong>Not historically expected but increasingly appreciated</strong> — 5-10% at nicer restaurants, round up taxi/Grab fares, 100,000-200,000 VND/day for tour guides (US$4-8), and 50,000 VND for hotel porters. Do not tip at street food stalls (it causes confusion). Halong cruise crew traditionally gets US$10-20/guest collectively.
+        </p>
+        <h3>Cards or cash — what actually works?</h3>
+        <p>
+          <strong>Cash is king in Vietnam</strong> — 80% of street food, homestays, and small businesses are cash-only. Carry 500,000-2,000,000 VND (US$20-80). Cards work at mid-range hotels, chain restaurants, and supermarkets. Vietnamese bank ATMs (Vietcombank, Techcombank, ACB) have lower fees than airport ATMs. Wise + Revolut cards minimize conversion losses.
+        </p>
+        <h3>What hidden costs catch budget travelers off guard?</h3>
+        <p>
+          <strong>Domestic flight baggage (Vietjet 7kg carry-on strict), scam taxi meters (always Grab), Halong Bay cruise inclusions (read carefully — "all-inclusive" often excludes drinks), temple entry fees (20,000-50,000 VND), and motorbike rental "damage" fees</strong> on return. Always inspect rentals with photos before renting.
+        </p>
+        <h3>Best transport hacks for saving money?</h3>
+        <p>
+          <strong>Night buses (Hanoi → Hue US$15, Hue → Hoi An US$8) save a night{"'"}s accommodation</strong>, Vietjet flash sales drop Hanoi-HCMC to US$20-30, Grab Bike (motorbike taxi) is 50% cheaper than Grab car, and Xanh SM (electric taxi) has excellent pricing in HCMC + Hanoi. Trains are the middle option: slower than flights, more comfortable than buses.
+        </p>
+        <h3>Which cities are genuinely cheapest as bases?</h3>
+        <p>
+          <strong>Hue, Ninh Binh, and Phong Nha</strong> are Vietnam{"'"}s cheapest travel cities — hostel dorms US$5-8, meals US$2-4, and fewer tourist-tax markups. Hanoi Old Quarter is cheap but touristy; HCMC District 1 is 20% more expensive than Hanoi. Hoi An has creeping prices (US$12-18/hostel) but charm to match.
+        </p>
+        <h3>How do street food prices realistically break down?</h3>
+        <p>
+          <strong>Pho: 40,000-80,000 VND (US$1.60-3.20). Bún chả: 50,000-90,000 VND. Bánh mì: 25,000-50,000 VND. Cà phê sữa đá: 25,000-45,000 VND. Bia hơi (draft beer): 5,000-15,000 VND (US$0.20-0.60)</strong>. A full day of street food + drinks runs US$6-12 total.
+        </p>
+        <h3>Is hostel quality actually good?</h3>
+        <p>
+          <strong>Yes — Vietnam has some of Southeast Asia{"'"}s best hostels</strong>. Vietnam Backpacker Hostels chain (Hanoi, Hoi An, HCMC), Old Quarter View (Hanoi), Sunshine Homestay (Hoi An), and Bui Vien (HCMC) all deliver clean dorms + social common areas + free breakfast for US$7-12. Dorms typically 4-8 beds, AC standard.
+        </p>
+        <h3>Best free or cheap activities?</h3>
+        <p>
+          <strong>Hanoi: Old Quarter walking, Hoan Kiem Lake, Temple of Literature entry (30,000 VND)</strong>. Hoi An: Old Town walking is free outside the ticketed zones. HCMC: Ben Thanh Market, Saigon Central Post Office. Countrywide: pagodas + temples are US$1-2 or free. Free walking tours (tip-based) in every major city — tip US$5-10.
+        </p>
+        <h3>Food safety and street food — is it actually safe?</h3>
+        <p>
+          <strong>Generally yes — Vietnamese street food is among the world{"'"}s cleanest</strong> due to high turnover (food sold fast, not stored long) and fresh ingredients. Rule of thumb: eat where locals eat, ideally plastic-stool stalls with visible cooking. First 3-4 days, give your stomach time; pack Imodium and oral rehydration salts for emergencies.
+        </p>
+        <h3>Currency exchange — where and how?</h3>
+        <p>
+          <strong>Gold shops in Hanoi (Ha Trung Street) and HCMC (Nguyen Hue) have the best rates</strong>, much better than airport exchange desks or hotels. US dollars (especially US$100 bills, new + unmarked) get the best exchange rate. Bring newer bills — Vietnamese exchanges reject creased or old US notes.
+        </p>
+        <h3>Is SIM or eSIM better for budget travelers?</h3>
+        <p>
+          <strong>Physical SIM wins for Vietnam</strong> — Viettel or MobiFone tourist SIM at airport kiosks with 15-30GB for US$4-8/month. Airalo eSIM works but costs US$8-15 for less data. Either way, expect 4G+ coverage in all cities and along highways; remote mountain regions (Sapa, Ha Giang Loop) are patchier.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

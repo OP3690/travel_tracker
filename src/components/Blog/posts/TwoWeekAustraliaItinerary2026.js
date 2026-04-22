@@ -138,12 +138,62 @@ export default function TwoWeekAustraliaItinerary2026() {
         <p><strong>Perth (3) → Margaret River (3) → Ningaloo (3) → Broome (5)</strong>. WA deep-dive.</p>
 
         <h2 id="faq">7. FAQ</h2>
-        <h3>Can I do 10 days?</h3>
-        <p>Yes — drop Uluru. 10-day: Sydney (3) → Cairns (3) → Melbourne (2) + GOR (2).</p>
-        <h3>Best month?</h3>
-        <p><strong>April or September-October</strong>. Tropical north dry, south temperate.</p>
-        <h3>Reverse route?</h3>
-        <p>Yes — Melbourne → Uluru → Cairns → Sydney. Often cheaper MEL arrivals from LAX.</p>
+        <h3>Is this pace realistic or will I burn out?</h3>
+        <p>
+          The 14-day pace is intentionally brisk but sustainable if you accept that <strong>three travel days will be mostly flights</strong> (Day 4, 7, 10). Build in a half-day buffer each week for laundry, slow coffees, and resetting. Travelers over 55 or with kids should add 2-3 days and drop either Phillip Island or Kings Canyon to breathe.
+        </p>
+        <h3>Can I compress this into 10 days?</h3>
+        <p>
+          Yes, but <strong>drop Uluru</strong> — the Red Centre needs a minimum of 2 full days plus travel, and cramming it into 10 days gives you one exhausted sunrise. A clean 10-day plan: Sydney (3) → Cairns + Great Barrier Reef (3) → Melbourne + Great Ocean Road (4). Save Uluru for a dedicated 4-5 day Red Centre loop another year.
+        </p>
+        <h3>How do I handle jet lag from North America or Europe?</h3>
+        <p>
+          East coast US fliers lose a day entirely (LAX → SYD is 14 hours, plus date-line jump), so arrive Day 0, sleep by 10pm local, and walk Bondi the next morning in bright sun to reset circadian rhythm. Europeans arriving via Singapore or Dubai have it easier. Avoid scheduling Day 1 activities before noon — sunrise harbour walks can wait.
+        </p>
+        <h3>Should I book internal flights as one itinerary or separately?</h3>
+        <p>
+          <strong>Book separately on Jetstar, Virgin, or Qantas direct</strong> and save A$150-300 vs through-ticketing on your international carrier. Bundle them within 24 hours though, so a single delay does not cascade. Jetstar is cheapest but strict on 7kg carry-on; Virgin includes 7kg + personal item free, which matters on 3 back-to-back flights.
+        </p>
+        <h3>Carry-on only or checked bag?</h3>
+        <p>
+          <strong>Carry-on only is the right answer</strong> for this itinerary — checked bags delay you 30-45 minutes at each of three domestic transfers, and many Red Centre lodges are 4WD-access with no porter service. One 7kg cabin bag plus a small daypack fits laundry-every-3-days travel comfortably in Australia{"'"}s mild autumn/spring.
+        </p>
+        <h3>When should I book everything?</h3>
+        <p>
+          International flights 4-6 months out (price floor is usually 90 days), <strong>Field of Light + Longitude 131° at 3-6 months</strong>, reef tours 2-4 weeks, hotels 6-8 weeks, and Bridge Climb 4-6 weeks in peak season. Last-minute deals exist for flights within 2 weeks but hotels in Cairns and Uluru book out in dry season.
+        </p>
+        <h3>What happens if the reef day gets cancelled for weather?</h3>
+        <p>
+          Outer-reef operators cancel for <strong>winds above 25 knots</strong> — typically 1 in 10 days May-October, much higher in the wet. Book reef on Day 5 not Day 6 so you have a backup day, and pick operators (Quicksilver, Sailaway) with free rescheduling. Alternative Day 5: Daintree + Cape Tribulation 4WD or Kuranda Scenic Railway.
+        </p>
+        <h3>Is this doable in the Australian wet season (Dec-Mar)?</h3>
+        <p>
+          Only partially — <strong>Kakadu is closed or inaccessible, Cairns has afternoon tropical storms, and Uluru summer hits 45°C</strong>. Wet-season substitutes: swap Cairns for the Whitsundays (drier), skip Uluru entirely, and replace with Tasmania or Margaret River. Cyclone season (Jan-Mar) can shut down Cairns flights for 48+ hours.
+        </p>
+        <h3>Can I do this itinerary with kids?</h3>
+        <p>
+          Yes for ages 7+ — kids love reef snorkeling (lagoons for non-swimmers), Phillip Island penguins, and Taronga Zoo. For under-7, <strong>swap Uluru for Whitsundays sailing</strong> (easier logistics, shorter flights) and stretch to 16 days. The Field of Light is magical for ages 4+ and Longitude 131° has family tents.
+        </p>
+        <h3>What about seniors or travelers with mobility issues?</h3>
+        <p>
+          Sydney, Melbourne, and Cairns are flat and accessible. <strong>Uluru{"'"}s base walk is 10.6 km</strong> but easy, and Kata Tjuta has a 1 km viewing path. Great Ocean Road by coach is kinder than self-drive (Autopia, APT). Avoid the Bridge Climb and Blue Mountains canyoning — swap for Scenic World glass skyway (fully wheelchair accessible).
+        </p>
+        <h3>Solo traveler or couple — any differences?</h3>
+        <p>
+          Solos should book <strong>hostels in Sydney/Cairns and mid-range in Uluru/Melbourne</strong> (single supplements at Yulara resorts are brutal, 80-100%). Couples save 30% on lodging by default. Group tours like Contiki or G Adventures have 18-35 and 50-plus variants if you want built-in company for Uluru and the reef.
+        </p>
+        <h3>Should I reverse the route Melbourne-first?</h3>
+        <p>
+          Yes — <strong>MEL arrivals from LAX are often A$200-400 cheaper</strong> than SYD, and ending in Sydney for Harbour Bridge/Opera House farewell is emotionally stronger. The reverse: Melbourne + GOR (3) → Uluru (3) → Cairns + reef (4) → Sydney (4). Same flights, slightly better Uluru-to-reef connection via Alice Springs.
+        </p>
+        <h3>Do I need travel insurance for this specific trip?</h3>
+        <p>
+          <strong>Absolutely yes</strong> — reef-dive evacuation runs A$15,000+, and Uluru medical evacuation to Alice Springs is A$8,000-12,000. World Nomads, SafetyWing, or your home credit-card Plat/Sapphire coverage all work. Check that <strong>scuba diving to 18m</strong> is explicitly covered if you plan an intro dive.
+        </p>
+        <h3>What power adapters and SIM setup do I need?</h3>
+        <p>
+          Australia uses the <strong>Type I plug</strong> (two flat prongs in a V + ground pin) — not the same as NZ despite rumors; bring one adapter per charger. For connectivity, an Airalo eSIM (US$16 for 10GB/14 days) covers the whole trip and activates instantly on arrival at SYD airport.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

@@ -192,9 +192,66 @@ export default function GermanyChristmasMarkets2026() {
         />
 
         <h2 id="faq">10. FAQ</h2>
-        <h3>Best single market?</h3><p><strong>Nuremberg Christkindlesmarkt</strong> for tradition; <strong>Dresden Striezelmarkt</strong> for history.</p>
-        <h3>When to go?</h3><p><strong>First 2 weeks of December</strong>. Opening weekend (late Nov) is chaos; 4th-week-of-Dec is quieter but shops close Dec 23.</p>
-        <h3>Budget?</h3><p>Glühwein + food: <strong>€20-30/day</strong>. Full experience incl. lodging: <strong>€150-200/day</strong>.</p>
+        <h3>Which is the single best Christmas market in Germany?</h3>
+        <p>
+          <strong>Nuremberg Christkindlesmarkt</strong> (est. 1628) for genuine tradition and <strong>Dresden Striezelmarkt</strong> (est. 1434, oldest documented in Germany) for history — a coin toss between the two. Nuremberg is more contained + iconic; Dresden spans Altmarkt + surrounding streets and includes 10 additional smaller markets throughout the city.
+        </p>
+        <h3>When exactly should I visit?</h3>
+        <p>
+          <strong>The first 2 weeks of December (Dec 1-14) are the sweet spot</strong> — markets are fully open, weather is cold but pleasant, and crowds are moderate. Avoid opening weekend (late Nov, every German is there) and after Dec 22 (many close). Weekday visits are 40-50% quieter than weekends. Most markets close on Dec 24 by 2pm.
+        </p>
+        <h3>Can I see multiple markets in one trip — how?</h3>
+        <p>
+          <strong>Yes — a 7-day market loop works perfectly</strong>: Nuremberg (2) → Rothenburg (1) → Munich (2) → Dresden (2). Or add Cologne (1 day, 7 markets in one city). All connected by ICE trains. Avoid doing more than 5 cities in 7 days — mixing travel days with market energy burns out fast.
+        </p>
+        <h3>How many days do I need per market?</h3>
+        <p>
+          <strong>1 full afternoon + evening is enough for most single markets</strong> — arrive around 3pm, walk the stalls, eat dinner, do glühwein circuit, leave by 10pm. Nuremberg + Dresden + Cologne deserve a full day (multiple markets or side activities like the Nuremberg Railway Museum, Dresden Zwinger, or Cologne Cathedral).
+        </p>
+        <h3>What is the daily budget at Christmas markets?</h3>
+        <p>
+          <strong>Glühwein + food runs €20-30/day</strong> (4-5 glühweins at €4-5 each in a refundable mug + 2-3 food stops at €3-8). Full experience including 3-star hotel + transport + shopping: <strong>€150-200/day</strong>. Budget option (hostel, fewer drinks, walking): €70-90/day. Premium hotels + fine dining push €300+/day.
+        </p>
+        <h3>How does the glühwein mug deposit work?</h3>
+        <p>
+          <strong>You pay €2-5 deposit (Pfand) per mug</strong> on top of the glühwein price (€3-5) — return the mug for a refund, or keep it as a souvenir. Each city + year has unique designs; Nuremberg, Dresden, and Rothenburg mugs are collector-worthy. Budget €2-3 per city if you keep them.
+        </p>
+        <h3>Where should I stay — hotels near markets?</h3>
+        <p>
+          <strong>Nuremberg: stay in the Altstadt (10-min walk to Hauptmarkt)</strong>. Dresden: stay near Altmarkt or Neumarkt. Munich: anywhere inside the Altstadtring. Book <strong>3-4 months ahead for weekend stays</strong>; prices jump 40-60% on market weekends. Airbnb in old-town apartments is often better value than hotels.
+        </p>
+        <h3>Are markets good for kids?</h3>
+        <p>
+          <strong>Yes — especially Nuremberg, Rothenburg, and Dresden</strong>. Kids love the handicrafts stalls, the puppet theaters, the roast chestnuts, and non-alcoholic Kinderpunsch (spiced apple juice, €3-4). Carousels + children{"'"}s rides are common. Afternoon visits (before 4pm) are best with small kids — evenings get packed.
+        </p>
+        <h3>How crowded is it really, and how do I avoid the worst?</h3>
+        <p>
+          <strong>Weekends are genuinely overwhelming</strong> — Saturdays 2-8pm at Nuremberg or Dresden you barely move. Strategy: visit <strong>Tuesday-Thursday, arrive when markets open (11am-12pm)</strong>, or come after 9pm when locals leave. Opening weekend (late Nov) is a trap.
+        </p>
+        <h3>What are the best market foods to try?</h3>
+        <p>
+          <strong>Bratwurst im Brötchen (Nuremberg rostbratwurst, €3-5), raclette on bread (€6-8), reibekuchen + applesauce (potato pancakes, €4-6), langos (Hungarian fried dough, €5-7), lebkuchen (gingerbread, €3-10), roasted almonds (Gebrannte Mandeln, €5 a cup), Kinderpunsch or glühwein</strong>. Dresden{"'"}s Christstollen is the original.
+        </p>
+        <h3>Is cash or card better at markets?</h3>
+        <p>
+          <strong>Cash is essential</strong> — 80%+ of stalls are cash-only. Bring €100-150 per day of market visits in €5, €10, and €20 notes. ATMs inside Hauptmarkt or nearby Sparkasse/Commerzbank have no surcharge. Bigger vendors and handicrafts now take card but food + glühwein almost always cash-only.
+        </p>
+        <h3>What should I pack for Christmas market weather?</h3>
+        <p>
+          <strong>Temperatures run 0-5°C day, -3 to 0°C evening</strong>, occasional snow. Pack thermals, a warm coat, gloves (waterproof — glühwein spills), hat, scarf, and waterproof boots (cobblestones get icy). Hand-warmer packets for photography. December rain is common — a folding umbrella and water-resistant jacket layer is essential.
+        </p>
+        <h3>Which market is best for photography?</h3>
+        <p>
+          <strong>Rothenburg ob der Tauber{"'"}s Reiterlesmarkt</strong> — the medieval walled town lit up at twilight is the iconic Christmas postcard shot. Dresden{"'"}s Frauenkirche backdrop is equally magical. Nuremberg has the most photogenic stall lineup. Visit 30 minutes before sunset for blue-hour magic — 4:15pm-5:00pm in mid-December.
+        </p>
+        <h3>Can I do a day-trip from Munich or Berlin?</h3>
+        <p>
+          <strong>Yes — Nuremberg from Munich is 1h05 by ICE (perfect day-trip)</strong>, Rothenburg from Munich is 2h15 each way. Dresden from Berlin is 1h55 by ICE. Cologne from Frankfurt is 1h15. Leave at 10am, return by 11pm for a full day + evening market experience without changing hotels.
+        </p>
+        <h3>Budget vs luxury Christmas market experiences?</h3>
+        <p>
+          <strong>Budget: hostel (Generator Nuremberg €35/night), market food + 2 glühwein, DB Sparpreis train</strong> = €80-100/day. Luxury: Hotel Taschenbergpalais Kempinski Dresden (€220+/night), private Christmas market tour (€150-250), Saxon State Opera ticket (€80-180) = €500-700/day. Both are valid experiences.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

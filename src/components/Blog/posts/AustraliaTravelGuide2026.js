@@ -196,14 +196,66 @@ export default function AustraliaTravelGuide2026() {
         </ol>
 
         <h2 id="faq">9. FAQ</h2>
-        <h3>How long?</h3>
-        <p>Minimum <strong>14 days</strong>. Sweet spot <strong>21 days</strong>.</p>
-        <h3>Best month?</h3>
-        <p><strong>April, September, or October</strong>.</p>
-        <h3>Is Australia expensive?</h3>
-        <p>Yes — mid-range. Between UK and Switzerland. Hostels ease backpacker budgets.</p>
-        <h3>Safe?</h3>
-        <p>Very. Sun + ocean rips + wildlife (the memorable ones) are the actual risks.</p>
+        <h3>How many days do I need to see Australia properly?</h3>
+        <p>
+          The absolute minimum is <strong>14 days</strong> to hit Sydney, the Great Barrier Reef, and either Uluru or Melbourne — any shorter and you spend half the trip on 3+ hour domestic flights. The sweet spot is <strong>21 days</strong>, which adds Tasmania or the Great Ocean Road without rushing. For a single-city deep dive (Sydney or Melbourne only), 7 days still works well.
+        </p>
+        <h3>What is the single best month to visit?</h3>
+        <p>
+          <strong>April and October</strong> are the two magic months — both sit in shoulder season with dry weather in the tropical north (Cairns, Darwin, Kakadu) and mild temperatures in the southern capitals. September is a close third for spring wildflowers in WA and humpback whales off the east coast. Avoid January-February unless you specifically want beach weather and can tolerate 35°C+ in Sydney.
+        </p>
+        <h3>Do I need a visa, and how does the ETA work?</h3>
+        <p>
+          US, UK, EU, Canadian, Japanese, and NZ passport holders need the <strong>Electronic Travel Authority (ETA)</strong> — A$20, approved in 10-30 minutes via the official Australian ETA app (avoid third-party sites that charge A$80+). It is valid for 12 months, allows multiple entries, and permits stays up to 90 days per visit. Working holiday visas (subclass 417/462) are separate and take 3-6 weeks.
+        </p>
+        <h3>Is Australia actually as expensive as people say?</h3>
+        <p>
+          Yes, roughly between UK and Switzerland pricing — a mid-range day runs <strong>A$250-320 (US$165-210)</strong> including a 3-star hotel, restaurant meals, and coffee. Alcohol is where it really stings (A$12-15 for a pint, A$45+ for basic wine bottles in restaurants). Hostels, supermarket meals, and BYO-restaurant laws in Victoria/NSW bring backpacker costs down to around A$105/day.
+        </p>
+        <h3>How safe is Australia for solo and female travelers?</h3>
+        <p>
+          Genuinely one of the safest countries in the world — violent crime is rare, cities feel walkable after dark, and public transport is reliable. The real risks are environmental: <strong>sun UV is the strongest in the developed world</strong> (burn in 10 minutes in summer), ocean rip currents kill more tourists than sharks, and remote driving needs water and a plan. Wildlife rarely troubles travelers who stick to populated areas.
+        </p>
+        <h3>What currency and payment system is used?</h3>
+        <p>
+          The Australian Dollar (AUD/A$) — cards work literally everywhere including market stalls, taxis, and small cafés, and contactless is the default. Physical cash is genuinely rare in 2026 and many small businesses no longer accept it at all. Use a Wise, Revolut, or no-foreign-fee card; avoid airport currency desks which skim 6-8%.
+        </p>
+        <h3>Is tipping expected anywhere in Australia?</h3>
+        <p>
+          <strong>No</strong> — the minimum wage is A$24/hour, and tipping is neither expected nor built into prices. A 5-10% round-up at sit-down restaurants for genuinely great service is appreciated but never required. Never tip baristas, taxi drivers, or hotel porters — it is viewed as mildly awkward rather than generous.
+        </p>
+        <h3>How do I get around such a huge country?</h3>
+        <p>
+          <strong>Fly between regions, drive within them</strong> — Jetstar, Virgin Australia, and Qantas domestic run Sydney-Melbourne (1h25) from A$90, Sydney-Cairns (3h) from A$180, and Sydney-Perth (5h) from A$250 if booked 60+ days ahead. Rental cars make sense for the Great Ocean Road, Red Centre, and East Coast loops, but not for cross-country treks.
+        </p>
+        <h3>Is English the only language I need?</h3>
+        <p>
+          Yes — English is universal, though Aussie slang takes a day to tune into (arvo = afternoon, servo = service station, bottle-o = liquor store). There are over 150 surviving Indigenous languages, and respectful acknowledgment of Country is standard at tours in Uluru, Kakadu, and Kimberley. No phrasebook needed.
+        </p>
+        <h3>What should I pack that people forget?</h3>
+        <p>
+          <strong>Reef-safe sunscreen SPF50+, a wide-brim hat, and a rash vest</strong> — the sun is genuinely unlike anywhere else, and reef operators now check sunscreen ingredients. Add a light fleece (desert nights drop to 5°C, Tasmania gets cold year-round), a power adapter (Type I plug), and bug repellent for tropical north and Kakadu.
+        </p>
+        <h3>How reliable is mobile data and connectivity?</h3>
+        <p>
+          Excellent in cities and along the east coast — Telstra has the best remote coverage, Optus is cheapest with good metro coverage, and eSIMs from Airalo or Holafly start at US$8 for a week of 5GB. Outback areas (Red Centre, Kimberley, Tasmania highlands) have long dead zones; download offline maps before leaving Alice Springs or Broome.
+        </p>
+        <h3>Do I need vaccines or travel health prep?</h3>
+        <p>
+          No required vaccines for entry in 2026 — routine ones (MMR, tetanus, flu) are enough. Public hospitals are world-class, but private travel insurance is essential: an ambulance ride in Sydney can be A$1,200, reef-dive evacuation A$15,000+. UK visitors get reciprocal Medicare for emergencies, but most others pay out of pocket without insurance.
+        </p>
+        <h3>What festivals or events are worth timing a trip around?</h3>
+        <p>
+          <strong>Vivid Sydney</strong> (late May-early June light festival), <strong>Melbourne Cup</strong> (first Tuesday of November, public holiday in VIC), and <strong>Sydney NYE fireworks</strong> are the headliners. Regional standouts include Tasmania{"'"}s Dark Mofo (June, winter solstice weirdness), MONA FOMA (January), and the Darwin Festival (August dry season).
+        </p>
+        <h3>How do I book reef, Uluru, and Kakadu tours?</h3>
+        <p>
+          For the <strong>Great Barrier Reef</strong>, book premium outer-reef operators (Quicksilver, Wavelength, Sailaway) 2-4 weeks ahead — inner reefs are visibly bleached. Uluru Field of Light and Longitude 131° need 3-6 months lead time. Kakadu Yellow Water cruise books out 2-3 weeks ahead in peak dry season. See our <Link to="/blog/great-barrier-reef-guide-2026">Great Barrier Reef guide</Link> for operator picks.
+        </p>
+        <h3>Cultural etiquette I should know before arriving?</h3>
+        <p>
+          Australians are informal — use first names, call the waiter by name, and do not expect deference. Punctuality matters for tours and dinners, but social gatherings (BBQs) have 30-minute grace. Always "bring a plate" or a 6-pack if invited to someone{"'"}s house, and a quick acknowledgment of Traditional Owners at Indigenous sites is appreciated, not performative.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

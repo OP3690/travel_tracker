@@ -345,34 +345,49 @@ export default function BestPhilippineIslands2026() {
         <h2 id="faq">5. FAQ</h2>
 
         <h3>What's the single best island for first-time visitors?</h3>
-        <p>
-          <strong>Palawan (El Nido + Coron)</strong>. Not close.
-        </p>
+        <p>{"Palawan (the El Nido and Coron combination), and it is not close. The limestone karst scenery, hidden lagoons, and island-hop boat culture deliver the most iconic Philippine experience in the shortest timeframe. Plan 6-7 days minimum — Puerto Princesa Underground River plus El Nido plus Coron covers the UNESCO-grade highlights with one domestic flight and one short boat transfer."}</p>
 
         <h3>Which island is best for surfing?</h3>
-        <p>
-          <strong>Siargao</strong>. World-class, easy access, full
-          surf ecosystem.
-        </p>
+        <p>{"Siargao, unambiguously — Cloud 9 is a world tour reef break, Quicksilver and Tuason Right complete the trifecta, and the island has a full surf ecosystem of 60+ surf schools, board rental, and physiotherapy clinics. For beginners or those wanting smaller waves, La Union on Luzon (San Juan) has the Philippines' best mellow beach break. Siargao peaks August-November."}</p>
 
         <h3>Which is the best island for families?</h3>
-        <p>
-          <strong>Bohol</strong>. Compact, multiple activities, calm
-          beaches, world-class nature interactions (tarsiers, dolphins).
-        </p>
+        <p>{"Bohol — compact enough to see in 3 days, multiple kid-magnetic activities (Chocolate Hills, tarsier sanctuary, Loboc River dolphin-and-lunch cruise, whale shark snorkeling at nearby Oslob), calm shallow beaches at Panglao, and excellent medical facilities in Tagbilaran. Alona Beach has the country's best family-oriented resort cluster including Henann, Amorita and Bohol Beach Club."}</p>
 
-        <h3>Which is cheapest?</h3>
-        <p>
-          <strong>Siquijor</strong>, closely followed by Bohol. Both
-          offer $15/night fan-room accommodation and $2 meals.
-        </p>
+        <h3>Which is the cheapest island?</h3>
+        <p>{"Siquijor, closely followed by Bohol — both offer 800-1,200 peso ($15-22) fan-room accommodation, $2-3 meals at local carinderias, and easy $8 scooter rentals. Siquijor adds a low-key witchcraft folklore and waterfall scene at zero cost. Avoid Palawan and Boracay for strict budget trips; El Nido alone costs 50-80% more than Siquijor for equivalent quality."}</p>
 
         <h3>Can I do 3 islands in 10 days?</h3>
-        <p>
-          Physically yes — Cebu, Bohol, and a third (Siargao or
-          Boracay) is common. But you'll feel rushed. For 3 islands,
-          plan 14 days.
-        </p>
+        <p>{"Physically yes — Cebu, Bohol and a third (Siargao or Boracay) is common and flights are short. But you will feel rushed, especially with 2 travel days consumed by transfers. For 3 islands, 14 days is the correct minimum. If you have only 10 days, pick 2 islands instead and save the third for a return trip — it is genuinely the better decision."}</p>
+
+        <h3>Which island is best for luxury travelers?</h3>
+        <p>{"Palawan wins on eco-luxury with Amanpulo (private island, $1,800+/night), Pangulasian Island Resort ($1,100+/night El Nido), and Two Seasons Coron. Panglao/Bohol has Amorita and Henann Resort Alona for beach luxury. Siargao's Nay Palad (Mona Liza) is the rising-star luxury pick. For old-school grand-hotel luxury, Manila's Peninsula and Shangri-La at the Fort are the anchors."}</p>
+
+        <h3>Which island is best for diving?</h3>
+        <p>{"Tubbataha Reef (only accessible by liveaboard from Palawan, March-June season) is the world-class pick — think Galapagos-level untouched. For shore-accessible diving: Coron Bay (WWII wrecks), Apo Island off Negros (turtles and reef), Malapascua (thresher sharks at Monad Shoal, dawn dives), and Anilao (Luzon's macro capital). Advanced divers should factor Tubbataha into any serious Philippines trip."}</p>
+
+        <h3>Which island is best for nightlife?</h3>
+        <p>{"Boracay Station 2 still wins for pure party density, though it is tamer than pre-2018. Siargao's General Luna strip (Kermit, Harana, Bravo) has the best 'backpacker party meets surf culture' scene. Cebu's IT Park has the most genuinely urban nightlife. Manila's BGC and Poblacion cluster is a different tier — world-class cocktail bars (Buccaneers, Hong Kee) that rival Singapore."}</p>
+
+        <h3>Which island should I combine with Palawan?</h3>
+        <p>{"Bohol-Cebu is the most complementary — Palawan gives you limestone karst and island-hopping, Bohol-Cebu adds nature wildlife (tarsiers, whale sharks) and a major food scene (lechon). Avoid combining Palawan with Boracay on the same trip (redundant beach vibe). Siargao pairs well if your trip is 16+ days; Siquijor if you want a post-Palawan wind-down."}</p>
+
+        <h3>Which island is best for a repeat visitor?</h3>
+        <p>{"Siargao — it rewards depth. Cloud 9 surf, Magpupungko tidal pools, Sugba Lagoon, Daku-Guyam-Naked island hop, and the Pacific-side calm beaches of Burgos and General Luna deliver a genuinely different experience than Palawan. Alternative repeat picks: Camiguin (volcanic hot springs), Batanes (northern windswept stone-house islands), Balabac in southern Palawan (untouched sandbars)."}</p>
+
+        <h3>How do I get between islands — ferry or flight?</h3>
+        <p>{"Flights for anything over 200 km (Manila-El Nido, Cebu-Siargao, Cebu-Palawan). Ferries for shorter hops: Bohol-Cebu (2 hours), Cebu-Negros (30 min), Panglao-Siquijor (3 hours). 2GO operates the main RoRo overnight ferries (cheaper, longer), Oceanjet and Supercat run the fast ferries. Island-hop bangkas handle very short 5-60 km transfers like Coron-Busuanga and Siargao-Daku."}</p>
+
+        <h3>What's the easiest island to reach from Manila?</h3>
+        <p>{"Boracay (1-hour flight to Caticlan + short boat) and Palawan (1.25-hour direct flight to Puerto Princesa or El Nido via AirSWIFT). Siargao requires a transfer through Cebu (3 hours total) unless you catch the direct PAL flight from Manila. Bohol is easy via Tagbilaran (1.5 hours). Siquijor and Camiguin require at least one flight + ferry combination."}</p>
+
+        <h3>Which island is the most underrated?</h3>
+        <p>{"Camiguin — 'born of fire' with 7 volcanoes, hot springs, white-sand sandbar, and world-class waterfalls (Katibawasan, Tuasan). It sees about 5% of Palawan's visitor volume and feels genuinely unspoiled. Close runners-up: Caramoan (the Castaway islands), Batanes (stone-house landscapes), and Balabac's sandbars. All four feel like what Palawan was in the 1990s."}</p>
+
+        <h3>Is there an island suitable for slow travel / digital nomads?</h3>
+        <p>{"Siargao (General Luna) is the top pick — strong coworking (Lokal Lab, Kawili), reliable fiber, great food scene, surf ethos, under $1,500/month all-in. Dumaguete and Cebu City are the second tier for nomads wanting an urban option with faster internet. Siquijor is the slower, quieter pick if coworking is not essential. El Nido has too much seasonal flux for long stays."}</p>
+
+        <h3>How many islands should I realistically plan to visit on a 2-week trip?</h3>
+        <p>{"Three islands is the sweet spot — any more and you burn days in travel. A balanced 14-day plan: El Nido/Coron (5 nights including travel), Cebu-Bohol (5 nights), Siargao (3 nights) plus a Manila arrival/departure night. Four islands is possible but requires sacrificing rest days and eating the fatigue of 4+ flights. Two islands done deeply beats four done shallowly."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

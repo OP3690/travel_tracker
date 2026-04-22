@@ -156,10 +156,62 @@ export default function GermanyBudgetTravel2026() {
         />
 
         <h2 id="faq">8. FAQ</h2>
-        <h3>Is Germany cheaper than France?</h3><p>Yes — about €15/day less at mid-range.</p>
-        <h3>€55/day possible?</h3><p>Yes with hostel + imbiss + regional trains.</p>
-        <h3>Cheapest month?</h3><p><strong>November or early March</strong>. 30-40% hotel off-peak.</p>
-        <h3>Cards or cash?</h3><p>Mixed. Many cafés still cash-only. Carry €30-50 always.</p>
+        <h3>Is Germany cheaper than France, Italy, or the UK?</h3>
+        <p>
+          Yes to all three — <strong>about €15-20/day less than France at mid-range</strong>, €10 less than Italy, and 25-30% cheaper than the UK. Beer is the standout savings (€4-5/pint in Munich vs €8+/pint in London), and supermarket quality (Aldi, Lidl, Edeka) is excellent, cheap, and lets you cook modestly in hostels for €8-12/day.
+        </p>
+        <h3>Is €55/day actually achievable?</h3>
+        <p>
+          <strong>Yes, with discipline</strong> — hostel dorms (€22-35), imbiss/bakery meals (€5-8 per meal), regional trains via Deutschland-Ticket (€58/month flat rate), and free city activities. Bumping to €70/day adds one nice restaurant meal and museum tickets. Below €50/day requires Couchsurfing or camping and skipping Munich + Hamburg.
+        </p>
+        <h3>What is the absolute cheapest month to visit?</h3>
+        <p>
+          <strong>November or early March</strong> — hotels drop 30-40% off peak, flights are cheapest, and museums are empty. Late February is also excellent (post-ski-season lulls). Avoid Christmas market weeks (Dec 1-22, +25-35%), Oktoberfest (Munich triples), Easter weekend, and July-August peak.
+        </p>
+        <h3>Cards or cash — what is the real situation?</h3>
+        <p>
+          <strong>Mixed, and catches US travelers off guard</strong> — many cafés, bakeries, imbiss stands, beer gardens, and even some mid-range restaurants are <strong>cash-only</strong>. Always carry €30-50. Supermarkets, hotels, and chains accept cards (most now contactless). ATMs at Sparkasse, Deutsche Bank, and Commerzbank charge no surcharge for Wise/Revolut cards.
+        </p>
+        <h3>Best budget city in Germany overall?</h3>
+        <p>
+          <strong>Leipzig</strong> — former East German industrial-turned-arty city with hostel dorms €18-25, meals €6-10, and free live classical + jazz in Bach{"'"}s home city. Dresden is a close second. Berlin is the default backpacker hub but creeping expensive (dorms €28-38 now). <strong>Avoid Munich + Frankfurt + Hamburg as budget bases.</strong>
+        </p>
+        <h3>How do I save on Deutsche Bahn trains?</h3>
+        <p>
+          <strong>ICE Sparpreis tickets from €17.90</strong> if booked 3+ months ahead via bahn.de. The <strong>Deutschland-Ticket (€58/month, covers all regional trains + local transit)</strong> pays for itself in 4-5 regional journeys. BahnCard 25 (€44/year, 25% off all tickets) is worth it for stays of 10+ days with multiple routes.
+        </p>
+        <h3>What imbiss/fast-food is genuinely cheap and good?</h3>
+        <p>
+          <strong>Döner kebab (€5-7), currywurst + pommes (€4-6), bratwurst (€3-5), käsebrötchen (€2.50), bäckerei sandwiches (€3-5)</strong>. Berlin Mustafa{"'"}s, Curry 36, and Konnopke{"'"}s are famous cheap institutions. A 3-meal imbiss day runs €15-18 and beats gas-station food anywhere in Europe.
+        </p>
+        <h3>Are supermarkets a real budget strategy?</h3>
+        <p>
+          Absolutely — <strong>Aldi, Lidl, Penny, and Netto are the cheapest</strong> (quality bread, meats, cheeses, fruit at a fraction of café prices). Edeka and REWE are mid-tier. A proper supermarket breakfast + lunch runs €8-12/day. Hostels have full kitchens; use them. German picnic bread + wurst + cheese in a park is a genuinely great meal.
+        </p>
+        <h3>Hostel quality in Germany — is it actually decent?</h3>
+        <p>
+          Generally excellent — <strong>Generator, Wombats, MEININGER, a&o, and Five Elements chains</strong> are clean, modern, lively, with private-room upgrades at €50-85. Small independent hostels in Dresden + Leipzig are standout bargains. Many include breakfast (€5-8 extra value) and have BYO-friendly kitchens.
+        </p>
+        <h3>Free activities worth prioritizing?</h3>
+        <p>
+          <strong>Berlin: East Side Gallery, Brandenburg Gate, Tiergarten, Berlin Wall Memorial, most of Museum Island{"'"}s exterior architecture</strong>. Munich: English Garden (larger than Central Park), Marienplatz + Glockenspiel, Surfing the Eisbach. Every city has free tip-based walking tours (Sandemans, Original Berlin) — tip €10-15.
+        </p>
+        <h3>Tipping — does skipping it actually save money?</h3>
+        <p>
+          <strong>Germany expects 5-10% tips at restaurants</strong>, less than the US 18-22%, but not zero like Australia. Skipping tips entirely saves 5-10% but is frowned upon at sit-down restaurants. Beer gardens with self-service need no tip; imbiss/bakeries also none. Round up to the nearest euro at bars and cafés.
+        </p>
+        <h3>Student/youth discounts worth knowing?</h3>
+        <p>
+          <strong>ISIC card saves 20-40% on museum entries</strong>, plus Deutsche Bahn BahnCard Jugend (€9/year for under-18) or Probe BahnCard 25 (€19 for 3 months, age 18-26). Most state museums are free on the first Sunday of the month in Berlin. Youth hostels (DJH) require membership €22.50/year.
+        </p>
+        <h3>Are there hidden costs that catch travelers off guard?</h3>
+        <p>
+          <strong>Sunday closures (most shops closed, budget thin on Sundays), Kurtaxe (tourist tax €1-4/night in Alpine towns), bag storage at train stations (€6/day), and sightseeing-bus combo tickets</strong>. Public bathrooms cost €0.50-1 (Sanifair). Restaurant surcharges for outdoor/terrace seating add 5-10% in Munich and Rothenburg.
+        </p>
+        <h3>Is Oktoberfest affordable on a budget?</h3>
+        <p>
+          <strong>Free entry to all tents, beer only €14.50/Maß (2026), and day-visits are manageable at €40-60 total</strong> — but sleeping near Munich during the festival triples hotel costs. Budget strategy: base in Augsburg or Regensburg (45 min by ICE), day-trip to Munich for Oktoberfest, return to cheap lodging at night.
+        </p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

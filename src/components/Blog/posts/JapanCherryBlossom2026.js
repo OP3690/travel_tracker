@@ -238,39 +238,49 @@ export default function JapanCherryBlossom2026() {
         <h2 id="faq">6. Sakura FAQ</h2>
 
         <h3>How long does sakura last?</h3>
-        <p>
-          Individual blossoms last <strong>about 1 week from full bloom to
-          fall</strong>. The full bloom peak is 3-4 days.
-        </p>
+        <p>{"Individual blossoms last about one week from full bloom to petal fall. Full bloom (mankai) peaks for only 3-4 days in any given location, with a total viewable window of roughly 7-10 days. Yoshino and weeping cherries last slightly longer than the standard Somei Yoshino variety. Wind, heavy rain or a late cold snap can shorten peak to just 2 days — 2026's forecast looks stable."}</p>
 
         <h3>Is it worth planning a trip around sakura?</h3>
-        <p>
-          Yes — sakura is the single most visually magical thing Japan
-          offers, and the one experience that's nearly impossible to
-          replicate anywhere else in the world.
-        </p>
+        <p>{"Yes — sakura is the single most visually magical thing Japan offers, and the one experience that is nearly impossible to replicate anywhere else. Washington DC's Tidal Basin and Vancouver's streets are lovely but cannot match Kyoto's Philosopher's Path or the Yoshino mountain at 30,000 blooming trees. Just expect +30-40% hotel pricing and crowds twice the normal level."}</p>
 
         <h3>What if I book a trip and miss the bloom?</h3>
-        <p>
-          Common. Around 20% of sakura-intent travelers miss peak by 2-5
-          days. Consolation prizes: the early-bloom stage (pink buds) is
-          still beautiful, and the petal-fall stage creates the legendary
-          "pink carpet" effect.
-        </p>
+        <p>{"Common — roughly 20% of sakura-intent travelers miss peak by 2-5 days. Consolation prizes are real: the early-bloom stage (5-6 days before peak) features pink buds and the first opened flowers with zero crowds; the petal-fall stage (3-5 days after peak) creates the legendary 'pink carpet' effect on streets and rivers. Late March is the highest-risk window; April 5-10 is the safest bet for Tokyo/Kyoto."}</p>
 
         <h3>Can I see sakura in autumn?</h3>
-        <p>
-          A few varieties (Jugatsuzakura) bloom twice a year — October
-          and April. But they're sparse — not the overwhelming canopies
-          of April.
-        </p>
+        <p>{"Yes, in limited form. A few varieties (Jugatsuzakura, Shikizakura) bloom twice a year — October-December and again in March-April. Notable spots: Obara village in Aichi prefecture, and scattered trees in Ueno Park. But they are sparse — not the overwhelming canopies of April. Consider them a bonus on a fall-foliage trip, not a sakura-trip substitute."}</p>
 
         <h3>Where are the fewest crowds?</h3>
-        <p>
-          <strong>Tsuyama Castle (Okayama)</strong> and <strong>Takato
-          Castle (Nagano)</strong>. Both rank top-10 spots, neither gets
-          mass tourism.
-        </p>
+        <p>{"Tsuyama Castle in Okayama and Takato Castle in Nagano are top-10 spots with minimal Western tourist density. Also consider Hirosaki Castle in Aomori (peak in late April/early May, a week after the main season), Kakunodate samurai district in Akita, and Yoshino mountain if you visit on a weekday mid-week. Tokyo's Meguro River and Chidorigafuchi are spectacular but heavily crowded."}</p>
+
+        <h3>Should I book hotels 6 months in advance?</h3>
+        <p>{"Yes — sakura is the single busiest travel window in Japan after Golden Week. Kyoto hotels sell out 4-6 months ahead at 2x standard rates; Tokyo is slightly easier at 3-4 months. Ryokans in Hakone, Takayama and Kanazawa need 5-6 months lead time. Set price alerts on Booking and Rakuten Travel and book refundable rates to hedge against shifting bloom forecasts."}</p>
+
+        <h3>Tokyo or Kyoto for sakura?</h3>
+        <p>{"Kyoto for aesthetic intensity (temple backdrops, Arashiyama, Philosopher's Path along the canal, Maruyama Park night illumination), Tokyo for sheer scale and variety (Meguro River, Shinjuku Gyoen, Ueno Park, Chidorigafuchi). A combo visit is ideal — Tokyo 3-4 nights, Kyoto 4 nights, with 1 day in Nara between. Kyoto's peak is usually 2-3 days before Tokyo's — you can chase the bloom north."}</p>
+
+        <h3>How does hanami (flower viewing) etiquette work?</h3>
+        <p>{"Claim tarps (bruu shiito) at dawn to reserve your spot in popular parks, take off shoes before sitting on the tarp, bring food/beer/sake but pack out all trash (parks provide zero bins during hanami season), and keep voices moderate. Do not climb trees, shake branches or pick petals. Smoking is banned in most hanami parks. Public drinking is legal and culturally expected."}</p>
+
+        <h3>What should I wear in late March and early April?</h3>
+        <p>{"Layers — Tokyo-Kyoto temperatures range 7-18 C during peak sakura, with chilly evenings and occasional rain. A packable windbreaker, light sweater, scarf, and comfortable walking shoes for 18,000 steps/day minimum. Bring a small umbrella (sold everywhere for 500 yen) — April rain showers are common. Nighttime hanami at illuminated parks requires a proper jacket."}</p>
+
+        <h3>What food is specific to sakura season?</h3>
+        <p>{"Sakura mochi (pink rice cakes wrapped in salted cherry leaves, available March-April), sakura anpan (cherry-blossom bean-paste bread), and sakura-flavored lattes at Starbucks and most cafes. Hanami bento boxes are the seasonal tradition — pre-order from Isetan or Takashimaya depachika food halls for 2,500-4,500 yen. Kirin Beer and Suntory release limited-edition sakura cans."}</p>
+
+        <h3>Can I see sakura on a budget?</h3>
+        <p>{"Yes — the flowers themselves are always free. Stay at business-hotel chains (APA, Toyoko Inn, Super Hotel) booked 5+ months ahead to lock in pre-surge pricing. Skip ryokans during peak (2x rates) and stay regular during peak or splurge just before. Visit free parks (Shinjuku Gyoen charges 500 yen entrance which is trivial), avoid taxi rides, and eat conbini hanami picnics instead of restaurant meals."}</p>
+
+        <h3>How accurate are the sakura forecasts?</h3>
+        <p>{"Early forecasts (January) have roughly 5-day error margins. Forecasts 3 weeks before peak narrow to 2-3 days. The Japan Meteorological Corporation (JMC) and Weathernews update daily from February 1 onwards — check sakura.weathermap.jp and jnto.go.jp weekly. The JMA uses designated 'specimen trees' at each city; actual neighborhoods can bloom 1-3 days earlier or later than the official marker."}</p>
+
+        <h3>Which sakura varieties bloom outside the main season?</h3>
+        <p>{"Kawazu-zakura in Izu Peninsula bloom mid-February (3-4 weeks before Tokyo Somei Yoshino), making Kawazu town a genuinely early sakura destination. Okinawa's Hikan-zakura blooms as early as January 20. Yaezakura double-petaled varieties in Kyoto (Ninnaji, Omuro) bloom roughly 2 weeks after Somei Yoshino, typically April 15-25. Northern Hokkaido's Ezo-yamazakura peaks early May."}</p>
+
+        <h3>Are night-illuminated sakura worth staying up for?</h3>
+        <p>{"Absolutely — yozakura (night cherry blossoms) is a separate aesthetic experience. Must-visit illuminations: Kyoto's Maruyama Park and Kodaiji Temple, Tokyo's Chidorigafuchi moat and Meguro River (pink lanterns along the canal), Osaka Castle grounds, and Hirosaki Castle in Aomori. Most illuminations run 6 PM to 10 PM, are free, and are genuinely spectacular. Dress warm — April nights are cold."}</p>
+
+        <h3>How do I photograph sakura well?</h3>
+        <p>{"Golden hour (30 minutes before sunset) for warm-light portraits, blue hour (20 minutes after sunset) for illuminated temple shots. Shoot with a 50mm or 85mm lens for compressed depth, include human scale for context, and look for petal-fall streams on rivers for the 'pink carpet' shot. Arrive 30-40 minutes before sunrise at popular spots (Yoshino, Arashiyama) to get crowd-free images. Tripod, polarizer, lens cloth."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 

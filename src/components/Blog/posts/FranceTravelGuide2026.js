@@ -216,16 +216,38 @@ export default function FranceTravelGuide2026() {
         </ol>
 
         <h2 id="faq">9. France FAQ</h2>
-        <h3>How long should I spend in France?</h3>
-        <p>Minimum <strong>10 days</strong>. Sweet spot <strong>14-17 days</strong> for Paris + 2 regions.</p>
-        <h3>Paris — how many days?</h3>
-        <p><strong>3-4 days</strong>. Less and you\'ll rush; more and you\'ll be saturated.</p>
-        <h3>Best month?</h3>
-        <p><strong>May, June, or September</strong>. Avoid August in Paris.</p>
-        <h3>Is French food really as good as the reputation?</h3>
-        <p>In provincial cities (Lyon, Bordeaux, Nice, Strasbourg) — absolutely. In Paris tourist zones — mixed; you need to know where to go.</p>
-        <h3>Safety?</h3>
-        <p>Very safe overall. Pickpockets on Paris metro + near Eiffel Tower — crossbody bag + no back-pocket wallet.</p>
+        <h3>How long should I spend in France on a first trip?</h3>
+        <p>{"A realistic minimum is 10 days, but the sweet spot is 14-17 days — that gives you 3-4 days in Paris plus two proper regions (say Provence + Loire, or Alsace + Burgundy) without living on trains. Anything under a week forces you into Paris-only, which is fine but misses the country's real range from Mediterranean villages to Alpine peaks."}</p>
+        <h3>How many days should I actually spend in Paris?</h3>
+        <p>{"Three to four days hits the sweet spot: one day for the Louvre + Tuileries area, one for the Left Bank (Musée d'Orsay, Saint-Germain, Latin Quarter), one for Montmartre + a picnic by the Seine, and an optional fourth for Versailles or Giverny. Beyond 5 days most visitors feel museum-fatigued and the per-night hotel cost of €180-250 adds up fast."}</p>
+        <h3>What is the best month to visit France?</h3>
+        <p>{"May, June, and September are the clear winners — daytime highs of 19-26°C, lavender blooming mid-June to mid-July in Provence, and prices 25-35% below August peak. August empties Paris of locals (many bistros close for les vacances) but packs the Riviera; November-March is superb for museums, ski resorts, and Alsace Christmas markets."}</p>
+        <h3>Do I need to speak French to travel here?</h3>
+        <p>{"No, but learning five phrases transforms your trip: bonjour, merci, s'il vous plaît, parlez-vous anglais, and l'addition. Always open with 'Bonjour' before asking anything — skipping the greeting is the single biggest cause of 'rude French waiter' stories. Outside Paris, Lyon, and Nice, English fluency drops quickly, so a translation app is useful in rural Brittany or the Pyrenees."}</p>
+        <h3>Is French food really as good as its reputation?</h3>
+        <p>{"In provincial food capitals — Lyon, Bordeaux, Nice, Strasbourg, Dijon — absolutely, and often for €22-35 at a proper bouchon or bistrot de quartier. In Paris tourist zones (around Notre-Dame, Sacré-Cœur) quality drops sharply; use the 300-metre rule and walk away from any major monument before choosing a restaurant."}</p>
+        <h3>How safe is France for solo and female travellers?</h3>
+        <p>{"Very safe by global standards — violent crime against tourists is rare. The real risks are pickpockets on Paris Metro lines 1, 4, and 9, around the Eiffel Tower, and at Gare du Nord; use a crossbody bag and never carry a wallet in a back pocket. Catcalling exists in some arrondissements after dark; stick to well-lit streets in the 1st-8th, 11th, and Marais."}</p>
+        <h3>What's the deal with tipping in France?</h3>
+        <p>{"Service is included by law (service compris), so you never need to tip 18-20% like in the US. Locals leave €1-2 for coffee, round up a taxi fare, or leave 5% on a €100 meal if the service was exceptional. Over-tipping is not frowned upon but it's genuinely not expected — keep your euros for a better bottle of wine."}</p>
+        <h3>Should I buy a France rail pass or book point-to-point?</h3>
+        <p>{"For most two-week trips, book individual TGV tickets the moment the 4-month window opens — Paris-Bordeaux at €35 or Paris-Nice at €55 beats any rail pass. A Eurail France Pass only pays off if you're doing 5+ long legs in 7 days, and even then TGVs require paid reservations (€10-30) on top of the pass."}</p>
+        <h3>How much cash do I need, and do cards work everywhere?</h3>
+        <p>{"Contactless Visa/Mastercard works in 95% of cafés, bakeries, and taxis — many bakeries now reject cash for transactions under €5. Keep €80-120 in cash for rural markets, tips, and the occasional old-school boulangerie. Use a no-fee debit card (Wise, Revolut) at BNP Paribas or Société Générale ATMs; avoid Euronet machines with their 10%+ rip-off rates."}</p>
+        <h3>Do I need travel insurance and what about healthcare?</h3>
+        <p>{"Yes — France has world-class hospitals but a non-resident visit runs €50-300 and ambulance transfers €500+. EU citizens use EHIC/GHIC; everyone else should carry insurance covering €100k medical plus evacuation. Pharmacies (green cross sign) sell many antibiotics and strong painkillers over the counter that would require a prescription elsewhere."}</p>
+        <h3>How do I connect — SIM, eSIM, or roaming?</h3>
+        <p>{"An eSIM from Airalo, Holafly, or Orange Holiday (€20-40 for 10-20GB) activates before you land and works seamlessly across Schengen. US carriers like T-Mobile include France but throttle to 128 kbps after a few GB. Free public Wi-Fi is widespread in cafés, SNCF stations, and Paris's 400+ city hotspots."}</p>
+        <h3>Is Paris safe to walk at night?</h3>
+        <p>{"Most of central Paris (1st-8th, Marais, Saint-Germain) is pleasant until midnight, with wide lit boulevards and café life. Use caution around Gare du Nord, Barbès, Stalingrad, and Châtelet-Les Halles late at night; the Metro is safe but empties quickly after 00:30 on weeknights. Nightly Vélib or a €10-15 Uber home beats a 40-minute empty-train ride."}</p>
+        <h3>What should I pack for a two-week France trip?</h3>
+        <p>{"Pack layers — even August evenings in Provence dip to 17°C and Paris rains on roughly 1 in 3 days year-round. Comfortable walking shoes are non-negotiable (you'll log 15-20k steps daily), a light rain shell, modest cover-ups for cathedrals (shoulders + knees), and one smart-casual outfit for a proper dinner. Leave athletic wear for the gym — nobody wears it to restaurants."}</p>
+        <h3>Are there etiquette rules I should know before arriving?</h3>
+        <p>{"Say 'Bonjour Madame/Monsieur' when entering any shop — skipping it is rude, full stop. Don't split the bill item-by-item at restaurants; one person pays and sorts it out. Keep your voice low on trains and in restaurants, don't touch produce at markets (the vendor picks), and never sit at a café table without ordering something — standing at the bar is cheaper anyway."}</p>
+        <h3>Can I visit France with kids or older parents comfortably?</h3>
+        <p>{"Yes — SNCF kids under 4 travel free, 4-11 at 50%, and most museums are free for under-18s. Cobbled streets in Provence villages and Montmartre are tough on strollers and walkers, so factor in elevators (not all Metro stations have them — lines 1 and 14 do). Stick to one city per 4-5 days with older travellers and pre-book taxis via G7 rather than hoping for a cab."}</p>
+        <h3>What's the one thing first-timers regret not doing?</h3>
+        <p>{"Leaving Paris. At least 40% of first-timers book 7 days in Paris and come home having eaten mediocre food and missed the country. Two nights in Lyon, a day trip to Giverny or Versailles, or a 3-hour TGV to Avignon transforms the trip — you see the real France, not just its capital's greatest hits."}</p>
 
         <h2 id="keep">Keep Reading</h2>
         <ul>

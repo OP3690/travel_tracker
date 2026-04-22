@@ -320,39 +320,49 @@ export default function FilipinoFoodGuide2026() {
         <h2 id="faq">10. Filipino Food FAQ</h2>
 
         <h3>What's the single best dish to start with?</h3>
-        <p>
-          <strong>Chicken Adobo</strong>. It's gentle, universally
-          loved, and perfectly represents the Filipino sour-salty flavor
-          profile.
-        </p>
+        <p>{"Chicken adobo — it is gentle, universally loved by every Filipino household, and perfectly represents the national sour-salty-savory flavor profile. Order it with garlic fried rice and a fried egg on top (adobo silog) and you have the archetypal Filipino meal in three bites. Pork adobo is the more common variant at restaurants but chicken is the friendlier introduction."}</p>
 
         <h3>Is Filipino food spicy?</h3>
-        <p>
-          Mostly no — less spicy than Thai or Indonesian. The one spicy
-          classic is <strong>Bicol Express</strong>.
-        </p>
+        <p>{"Mostly no — Filipino cooking is significantly less spicy than Thai or Indonesian, relying instead on vinegar, soy, citrus (kalamansi) and garlic for flavor intensity. The one genuinely spicy regional classic is Bicol Express (pork in coconut milk with siling labuyo chilies); outside Bicol and a few Mindanao dishes, you will almost never encounter heat beyond a mild black-pepper warmth."}</p>
 
         <h3>Where's the best street food?</h3>
-        <p>
-          <strong>Binondo (Manila Chinatown)</strong> — the world's
-          oldest Chinatown has the country's densest street-food scene.
-          Do a walking tour.
-        </p>
+        <p>{"Binondo in Manila — the world's oldest Chinatown (founded 1594) has the country's densest street-food scene, with dim sum, hopia, siopao, fresh lumpia and Chinese-Filipino fusion stalls. Book a Binondo Food Wok walking tour for $35 per person. Second-best: Cebu's Larsian barbecue strip, and the Iloilo City night markets for batchoy and fresh oysters."}</p>
 
-        <h3>Is Filipino food safe?</h3>
-        <p>
-          Yes, overwhelmingly. Stick to busy stalls, freshly-cooked
-          items, and bottled water. Standard Southeast Asia food rules
-          apply.
-        </p>
+        <h3>Is Filipino street food safe?</h3>
+        <p>{"Yes, overwhelmingly — stick to busy stalls where turnover is high, freshly-cooked items served hot, and skip anything sitting in steam trays for unknown duration. Fish ball and kwek-kwek carts are very safe; reheated pork dishes left at room temp are the main risk. Bring hand sanitizer and drink bottled water only. Most travelers get hit once with mild stomach trouble; pack Imodium."}</p>
+
+        <h3>What are the best cities for food tourism?</h3>
+        <p>{"Manila for range and fine dining (Toyo Eatery, Hapag, Purveyr), Cebu for lechon (La Loma and CnT Lechon ship nationally but taste best on island), Iloilo for La Paz batchoy and fresh seafood, Pampanga for Kapampangan cuisine (the country's acknowledged culinary heart), and Davao for durian, tuna and the unique Mindanao-Visayan fusion you cannot find elsewhere."}</p>
+
+        <h3>What are the signature seasonal specialties?</h3>
+        <p>{"Mango season peaks April-June (Guimaras mangoes are the platonic ideal), lansones in August-October, durian June-October in Davao. Christmas (December) brings puto bumbong, bibingka and queso de bola street-stall culture outside every church. Holy Week sees binignit (coconut porridge with root crops) and no-meat Lenten dishes dominating home cooking."}</p>
+
+        <h3>Are there good vegetarian options?</h3>
+        <p>{"Difficult but possible. Filipino home cooking is heavily meat-centric (even 'vegetable' dishes often contain shrimp paste or pork cubes), so vegetarians should learn the phrase 'walang karne at isda' (no meat or fish). Manila and Cebu have dedicated plant-based spots (Corner Tree Cafe, Greens, Green Basil); in the provinces stick to pansit guisado (ask no meat), tofu sisig, ensaladang mangga and vegetable lumpia."}</p>
+
+        <h3>How does tipping work in restaurants?</h3>
+        <p>{"Mid-range and higher restaurants typically add a 10% service charge — in that case no additional tip is expected. If no service charge, 10% cash on the table is generous. Carinderias, street food and market stalls: no tipping at all, just round up to the next 5 pesos. Fine dining: 10% even if service charge was added, handed directly to your server."}</p>
+
+        <h3>How do I handle food allergies?</h3>
+        <p>{"Shellfish, peanut and soy are heavily used in Filipino cooking and labeling is almost non-existent at casual restaurants. Carry a laminated allergy card in Tagalog ('allergic to shellfish, severe reaction') and show it to every kitchen. Fine-dining restaurants in Manila (Toyo, Gallery by Chele, Hapag) handle allergies professionally; carinderias genuinely cannot guarantee cross-contamination-free food."}</p>
+
+        <h3>What's the best way to eat lechon (whole roasted pig)?</h3>
+        <p>{"Go to Cebu, not Manila — Cebu lechon is crispy-skinned, heavily-herbed (lemongrass, garlic, salt) and eaten with no sauce. Order at La Loma or CnT Lechon, or splurge at Zubuchon. Get a half kilo of 'special lechon' (the skin-heavy cuts), eat with plain rice, and chase with a 3-peso puto cake. A whole lechon runs 6,500-9,000 pesos and feeds 15."}</p>
+
+        <h3>Are cooking classes worth taking?</h3>
+        <p>{"Yes, particularly if you want to understand how vinegar and coconut cream drive the cuisine. Recommended: Maya's cooking class in Siquijor (family home, small groups, 2,500 pesos), Tahanan at Lalaine in Vigan (heritage Kapampangan/Ilocano), and Kusina ni Lola in Cebu. Avoid hotel-based classes in Manila — they gloss over regional specificity in favor of generic 'Filipino tasting menu' demos."}</p>
+
+        <h3>What should I try that tourists rarely order?</h3>
+        <p>{"Balbacua (slow-cooked ox skin stew, Cebu), pinakbet with bagoong (Ilocano vegetable stew with shrimp paste), kinilaw (raw fish ceviche with vinegar and chili — safer than sushi because the acid cooks the fish), pancit Molo (Iloilo wonton soup), and tinola na manok (ginger chicken broth). Dinuguan (pork blood stew) is divisive but genuinely delicious once you get past the name."}</p>
 
         <h3>How much should I budget for food per day?</h3>
-        <p>
-          Backpacker: <strong>$10/day</strong> (street food + local
-          carinderias). Mid-range: <strong>$22/day</strong> (mix of
-          proper restaurants). Comfort: <strong>$45+/day</strong>
-          {' '}(nicer sit-down + a few fine-dining meals).
-        </p>
+        <p>{"Backpacker: $10 per day (street food, carinderias, grocery breakfast). Mid-range: $22 per day (one proper restaurant lunch or dinner, casual otherwise). Comfort: $45+ per day (nicer sit-downs plus occasional fine dining). Fine-dining in Manila can run $80-150 for a tasting menu at Toyo or Hapag — still a bargain by international standards for Asia's 50 Best restaurants."}</p>
+
+        <h3>What drinks pair with Filipino food?</h3>
+        <p>{"Cold San Miguel Pale Pilsen and Red Horse are the universal beer pairings, calamansi juice is the go-to non-alcoholic option, and Tanduay Rum plus coke (kalamansi squeeze) is the provincial signature. Lambanog (coconut palm liquor) is the local sipper worth trying in Quezon. Filipino craft beer has exploded — try Craft District Coffee Bar in Makati or Joe's Brew."}</p>
+
+        <h3>What's the etiquette at a Filipino market?</h3>
+        <p>{"Point, smile, and ask 'magkano?' (how much). Haggling is acceptable at wet markets but not at posted-price stalls. Bring small bills (100-200 peso notes) since vendors rarely have change for 1,000s. Never photograph vendors without asking; it is considered rude. Bring your own bag — plastic bag bans are active in Manila, Cebu, Boracay and El Nido."}</p>
 
         <h2 id="keep-reading">Keep Reading</h2>
 
