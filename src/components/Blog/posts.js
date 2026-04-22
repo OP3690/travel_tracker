@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'canada-travel-guide-2026',
+    title: "The Ultimate Canada Travel Guide (2026): 10 Provinces, 3 Territories, One Vast Country",
+    description:
+      "Everything for a Canada trip in 2026 — best time, all 13 provinces/territories, eTA visa, honest distance reality, regional food, budget tiers, and the 12 mistakes first-timers make. Toronto, Vancouver, Montreal, Banff and beyond.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Canada Travel',
+    tags: ['Canada', 'Travel Guide', 'North America', 'Bucket List'],
+    heroEmoji: '🇨🇦',
+  },
+  {
+    slug: 'two-week-canada-itinerary-2026',
+    title: "The Perfect 2-Week Canada Itinerary: Toronto → Montreal → Quebec City → Banff → Vancouver (2026)",
+    description:
+      "A tested 14-day Canada itinerary spanning east + west — Niagara + Toronto, French-Canada (Montreal + Quebec City), Banff + Lake Louise in the Rockies, Vancouver. Train + VIA Rail + flight logistics, cost breakdown.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Canada Travel',
+    tags: ['Canada', 'Itinerary', 'Banff', 'Montreal', 'Vancouver'],
+    heroEmoji: '🍁',
+  },
+  {
+    slug: 'best-canada-destinations-2026',
+    title: "Canada's 10 Best Destinations for Travelers in 2026: Banff, Montreal, Toronto & More (Ranked)",
+    description:
+      "The 10 Canadian destinations worth your vacation time in 2026 — ranked by a 6-dimension score. Deep-dives on Banff, Lake Louise, Vancouver, Toronto, Montreal, Quebec City, Niagara Falls, Tofino, PEI, Yukon.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Canada Travel',
+    tags: ['Canada', 'Destinations', 'Ranked'],
+    heroEmoji: '🏔️',
+  },
+  {
+    slug: 'banff-canadian-rockies-guide-2026',
+    title: "Banff & Canadian Rockies Complete Guide 2026: Lake Louise, Jasper, Yoho",
+    description:
+      "The definitive 2026 Canadian Rockies guide — Banff vs Jasper vs Yoho base selection, Lake Louise + Moraine Lake timing, Icefields Parkway drive, wildlife viewing, and the best hikes per skill level.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Canada Travel',
+    tags: ['Canada', 'Banff', 'Canadian Rockies', 'National Parks'],
+    heroEmoji: '🏞️',
+  },
+  {
+    slug: 'canadian-food-guide-2026',
+    title: "Canadian Food Guide: 20 Dishes You Must Try in Canada — by Region (2026)",
+    description:
+      "Canadian food is more than poutine. The 20 dishes every traveler must try — poutine, butter tarts, tourtière, Montreal bagels, Nanaimo bars, maple everything, Prairie perogies — by region.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 11,
+    category: 'Canada Travel',
+    tags: ['Canada', 'Food', 'Poutine', 'Canadian Cuisine'],
+    heroEmoji: '🍁',
+  },
+  {
+    slug: 'canada-budget-travel-2026',
+    title: "Canada on a Budget: How to Travel Canada for $85, $170 or $340 a Day (2026)",
+    description:
+      "Three 2026 Canada budgets — $85/day backpacker, $170/day mid-range, $340/day comfort. Real CAD prices, VIA Rail vs flight math, working-holiday options, and the saving tactics Canadians themselves use.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Canada Travel',
+    tags: ['Canada', 'Budget Travel', 'North America'],
+    heroEmoji: '💵',
+  },
+  {
     slug: 'germany-travel-guide-2026',
     title: "The Ultimate Germany Travel Guide (2026): 16 States, One Surprising Country",
     description:
