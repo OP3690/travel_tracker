@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'germany-travel-guide-2026',
+    title: "The Ultimate Germany Travel Guide (2026): 16 States, One Surprising Country",
+    description:
+      "Everything for a Germany trip in 2026 — best time, 16 states, Deutsche Bahn math, Oktoberfest + Christmas Markets timing, regional food, budget tiers, and the 12 mistakes first-timers make.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Germany Travel',
+    tags: ['Germany', 'Travel Guide', 'Europe', 'Bucket List'],
+    heroEmoji: '🇩🇪',
+  },
+  {
+    slug: 'two-week-germany-itinerary-2026',
+    title: "The Perfect 2-Week Germany Itinerary: Berlin → Dresden → Munich → Romantic Road → Rhine (2026)",
+    description:
+      "A tested 14-day Germany itinerary — Berlin's history, Dresden + Leipzig, Bavaria (Munich + Neuschwanstein), Romantic Road medieval towns, Rhine Valley castles. ICE train logistics, lodging picks, cost breakdown.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Germany Travel',
+    tags: ['Germany', 'Itinerary', 'Berlin', 'Munich', 'Bavaria'],
+    heroEmoji: '🏰',
+  },
+  {
+    slug: 'best-germany-destinations-2026',
+    title: "Germany's 10 Best Destinations for Travelers in 2026: Berlin, Munich, Rothenburg & More (Ranked)",
+    description:
+      "The 10 German destinations worth your time in 2026 — ranked by 6-dimension score. Deep-dives on Berlin, Munich, Hamburg, Dresden, Rothenburg, Cologne, Heidelberg, Neuschwanstein, Black Forest.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Germany Travel',
+    tags: ['Germany', 'Destinations', 'Ranked'],
+    heroEmoji: '🏛️',
+  },
+  {
+    slug: 'german-food-guide-2026',
+    title: "German Food Guide: 20 Dishes You Must Try in Germany — by Region (2026)",
+    description:
+      "German food is 16 regional cuisines. The 20 dishes every traveler must try — schnitzel, currywurst, spätzle, knödel, sauerbraten, brezn, Black Forest cake — plus the best beer halls + bakeries.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Germany Travel',
+    tags: ['Germany', 'Food', 'Beer', 'Oktoberfest'],
+    heroEmoji: '🍺',
+  },
+  {
+    slug: 'germany-christmas-markets-2026',
+    title: "Germany's 15 Best Christmas Markets 2026: Nuremberg, Dresden, Cologne & More",
+    description:
+      "The 15 most magical German Christmas markets of 2026 — Nuremberg's Christkindlesmarkt, Dresden's Striezelmarkt (oldest), Cologne's seven markets, Munich's Marienplatz. Best dates, glühwein tips, travel logistics.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Germany Travel',
+    tags: ['Germany', 'Christmas Markets', 'Winter', 'Europe'],
+    heroEmoji: '🎄',
+  },
+  {
+    slug: 'germany-budget-travel-2026',
+    title: "Germany on a Budget: How to Travel Germany for €55, €110 or €220 a Day (2026)",
+    description:
+      "Three 2026 Germany budgets — €55/day backpacker, €110/day mid-range, €220/day comfort. Real prices, Deutschlandticket €49/month hack, hostel picks, and the beer-hall meal trick.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Germany Travel',
+    tags: ['Germany', 'Budget Travel', 'Europe'],
+    heroEmoji: '💶',
+  },
+  {
     slug: 'australia-travel-guide-2026',
     title: "The Ultimate Australia Travel Guide (2026): 6 States, 2 Territories, One Vast Continent",
     description:
