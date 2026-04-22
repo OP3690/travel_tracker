@@ -77,7 +77,6 @@ export default function Route66UltimateGuide() {
           title="Planning Route 66 yourself?"
           subtitle="Stamp every state as you cross the border — free, no credit card."
           href="/signup"
-          button="Open my USA map"
         />
 
         <h2 id="what-is-route-66">1. What Is Route 66, Really?</h2>
@@ -239,7 +238,6 @@ export default function Route66UltimateGuide() {
           title="Add every state to your passport as you cross."
           subtitle="StampYourMap lets you stamp visited countries, states and regions in one tap."
           href="/signup"
-          button="Try it free"
         />
 
         <h2 id="the-icons">5. The Icons: Roadside Stops Worth Planning Around</h2>
@@ -559,7 +557,6 @@ export default function Route66UltimateGuide() {
           title="Stamp every mile of Route 66."
           subtitle="Free forever. No credit card. Eight states, one beautiful interactive map."
           href="/signup"
-          button="Start my USA map"
         />
       </article>
     </BlogShell>

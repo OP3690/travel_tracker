@@ -80,7 +80,6 @@ export default function MostVisitedNationalParks2026() {
           title="Tracking which parks you've visited?"
           subtitle="StampYourMap lets you stamp every park, state and region — free."
           href="/signup"
-          button="Start my park map"
         />
 
         <h2 id="the-top-10">1. The Top 10, Mapped</h2>
@@ -212,7 +211,6 @@ export default function MostVisitedNationalParks2026() {
           title="Stamp every park as you visit it."
           subtitle="StampYourMap tracks US national parks, state parks and regions on one map."
           href="/signup"
-          button="Start free"
         />
 
         <h2 id="crowd-strategies">5. Six Practical Crowd-Avoidance Strategies</h2>
@@ -468,7 +466,6 @@ export default function MostVisitedNationalParks2026() {
           title="Stamp every national park on your personal US map."
           subtitle="63 parks. 50 states. Free forever. No credit card."
           href="/signup"
-          button="Start my park map"
         />
       </article>
     </BlogShell>

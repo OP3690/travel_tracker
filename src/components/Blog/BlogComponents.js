@@ -142,7 +142,7 @@ export function BlogStatGrid({ stats = [] }) {
 // ---------------------------------------------------------------------------
 // InlineCTA — mid-article nudge back to the product.
 // ---------------------------------------------------------------------------
-export function BlogInlineCTA({ title, subtitle, href = '/signup', button = 'Start free' }) {
+export function BlogInlineCTA({ title, subtitle, href = '/signup', button = 'Get my map — free' }) {
   const isInternal = href.startsWith('/');
   const gaAttrs = {
     'data-ga-event': 'blog_cta_click',
@@ -167,7 +167,7 @@ export function BlogInlineCTA({ title, subtitle, href = '/signup', button = 'Sta
 // ---------------------------------------------------------------------------
 // EndCTA — large conversion block at the bottom of every article.
 // ---------------------------------------------------------------------------
-export function BlogEndCTA({ title, subtitle, href = '/signup', button = 'Start stamping free' }) {
+export function BlogEndCTA({ title, subtitle, href = '/signup', button = 'Create my free travel map' }) {
   const isInternal = href.startsWith('/');
   const gaAttrs = {
     'data-ga-event': 'blog_cta_click',

@@ -181,7 +181,6 @@ export default function UsaBucketList100() {
           title="Stamp every place as you tick it off."
           subtitle="StampYourMap turns the checklist into an interactive map you'll keep for life."
           href="/signup"
-          button="Start my bucket list"
         />
 
         <h2 id="methodology">1. How We Built This List</h2>
@@ -278,7 +277,6 @@ export default function UsaBucketList100() {
           title="This list, stamped on your personal map."
           subtitle="Import states you've visited and watch your bucket-list progress fill in."
           href="/signup"
-          button="Start free"
         />
 
         <h2 id="regional-plans">4. Four Realistic Regional Trip Plans</h2>
@@ -433,7 +431,6 @@ export default function UsaBucketList100() {
           title="Turn this list into your personal bucket-list map."
           subtitle="Free interactive map. 100 must-see places. Stamp each one as you go."
           href="/signup"
-          button="Start my bucket list"
         />
       </article>
     </BlogShell>

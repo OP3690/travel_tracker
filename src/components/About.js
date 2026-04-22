@@ -169,7 +169,6 @@ export default function About() {
           title="See your own world map fill in as you travel."
           subtitle="Free forever. No credit card. Works on any device."
           href="/signup"
-          button="Start my map"
         />
 
         <h2 id="what-we-build">What StampYourMap Actually Does</h2>
@@ -450,7 +449,6 @@ export default function About() {
           title="Start your map in 30 seconds."
           subtitle="Free forever. No credit card. 195 countries waiting to be stamped."
           href="/signup"
-          button="Start stamping"
         />
       </article>
     </BlogShell>

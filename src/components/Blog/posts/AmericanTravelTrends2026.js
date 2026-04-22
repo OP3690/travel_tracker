@@ -79,7 +79,6 @@ export default function AmericanTravelTrends2026() {
           title="Tracking your own 2026 travel?"
           subtitle="StampYourMap logs every trip, region and memory — free, shareable, lifetime."
           href="/signup"
-          button="Start my map"
         />
 
         <h2 id="executive">Executive Summary: Seven Sentences</h2>
@@ -317,7 +316,6 @@ export default function AmericanTravelTrends2026() {
           title="Plan and track your 2026 trips on one map."
           subtitle="StampYourMap pins every state + region you visit, with photos and stories."
           href="/signup"
-          button="Start free"
         />
 
         <h2 id="shoulder-analysis">7. The "Shoulder Season is Dead" Phenomenon, Explained</h2>
@@ -494,7 +492,6 @@ export default function AmericanTravelTrends2026() {
           title="Add your 2026 trips to the data."
           subtitle="StampYourMap is free forever. Log every trip, stamp every state, build a lifetime map."
           href="/signup"
-          button="Start my map"
         />
       </article>
     </BlogShell>

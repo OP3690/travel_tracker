@@ -378,7 +378,6 @@ export default function Contact() {
           title="Not here to contact us? Try the product first."
           subtitle="Most questions get answered faster by trying StampYourMap for 60 seconds."
           href="/signup"
-          button="Start free"
         />
 
         <h2 id="faq">Contact FAQ</h2>
@@ -446,7 +445,6 @@ export default function Contact() {
           title="Haven't stamped your first country yet?"
           subtitle="Takes 30 seconds. Free forever. 195 countries waiting."
           href="/signup"
-          button="Start stamping"
         />
       </article>
     </BlogShell>

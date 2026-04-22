@@ -79,7 +79,6 @@ export default function UsStatesRanked2026() {
           title="Tracking states as you visit them?"
           subtitle="Stamp each US state on your personal interactive map — free, no credit card."
           href="/signup"
-          button="Start my US map"
         />
 
         <h2 id="methodology">1. How We Ranked All 50 States</h2>
@@ -245,7 +244,6 @@ export default function UsStatesRanked2026() {
           title="Seeing your own state map fill in as you visit is addictive."
           subtitle="StampYourMap is the free interactive map travelers use to track which states they've been to."
           href="/signup"
-          button="Try it free"
         />
 
         <h2 id="by-category">4. Best State for Each Kind of Traveler</h2>
@@ -504,7 +502,6 @@ export default function UsStatesRanked2026() {
           title="Stamp every state as you visit it."
           subtitle="Free, forever. Interactive map, memory wall, shareable travel cards — no credit card required."
           href="/signup"
-          button="Start my US map"
         />
       </article>
     </BlogShell>

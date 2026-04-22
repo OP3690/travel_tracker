@@ -480,8 +480,8 @@ export default function LandingPage() {
               <button className="nav-btn-ghost" onClick={() => navigate('/login')}
                 data-ga-label="Landing nav: Log in" data-ga-category="cta">Log in</button>
               <button className="nav-btn-primary" onClick={() => navigate('/signup')}
-                data-ga-label="Landing nav: Start stamping" data-ga-category="cta">
-                Start stamping <FaArrowRight />
+                data-ga-label="Landing nav: Get my map — free" data-ga-category="cta">
+                Get my map — free <FaArrowRight />
               </button>
             </div>
           </div>
@@ -515,8 +515,8 @@ export default function LandingPage() {
             </p>
             <div className="hero-actions" data-ga-section="hero">
               <button className="hero-btn-primary" onClick={() => navigate('/signup')}
-                data-ga-label="Hero: Stamp your first country" data-ga-category="cta">
-                <FaSuitcaseRolling /> Stamp your first country
+                data-ga-label="Hero: Create my free travel map" data-ga-category="cta">
+                <FaSuitcaseRolling /> Create my free travel map
               </button>
               <a href="#features" className="hero-btn-secondary"
                 data-ga-label="Hero: See how it works" data-ga-category="cta">
@@ -685,8 +685,8 @@ export default function LandingPage() {
               Free forever. 195 countries. Takes 30 seconds.
             </p>
             <button className="hero-btn-primary cta-btn" onClick={() => navigate('/signup')}
-              data-ga-label="Bottom CTA: Start stamping" data-ga-category="cta">
-              Start stamping — it's free forever <FaArrowRight />
+              data-ga-label="Bottom CTA: Create my free travel map" data-ga-category="cta">
+              Create my free travel map <FaArrowRight />
             </button>
             <div className="cta-reassure">
               <FaCheckCircle /> No credit card

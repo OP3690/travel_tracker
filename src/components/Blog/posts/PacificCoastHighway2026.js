@@ -76,7 +76,6 @@ export default function PacificCoastHighway2026() {
           title="Planning the PCH?"
           subtitle="Stamp every California region you drive through on your free map."
           href="/signup"
-          button="Start my CA map"
         />
 
         <h2 id="what-is-pch">1. What Counts as the "Real" PCH?</h2>
@@ -178,7 +177,6 @@ export default function PacificCoastHighway2026() {
           title="Track every CA region you visit on the PCH."
           subtitle="StampYourMap has all 58 California counties + hundreds of US towns."
           href="/signup"
-          button="Try it free"
         />
 
         <h2 id="stops">4. The 15 Can't-Miss Stops</h2>
@@ -472,7 +470,6 @@ export default function PacificCoastHighway2026() {
           title="Stamp every mile of the PCH."
           subtitle="Free interactive map. 655 miles. 58 California counties. Your trip, on one keepsake map."
           href="/signup"
-          button="Start my CA map"
         />
       </article>
     </BlogShell>

@@ -240,7 +240,7 @@ export function BlogNav() {
       <div className="blog-nav-links">
         <Link to="/blog">Blog</Link>
         <a href="/#features">Features</a>
-        <Link to="/signup" className="blog-nav-cta">Start free</Link>
+        <Link to="/signup" className="blog-nav-cta">Get my map — free</Link>
       </div>
     </nav>
   );
