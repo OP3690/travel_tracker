@@ -48,6 +48,12 @@ const BestThailandIslands       = lazy(() => import('./components/Blog/posts/Bes
 const ThaiFoodGuide             = lazy(() => import('./components/Blog/posts/ThaiFoodGuide2026'));
 const BangkokCompleteGuide      = lazy(() => import('./components/Blog/posts/BangkokCompleteGuide2026'));
 const ThailandBudgetTravel      = lazy(() => import('./components/Blog/posts/ThailandBudgetTravel2026'));
+const ItalyTravelGuide          = lazy(() => import('./components/Blog/posts/ItalyTravelGuide2026'));
+const TwoWeekItalyItin          = lazy(() => import('./components/Blog/posts/TwoWeekItalyItinerary2026'));
+const BestItalyRegions          = lazy(() => import('./components/Blog/posts/BestItalyRegions2026'));
+const ItalianFoodGuide          = lazy(() => import('./components/Blog/posts/ItalianFoodGuide2026'));
+const AmalfiCoastGuide          = lazy(() => import('./components/Blog/posts/AmalfiCoastGuide2026'));
+const ItalyBudgetTravel         = lazy(() => import('./components/Blog/posts/ItalyBudgetTravel2026'));
 const About                     = lazy(() => import('./components/About'));
 const Contact                   = lazy(() => import('./components/Contact'));
 
@@ -146,6 +152,12 @@ function App() {
           <Route path="/blog/thai-food-guide-2026" element={<ThaiFoodGuide />} />
           <Route path="/blog/bangkok-complete-guide-2026" element={<BangkokCompleteGuide />} />
           <Route path="/blog/thailand-budget-travel-2026" element={<ThailandBudgetTravel />} />
+          <Route path="/blog/italy-travel-guide-2026" element={<ItalyTravelGuide />} />
+          <Route path="/blog/two-week-italy-itinerary-2026" element={<TwoWeekItalyItin />} />
+          <Route path="/blog/best-italy-regions-2026" element={<BestItalyRegions />} />
+          <Route path="/blog/italian-food-guide-2026" element={<ItalianFoodGuide />} />
+          <Route path="/blog/amalfi-coast-guide-2026" element={<AmalfiCoastGuide />} />
+          <Route path="/blog/italy-budget-travel-2026" element={<ItalyBudgetTravel />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

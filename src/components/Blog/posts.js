@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'italy-travel-guide-2026',
+    title: "The Ultimate Italy Travel Guide (2026): 20 Regions, Endless Beauty",
+    description:
+      "Everything you need to plan an Italy trip in 2026 — best time to visit, 20 regions, food by region, trains, budget, visa and the 12 mistakes first-timers always make. Rome, Florence, Venice, Amalfi, Tuscany and more.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 15,
+    category: 'Italy Travel',
+    tags: ['Italy', 'Travel Guide', 'Europe', 'Bucket List'],
+    heroEmoji: '🇮🇹',
+  },
+  {
+    slug: 'two-week-italy-itinerary-2026',
+    title: "The Perfect 2-Week Italy Itinerary: Rome → Florence → Venice → Amalfi (2026)",
+    description:
+      "A tested 14-day Italy itinerary covering Rome, Florence + Tuscany, Venice, Cinque Terre and the Amalfi Coast — with train logistics, lodging picks, cost breakdown and the stops most first-timers skip.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'Italy Travel',
+    tags: ['Italy', 'Itinerary', 'Rome', 'Florence', 'Venice'],
+    heroEmoji: '🗺️',
+  },
+  {
+    slug: 'best-italy-regions-2026',
+    title: "Italy's 10 Best Regions for Travelers in 2026: Tuscany, Amalfi, Sicily & More (Ranked)",
+    description:
+      "The 10 Italian regions worth your vacation time in 2026 — ranked by a 6-dimension traveler score. Deep-dives on Tuscany, Campania, Veneto, Sicily, Piedmont, Puglia and the underrated regions most skip.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Italy Travel',
+    tags: ['Italy', 'Regions', 'Tuscany', 'Amalfi', 'Ranked'],
+    heroEmoji: '🌄',
+  },
+  {
+    slug: 'italian-food-guide-2026',
+    title: "Italian Food Guide: 30 Dishes You Must Try in Italy — by Region (2026)",
+    description:
+      "Italian food is 20 distinct regional cuisines, not one. The 30 dishes every traveler must try — carbonara in Rome, bistecca in Florence, cacio e pepe, pizza in Naples, risotto in Milan, arancini in Sicily — and where to eat each.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'Italy Travel',
+    tags: ['Italy', 'Food', 'Italian Cuisine', 'Pasta', 'Pizza'],
+    heroEmoji: '🍝',
+  },
+  {
+    slug: 'amalfi-coast-guide-2026',
+    title: "Amalfi Coast Complete Guide 2026: Positano, Amalfi, Ravello & Capri",
+    description:
+      "The definitive 2026 Amalfi Coast guide — where to stay (Positano vs Amalfi vs Ravello), how to actually get around (ferry beats road), best restaurants, Capri day-trip, driving the SS163 and the secret alternatives to the famous three towns.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Italy Travel',
+    tags: ['Italy', 'Amalfi Coast', 'Positano', 'Capri'],
+    heroEmoji: '🏖️',
+  },
+  {
+    slug: 'italy-budget-travel-2026',
+    title: "Italy on a Budget: How to Travel Italy for €50, €100 or €200 a Day (2026)",
+    description:
+      "Three fully-costed 2026 Italy budgets — €50/day backpacker, €100/day comfortable mid-range, €200/day comfort tier. Real 2026 prices, train math, agriturismo picks, and the money-saving tactics Italians actually use.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Italy Travel',
+    tags: ['Italy', 'Budget Travel', 'Europe', 'Costs'],
+    heroEmoji: '💶',
+  },
+  {
     slug: 'thailand-travel-guide-2026',
     title: "The Ultimate Thailand Travel Guide (2026): Everything You Need to Know",
     description:
