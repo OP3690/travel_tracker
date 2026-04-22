@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'australia-travel-guide-2026',
+    title: "The Ultimate Australia Travel Guide (2026): 6 States, 2 Territories, One Vast Continent",
+    description:
+      "Everything for an Australia trip in 2026 — best time, 8 states/territories, eTA visa, distances that surprise, budget tiers, wildlife, food, and the 12 mistakes first-timers make. Sydney, Melbourne, Great Barrier Reef, Uluru and beyond.",
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 14,
+    category: 'Australia Travel',
+    tags: ['Australia', 'Travel Guide', 'Oceania', 'Bucket List'],
+    heroEmoji: '🇦🇺',
+  },
+  {
+    slug: 'two-week-australia-itinerary-2026',
+    title: "The Perfect 2-Week Australia Itinerary: Sydney → Great Barrier Reef → Uluru → Melbourne (2026)",
+    description:
+      "A tested 14-day Australia itinerary — Sydney's icons, Cairns + GBR reef diving, Uluru at sunrise, Great Ocean Road + Melbourne. Domestic-flight logistics + cost breakdown + the stops first-timers overlook.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Australia Travel',
+    tags: ['Australia', 'Itinerary', 'Sydney', 'Great Barrier Reef', 'Uluru'],
+    heroEmoji: '🐨',
+  },
+  {
+    slug: 'best-australian-destinations-2026',
+    title: "Australia's 10 Best Destinations for Travelers in 2026: Sydney, GBR, Uluru & More (Ranked)",
+    description:
+      "The 10 Australian destinations worth your vacation time in 2026 — ranked by a 6-dimension traveler score. Deep-dives on Sydney, Melbourne, Great Barrier Reef, Uluru, Tasmania, Gold Coast, Perth, Whitsundays.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 13,
+    category: 'Australia Travel',
+    tags: ['Australia', 'Destinations', 'Ranked', 'Bucket List'],
+    heroEmoji: '🦘',
+  },
+  {
+    slug: 'great-barrier-reef-guide-2026',
+    title: "Great Barrier Reef Complete Guide 2026: Cairns, Port Douglas, Whitsundays",
+    description:
+      "The definitive 2026 Great Barrier Reef guide — Cairns vs Port Douglas vs Whitsundays, best reefs to dive/snorkel, liveaboard vs day-trip, climate honesty (coral health + bleaching), and the 5 outer reefs worth the boat ride.",
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Australia Travel',
+    tags: ['Australia', 'Great Barrier Reef', 'Diving', 'Queensland'],
+    heroEmoji: '🐠',
+  },
+  {
+    slug: 'australian-food-guide-2026',
+    title: "Australian Food Guide: 20 Dishes & Experiences You Must Try in Australia (2026)",
+    description:
+      "Australian food is better than its reputation. The 20 dishes every traveler must try — meat pie, lamington, flat white, barramundi, pavlova, bush tucker, modern Australian fine dining — plus where to eat each.",
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Australia Travel',
+    tags: ['Australia', 'Food', 'Australian Cuisine', 'Coffee'],
+    heroEmoji: '🥧',
+  },
+  {
+    slug: 'australia-budget-travel-2026',
+    title: "Australia on a Budget: How to Travel Australia for $80, $170 or $350 a Day (2026)",
+    description:
+      "Three fully-costed 2026 Australia budgets — $80/day backpacker with working-holiday tricks, $170/day mid-range, $350/day comfort. Real AUD prices, internal flight math, hostel picks, and the tactics that make Australia affordable.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-22',
+    readMinutes: 12,
+    category: 'Australia Travel',
+    tags: ['Australia', 'Budget Travel', 'Backpacking', 'Costs'],
+    heroEmoji: '💰',
+  },
+  {
     slug: 'mexico-travel-guide-2026',
     title: "The Ultimate Mexico Travel Guide (2026): 32 States, Endless Adventures",
     description:
