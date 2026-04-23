@@ -2638,12 +2638,66 @@
     font-size: 0.78rem !important;
   }
 
-  /* Hero map visualization — keep visible but compact */
-  .hero-map-real {
-    margin: 0.5rem auto 0 !important;
+  /* Hero map visualization — must be full-width and actually visible.
+     Base CSS sets width: 600px + aspect-ratio, and flex:1-1-0 on the
+     parent .hero-visual; on narrow viewports the flex basis collapses
+     this to ~60px. Force proper dimensions on every level. */
+  .landing-hero .hero-visual {
+    width: 100% !important;
     max-width: 100% !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+  .hero-map-real {
+    width: 100% !important;
+    max-width: 460px !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    margin: 0.5rem auto 0 !important;
     border-radius: 18px !important;
-    box-shadow: 0 20px 42px rgba(15, 23, 42, 0.12);
+    box-shadow: 0 20px 42px rgba(15, 23, 42, 0.18);
+    flex: 0 0 auto !important;
+    transform: none !important;
+  }
+  /* Keep the inner map container properly inset so the world map SVG
+     fills the visible area between the top/bottom chrome bars. */
+  .hero-map-container {
+    position: absolute !important;
+    inset: 40px 16px 44px 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .hero-map-container svg {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    opacity: 1 !important;
+  }
+  /* Top chrome — compact on mobile */
+  .hero-map-topbar {
+    height: 36px !important;
+    padding: 0 10px !important;
+  }
+  .hero-map-bottombar {
+    height: 38px !important;
+    padding: 0 10px !important;
+  }
+  .hero-map-legend {
+    gap: 0.45rem !important;
+    font-size: 0.68rem !important;
+  }
+  .hero-map-legend-swatch {
+    width: 9px !important;
+    height: 9px !important;
+  }
+  .hero-map-cta-pill {
+    padding: 4px 9px !important;
+    font-size: 0.7rem !important;
+    gap: 4px !important;
+  }
+  .hero-map-counter {
+    font-size: 0.74rem !important;
   }
 
   /* ===== Section headers (features / how / testimonials / FAQ) ===== */
