@@ -749,7 +749,20 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* The map itself */}
+              {/* The map itself.
+                  Mobile: a pre-compressed ~67 KB gzipped world map
+                  painted via CSS mask-image so the map silhouette is
+                  tinted with our brand gradient. Zero JS overhead, paints
+                  essentially at FCP. Desktop: interactive SVG injected
+                  into the div below, gated by IntersectionObserver. */}
+              <div
+                className="hero-map-static hero-map-mask"
+                aria-hidden="true"
+                style={{
+                  WebkitMaskImage: 'url(/WorldMap_Hero_mobile.svg)',
+                  maskImage: 'url(/WorldMap_Hero_mobile.svg)',
+                }}
+              />
               <div className="hero-map-container" ref={mapRef} />
 
               {/* Glow follow spot on hover — stays centered by default */}

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#6366f1" />
 
-    <!-- Low-priority prefetch for the 1 MB world map SVG so it downloads
-         in the background during idle time instead of blocking first paint.
-         The actual render is gated by an IntersectionObserver + idle callback
-         in LandingPage.js so the 1 MB parse doesn't land on the main thread
-         until after LCP. -->
+    <!-- Preload the small (~66 KB gzipped) mobile world map so it arrives
+         alongside the HTML, letting the hero card paint with a real map
+         at FCP. The full 1 MB interactive SVG is prefetched separately at
+         low priority and only rendered on desktop. -->
+    <link rel="preload" href="/WorldMap_Hero_mobile.svg" as="image" type="image/svg+xml" />
     <link rel="prefetch" href="/WorldMap_SVG_Source.normalized.svg" as="fetch" crossorigin="anonymous" />
 
     <!-- Google Search Console verification -->

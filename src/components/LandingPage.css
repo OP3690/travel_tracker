@@ -292,6 +292,9 @@
   pointer-events: none; z-index: 1;
 }
 
+/* Static image shown only on mobile — desktop keeps the interactive SVG */
+.hero-map-static { display: none; }
+
 .hero-map-container {
   position: absolute;
   inset: 44px 28px 48px 28px;
