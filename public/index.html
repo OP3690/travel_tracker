@@ -78,6 +78,27 @@
       })();
     </script>
 
+    <!-- Microsoft Clarity (heatmaps + session recording) — same first-
+         interaction gating. Keeps the sync Clarity shim (c.clarity queue)
+         defined so any early event calls still work; the actual tag only
+         downloads when the user touches/scrolls the page. -->
+    <script>
+      (function(c,l,a,r,i){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments);};
+        var loaded = false;
+        function loadClarity(){
+          if (loaded) return; loaded = true;
+          var t = l.createElement(r); t.async = 1;
+          t.src = "https://www.clarity.ms/tag/" + i;
+          var y = l.getElementsByTagName(r)[0];
+          y.parentNode.insertBefore(t, y);
+        }
+        ['pointerdown','touchstart','keydown','scroll'].forEach(function(ev){
+          window.addEventListener(ev, loadClarity, { once: true, passive: true });
+        });
+      })(window, document, "clarity", "script", "wga9f374d0");
+    </script>
+
     <!-- Primary SEO -->
     <title>StampYourMap — Stamp Every Country You've Visited on an Interactive World Map</title>
     <meta name="description" content="Free travel tracker &amp; interactive world map for all 195 countries and 5,000+ states, regions and cities. Pin places visited domestically or internationally, capture travel memories with photos &amp; stories, plan trips with friends, and download Instagram-ready travel cards in one tap." />
