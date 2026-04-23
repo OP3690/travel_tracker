@@ -361,13 +361,58 @@ export default function LandingPage() {
     };
   }, []);
 
-  // Load interactive world map with flight arcs + clickable countries
+  // Load interactive world map — DEFERRED. The SVG is ~1 MB (≈400 KB
+   // gzipped) and fetching/parsing it synchronously on mount was tanking
+   // LCP on mobile (8 s+). Wait until (a) the browser is idle AND (b) the
+   // map container is near the viewport, then fetch. Until then the card
+   // shows its gradient+starfield chrome only — still visually rich.
   useEffect(() => {
     if (!mapRef.current) return;
     const tooltip = tooltipRef.current;
-    fetch('/WorldMap_SVG_Source.normalized.svg')
+    const container = mapRef.current;
+    let cancelled = false;
+    let started = false;
+
+    const runAfter = (fn, delay) => {
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(fn, { timeout: 2500 });
+      } else {
+        setTimeout(fn, delay);
+      }
+    };
+
+    const startLoad = () => {
+      if (started || cancelled) return;
+      started = true;
+      // Give the browser one idle slot after LCP before we pull the SVG.
+      runAfter(() => {
+        if (cancelled || !mapRef.current) return;
+        fetchMap();
+      }, 400);
+    };
+
+    // Kick in as soon as the hero-map (or even its ancestor) is within 200px
+    // of the viewport — or immediately if it's already on screen.
+    if (typeof IntersectionObserver !== 'undefined') {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some(e => e.isIntersecting)) {
+          io.disconnect();
+          startLoad();
+        }
+      }, { rootMargin: '200px' });
+      io.observe(container);
+      // Safety net — if the observer hasn't fired in 3s (e.g. off-screen on
+      // a very tall page), still kick off the load.
+      setTimeout(() => { io.disconnect(); startLoad(); }, 3000);
+    } else {
+      startLoad();
+    }
+
+    const fetchMap = () => {
+      fetch('/WorldMap_SVG_Source.normalized.svg')
       .then(res => res.text())
       .then(svgContent => {
+        if (cancelled) return;
         if (!mapRef.current) return;
         mapRef.current.innerHTML = svgContent;
         const svg = mapRef.current.querySelector('svg');
@@ -544,6 +589,9 @@ export default function LandingPage() {
         });
         svg.appendChild(overlay);
       });
+    };
+
+    return () => { cancelled = true; };
   }, [navigate]);
 
   useEffect(() => {

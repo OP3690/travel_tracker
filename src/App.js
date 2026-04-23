@@ -1,16 +1,20 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
-import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
-import InstallAppButton from './components/InstallAppButton';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 import { initGlobalClickTracking, initRouteTracking } from './utils/analytics';
 import { warmupApi } from './api/api';
 import './App.css';
 import './mobile.css';
 
-// Code-split every non-critical route so the initial bundle is just landing + login.
+// Code-split every non-critical route so the initial bundle is just landing.
+// (Login, InstallApp, SpeedInsights all lazy-loaded — they aren't needed
+// for first paint of the landing hero.)
+const Login                     = lazy(() => import('./components/Login'));
+const InstallAppButton          = lazy(() => import('./components/InstallAppButton'));
+const LazySpeedInsights         = lazy(() =>
+  import('@vercel/speed-insights/react').then(m => ({ default: m.SpeedInsights }))
+);
 const Signup          = lazy(() => import('./components/Signup'));
 const Dashboard       = lazy(() => import('./components/Dashboard'));
 const TravelJournal   = lazy(() => import('./components/TravelJournal'));
@@ -131,8 +135,10 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
-      <SpeedInsights />
-      <InstallAppButton />
+      <Suspense fallback={null}>
+        <LazySpeedInsights />
+        <InstallAppButton />
+      </Suspense>
       <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
