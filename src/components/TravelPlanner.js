@@ -50,33 +50,41 @@ const BOOKING_TYPES = [
   { value: 'other',    label: 'Other',    icon: <FiCreditCard /> },
 ];
 
+// Items marked `perPerson: true` will be duplicated for each traveler
+// (main user + co-travelers + unnamed seats up to `travelers` count).
 const CHECKLIST_TEMPLATES = {
   international: [
-    { text: 'Travel document / ID (valid 6+ months)', category: 'documents' },
-    { text: 'Visa (if required)', category: 'documents' },
-    { text: 'Travel insurance', category: 'documents' },
-    { text: 'Flight tickets', category: 'booking' },
-    { text: 'Hotel confirmations', category: 'booking' },
-    { text: 'Airport transfers', category: 'booking' },
+    { text: 'Passport (valid 6+ months)', category: 'documents', perPerson: true },
+    { text: 'Visa (if required)',          category: 'documents', perPerson: true },
+    { text: 'Travel insurance',            category: 'documents', perPerson: true },
+    { text: 'Boarding pass',               category: 'documents', perPerson: true },
+    { text: 'Flight tickets',              category: 'booking' },
+    { text: 'Hotel confirmations',         category: 'booking' },
+    { text: 'Airport transfers',           category: 'booking' },
     { text: 'Local currency / forex card', category: 'essentials' },
-    { text: 'International adapter', category: 'packing' },
-    { text: 'Power bank', category: 'packing' },
-    { text: 'Medications', category: 'essentials' },
+    { text: 'International adapter',       category: 'packing' },
+    { text: 'Power bank',                  category: 'packing' },
+    { text: 'Medications',                 category: 'essentials', perPerson: true },
   ],
   domestic: [
-    { text: 'ID proof', category: 'documents' },
-    { text: 'Transport bookings', category: 'booking' },
-    { text: 'Hotel confirmation', category: 'booking' },
-    { text: 'Cash + cards', category: 'essentials' },
-    { text: 'Charger + power bank', category: 'packing' },
+    { text: 'ID proof',                    category: 'documents', perPerson: true },
+    { text: 'Transport bookings',          category: 'booking' },
+    { text: 'Hotel confirmation',          category: 'booking' },
+    { text: 'Cash + cards',                category: 'essentials' },
+    { text: 'Charger + power bank',        category: 'packing' },
     { text: 'Weather-appropriate clothes', category: 'packing' },
-    { text: 'Medications', category: 'essentials' },
+    { text: 'Medications',                 category: 'essentials', perPerson: true },
   ],
 };
 
 function flagFor(country) {
   const c = allCountries.find(x => x.value === country);
-  return c?.flag || '🌍';
+  if (!c) return '🌍';
+  // Countries store the flag as the first characters of `label` (e.g. "🇯🇵 Japan").
+  // Extract the two regional-indicator code points that make up the flag glyph.
+  if (c.flag) return c.flag;
+  const match = (c.label || '').match(/^([\p{Regional_Indicator}]{2})/u);
+  return match ? match[1] : '🌍';
 }
 function fmtDate(d) {
   if (!d) return '';
@@ -236,15 +244,43 @@ function TripFormModal({ editing, onClose, onSaved }) {
   }, [friends, form.coTravelers, inviteQ]);
   const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inviteQ.trim());
 
+  // Build the list of named travelers: main user first, then co-travelers,
+  // padded out to `form.travelers` count with "Traveler N" placeholders.
+  const travelerNames = useMemo(() => {
+    const firstName = (s) => (s || '').trim().split(/\s+/)[0] || '';
+    const me = (() => {
+      try { return firstName(JSON.parse(localStorage.getItem('user') || '{}').name) || 'You'; }
+      catch { return 'You'; }
+    })();
+    const names = [me, ...form.coTravelers.map(c => firstName(c.name) || firstName(c.email) || 'Friend')];
+    const count = Math.max(Number(form.travelers) || 1, names.length);
+    while (names.length < count) names.push(`Traveler ${names.length + 1}`);
+    return names.slice(0, count);
+  }, [form.coTravelers, form.travelers]);
+
   const loadTemplate = () => {
     const templ = CHECKLIST_TEMPLATES[form.tripType] || [];
     const existing = new Set(form.checklist.map(c => c.text.toLowerCase()));
-    const added = templ.filter(t => !existing.has(t.text.toLowerCase())).map(t => ({ ...t, done: false }));
+    const added = [];
+    templ.forEach(t => {
+      if (t.perPerson && travelerNames.length > 1) {
+        travelerNames.forEach(name => {
+          const text = `${t.text} — ${name}`;
+          if (!existing.has(text.toLowerCase())) {
+            added.push({ text, category: t.category, done: false });
+          }
+        });
+      } else {
+        if (!existing.has(t.text.toLowerCase())) {
+          added.push({ text: t.text, category: t.category, done: false });
+        }
+      }
+    });
     setForm(f => ({ ...f, checklist: [...f.checklist, ...added] }));
   };
 
-  const addChecklistItem = () => {
-    setForm(f => ({ ...f, checklist: [...f.checklist, { text: '', done: false, category: 'other' }] }));
+  const addChecklistItem = (category = 'other') => {
+    setForm(f => ({ ...f, checklist: [...f.checklist, { text: '', done: false, category }] }));
   };
   const updateChecklistItem = (i, patch) => {
     setForm(f => ({ ...f, checklist: f.checklist.map((c, j) => j === i ? { ...c, ...patch } : c) }));
@@ -553,28 +589,71 @@ function TripFormModal({ editing, onClose, onSaved }) {
                   <button type="button" className="tp-btn-ghost" onClick={loadTemplate}>
                     <FiAward /> Use {form.tripType} template
                   </button>
-                  <button type="button" className="tp-btn-ghost" onClick={addChecklistItem}>
+                  <button type="button" className="tp-btn-ghost" onClick={() => addChecklistItem('other')}>
                     <FiPlus /> Add item
                   </button>
                 </div>
               </div>
+
+              {/* Smart hint — explains per-traveler duplication */}
+              {travelerNames.length > 1 && (
+                <div className="tp-smart-hint">
+                  <FiAward />
+                  <span>
+                    Planning for <strong>{travelerNames.length} travelers</strong>
+                    {travelerNames.length <= 4 && ` (${travelerNames.join(', ')})`}.
+                    Per-person items like passport &amp; ID are added for each.
+                  </span>
+                </div>
+              )}
+
               {form.checklist.length === 0 ? (
                 <p className="tp-empty-small">Nothing here yet. Load a template above or add items manually.</p>
               ) : (
-                <div className="tp-checklist-edit-list">
-                  {form.checklist.map((c, i) => (
-                    <div key={i} className="tp-checklist-edit-row">
-                      <select value={c.category}
-                        onChange={e => updateChecklistItem(i, { category: e.target.value })}
-                      >
-                        {CHECKLIST_CATEGORIES.map(cat => <option key={cat.value} value={cat.value}>{cat.icon} {cat.label}</option>)}
-                      </select>
-                      <input placeholder="What do you need?"
-                        value={c.text}
-                        onChange={e => updateChecklistItem(i, { text: e.target.value })} />
-                      <button type="button" className="tp-btn-icon-danger" onClick={() => removeChecklistItem(i)}><FiTrash2 /></button>
-                    </div>
-                  ))}
+                <div className="tp-checklist-edit-groups">
+                  {CHECKLIST_CATEGORIES.map(cat => {
+                    const items = form.checklist
+                      .map((c, i) => ({ ...c, _i: i }))
+                      .filter(c => c.category === cat.value);
+                    if (!items.length) return null;
+                    return (
+                      <div className="tp-checklist-edit-group" key={cat.value}>
+                        <div className="tp-checklist-edit-group-head">
+                          <span className="tp-checklist-edit-group-title">
+                            <span className="tp-checklist-edit-group-emoji">{cat.icon}</span>
+                            {cat.label}
+                            <span className="tp-checklist-edit-group-count">{items.length}</span>
+                          </span>
+                          <button
+                            type="button"
+                            className="tp-checklist-edit-add"
+                            onClick={() => addChecklistItem(cat.value)}
+                            aria-label={`Add ${cat.label} item`}
+                          >
+                            <FiPlus /> Add
+                          </button>
+                        </div>
+                        <div className="tp-checklist-edit-list">
+                          {items.map(c => (
+                            <div key={c._i} className="tp-checklist-edit-row">
+                              <span className="tp-checklist-edit-emoji" aria-hidden="true">{cat.icon}</span>
+                              <input
+                                placeholder={`What do you need for ${cat.label.toLowerCase()}?`}
+                                value={c.text}
+                                onChange={e => updateChecklistItem(c._i, { text: e.target.value })}
+                              />
+                              <button
+                                type="button"
+                                className="tp-btn-icon-danger"
+                                onClick={() => removeChecklistItem(c._i)}
+                                aria-label="Remove item"
+                              ><FiTrash2 /></button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -702,25 +781,32 @@ function TripDetailModal({ trip, onClose, onUpdate, onDelete }) {
           {tab === 'overview' && (
             <div className="tp-form-section">
               <div className="tp-overview-grid">
-                <div className="tp-ov-card">
+                <div className="tp-ov-card" data-accent="indigo">
+                  <div className="tp-ov-icon"><FiCalendar /></div>
                   <div className="tp-ov-label">Duration</div>
                   <div className="tp-ov-value">
                     {local.startDate && local.endDate ? `${daysBetween(local.startDate, local.endDate)} days` : '—'}
                   </div>
                 </div>
-                <div className="tp-ov-card">
+                <div className="tp-ov-card" data-accent="rose">
+                  <div className="tp-ov-icon"><FiUsers /></div>
                   <div className="tp-ov-label">Travelers</div>
                   <div className="tp-ov-value">{local.travelers || 1}</div>
                 </div>
-                <div className="tp-ov-card">
+                <div className="tp-ov-card" data-accent="amber">
+                  <div className="tp-ov-icon"><FiDollarSign /></div>
                   <div className="tp-ov-label">Budget</div>
                   <div className="tp-ov-value">
                     {local.budget?.estimated ? `${local.budget.currency || '$'} ${local.budget.estimated.toLocaleString()}` : '—'}
                   </div>
                 </div>
-                <div className="tp-ov-card">
+                <div className="tp-ov-card" data-accent="emerald">
+                  <div className="tp-ov-icon"><FiList /></div>
                   <div className="tp-ov-label">Checklist</div>
                   <div className="tp-ov-value">{doneChecklist}/{totalChecklist}</div>
+                  {totalChecklist > 0 && (
+                    <div className="tp-ov-bar"><span style={{ width: `${checklistPct}%` }} /></div>
+                  )}
                 </div>
               </div>
               {local.cities?.length > 0 && (

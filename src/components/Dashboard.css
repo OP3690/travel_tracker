@@ -80,6 +80,21 @@
 .map-card-header h2 { font-size: 0.95rem; font-weight: 700; color: var(--text-bright); display: flex; align-items: center; gap: 8px; }
 .map-title-icon { color: var(--accent-400); font-size: 0.85rem; }
 
+/* Header right cluster (legend + download) */
+.map-header-right { display: flex; align-items: center; gap: 12px; }
+.map-download-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: 999px;
+  font-size: 0.72rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-500, #6366f1), var(--accent-500, #8b5cf6));
+  color: #fff; border: none; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+.map-download-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35); }
+.map-download-btn:active:not(:disabled) { transform: translateY(0); }
+.map-download-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
 /* Legend */
 .map-legend { display: flex; gap: 12px; }
 .legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.68rem; color: var(--text-muted); font-weight: 500; }

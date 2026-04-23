@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import CountryMap, { getCountryMapInfo } from './CountryMap';
 import Layout from './Layout';
 import API from '../api/api';
-import { FaBook, FaGlobeAsia, FaChartBar, FaTimes, FaMapMarkerAlt, FaRoute, FaCompass, FaFlagCheckered, FaArrowRight, FaCrown, FaHeart, FaPlus, FaCamera } from 'react-icons/fa';
+import { FaBook, FaGlobeAsia, FaChartBar, FaTimes, FaMapMarkerAlt, FaRoute, FaCompass, FaFlagCheckered, FaArrowRight, FaCrown, FaHeart, FaPlus, FaCamera, FaDownload } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import allCountries from '../utils/countries';
 import AddMemoryModal from './AddMemoryModal';
+import DownloadMapModal from './DownloadMapModal';
 import './Dashboard.css';
 
 // Country-specific suggestions
@@ -65,6 +66,8 @@ export default function Dashboard() {
   const [adminCountry, setAdminCountry] = useState('');
   const [recentMemories, setRecentMemories] = useState([]);
   const [showMemoryModal, setShowMemoryModal] = useState(false);
+  const [downloadOpts, setDownloadOpts] = useState(null);
+  const mapCardRef = useRef(null);
 
   const fetchMemories = async () => {
     try {
@@ -160,6 +163,41 @@ export default function Dashboard() {
   const recentVisits = countryLocations.slice(-5).reverse();
 
   const regionLabel = countryInfo.regionLabel;
+
+  const handleDownloadMap = () => {
+    if (!mapCardRef.current) return;
+    // Pick the *biggest* SVG in the card, which skips the pin icon in the header
+    // and returns the actual country map.
+    const svgs = Array.from(mapCardRef.current.querySelectorAll('svg'));
+    if (!svgs.length) return;
+    const svg = svgs.reduce((best, el) => {
+      const r = el.getBoundingClientRect();
+      const area = r.width * r.height;
+      return area > (best.area || 0) ? { el, area } : best;
+    }, {}).el;
+    if (!svg) return;
+
+    const sortedVisited = countryLocations
+      .map(l => l.name)
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b));
+
+    setDownloadOpts({
+      svgElement: svg,
+      title: `${userCountry} Map`,
+      subtitle: `${visitedCount} of ${totalRegions} ${countryInfo.regionLabel} stamped`,
+      userName: user.name,
+      stats: [
+        { label: `${countryInfo.regionLabel} Visited`, value: visitedCount, accent: '#34d399' },
+        { label: `${countryInfo.regionLabel} Pending`, value: pendingCount, accent: '#fbbf24' },
+        { label: 'Coverage', value: `${overallPercent}%`, accent: '#a78bfa' },
+      ],
+      visitedNames: sortedVisited,
+      eyebrow: 'MY DOMESTIC STAMPS',
+      filename: `stampyourmap-${userCountry}-${user.name || 'map'}`,
+    });
+  };
+
   const statCards = [
     { label: `${regionLabel} Visited`, count: visitedCount, total: totalRegions, color: 'var(--accent-400)', bg: 'rgba(52,211,153,0.12)' },
     { label: `${regionLabel} Pending`, count: pendingCount, total: totalRegions, color: 'var(--amber-400)', bg: 'rgba(251,191,36,0.12)' },
@@ -235,12 +273,26 @@ export default function Dashboard() {
             )}
 
             {/* Map Card */}
-            <div className="map-card">
+            <div className="map-card" ref={mapCardRef}>
               <div className="map-card-header">
                 <h2><FaMapMarkerAlt className="map-title-icon" /> {userCountry} Map</h2>
-                <div className="map-legend">
-                  <span className="legend-item"><span className="legend-dot visited" /> Visited</span>
-                  <span className="legend-item"><span className="legend-dot state" /> Pending</span>
+                <div className="map-header-right">
+                  <div className="map-legend">
+                    <span className="legend-item"><span className="legend-dot visited" /> Visited</span>
+                    <span className="legend-item"><span className="legend-dot state" /> Pending</span>
+                  </div>
+                  <button
+                    type="button"
+                    className="map-download-btn"
+                    onClick={handleDownloadMap}
+                    disabled={loading || visitedCount === 0}
+                    title={visitedCount === 0 ? 'Stamp at least one region to download' : 'Preview & download your map'}
+                    data-ga-label="MyMap: Open download modal"
+                    data-ga-event="mymap_download_open"
+                    data-ga-category="download"
+                  >
+                    <FaDownload /> Download
+                  </button>
                 </div>
               </div>
               <div className="map-card-body">
@@ -352,6 +404,13 @@ export default function Dashboard() {
           <AddMemoryModal
             onClose={() => setShowMemoryModal(false)}
             onSaved={fetchMemories}
+          />
+        )}
+
+        {downloadOpts && (
+          <DownloadMapModal
+            {...downloadOpts}
+            onClose={() => setDownloadOpts(null)}
           />
         )}
       </div>

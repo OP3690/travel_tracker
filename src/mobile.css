@@ -15,9 +15,43 @@
     overflow-y: auto;
     overflow-x: visible;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
     font-size: 15px;
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  /* Absolute horizontal-overflow guard: no page element should cause
+     horizontal scroll on phones. Real horizontal scrollers (filter
+     strips, tables) opt in via their own class and overflow-x: auto.
+     NOTE: avoid setting overflow-x on .main-content — on flex children
+     with min-height:100vh, the browser coerces overflow-y into a scroll
+     container with no room, which silently breaks page scroll. We rely
+     on `html { overflow-x: hidden }` from the base mobile rules above. */
+  .main-content {
+    max-width: 100vw;
+  }
+
+  /* -------- Hide scrollbars everywhere on mobile (app-like). The scroll
+     still works, just without the visible bar. This single rule cleans up
+     every horizontal chip strip, modal body, and table container. -------- */
+  * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  *::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+    background: transparent !important;
+  }
+  *::-webkit-scrollbar-thumb,
+  *::-webkit-scrollbar-track,
+  *::-webkit-scrollbar-corner {
+    display: none !important;
+    background: transparent !important;
   }
 
   /* -------- Tap feedback (subtle scale + no long-press menu) -------- */
@@ -33,14 +67,55 @@
     transition: transform 80ms ease;
   }
 
-  /* -------- Page headers (consistent rhythm across all pages) -------- */
-  .page-title, .mem-page-title, .planner-title, .sp-title, .ad-title {
-    font-size: 1.45rem !important;
+  /* Chrome elements should never be selectable — they're UI, not content */
+  .m-topbar, .m-tabbar, .m-sheet-handle, .m-sheet-header,
+  .page-header, .page-title, .page-subtitle,
+  .mem-page-header, .planner-hdr, .sp-header, .ad-hdr {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* -------- Page headers: the topbar already shows the page title, so the
+     large in-page H1 on phones is pure redundancy. Hide it. Subtitles stay
+     as a short context line. This single change recovers ~80px of real
+     estate on every page and is the biggest "app vs web" lever. -------- */
+  .memories-page     > .mem-page-header,
+  .friends-page      > .fr-page-header .fr-title,
+  .planner-page      > .planner-hdr    .planner-title,
+  .stats-page        > .sp-header      .sp-title,
+  .settings-page     > .page-header    .page-title,
+  .worldmap-page     > .page-header    .page-title,
+  .dashboard-page    > .page-header    .page-title,
+  .community-page    > .page-header    .page-title,
+  .ad-page           > .ad-hdr         .ad-title {
+    display: none !important;
+  }
+  /* Tighten the space the hidden titles used to occupy */
+  .mem-page-header, .page-header, .planner-hdr, .sp-header,
+  .fr-page-header, .ad-hdr {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  /* Any surviving titles stay tight */
+  .page-title, .planner-title, .sp-title, .ad-title {
+    font-size: 1.2rem !important;
     letter-spacing: -0.02em !important;
     line-height: 1.15 !important;
   }
   .page-subtitle, .mem-page-subtitle, .planner-subtitle, .sp-subtitle, .ad-subtitle {
     font-size: 0.85rem !important;
+  }
+
+  /* -------- Subtle page content fade-in (app-route feel).
+     IMPORTANT: use opacity only — transform/filter on the page root
+     would create a new containing block and break position:fixed for
+     FABs rendered inside each page. -------- */
+  .main-content > * {
+    animation: mobilePageEnter 0.24s ease both;
+  }
+  @keyframes mobilePageEnter {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 
   /* -------- Cards: consistent softer elevation -------- */
@@ -82,7 +157,7 @@
   }
 
   /* -------- Sticky filter pills strips scroll horizontally without wrapping -------- */
-  .mem-filters, .planner-tabs {
+  .mem-filters, .planner-tabs, .settings-tabs {
     flex-wrap: nowrap !important;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -92,10 +167,12 @@
     padding-right: 12px !important;
     scroll-snap-type: x proximity;
     scrollbar-width: none;
+    -ms-overflow-style: none;
   }
   .mem-filters::-webkit-scrollbar,
-  .planner-tabs::-webkit-scrollbar { display: none; }
-  .mem-filter-chip, .planner-tab {
+  .planner-tabs::-webkit-scrollbar,
+  .settings-tabs::-webkit-scrollbar { display: none; width: 0; height: 0; }
+  .mem-filter-chip, .planner-tab, .settings-tab {
     scroll-snap-align: start;
     flex-shrink: 0;
   }
@@ -167,6 +244,2687 @@
     color: var(--text-secondary);
     font-size: 0.7rem; font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  /* -------- WorldMap page: keep the 3-stat row horizontal on phones
+     (the per-page CSS tried column-stacking at 400px, which made the
+     page feel tall and unbalanced — override with a tight 3-col grid) -------- */
+  .wm-stats-bar {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.6rem !important;
+    padding: 0.75rem 0.85rem !important;
+    flex-direction: unset !important;
+  }
+  .wm-stat-divider { display: none !important; }
+  .wm-stat-item { min-width: 0; }
+  .wm-stat-value { font-size: 1.15rem !important; white-space: nowrap; }
+  .wm-stat-label {
+    font-size: 0.64rem !important;
+    text-align: center;
+    line-height: 1.25;
+    max-width: 100%;
+  }
+
+  /* Map card — round corners and soften edges so it feels like an iOS card
+     instead of a full-width banner */
+  .wm-map-card {
+    border-radius: 18px !important;
+    border: 1px solid var(--border-default) !important;
+    margin: 0 0.85rem 1.1rem !important;
+    box-shadow: 0 8px 20px rgba(15,23,42,0.05);
+  }
+
+  /* -------- Mobile top bar — app-bar polish -------- */
+  /* Slightly stronger shadow for elevation clarity on scroll */
+  .m-topbar {
+    box-shadow: 0 1px 0 var(--border-default), 0 6px 18px rgba(15,23,42,0.04);
+  }
+  /* Show page title on every phone size; the brand text hides below 400px
+     (see bottom of file), leaving topbar = [icon] [title] [avatar] */
+  .m-topbar-title {
+    display: block !important;
+    max-width: 55% !important;
+  }
+
+  /* Bottom tab bar — stronger elevation so it reads as a fixed app bar */
+  .m-tabbar {
+    box-shadow:
+      0 -1px 0 var(--border-default),
+      0 -8px 24px rgba(15,23,42,0.06) !important;
+  }
+
+  /* -------- Headings rhythm: consistent margin below page-header -------- */
+  .dashboard-page > .page-header + *,
+  .worldmap-page  > .page-header + *,
+  .memories-page  > .mem-page-header + *,
+  .planner-page   > .planner-hdr + * {
+    margin-top: 0.25rem;
+  }
+
+  /* -------- Consistent inner padding for the main page shell on phones.
+     Many pages use ad-hoc padding; normalise to 0.85rem gutters. -------- */
+  .dashboard-page, .worldmap-page, .memories-page,
+  .planner-page, .stats-page, .ad-page, .community-page,
+  .friends-page, .settings-page, .travel-journal-page {
+    padding-left: 0.85rem !important;
+    padding-right: 0.85rem !important;
+  }
+  /* Pages whose hero/stats extend edge-to-edge (e.g. map cards) should
+     undo their internal side margins under the new gutter to avoid
+     doubled padding. */
+  .worldmap-page .wm-map-card,
+  .worldmap-page .wm-stats-bar,
+  .worldmap-page .wm-table-card { margin-left: 0 !important; margin-right: 0 !important; }
+
+  /* -------- Fix any residual horizontal overflow: columns must shrink. -------- */
+  .stats-grid,
+  .mem-stats-strip,
+  .sp-hero-grid,
+  .planner-stats,
+  .ad-stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  }
+
+  /* -------- Zoom controls on maps (WorldMap / CountryMap) — compact app-style -------- */
+  .world-map-controls.zoom-controls {
+    top: 10px !important;
+    right: 10px !important;
+    flex-direction: row !important;
+    gap: 2px !important;
+    padding: 4px !important;
+    border-radius: 999px !important;
+    box-shadow: 0 6px 16px rgba(15,23,42,0.18) !important;
+  }
+  .world-map-controls.zoom-controls button {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* -------- WorldMap header: symmetric pills of equal height, sit inline -------- */
+  .worldmap-page .wm-header { padding: 0.85rem !important; }
+  .worldmap-page .wm-header > div:first-child { width: 100%; }
+  .wm-header-actions {
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.6rem !important;
+    margin-top: 0.35rem;
+  }
+  .wm-counter, .wm-download-btn {
+    height: 40px;
+    justify-content: center;
+    min-width: 0;
+    padding: 0 14px !important;
+    font-size: 0.82rem !important;
+  }
+  .wm-counter { width: 100%; }
+
+  /* -------- My Map (Dashboard) header download button — match WorldMap style -------- */
+  .dashboard-page .page-header {
+    padding: 0.85rem !important;
+  }
+  .map-download-btn {
+    height: 40px;
+    justify-content: center;
+  }
+
+  /* -------- Dashboard stat cards — symmetric padding and sizing -------- */
+  .stat-card {
+    padding: 0.8rem 0.9rem !important;
+    gap: 0.75rem !important;
+    min-width: 0;
+  }
+  .stat-card-icon {
+    width: 40px !important; height: 40px !important;
+    border-radius: 12px !important;
+    font-size: 1.05rem !important;
+    flex-shrink: 0;
+  }
+  .stat-card-content { min-width: 0; }
+  .stat-card-number { font-size: 1.1rem !important; }
+
+  /* -------- Memory Wall stat items — symmetric 2×2 grid w/ balanced sizing -------- */
+  .mem-stats-strip { gap: 0.6rem !important; }
+  .mss-item {
+    padding: 0.75rem 0.85rem !important;
+    gap: 0.7rem !important;
+    min-width: 0;
+  }
+  .mss-icon { width: 38px !important; height: 38px !important; border-radius: 11px !important; font-size: 0.95rem !important; }
+  .mss-body { min-width: 0; }
+  .mss-num { font-size: 1.2rem !important; }
+  .mss-label { font-size: 0.72rem !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mss-sub { font-size: 0.64rem !important; }
+
+  /* -------- Cards uniformly nudge up on tap like native apps -------- */
+  .map-card:active, .info-card:active, .memory-wall-card:active,
+  .mem-card:active, .planner-card:active, .pst-card:active,
+  .sp-card:active, .progress-card:active, .stat-card:active, .mss-item:active {
+    transform: scale(0.985);
+    transition: transform 80ms ease;
+  }
+
+  /* -------- Consistent "section heading" row padding across content cards -------- */
+  .wm-table-header, .mem-grid > :first-child {
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+  }
+
+  /* ==================================================================
+     FLOATING ACTION BUTTONS — primary page actions become a single
+     56px circular FAB in the bottom-right corner, above the tab bar.
+     This is the #1 visual cue that says "native app" to users.
+     ================================================================== */
+  .mem-nudge-cta,
+  .planner-page > .planner-hdr .tp-btn-primary {
+    position: fixed !important;
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 16px !important;
+    width: 56px !important;
+    height: 56px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    font-size: 0 !important; /* hide label text */
+    z-index: 39;
+    box-shadow:
+      0 14px 32px rgba(99, 102, 241, 0.45),
+      0 4px 10px rgba(236, 72, 153, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 55%, #ec4899 100%) !important;
+    background-size: 180% 180% !important;
+    background-position: 0% 50% !important;
+    transition:
+      transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.2s ease,
+      background-position 0.5s ease !important;
+    animation: fabIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+  }
+  .mem-nudge-cta svg,
+  .planner-page > .planner-hdr .tp-btn-primary svg {
+    font-size: 1.5rem !important;
+    color: #fff !important;
+  }
+  .mem-nudge-cta:active:not(:disabled),
+  .planner-page > .planner-hdr .tp-btn-primary:active:not(:disabled) {
+    transform: scale(0.92) !important;
+    background-position: 100% 50% !important;
+  }
+  @keyframes fabIn {
+    from { opacity: 0; transform: scale(0.4) translateY(20px); }
+    to   { opacity: 1; transform: scale(1)   translateY(0); }
+  }
+
+  /* -------- Trip Planner — app-like CTA + hero polish -------- */
+  .planner-hdr {
+    padding: 1rem 0.85rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.6rem !important;
+  }
+  .tp-btn-primary,
+  .tp-btn-primary.big {
+    width: 100%;
+    justify-content: center !important;
+    height: 48px;
+    padding: 0 1.2rem !important;
+    border-radius: 14px !important;
+  }
+  /* Trip Planner stats: match the Memory Wall vertical-stack tile style
+     so the two pages feel like one app. Icon top-left, big number,
+     small label underneath. */
+  .planner-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+  .planner-stats .pst-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.45rem !important;
+    padding: 0.85rem 0.9rem !important;
+    border-radius: 16px !important;
+    min-width: 0;
+  }
+  .planner-stats .pst-icon {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 9px !important;
+    font-size: 0.85rem !important;
+    flex-shrink: 0;
+  }
+  .planner-stats .pst-num {
+    font-size: 1.55rem !important;
+    font-weight: 800 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.015em;
+  }
+  .planner-stats .pst-lbl {
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    color: var(--text-secondary) !important;
+  }
+
+  /* Trip Planner tabs — 7 tabs scroll horizontally (scrollbar hidden
+     globally). Compact pills for tighter, more app-like strip. */
+  .planner-tab {
+    border-radius: 999px !important;
+    padding: 7px 12px !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    background: rgba(120, 120, 128, 0.1) !important;
+    color: var(--text-secondary) !important;
+    border: none !important;
+    white-space: nowrap;
+    min-height: 34px;
+  }
+  [data-theme="dark"] .planner-tab { background: rgba(255, 255, 255, 0.05) !important; }
+  .planner-tab.active {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    box-shadow: 0 6px 14px rgba(99, 102, 241, 0.32) !important;
+  }
+
+  /* Empty-state CTAs duplicate the FAB on mobile — hide them since the
+     floating button is the single obvious primary action. */
+  .mem-empty .mem-add-btn,
+  .planner-empty .tp-btn-primary,
+  .planner-empty-inner .tp-btn-primary {
+    display: none !important;
+  }
+
+  /* -------- Settings — pill tabs with equal-height, no cramped spacing -------- */
+  .settings-tabs {
+    background: transparent !important;
+    border: none !important;
+    gap: 6px !important;
+  }
+  .settings-tab {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default);
+    border-radius: 999px !important;
+    padding: 8px 14px !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap;
+  }
+  .settings-tab.active {
+    background: linear-gradient(135deg, rgba(99,102,241,0.16), rgba(124,58,237,0.1)) !important;
+    border-color: rgba(99,102,241,0.3);
+    color: var(--primary-400) !important;
+    font-weight: 700 !important;
+  }
+  .settings-card { border-radius: 16px !important; padding: 1.1rem !important; }
+  .settings-form { gap: 0.8rem !important; }
+  .sf-group input {
+    padding: 12px 14px !important;
+    border-radius: 12px !important;
+    font-size: 16px !important; /* prevent iOS zoom */
+  }
+  .ss-item {
+    padding: 1rem !important;
+    border-radius: 14px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.8rem !important;
+  }
+  .ss-btn {
+    width: 100%;
+    justify-content: center;
+    height: 42px;
+    border-radius: 12px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* -------- Friends — polish card spacing -------- */
+  .fr-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.6rem !important;
+  }
+  .fr-stat { border-radius: 14px !important; min-width: 0; }
+  .fr-stat-num { white-space: nowrap; }
+  .fr-stat-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .fr-card, .fr-item { border-radius: 14px !important; }
+  .fr-search-box {
+    border-radius: 14px !important;
+    padding: 10px 14px !important;
+  }
+  .fr-search-box input { font-size: 16px !important; }
+
+  /* -------- Unified form input sizing (prevents iOS auto-zoom) -------- */
+  input[type="text"], input[type="email"], input[type="password"],
+  input[type="tel"], input[type="number"], input[type="date"],
+  input[type="search"], input[type="url"],
+  select, textarea {
+    border-radius: 12px !important;
+  }
+
+  /* ==================================================================
+     MEMORY WALL — polish the page hero + stats rhythm so it reads
+     like an iOS timeline, not a marketing landing page.
+     ================================================================== */
+  /* The promotional "Upload photos…" nudge is information-heavy; compact
+     it to a single tight card with no outer container frame. */
+  .mem-nudge {
+    padding: 0.85rem 1rem !important;
+    border-radius: 16px !important;
+    display: flex !important;
+    gap: 0.7rem !important;
+    align-items: flex-start !important;
+    background:
+      linear-gradient(135deg, rgba(99,102,241,0.10), rgba(236,72,153,0.08)) !important;
+    border: 1px solid rgba(99,102,241,0.18) !important;
+  }
+  .mem-nudge-emoji { font-size: 1.4rem !important; flex-shrink: 0; line-height: 1; }
+  .mem-nudge-text {
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
+    color: var(--text-secondary);
+  }
+  .mem-nudge-text strong { color: var(--text-primary); font-weight: 700; }
+
+  /* Stats cards — visual hero number on top, tight label underneath.
+     Switch from horizontal flex (icon+body) to vertical stack so all
+     four tiles stay visually uniform regardless of label length. */
+  .mem-stats-strip { gap: 0.5rem !important; margin-bottom: 0.9rem !important; }
+  .mss-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.45rem !important;
+    padding: 0.85rem 0.9rem !important;
+    border-radius: 16px !important;
+    position: relative;
+    overflow: hidden;
+  }
+  .mss-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), transparent 60%);
+    pointer-events: none;
+  }
+  .mss-icon {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 9px !important;
+    font-size: 0.85rem !important;
+  }
+  .mss-body { gap: 0 !important; }
+  .mss-num {
+    font-size: 1.55rem !important;
+    font-weight: 800 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.015em;
+  }
+  .mss-label {
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    color: var(--text-secondary) !important;
+  }
+  .mss-sub {
+    font-size: 0.62rem !important;
+    color: var(--text-tertiary) !important;
+    margin-top: 2px !important;
+  }
+  /* Memory filter chips — make the active one pop */
+  .mem-filter-chip {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.82rem !important;
+    border-radius: 999px !important;
+  }
+  .mem-filter-chip.active {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 12px rgba(99,102,241,0.32) !important;
+  }
+  .mem-filter-chip.active .mfc-count {
+    background: rgba(255,255,255,0.24) !important;
+    color: #fff !important;
+  }
+
+  /* ==================================================================
+     MODAL FORMS (New Memory + Plan a Trip) — native-app polish:
+      · Section numbers hidden; sections float as clean grouped lists
+      · Bigger, softer inputs (16px font so iOS doesn't zoom)
+      · Sticky footer with the primary CTA visible at all times
+      · Bottom sheet already applied via earlier rules
+     ================================================================== */
+
+  /* Header in every modal: centered title feel */
+  .mem-modal-header,
+  .tp-modal-header {
+    padding: 0.75rem 1rem 1rem !important;
+    background: transparent !important;
+    border-bottom: 1px solid var(--border-default);
+  }
+  .mem-modal-header h2,
+  .tp-modal-header h2 {
+    font-size: 1.18rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.015em !important;
+  }
+  .mem-modal-header p,
+  .tp-modal-header p {
+    font-size: 0.78rem !important;
+    color: var(--text-secondary) !important;
+    margin-top: 2px !important;
+  }
+
+  /* Body — consistent gutters and vertical rhythm */
+  .mem-modal-body,
+  .tp-modal-body {
+    padding: 0.9rem 1rem 1rem !important;
+  }
+
+  /* Hide the numbered section badges on phones — they feel tutorial-like.
+     Show an underlined section title instead (iOS grouped-form style). */
+  .mem-section-num { display: none !important; }
+  .mem-section { margin-bottom: 1.1rem !important; }
+  .mem-section-head {
+    margin-bottom: 0.6rem !important;
+    padding: 0 0 0.35rem !important;
+    gap: 0 !important;
+  }
+  .mem-section-head h3 {
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    color: var(--text-tertiary) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 0 !important;
+  }
+  .mem-section-sub { display: none !important; } /* remove hint duplication */
+  .mem-section-body {
+    padding: 0 !important;
+    gap: 0 !important;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  /* Each field inside the grouped card becomes a list row, hairline divider */
+  .mem-section-body > .mem-field,
+  .mem-section-body > .mem-field-row {
+    padding: 0.75rem 0.9rem !important;
+    border-bottom: 1px solid var(--border-default);
+    margin: 0 !important;
+  }
+  .mem-section-body > :last-child { border-bottom: none; }
+  .mem-section-body .mem-field-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .mem-section-body .mem-field-row .mem-field {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-default);
+  }
+  .mem-section-body .mem-field-row .mem-field:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .mem-field label {
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    color: var(--text-tertiary) !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .mem-field input,
+  .mem-field select,
+  .mem-field textarea {
+    padding: 0 !important;
+    font-size: 16px !important;
+    border-radius: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    width: 100%;
+  }
+  .mem-field input:focus,
+  .mem-field select:focus,
+  .mem-field textarea:focus {
+    box-shadow: none !important;
+  }
+  .mem-field textarea { min-height: 110px !important; padding-top: 0.25rem !important; }
+
+  /* Photo grid — larger thumbs, app-style uploader */
+  .mem-photos-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+  .mem-photo-add {
+    border-radius: 14px !important;
+    border-width: 1.5px !important;
+    font-size: 0.72rem !important;
+  }
+  .mem-photo-add svg { font-size: 1.3rem !important; }
+  .mem-photo-add-hint { display: none !important; }
+
+  /* Visibility options — stack 3 as full-width list rows */
+  .mem-visibility-row { gap: 0.45rem !important; }
+  .mem-vis-opt {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.8rem !important;
+    text-align: left !important;
+    padding: 0.8rem 0.95rem !important;
+    border-radius: 12px !important;
+    border-width: 1px !important;
+  }
+  .mem-vis-icon {
+    margin-bottom: 0 !important;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--bg-active);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.95rem !important;
+  }
+  .mem-vis-opt .mem-vis-title { font-size: 0.88rem !important; }
+  .mem-vis-opt .mem-vis-desc { font-size: 0.72rem !important; }
+  .mem-vis-opt .mem-vis-title,
+  .mem-vis-opt .mem-vis-desc { display: block; }
+  .mem-vis-opt .mem-vis-title + .mem-vis-desc { margin-top: 1px; }
+
+  /* Sticky footer — save button always visible, full-width primary */
+  .mem-modal-footer,
+  .tp-modal-footer {
+    position: sticky;
+    bottom: 0;
+    padding: 0.85rem 1rem calc(0.85rem + env(safe-area-inset-bottom, 0px)) !important;
+    background: color-mix(in srgb, var(--bg-card) 96%, transparent) !important;
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-top: 1px solid var(--border-default) !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr !important;
+    gap: 0.6rem !important;
+  }
+  .mem-btn-primary,
+  .tp-modal-footer .tp-btn-primary,
+  .tp-modal-footer button.tp-btn-primary {
+    width: 100% !important;
+    height: 48px !important;
+    justify-content: center !important;
+    font-size: 0.95rem !important;
+    border-radius: 12px !important;
+  }
+  .mem-btn-secondary,
+  .tp-modal-footer .tp-btn-secondary {
+    height: 48px !important;
+    padding: 0 1rem !important;
+    border-radius: 12px !important;
+  }
+
+  /* ==================================================================
+     PLAN A NEW TRIP — iOS segmented control for 4 tabs (perfect fit)
+     ================================================================== */
+  .tp-modal-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 2px !important;
+    background: rgba(120, 120, 128, 0.14) !important;
+    border-radius: 11px !important;
+    padding: 3px !important;
+    margin: 0.5rem 1rem 0.9rem !important;
+    overflow: visible !important;
+    border-bottom: none !important;
+  }
+  /* TRIP DETAIL modal: 5 tabs fit on-screen as icon-led compact segments
+     (Overview / Itinerary / Checklist / Budget / Bookings). No horizontal
+     scroll needed. Active segment = purple gradient pill. */
+  .tp-modal.tp-detail .tp-modal-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 2px !important;
+    overflow: hidden !important;
+    background: rgba(120, 120, 128, 0.14) !important;
+    border-radius: 12px !important;
+    padding: 3px !important;
+    margin: 0.3rem 1rem 0.8rem !important;
+    border-bottom: none !important;
+  }
+  [data-theme="dark"] .tp-modal.tp-detail .tp-modal-tabs { background: rgba(255, 255, 255, 0.06) !important; }
+  .tp-modal.tp-detail .tp-modal-tab {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2px !important;
+    padding: 6px 2px !important;
+    min-width: 0;
+    border-radius: 9px !important;
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+    font-size: 0.62rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .tp-modal.tp-detail .tp-modal-tab svg {
+    font-size: 1.05rem !important;
+    margin: 0 !important;
+  }
+  .tp-modal.tp-detail .tp-modal-tab.active {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.32) !important;
+  }
+  [data-theme="dark"] .tp-modal.tp-detail .tp-modal-tab.active { color: #fff !important; }
+  [data-theme="dark"] .tp-modal-tabs { background: rgba(255, 255, 255, 0.06) !important; }
+  .tp-modal-tab {
+    padding: 8px 2px !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    border-radius: 9px !important;
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: -0.01em;
+    justify-content: center;
+    min-width: 0;
+  }
+  .tp-modal-tab.active {
+    background: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+    box-shadow:
+      0 3px 8px rgba(15, 23, 42, 0.08),
+      0 0 0 0.5px rgba(15, 23, 42, 0.04) !important;
+  }
+  [data-theme="dark"] .tp-modal-tab.active {
+    background: rgba(255, 255, 255, 0.13) !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  /* Trip Planner form — grouped-list look like the Memory modal */
+  .tp-form-section {
+    gap: 1rem !important;
+  }
+  .tp-field {
+    padding: 0.75rem 0.9rem !important;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: 14px;
+  }
+  .tp-field label {
+    font-size: 0.68rem !important;
+    font-weight: 800 !important;
+    color: var(--text-tertiary) !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem !important;
+  }
+  .tp-field input,
+  .tp-field select,
+  .tp-field textarea {
+    padding: 0.65rem 0 !important;
+    font-size: 16px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+  .tp-field input:focus,
+  .tp-field select:focus,
+  .tp-field textarea:focus {
+    box-shadow: none !important;
+  }
+  .tp-field-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+  }
+  /* Cities chip-input inside a grouped field — remove its nested background */
+  .tp-field .tp-chips-input {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+  .tp-field .tp-chips-input input {
+    background: transparent !important;
+    padding: 0.4rem 0 !important;
+    border: none !important;
+  }
+
+  /* ==================================================================
+     UNIFIED STAT / HERO TILE STYLE — one visual language across all
+     pages so the app feels coherent: icon top-left, big number
+     (1.55rem), small label, optional tiny sub-line.
+     ================================================================== */
+  .fr-stat,
+  .sp-hero-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.45rem !important;
+    padding: 0.85rem 0.9rem !important;
+    border-radius: 16px !important;
+    min-width: 0;
+  }
+  .fr-stat-icon,
+  .sp-hero-icon {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 9px !important;
+    font-size: 0.85rem !important;
+    flex-shrink: 0;
+  }
+  .fr-stat-text,
+  .sp-hero-info { gap: 0 !important; min-width: 0; }
+  .fr-stat-num,
+  .sp-hero-value {
+    font-size: 1.55rem !important;
+    font-weight: 800 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.015em !important;
+  }
+  .fr-stat-label,
+  .sp-hero-label {
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    color: var(--text-secondary) !important;
+  }
+  .sp-hero-sub {
+    font-size: 0.62rem !important;
+    color: var(--text-tertiary) !important;
+    margin-top: 2px !important;
+  }
+  .sp-hero-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 0.5rem !important; }
+
+  /* ==================================================================
+     FRIENDS PAGE — compact hero, clean search, consistent list rows
+     ================================================================== */
+  .fr-page-header {
+    padding: 0.85rem 1rem !important;
+    gap: 0.6rem !important;
+    border-radius: 16px !important;
+  }
+  .fr-page-header .fr-subtitle {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
+  .fr-page-header .fr-btn-primary {
+    width: 100% !important;
+    height: 44px !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+    font-size: 0.92rem !important;
+  }
+  .fr-section { margin-top: 1rem !important; }
+  .fr-section-title {
+    font-size: 0.98rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .fr-search-box {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+    box-shadow: 0 1px 3px rgba(15,23,42,0.04);
+  }
+  /* Friend cards — list-row style on mobile */
+  .fr-card {
+    padding: 0.9rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.9rem !important;
+    flex-direction: row !important;
+  }
+  .fr-card .fr-avatar { width: 46px !important; height: 46px !important; flex-shrink: 0; }
+
+  /* ==================================================================
+     STATISTICS PAGE — consistent hero tiles + polished section cards
+     ================================================================== */
+  .stats-page { padding: 0 0.85rem 1rem !important; }
+  .sp-header { padding: 0.5rem 0 !important; }
+  .sp-subtitle {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
+  .sp-dna-chip,
+  .stats-page [class*="dna"] {
+    align-self: flex-start !important;
+  }
+  /* Any section card (progress / coverage / list) gets the same radius */
+  .stats-page .progress-card,
+  .stats-page [class*="card"] {
+    border-radius: 16px !important;
+  }
+
+  /* ==================================================================
+     DISCOVER (TRAVEL JOURNAL) — toolbar + filter chip polish
+     ================================================================== */
+  .journal-page { padding: 0 0.85rem 1rem !important; }
+  .journal-hdr {
+    padding: 0.5rem 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.6rem !important;
+  }
+  .journal-progress-card {
+    padding: 0.85rem 1rem !important;
+    border-radius: 16px !important;
+  }
+  .journal-toolbar {
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+    margin-bottom: 0.85rem !important;
+  }
+  .journal-search,
+  .journal-filter {
+    width: 100% !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+  }
+  .journal-search input {
+    font-size: 16px !important;
+  }
+  .journal-result-count {
+    font-size: 0.74rem !important;
+    color: var(--text-tertiary) !important;
+  }
+
+  /* ==================================================================
+     MY MAP (DASHBOARD) — consistent stat cards + compact welcome
+     ================================================================== */
+  .welcome-banner {
+    padding: 1rem 1.1rem !important;
+    border-radius: 18px !important;
+  }
+  .welcome-banner h2 {
+    font-size: 1.1rem !important;
+    line-height: 1.3 !important;
+  }
+  .welcome-banner p {
+    font-size: 0.85rem !important;
+    line-height: 1.45 !important;
+  }
+  .welcome-actions {
+    flex-wrap: wrap !important;
+    gap: 0.45rem !important;
+    margin-top: 0.7rem !important;
+  }
+  .welcome-link {
+    flex: 1 1 calc(50% - 0.3rem) !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+    padding: 0.55rem 0.7rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 10px !important;
+  }
+  .dashboard-page .quote-bar {
+    padding: 0.8rem 1rem !important;
+    border-radius: 14px !important;
+    font-size: 0.85rem !important;
+  }
+  .dashboard-page .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+  /* Match the rest of the app: vertical-stack tiles on phones */
+  .stat-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+    padding: 0.85rem 0.9rem !important;
+    border-radius: 16px !important;
+    min-width: 0;
+  }
+  .stat-card-icon {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .stat-card-number {
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+  }
+  .stat-card-content {
+    width: 100%;
+    min-width: 0;
+  }
+  .stat-card-label {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 2px !important;
+  }
+  .stat-card-fraction {
+    font-size: 0.68rem !important;
+    color: var(--text-tertiary) !important;
+    margin-bottom: 6px !important;
+  }
+  .stat-card-bar {
+    height: 4px !important;
+    border-radius: 999px !important;
+  }
+  /* Progress card (India Coverage) on Dashboard — tighten */
+  .progress-card {
+    padding: 1.1rem !important;
+    border-radius: 18px !important;
+  }
+  /* India Map card header — trim padding & round fully */
+  .map-card {
+    border-radius: 18px !important;
+    overflow: hidden;
+  }
+  .map-header {
+    padding: 0.9rem 1rem !important;
+  }
+  .map-title {
+    font-size: 0.98rem !important;
+    font-weight: 700 !important;
+  }
+
+  /* ==================================================================
+     WORLD MAP — tighten header, symmetric download pill, stats polish
+     ================================================================== */
+  .worldmap-page .page-header p {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
+  /* The 3-col stats row: small cards with bigger numbers for glanceability */
+  .wm-stats-bar {
+    border-radius: 16px !important;
+    padding: 0.9rem 0.85rem !important;
+  }
+  .wm-stat-item {
+    padding: 0 !important;
+    gap: 3px !important;
+  }
+  .wm-stat-value {
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.015em !important;
+  }
+  .wm-stat-label {
+    font-size: 0.62rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-tertiary) !important;
+  }
+  /* Countries table card (mobile list) */
+  .wm-table-card {
+    border-radius: 18px !important;
+    overflow: hidden;
+  }
+  .wm-table-header {
+    padding: 0.9rem 1rem !important;
+  }
+  .wm-table-header h2 { font-size: 0.98rem !important; }
+
+  /* ==================================================================
+     PLAN A NEW TRIP — polish When & Who, Budget, Checklist tab content
+     ================================================================== */
+  /* Trip Type / Domestic-vs-International segmented pick */
+  .tp-modal .tp-type-row,
+  .tp-modal .tp-type-pick {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+  .tp-modal .tp-type-pick button,
+  .tp-modal .tp-type-chip {
+    height: 48px;
+    border-radius: 12px !important;
+    font-size: 0.88rem !important;
+    padding: 0 0.85rem !important;
+  }
+  /* Purpose grid (Leisure / Business / etc.) — 2 cols */
+  .tp-modal .tp-purpose-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+  .tp-modal .tp-purpose-card,
+  .tp-modal .tp-purpose-grid > * {
+    padding: 0.9rem 0.6rem !important;
+    border-radius: 14px !important;
+    min-height: 76px;
+  }
+  /* Date range pickers in "When & Who" — stack vertically */
+  .tp-modal .tp-date-row,
+  .tp-modal .tp-dates-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+  /* Budget amount input — make it hero-sized */
+  .tp-modal .tp-budget-input,
+  .tp-modal .tp-budget-amount {
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.015em;
+    padding: 0.5rem 0 !important;
+  }
+  /* ==================================================================
+     CHECKLIST TAB — mobile-app polish
+     --------------------------------------------------------------------
+     Header: stat-strip feel (0 items chip + template + add buttons)
+     Empty state: celebratory illustration-style block with clear CTA
+     Edit rows: clean iOS-style with emoji category chip + inline input
+     ================================================================== */
+  /* Header: count pill on top, two full-width action buttons below */
+  .tp-modal .tp-checklist-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.55rem !important;
+    padding: 0 !important;
+    margin-bottom: 0.85rem !important;
+  }
+  .tp-modal .tp-checklist-header > span {
+    font-size: 0.68rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.12em !important;
+    color: var(--text-tertiary) !important;
+    padding: 0 0.25rem !important;
+  }
+  .tp-modal .tp-checklist-header > div {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
+  }
+  .tp-modal .tp-checklist-header .tp-btn-ghost {
+    height: 48px !important;
+    width: 100% !important;
+    justify-content: center !important;
+    border-radius: 14px !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    border-width: 1px !important;
+    gap: 0.4rem !important;
+  }
+  /* Make the template loader the "hero" CTA with a gradient accent */
+  .tp-modal .tp-checklist-header .tp-btn-ghost:first-child {
+    background: linear-gradient(135deg, rgba(99,102,241,0.14), rgba(236,72,153,0.10)) !important;
+    border-color: rgba(99,102,241,0.32) !important;
+    color: var(--primary-500) !important;
+  }
+  [data-theme="dark"] .tp-modal .tp-checklist-header .tp-btn-ghost:first-child {
+    color: var(--primary-300) !important;
+  }
+
+  /* Empty state — warm, inviting, centered with emoji + hint */
+  .tp-modal .tp-empty-small {
+    background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(236,72,153,0.04)) !important;
+    border: 1px dashed var(--border-default) !important;
+    padding: 2.4rem 1.2rem !important;
+    border-radius: 18px !important;
+    text-align: center !important;
+    color: var(--text-secondary) !important;
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+  }
+  .tp-modal .tp-empty-small::before {
+    content: '✅';
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    filter: saturate(1.1);
+  }
+
+  /* Smart hint banner shown when trip has 2+ travelers */
+  .tp-modal .tp-smart-hint {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 0.55rem !important;
+    padding: 0.75rem 0.9rem !important;
+    background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(236,72,153,0.06)) !important;
+    border: 1px solid rgba(99,102,241,0.22) !important;
+    border-radius: 14px !important;
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
+    color: var(--text-secondary) !important;
+    margin-bottom: 0.85rem !important;
+  }
+  .tp-modal .tp-smart-hint svg {
+    flex-shrink: 0;
+    color: var(--primary-500);
+    font-size: 1rem;
+    margin-top: 2px;
+  }
+  .tp-modal .tp-smart-hint strong {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  /* Edit-mode list grouped by category — iOS inset-list pattern */
+  .tp-modal .tp-checklist-edit-groups {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  .tp-modal .tp-checklist-edit-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .tp-modal .tp-checklist-edit-group-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0 0.25rem;
+  }
+  .tp-modal .tp-checklist-edit-group-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-primary);
+  }
+  .tp-modal .tp-checklist-edit-group-emoji {
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+  .tp-modal .tp-checklist-edit-group-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background: var(--bg-active);
+    color: var(--primary-500);
+    font-size: 0.62rem;
+    font-weight: 800;
+    border-radius: 999px;
+    letter-spacing: 0;
+  }
+  [data-theme="dark"] .tp-modal .tp-checklist-edit-group-count {
+    color: var(--primary-300);
+  }
+  .tp-modal .tp-checklist-edit-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    height: 30px;
+    background: var(--bg-active);
+    color: var(--primary-500);
+    border: none;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.08s ease;
+  }
+  [data-theme="dark"] .tp-modal .tp-checklist-edit-add { color: var(--primary-300); }
+  .tp-modal .tp-checklist-edit-add:hover {
+    background: linear-gradient(135deg, rgba(99,102,241,0.18), rgba(236,72,153,0.12));
+  }
+  .tp-modal .tp-checklist-edit-add:active { transform: scale(0.95); }
+  .tp-modal .tp-checklist-edit-add svg { font-size: 0.85rem; }
+
+  .tp-modal .tp-checklist-edit-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.4rem !important;
+  }
+  /* Row: [emoji chip 36px] [input (1fr)] [trash 40px] */
+  .tp-modal .tp-checklist-edit-row {
+    display: grid !important;
+    grid-template-columns: 36px minmax(0, 1fr) 40px !important;
+    gap: 0.55rem !important;
+    padding: 0.55rem 0.75rem !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+    border-radius: 14px !important;
+    align-items: center !important;
+    margin-bottom: 0 !important;
+    transition: border-color 0.15s ease, transform 0.08s ease;
+  }
+  .tp-modal .tp-checklist-edit-row:focus-within {
+    border-color: rgba(99,102,241,0.4) !important;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+  }
+  /* Small emoji chip — replaces the category dropdown; cleaner visual */
+  .tp-modal .tp-checklist-edit-emoji {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-active);
+    border-radius: 10px;
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+  /* Text input — transparent, blends into the row */
+  .tp-modal .tp-checklist-edit-row input {
+    padding: 0.5rem 0 !important;
+    font-size: 16px !important;
+    border: none !important;
+    background: transparent !important;
+    color: var(--text-primary) !important;
+    width: 100%;
+    border-radius: 0 !important;
+  }
+  .tp-modal .tp-checklist-edit-row input:focus {
+    outline: none;
+    box-shadow: none !important;
+  }
+  .tp-modal .tp-checklist-edit-row input::placeholder {
+    color: var(--text-tertiary);
+  }
+  /* Delete button — compact icon on the right */
+  .tp-modal .tp-checklist-edit-row .tp-btn-icon-danger {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: auto !important;
+    padding: 0 !important;
+  }
+
+  /* Add-row (for the detail view) — same grouped-card feel */
+  .tp-modal .tp-checklist-add {
+    grid-template-columns: 104px minmax(0, 1fr) auto !important;
+    gap: 0.45rem !important;
+    padding: 0.55rem 0.65rem !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+    border-radius: 14px !important;
+    border-bottom: 1px solid var(--border-default) !important;
+    margin-bottom: 0.85rem !important;
+  }
+  .tp-modal .tp-checklist-add select {
+    height: 40px !important;
+    background: var(--bg-active) !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 0 0.5rem !important;
+    text-align: left;
+    text-align-last: left;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: var(--primary-500) !important;
+    appearance: none;
+    -webkit-appearance: none;
+    grid-column: auto !important;
+    width: 100% !important;
+    min-width: 0;
+  }
+  [data-theme="dark"] .tp-modal .tp-checklist-add select {
+    color: var(--primary-300) !important;
+  }
+  .tp-modal .tp-checklist-add input {
+    background: transparent !important;
+    border: none !important;
+    padding: 0.5rem 0 !important;
+    font-size: 16px !important;
+    border-radius: 0 !important;
+  }
+  .tp-modal .tp-checklist-add button {
+    height: 40px;
+    padding: 0 1rem !important;
+    border-radius: 10px !important;
+    font-size: 0.88rem;
+  }
+
+  /* Grouped category sections (detail view) — iOS inset list look */
+  .tp-modal .tp-checklist-group-title {
+    font-size: 0.7rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.12em !important;
+    color: var(--text-tertiary) !important;
+    padding: 0 0.25rem !important;
+    margin: 1rem 0 0.45rem !important;
+  }
+  .tp-modal .tp-checklist-item {
+    padding: 0.65rem 0.85rem !important;
+    border-radius: 12px !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+    margin-bottom: 0.4rem !important;
+    gap: 0.7rem !important;
+  }
+  .tp-modal .tp-check {
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 7px !important;
+    border-width: 1.5px !important;
+  }
+  .tp-modal .tp-check-text {
+    font-size: 0.92rem !important;
+    letter-spacing: -0.005em;
+  }
+
+  /* Progress bar (detail view) — prominent stadium pill */
+  .tp-modal .tp-progress-bar-wrap {
+    height: 36px !important;
+    padding: 0 1rem !important;
+    border-radius: 999px !important;
+    background: var(--bg-input) !important;
+    border: 1px solid var(--border-default);
+    overflow: hidden;
+    margin-bottom: 0.85rem;
+  }
+  .tp-modal .tp-progress-bar-wrap span {
+    font-size: 0.82rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em;
+  }
+
+  /* ==================================================================
+     TRIP DETAIL view — hero, status segmented control, overview grid
+     ================================================================== */
+  /* Hero — full-bleed gradient with decorative radial lights */
+  .tp-modal.tp-detail .tp-detail-hero {
+    position: relative;
+    padding: 1.2rem 1.1rem 1.3rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.85rem !important;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-default) !important;
+  }
+  .tp-modal.tp-detail .tp-detail-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(420px 220px at 8% 10%,  rgba(99, 102, 241, 0.16), transparent 60%),
+      radial-gradient(360px 200px at 95% 90%, rgba(236, 72, 153, 0.14), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .tp-modal.tp-detail .tp-detail-hero > * { position: relative; z-index: 1; }
+
+  .tp-modal.tp-detail .tp-detail-chips {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.35rem !important;
+    margin-bottom: 0 !important;
+    padding-right: 3rem; /* clear space for the close button */
+  }
+  .tp-modal.tp-detail .tp-detail-chips .tp-status-pill,
+  .tp-modal.tp-detail .tp-detail-chips .tp-chip-light {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+    border-radius: 999px !important;
+  }
+  .tp-modal.tp-detail .tp-detail-hero h2 {
+    font-size: 1.55rem !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.025em !important;
+    font-weight: 800 !important;
+    margin: 0.15rem 0 0.1rem !important;
+  }
+  .tp-modal.tp-detail .tp-detail-meta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.25rem 0.45rem !important;
+    font-size: 0.8rem !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.5 !important;
+  }
+  .tp-modal.tp-detail .tp-close.on-hero {
+    top: 12px !important;
+    right: 12px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: rgba(255,255,255,0.92) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12) !important;
+    z-index: 5 !important;
+  }
+  [data-theme="dark"] .tp-modal.tp-detail .tp-close.on-hero {
+    background: rgba(255,255,255,0.14) !important;
+    color: #fff !important;
+  }
+
+  /* "days to go" — hero countdown card, full-width on mobile with pill shape */
+  .tp-modal.tp-detail .tp-detail-countdown {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding: 0.85rem 1rem !important;
+    margin-top: 0.25rem;
+    background: rgba(255, 255, 255, 0.72) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    align-self: stretch !important;
+  }
+  [data-theme="dark"] .tp-modal.tp-detail .tp-detail-countdown {
+    background: rgba(255,255,255,0.08) !important;
+    border-color: rgba(255,255,255,0.12);
+  }
+  .tp-modal.tp-detail .tp-detail-countdown .cd-big {
+    font-size: 1.95rem !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.03em !important;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .tp-modal.tp-detail .tp-detail-countdown .cd-sub {
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    color: var(--text-secondary) !important;
+    margin-left: 2px;
+  }
+
+  /* Overview 2-col grid — richer tile design: icon chip + label + big value
+     + optional progress bar. Each tile carries an accent color. */
+  .tp-modal .tp-ov-grid,
+  .tp-modal .tp-overview-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.55rem !important;
+  }
+  .tp-modal .tp-ov-card,
+  .tp-modal .tp-overview-grid > * {
+    position: relative;
+    padding: 0.9rem 0.95rem !important;
+    border-radius: 16px !important;
+    min-width: 0;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    overflow: hidden;
+  }
+  .tp-modal .tp-ov-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(150px 80px at 100% 0%, var(--accent-tint, transparent), transparent 70%);
+    pointer-events: none;
+    opacity: 0.75;
+  }
+  .tp-modal .tp-ov-card[data-accent="indigo"]  { --accent-tint: rgba(99, 102, 241, 0.12);  --accent-solid: #6366f1; }
+  .tp-modal .tp-ov-card[data-accent="rose"]    { --accent-tint: rgba(244, 114, 182, 0.14); --accent-solid: #ec4899; }
+  .tp-modal .tp-ov-card[data-accent="amber"]   { --accent-tint: rgba(251, 191, 36, 0.14);  --accent-solid: #f59e0b; }
+  .tp-modal .tp-ov-card[data-accent="emerald"] { --accent-tint: rgba(52, 211, 153, 0.14);  --accent-solid: #10b981; }
+
+  .tp-modal .tp-ov-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-tint, rgba(99, 102, 241, 0.12));
+    color: var(--accent-solid, #6366f1);
+    font-size: 0.95rem;
+  }
+  .tp-modal .tp-ov-label {
+    font-size: 0.66rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: var(--text-tertiary) !important;
+    margin: 0 !important;
+  }
+  .tp-modal .tp-ov-value {
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    color: var(--text-primary) !important;
+    line-height: 1.1 !important;
+  }
+  .tp-modal .tp-ov-bar {
+    position: relative;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--bg-active);
+    overflow: hidden;
+    margin-top: 0.25rem;
+  }
+  .tp-modal .tp-ov-bar span {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: linear-gradient(90deg, var(--accent-solid, #6366f1), var(--accent-solid, #6366f1));
+    border-radius: inherit;
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  /* Legacy section header (used for Cities / Co-travelers / Notes) */
+  .tp-modal .tp-ov-h {
+    font-size: 0.66rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: var(--text-tertiary) !important;
+    margin-bottom: 0.4rem !important;
+  }
+  .tp-modal .tp-ov-section { margin-top: 1rem; }
+
+  /* Status segmented control (Idea / Planning / Booked / Completed / Cancelled)
+     — 5 segments wrap on narrow screens. Use a scrollable pill strip. */
+  .tp-modal .tp-seg {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 4px !important;
+    background: rgba(120, 120, 128, 0.14) !important;
+    border-radius: 12px !important;
+    scroll-snap-type: x proximity;
+  }
+  [data-theme="dark"] .tp-modal .tp-seg { background: rgba(255, 255, 255, 0.06) !important; }
+  .tp-modal .tp-seg::-webkit-scrollbar { display: none; }
+  .tp-modal .tp-seg-btn {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    padding: 8px 14px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    border-radius: 9px !important;
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+    border: none !important;
+    white-space: nowrap;
+  }
+  .tp-modal .tp-seg-btn.active {
+    background: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+    box-shadow:
+      0 3px 8px rgba(15, 23, 42, 0.08),
+      0 0 0 0.5px rgba(15, 23, 42, 0.04) !important;
+  }
+  [data-theme="dark"] .tp-modal .tp-seg-btn.active {
+    background: rgba(255, 255, 255, 0.13) !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  /* ==================================================================
+     MOBILE BUTTON & LABEL DESIGN SYSTEM — one visual language for
+     every CTA, button, chip and label across the app.
+     Sizing rules:
+       Primary CTA   48px  · 14px radius · gradient · weight 700
+       Secondary     48px  · 12px radius · outline  · weight 700
+       Compact btn   40px  · 12px radius · outline  · weight 600
+       Icon button   40×40 · 10px radius · subtle   · center-aligned
+       Close button  36×36 · 50% radius  · frosted  · with shadow
+       Chip/pill     32px  · 999 radius  · tint     · weight 700
+       FAB           56×56 · 50% radius  · gradient · icon-only
+     ================================================================== */
+
+  /* ---- PRIMARY CTAs (all gradient + uniform sizing) ---- */
+  .hero-btn-primary,
+  .auth-submit, .auth-primary-btn,
+  .fr-btn-primary:not(.small), .fr-modal-footer .fr-btn-primary,
+  .mem-btn-primary,
+  .tp-btn-primary:not(.small):not(.big),
+  .tp-btn-primary.big,
+  .smp-btn-primary,
+  .wm-download-btn,
+  .map-download-btn,
+  .dmm-btn-primary,
+  .ad-btn-primary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.55rem !important;
+    min-height: 48px !important;
+    padding: 0 1.2rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.005em !important;
+    border-radius: 14px !important;
+    border: none !important;
+    cursor: pointer;
+    color: #fff !important;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 55%, #ec4899 100%) !important;
+    background-size: 180% 180%;
+    background-position: 0% 50%;
+    box-shadow:
+      0 10px 22px rgba(99, 102, 241, 0.32),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.2s ease,
+      background-position 0.5s ease,
+      opacity 0.15s ease !important;
+    white-space: nowrap;
+  }
+  .hero-btn-primary:hover:not(:disabled),
+  .auth-submit:hover:not(:disabled),
+  .fr-btn-primary:not(.small):hover:not(:disabled),
+  .mem-btn-primary:hover:not(:disabled),
+  .tp-btn-primary:not(.small):hover:not(:disabled),
+  .smp-btn-primary:hover:not(:disabled),
+  .wm-download-btn:hover:not(:disabled),
+  .map-download-btn:hover:not(:disabled),
+  .dmm-btn-primary:hover:not(:disabled),
+  .ad-btn-primary:hover:not(:disabled) {
+    background-position: 100% 50% !important;
+    transform: translateY(-1px);
+    box-shadow:
+      0 14px 30px rgba(99, 102, 241, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+  }
+  .hero-btn-primary:active:not(:disabled),
+  .auth-submit:active:not(:disabled),
+  .mem-btn-primary:active:not(:disabled),
+  .tp-btn-primary:active:not(:disabled),
+  .smp-btn-primary:active:not(:disabled),
+  .dmm-btn-primary:active:not(:disabled) {
+    transform: scale(0.98) !important;
+  }
+  .hero-btn-primary:disabled,
+  .auth-submit:disabled,
+  .mem-btn-primary:disabled,
+  .tp-btn-primary:disabled,
+  .dmm-btn-primary:disabled {
+    opacity: 0.55 !important;
+    cursor: not-allowed;
+    box-shadow: none !important;
+  }
+  /* Compact primary ("small" variant on planner list cards, etc.) */
+  .tp-btn-primary.small,
+  .fr-btn-primary.small,
+  .mem-btn-primary.small {
+    min-height: 40px !important;
+    padding: 0 0.95rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 12px !important;
+    box-shadow:
+      0 6px 14px rgba(99, 102, 241, 0.26),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+  }
+
+  /* ---- SECONDARY / OUTLINE CTAs ---- */
+  .hero-btn-secondary,
+  .tp-btn-secondary,
+  .mem-btn-secondary,
+  .fr-btn-secondary,
+  .dmm-btn-secondary,
+  .auth-secondary-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.45rem !important;
+    min-height: 48px !important;
+    padding: 0 1.1rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.005em !important;
+    border-radius: 14px !important;
+    background: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-default) !important;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+    white-space: nowrap;
+  }
+  .hero-btn-secondary:hover:not(:disabled),
+  .tp-btn-secondary:hover:not(:disabled),
+  .mem-btn-secondary:hover:not(:disabled),
+  .fr-btn-secondary:hover:not(:disabled),
+  .dmm-btn-secondary:hover:not(:disabled) {
+    background: var(--bg-hover) !important;
+    border-color: var(--border-muted) !important;
+  }
+  .hero-btn-secondary:active:not(:disabled),
+  .tp-btn-secondary:active:not(:disabled),
+  .mem-btn-secondary:active:not(:disabled) { transform: scale(0.98); }
+
+  /* ---- COMPACT / GHOST BUTTONS (e.g. "Use template", "Add item") ---- */
+  .tp-btn-ghost {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    min-height: 44px !important;
+    padding: 0 1rem !important;
+    font-size: 0.86rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.005em !important;
+    border-radius: 12px !important;
+    background: var(--bg-card) !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-default) !important;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease,
+                color 0.15s ease, transform 0.08s ease;
+  }
+  .tp-btn-ghost:hover:not(:disabled) {
+    background: var(--bg-hover) !important;
+    color: var(--primary-500) !important;
+    border-color: rgba(99, 102, 241, 0.28) !important;
+  }
+
+  /* ---- CLOSE BUTTONS on every modal (uniform circular frosted design) ---- */
+  .mem-close, .tp-close, .fr-close, .dmm-close,
+  .ad-close, .smp-close, .welcome-dismiss {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: var(--bg-input) !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-default) !important;
+    cursor: pointer;
+    font-size: 0.88rem !important;
+    padding: 0 !important;
+    flex-shrink: 0;
+    transition: background 0.15s ease, color 0.15s ease,
+                transform 0.15s ease, border-color 0.15s ease;
+  }
+  .mem-close:hover, .tp-close:hover, .fr-close:hover, .dmm-close:hover,
+  .ad-close:hover, .smp-close:hover, .welcome-dismiss:hover {
+    background: rgba(239, 68, 68, 0.12) !important;
+    color: #ef4444 !important;
+    border-color: rgba(239, 68, 68, 0.28) !important;
+    transform: rotate(90deg) !important;
+  }
+
+  /* ---- ICON BUTTONS (delete, edit, copy etc. inside rows/cards) ---- */
+  .tp-btn-icon-danger,
+  .wm-action-btn,
+  .mem-photo-remove,
+  .tp-btn-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    padding: 0 !important;
+    font-size: 0.88rem !important;
+    border: 1px solid var(--border-default) !important;
+    background: var(--bg-card) !important;
+    color: var(--text-secondary) !important;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .tp-btn-icon-danger:hover,
+  .mem-photo-remove:hover,
+  .wm-action-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #ef4444 !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+  }
+
+  /* ---- PILL CHIPS (status, filter, tags) — all uniform ---- */
+  .tp-chip-light,
+  .tp-status-pill,
+  .mcm-chip, .mcm-chip-light,
+  .mem-filter-chip,
+  .brand-pill,
+  .fr-chip {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    min-height: 28px !important;
+    padding: 0 0.7rem !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.005em !important;
+    border-radius: 999px !important;
+    white-space: nowrap;
+  }
+
+  /* ---- UNIFIED FIELD LABELS across every form on mobile ---- */
+  .tp-field label,
+  .mem-field label,
+  .sf-group label,
+  .fr-field label,
+  .auth-form label {
+    font-size: 0.68rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: var(--text-tertiary) !important;
+    margin-bottom: 0.35rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+  }
+  .tp-field label svg,
+  .mem-field label svg,
+  .sf-group label svg {
+    font-size: 0.85rem !important;
+    color: var(--primary-500) !important;
+  }
+  [data-theme="dark"] .tp-field label svg,
+  [data-theme="dark"] .mem-field label svg,
+  [data-theme="dark"] .sf-group label svg {
+    color: var(--primary-300) !important;
+  }
+
+  /* ---- UNIFIED SECTION HEADINGS (h2 / h3 inside cards) ---- */
+  .tp-checklist-group-title,
+  .tp-ov-h,
+  .fr-section-title,
+  .settings-card h2,
+  .wm-table-header h2,
+  .mem-section-head h3 {
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.12em !important;
+    color: var(--text-tertiary) !important;
+    margin-bottom: 0.5rem !important;
+  }
+  /* Big page/card titles (Countries Visited, etc.) override with a larger size */
+  .wm-table-header h2,
+  .fr-section-title {
+    font-size: 0.98rem !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    letter-spacing: -0.01em !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* ---- MODAL FOOTER: always sticky, symmetric 2-button layout ---- */
+  .mem-modal-footer,
+  .tp-modal-footer,
+  .fr-modal-footer,
+  .dmm-body + .dmm-footer,
+  .ad-modal-footer {
+    display: grid !important;
+    grid-template-columns: auto 1fr !important;
+    gap: 0.55rem !important;
+    align-items: center !important;
+  }
+  /* "between" variant (like Delete ↔ Save) shifts to 3-col with spacer */
+  .tp-modal-footer.between {
+    grid-template-columns: auto 1fr auto !important;
+  }
+  .tp-modal-footer.between > :nth-child(2) {
+    justify-self: center;
+    color: var(--text-tertiary);
+    font-size: 0.78rem;
+  }
+  /* Primary in the footer always stretches full-width */
+  .mem-modal-footer .mem-btn-primary,
+  .tp-modal-footer .tp-btn-primary,
+  .fr-modal-footer .fr-btn-primary,
+  .dmm-footer .dmm-btn-primary {
+    width: 100% !important;
+    justify-self: stretch;
+  }
+
+  /* ---- Everywhere: unified icon sizes inside buttons/chips ---- */
+  .mem-btn-primary svg,
+  .tp-btn-primary svg,
+  .fr-btn-primary svg,
+  .hero-btn-primary svg,
+  .dmm-btn-primary svg,
+  .wm-download-btn svg,
+  .map-download-btn svg,
+  .mem-btn-secondary svg,
+  .tp-btn-secondary svg,
+  .fr-btn-secondary svg,
+  .tp-btn-ghost svg {
+    font-size: 1.05em !important;
+    flex-shrink: 0;
+  }
+
+  /* ==================================================================
+     EXTENDED BUTTON/LABEL UNIFICATION — covers the remaining classes
+     across Dashboard, Discover (Journal), Settings, WorldMap, Admin.
+     ================================================================== */
+
+  /* Dashboard welcome-link CTAs → unified pill chips */
+  .welcome-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    min-height: 38px !important;
+    padding: 0 0.9rem !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    text-decoration: none !important;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .welcome-link:active { transform: scale(0.96); }
+
+  /* Settings action buttons (Change password, Delete account, etc.) */
+  .ss-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    min-height: 44px !important;
+    padding: 0 1.1rem !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border-default) !important;
+    background: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+  }
+  .ss-btn:active { transform: scale(0.98); }
+  .ss-btn.danger {
+    background: rgba(239, 68, 68, 0.08) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #ef4444 !important;
+  }
+  .ss-btn.danger:hover { background: rgba(239, 68, 68, 0.14) !important; }
+  .ss-btn.warning {
+    background: rgba(251, 191, 36, 0.08) !important;
+    border-color: rgba(251, 191, 36, 0.28) !important;
+    color: #f59e0b !important;
+  }
+  .ss-btn.warning:hover { background: rgba(251, 191, 36, 0.14) !important; }
+
+  /* Discover (TravelJournal) — unified search/filter/progress styling */
+  .journal-progress-card {
+    padding: 0.9rem 1rem !important;
+    border-radius: 16px !important;
+    background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(236,72,153,0.04)) !important;
+    border: 1px solid var(--border-default) !important;
+  }
+  .journal-search {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.55rem !important;
+    height: 48px !important;
+    padding: 0 0.9rem !important;
+    border-radius: 14px !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .journal-search:focus-within {
+    border-color: rgba(99,102,241,0.45) !important;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+  }
+  .journal-search input {
+    flex: 1;
+    min-width: 0;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+    color: var(--text-primary) !important;
+    outline: none;
+  }
+  .journal-search-icon,
+  .journal-filter-icon {
+    color: var(--text-tertiary) !important;
+    font-size: 1rem !important;
+    flex-shrink: 0;
+  }
+  .journal-search-clear {
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    background: var(--bg-active) !important;
+    color: var(--text-secondary) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .journal-filter {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.55rem !important;
+    height: 48px !important;
+    padding: 0 0.9rem !important;
+    border-radius: 14px !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+  }
+  .journal-filter select {
+    flex: 1;
+    min-width: 0;
+    border: none !important;
+    background: transparent !important;
+    font-size: 16px !important;
+    color: var(--text-primary) !important;
+    padding: 0 !important;
+    outline: none;
+  }
+  .journal-result-count {
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+    color: var(--text-tertiary) !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Discover state-list rows → iOS-style grouped cards */
+  .journal-state-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.7rem !important;
+    min-height: 56px !important;
+    padding: 0.75rem 0.95rem !important;
+    border-radius: 14px !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+  }
+  .journal-state-row:hover {
+    border-color: rgba(99,102,241,0.28) !important;
+    background: var(--bg-hover) !important;
+  }
+  .journal-state-row:active { transform: scale(0.99); }
+
+  /* WorldMap edit input inside table rows (mobile cards) */
+  .wm-edit-input {
+    height: 42px !important;
+    padding: 0 0.75rem !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+    border: 1px solid var(--border-default) !important;
+    background: var(--bg-card) !important;
+  }
+  /* WorldMap home-country badge → uniform chip */
+  .wm-home-badge {
+    min-height: 28px !important;
+    padding: 0 0.75rem !important;
+    border-radius: 999px !important;
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+  }
+
+  /* Admin console tabs + buttons */
+  .ad-tab {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    min-height: 38px !important;
+    padding: 0 0.9rem !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    border-radius: 999px !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+    color: var(--text-secondary) !important;
+  }
+  .ad-tab.active {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.28) !important;
+  }
+
+  /* Memory wall card actions (share, delete, edit) */
+  .mca-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.35rem !important;
+    min-height: 36px !important;
+    padding: 0 0.85rem !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--border-default) !important;
+    background: var(--bg-card) !important;
+    color: var(--text-secondary) !important;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .mca-btn.primary {
+    background: rgba(99, 102, 241, 0.1) !important;
+    border-color: rgba(99, 102, 241, 0.3) !important;
+    color: var(--primary-500) !important;
+  }
+
+  /* Friend item action buttons (accept / decline / cancel / remove) */
+  .fr-item-actions button,
+  .fr-invite-btn, .fr-accept-btn, .fr-decline-btn,
+  .fr-cancel-btn, .fr-remove-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.35rem !important;
+    min-height: 38px !important;
+    padding: 0 0.9rem !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--border-default) !important;
+    background: var(--bg-card) !important;
+    color: var(--text-secondary) !important;
+    cursor: pointer;
+  }
+  .fr-accept-btn, .fr-invite-btn {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.28) !important;
+  }
+  .fr-decline-btn, .fr-remove-btn {
+    background: rgba(239, 68, 68, 0.08) !important;
+    border-color: rgba(239, 68, 68, 0.28) !important;
+    color: #ef4444 !important;
+  }
+
+  /* Admin switcher (Dashboard) polish */
+  .admin-switcher {
+    padding: 0.85rem !important;
+    border-radius: 14px !important;
+  }
+  .admin-switcher select {
+    height: 42px !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+    padding: 0 0.7rem !important;
+  }
+
+  /* Unify ALL text inputs app-wide (any remaining form fields) */
+  input[type="text"], input[type="email"], input[type="password"],
+  input[type="tel"], input[type="number"], input[type="date"],
+  input[type="search"], input[type="url"], textarea {
+    min-height: 44px;
+  }
+  textarea { min-height: 80px; }
+
+  /* Unify all section titles H2/H3 that appear as card/section headers */
+  .journal-hdr .page-title,
+  .ad-hdr .ad-title,
+  .sp-header .sp-title {
+    font-size: 1.2rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+    font-weight: 800 !important;
+  }
+
+  /* Any remaining "Add"/"New"/"Edit" sub-CTAs that need consistency */
+  button.small,
+  button.chip,
+  .btn-chip {
+    min-height: 34px !important;
+    padding: 0 0.85rem !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    border-radius: 999px !important;
+  }
+
+  /* ==================================================================
+     LANDING PAGE (home) — mobile polish, app-like feel
+     ================================================================== */
+
+  /* Top nav — single sticky bar, frosted, app-bar feel */
+  .landing-nav {
+    padding: 0.6rem 1rem !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    border-bottom: 1px solid var(--border-default);
+  }
+  [data-theme="dark"] .landing-nav {
+    background: rgba(13, 17, 23, 0.75) !important;
+  }
+  .landing-nav.scrolled {
+    padding: 0.45rem 1rem !important;
+    box-shadow: 0 1px 0 var(--border-default), 0 6px 18px rgba(15, 23, 42, 0.05);
+  }
+  .landing-logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+  }
+  .landing-logo svg {
+    font-size: 1.25rem !important;
+    color: var(--primary-500);
+  }
+  .nav-btn-ghost,
+  .nav-btn-primary {
+    min-height: 38px !important;
+    padding: 0 0.95rem !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    border-radius: 999px !important;
+  }
+
+  /* Hero — tighter vertical rhythm, aligned content */
+  .landing-hero {
+    padding: 80px 1rem 28px !important;
+    gap: 1.35rem !important;
+    text-align: center !important;
+  }
+  .hero-badge {
+    min-height: 32px !important;
+    padding: 0 0.95rem !important;
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    border-radius: 999px !important;
+    background: rgba(99, 102, 241, 0.1) !important;
+    border: 1px solid rgba(99, 102, 241, 0.22) !important;
+    color: var(--primary-500) !important;
+    align-self: center !important;
+    letter-spacing: 0 !important;
+  }
+  .hero-badge svg, .hero-badge .hero-badge-icon {
+    font-size: 0.9rem !important;
+    color: var(--primary-500) !important;
+  }
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.03em !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+  }
+  .hero-title .hero-gradient-text {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6 50%, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-subtitle {
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+    color: var(--text-secondary) !important;
+    margin: 0 auto !important;
+    max-width: 340px !important;
+  }
+  .hero-subtitle strong {
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+  }
+  .hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.55rem !important;
+    width: 100% !important;
+    margin: 0.25rem 0 0.25rem !important;
+  }
+  .hero-actions .hero-btn-primary,
+  .hero-actions .hero-btn-secondary {
+    width: 100% !important;
+  }
+
+  /* Hero bullets — app-tile feel, uniform icon badge + title + subtitle */
+  .hero-bullets {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0.3rem 0 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.55rem !important;
+    max-width: 100% !important;
+  }
+  .hero-bullets li {
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 0.8rem !important;
+    padding: 0.85rem 1rem !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+    border-radius: 16px !important;
+    text-align: left !important;
+    font-size: 0.88rem !important;
+    line-height: 1.35 !important;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  }
+  .hero-bullets li svg,
+  .hero-bullets li .hero-bullet-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.15rem !important;
+    background: var(--bg-active) !important;
+    color: var(--primary-500) !important;
+    flex-shrink: 0;
+  }
+  .hero-bullets li strong {
+    display: block;
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  /* Hero mini-stats strip (the city marquee if any) */
+  .hero-mini-stats {
+    margin-top: 0.5rem !important;
+    gap: 0.5rem !important;
+  }
+  .hms {
+    min-height: 36px !important;
+    padding: 6px 12px !important;
+    border-radius: 999px !important;
+    font-size: 0.78rem !important;
+  }
+
+  /* Hero map visualization — keep visible but compact */
+  .hero-map-real {
+    margin: 0.5rem auto 0 !important;
+    max-width: 100% !important;
+    border-radius: 18px !important;
+    box-shadow: 0 20px 42px rgba(15, 23, 42, 0.12);
+  }
+
+  /* ===== Section headers (features / how / testimonials / FAQ) ===== */
+  .features-header,
+  .how-header,
+  .testimonials-header,
+  .faq-header,
+  .cta-header {
+    padding: 2rem 1rem 1.5rem !important;
+    text-align: center !important;
+  }
+  .features-header h2,
+  .how-header h2,
+  .testimonials-header h2,
+  .faq-header h2,
+  .cta-header h2 {
+    font-size: 1.7rem !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.03em !important;
+    font-weight: 800 !important;
+    margin: 0 0 0.5rem !important;
+  }
+  .features-header p,
+  .how-header p,
+  .testimonials-header p,
+  .faq-header p,
+  .cta-header p {
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
+    color: var(--text-secondary) !important;
+    max-width: 340px;
+    margin: 0 auto !important;
+  }
+  .section-kicker,
+  .features-header .section-kicker,
+  .how-header .section-kicker {
+    min-height: 28px !important;
+    padding: 0 0.85rem !important;
+    font-size: 0.7rem !important;
+    font-weight: 800 !important;
+    border-radius: 999px !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem !important;
+  }
+
+  /* Features grid — stacked single-column cards */
+  .landing-features {
+    padding: 1rem 1rem 2rem !important;
+  }
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.7rem !important;
+  }
+  .feature-card {
+    padding: 1.1rem !important;
+    border-radius: 18px !important;
+    border: 1px solid var(--border-default) !important;
+    background: var(--bg-card) !important;
+  }
+  .feature-card-icon,
+  .feature-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 14px !important;
+    margin-bottom: 0.8rem !important;
+    font-size: 1.3rem !important;
+  }
+  .feature-card h3,
+  .feature-title {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.4rem !important;
+    letter-spacing: -0.015em !important;
+  }
+  .feature-card p,
+  .feature-desc {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    color: var(--text-secondary) !important;
+  }
+
+  /* Why pillars — 2 column compact grid on phones */
+  .landing-why, .why-pillars {
+    padding: 1.5rem 1rem !important;
+  }
+  .why-grid, .pillars-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.65rem !important;
+  }
+  .pillar-card, .why-card {
+    padding: 1rem 0.85rem !important;
+    border-radius: 16px !important;
+    text-align: left;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+  }
+  .pillar-card-icon, .why-icon {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    font-size: 1rem !important;
+    margin-bottom: 0.55rem !important;
+  }
+  .pillar-card h3, .why-title {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+    margin: 0 0 0.3rem !important;
+  }
+  .pillar-card p, .why-desc {
+    font-size: 0.78rem !important;
+    line-height: 1.45 !important;
+    color: var(--text-secondary) !important;
+  }
+
+  /* How-it-works steps — vertical stacked cards */
+  .landing-how {
+    padding: 1rem 1rem 2rem !important;
+  }
+  .how-steps, .steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .step-card {
+    padding: 1.1rem !important;
+    border-radius: 18px !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+  }
+  .step-num {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 12px !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .step-card h3 {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.35rem !important;
+  }
+  .step-card p {
+    font-size: 0.88rem !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Testimonials — single card visible, swipe-friendly */
+  .landing-testimonials {
+    padding: 1rem 1rem 2rem !important;
+  }
+  .testimonials-track {
+    gap: 0.75rem !important;
+  }
+  .testimonial-card {
+    padding: 1.2rem !important;
+    border-radius: 18px !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-default) !important;
+  }
+  .testimonial-stars {
+    font-size: 0.85rem !important;
+    color: #f59e0b !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .testimonial-text {
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
+    margin: 0 0 0.85rem !important;
+    color: var(--text-primary) !important;
+  }
+  .testimonial-author {
+    gap: 0.65rem !important;
+  }
+  .testimonial-avatar {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+  }
+  .testimonial-name {
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+  }
+  .testimonial-role {
+    font-size: 0.74rem !important;
+    color: var(--text-tertiary) !important;
+  }
+
+  /* FAQ — clean accordion rows */
+  .landing-faq {
+    padding: 1rem 1rem 2rem !important;
+  }
+  .faq-list {
+    gap: 0.45rem !important;
+  }
+  .faq-item {
+    border-radius: 14px !important;
+    border: 1px solid var(--border-default) !important;
+    background: var(--bg-card) !important;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 0.95rem 1rem !important;
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+    min-height: 52px !important;
+    gap: 0.75rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    text-align: left !important;
+    color: var(--text-primary) !important;
+    cursor: pointer;
+  }
+  .faq-chevron {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bg-active);
+    color: var(--primary-500);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .faq-a {
+    padding: 0 1rem 1rem !important;
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    color: var(--text-secondary) !important;
+  }
+
+  /* Bottom CTA block — full-bleed gradient card */
+  .landing-cta {
+    padding: 1.5rem 1rem 2rem !important;
+  }
+  .cta-content {
+    padding: 2rem 1.25rem !important;
+    border-radius: 22px !important;
+    box-shadow: 0 20px 44px rgba(99, 102, 241, 0.28);
+  }
+  .cta-content h2 {
+    font-size: 1.6rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .cta-content p {
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1rem !important;
+  }
+  .cta-content .hero-btn-primary,
+  .cta-content button,
+  .cta-content a {
+    width: 100% !important;
+  }
+
+  /* Footer — compact, centered */
+  .landing-footer {
+    padding: 1.5rem 1rem 2rem !important;
+  }
+  .footer-inner {
+    flex-direction: column !important;
+    gap: 0.85rem !important;
+    text-align: center !important;
+  }
+  .footer-links {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.4rem 0.9rem !important;
+  }
+  .footer-links a {
+    font-size: 0.82rem !important;
+  }
+  .footer-inner > p {
+    text-align: center !important;
+    font-size: 0.78rem !important;
+    color: var(--text-tertiary) !important;
   }
 
   /* -------- Landing hero: guarantee hero-card + map feels balanced -------- */

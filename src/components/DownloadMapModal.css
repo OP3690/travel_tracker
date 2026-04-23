@@ -1,0 +1,669 @@
+/* ===== Download Map Modal — premium redesign ===== */
+
+.dmm-overlay {
+  position: fixed; inset: 0;
+  background: rgba(5, 4, 20, 0.78);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem 1.25rem; z-index: 2000;
+  animation: dmm-fade 0.22s ease;
+}
+@keyframes dmm-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.dmm-modal {
+  /* Always render the modal in a dark canvas so every template — light or
+     dark — preserves its contrast and punch. Do not inherit site theme vars. */
+  --dmm-bg: #0c0a1e;
+  --dmm-text-primary: #ffffff;
+  --dmm-text-secondary: rgba(255, 255, 255, 0.72);
+  --dmm-text-muted: rgba(255, 255, 255, 0.5);
+  --dmm-border: rgba(255, 255, 255, 0.10);
+  --dmm-border-soft: rgba(255, 255, 255, 0.06);
+  --dmm-surface: rgba(255, 255, 255, 0.04);
+  --dmm-surface-hover: rgba(255, 255, 255, 0.07);
+
+  color: var(--dmm-text-primary);
+  width: min(1160px, 96vw);
+  max-height: 92vh;
+  background:
+    radial-gradient(ellipse 700px 400px at 0% 0%, rgba(99, 102, 241, 0.20), transparent 55%),
+    radial-gradient(ellipse 600px 400px at 100% 100%, rgba(236, 72, 153, 0.18), transparent 55%),
+    var(--dmm-bg);
+  border: 1px solid var(--dmm-border);
+  border-radius: 22px;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  animation: dmm-pop 0.3s cubic-bezier(.2, .9, .3, 1);
+}
+@keyframes dmm-pop {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+/* Header */
+.dmm-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid var(--dmm-border-soft);
+  gap: 1.25rem;
+  background:
+    linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(236, 72, 153, 0.12) 60%, transparent);
+}
+.dmm-header h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dmm-header p {
+  margin: 6px 0 0;
+  font-size: 0.86rem;
+  color: var(--dmm-text-secondary);
+  max-width: 520px;
+  line-height: 1.55;
+}
+.dmm-header p strong { color: #fff; font-weight: 700; }
+.dmm-close {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--dmm-text-secondary);
+  border: 1px solid var(--dmm-border);
+  cursor: pointer;
+  width: 38px; height: 38px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; flex-shrink: 0;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+.dmm-close:hover {
+  background: rgba(239, 68, 68, 0.16);
+  color: #fecaca;
+  transform: rotate(90deg);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Body */
+.dmm-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Preview column */
+.dmm-preview-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+}
+.dmm-preview-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 78vh;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #050418;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.dmm-preview-img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+.dmm-preview-img.loading { opacity: 0.45; transform: scale(0.995); }
+.dmm-preview-skeleton {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, rgba(99, 102, 241, 0.22) 0%, rgba(124, 58, 237, 0.14) 50%, rgba(236, 72, 153, 0.14) 100%);
+  animation: dmm-skel 1.5s ease-in-out infinite alternate;
+}
+@keyframes dmm-skel { from { opacity: 0.5; } to { opacity: 1; } }
+.dmm-preview-spinner {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.dmm-preview-spinner::before {
+  content: '';
+  width: 10px; height: 10px; border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #fff;
+  animation: dmm-spin 0.7s linear infinite;
+}
+@keyframes dmm-spin { to { transform: rotate(360deg); } }
+
+.dmm-preview-badge {
+  position: absolute; top: 14px; left: 14px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px 6px 8px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.dmm-preview-badge-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Tabs */
+.dmm-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--dmm-border);
+  border-radius: 12px;
+  align-self: flex-start;
+}
+.dmm-tab {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px;
+  background: transparent;
+  color: var(--dmm-text-secondary);
+  border: none;
+  border-radius: 9px;
+  font-size: 0.82rem; font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.dmm-tab svg { font-size: 0.9rem; }
+.dmm-tab:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
+.dmm-tab.active {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.22));
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.dmm-tab-count {
+  font-size: 0.66rem; font-weight: 700;
+  padding: 2px 7px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: #fff;
+}
+
+/* Customize panel */
+.dmm-customize {
+  display: flex; flex-direction: column; gap: 1.1rem;
+}
+.dmm-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--dmm-border);
+  border-radius: 12px;
+  color: #fff;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.88rem; font-family: inherit;
+  line-height: 1.5;
+  resize: vertical; min-height: 72px;
+  transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+.dmm-textarea::placeholder { color: rgba(255, 255, 255, 0.35); }
+.dmm-textarea:focus {
+  outline: none;
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+.dmm-count.over { color: #fca5a5; }
+
+/* Generate-by-AI inline button — sits between the label text and the
+   character counter on the tagline field. */
+.dmm-ai-btn {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-left: 6px;
+  padding: 5px 11px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  background-size: 180% 180%;
+  background-position: 0% 50%;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  cursor: pointer;
+  box-shadow:
+    0 4px 12px rgba(99, 102, 241, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-position 0.5s ease;
+  white-space: nowrap;
+}
+.dmm-ai-btn svg {
+  font-size: 0.72rem;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.55));
+  animation: dmm-ai-sparkle 2.2s ease-in-out infinite;
+}
+@keyframes dmm-ai-sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  40%      { transform: scale(1.15) rotate(12deg); opacity: 0.85; }
+  60%      { transform: scale(0.95) rotate(-8deg); opacity: 1; }
+}
+.dmm-ai-btn:hover {
+  transform: translateY(-1px);
+  background-position: 100% 50%;
+  box-shadow:
+    0 8px 20px rgba(99, 102, 241, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.dmm-ai-btn:active { transform: translateY(0); }
+
+/* Toggle rows */
+.dmm-toggles {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.dmm-toggle {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--dmm-border-soft);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.dmm-toggle:hover { background: rgba(255, 255, 255, 0.05); border-color: var(--dmm-border); }
+.dmm-toggle-text { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.dmm-toggle-label { font-size: 0.85rem; font-weight: 700; color: #fff; }
+.dmm-toggle-hint { font-size: 0.72rem; color: var(--dmm-text-muted); }
+
+.dmm-switch {
+  position: relative;
+  width: 44px; height: 24px; flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+  display: inline-block;
+}
+.dmm-switch input {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer;
+}
+.dmm-switch-knob {
+  position: absolute; top: 3px; left: 3px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.22s cubic-bezier(.4, 1.5, .5, 1);
+}
+.dmm-switch.on {
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+}
+.dmm-switch.on .dmm-switch-knob { transform: translateX(20px); }
+
+/* Reset button */
+.dmm-reset {
+  align-self: flex-start;
+  padding: 8px 14px;
+  background: transparent;
+  color: var(--dmm-text-secondary);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  font-size: 0.78rem; font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.dmm-reset:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Controls column */
+.dmm-controls {
+  display: flex; flex-direction: column; gap: 1.25rem; min-width: 0;
+}
+
+/* Field label — scoped to DIRECT children only so nested toggle <label> rows
+   (which live inside .dmm-toggles) don't inherit the all-caps styling. */
+.dmm-ctrl-field > label {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  font-size: 0.72rem; font-weight: 800;
+  color: var(--dmm-text-primary);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+.dmm-ctrl-field > label > svg {
+  color: #a5b4fc;
+  font-size: 0.95rem;
+}
+.dmm-count {
+  margin-left: auto;
+  font-weight: 600; letter-spacing: 0.02em; text-transform: none;
+  font-size: 0.7rem;
+  color: var(--dmm-text-muted);
+  padding: 3px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Template grid — ultra-compact, high-density layout */
+.dmm-templates {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+/* Template tile */
+.dmm-template {
+  --tile-ring: transparent;
+  position: relative;
+  display: flex; flex-direction: column; gap: 3px;
+  padding: 4px 4px 5px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.dmm-template::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 8px;
+  padding: 1.5px;
+  background: var(--tile-ring);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.dmm-template:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+.dmm-template.active {
+  --tile-ring: linear-gradient(135deg, #6366f1, #ec4899);
+  background: rgba(99, 102, 241, 0.12);
+  border-color: transparent;
+  box-shadow:
+    0 4px 12px rgba(99, 102, 241, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.dmm-template.active::before { opacity: 1; }
+.dmm-template.active .dmm-template-name { color: #fff; }
+
+/* Swatch — smooth diagonal blend between the template's 3 key colors */
+.dmm-template-swatch {
+  position: relative;
+  height: 26px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+.dmm-template-swatch::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, transparent 42%, transparent 60%, rgba(0,0,0,0.18) 100%);
+  pointer-events: none;
+}
+.dmm-template-name {
+  font-size: 0.58rem; font-weight: 700;
+  color: var(--dmm-text-secondary);
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  transition: color 0.15s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dmm-template-check {
+  position: absolute; top: 2px; right: 2px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 0.42rem;
+  box-shadow: 0 2px 5px rgba(99, 102, 241, 0.5);
+  opacity: 0; transform: scale(0.5);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.dmm-template.active .dmm-template-check { opacity: 1; transform: scale(1); }
+
+/* Download button */
+.dmm-btn-primary {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  background-size: 180% 180%;
+  background-position: 0% 50%;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem; font-weight: 800; letter-spacing: 0.01em;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow:
+    0 12px 28px rgba(99, 102, 241, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-position 0.5s ease, opacity 0.18s ease;
+}
+.dmm-btn-primary::after {
+  /* animated shine */
+  content: '';
+  position: absolute; top: 0; left: -40%;
+  width: 40%; height: 100%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+.dmm-btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background-position: 100% 50%;
+  box-shadow:
+    0 18px 40px rgba(99, 102, 241, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.dmm-btn-primary:hover:not(:disabled)::after { left: 120%; }
+.dmm-btn-primary:disabled {
+  opacity: 0.55; cursor: not-allowed;
+  box-shadow: none;
+}
+.dmm-btn-primary svg { font-size: 1.05rem; }
+
+/* Inline note */
+.dmm-note {
+  padding: 0.65rem 0.9rem;
+  border-radius: 12px;
+  font-size: 0.78rem; font-weight: 600;
+  border: 1px solid transparent;
+}
+.dmm-note.warn {
+  background: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Footer tip card */
+.dmm-tip {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0;
+  padding: 0.75rem 0.95rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.10);
+  font-size: 0.76rem;
+  color: var(--dmm-text-muted);
+  line-height: 1.5;
+}
+.dmm-tip::before {
+  content: '✨';
+  font-size: 1rem;
+  filter: saturate(1.2);
+}
+
+/* ===== Responsive — symmetric, balanced mobile layout ===== */
+
+/* Tablet & small laptop: stack columns, keep generous breathing room */
+@media (max-width: 860px) {
+  .dmm-overlay { padding: 1rem 0.75rem; }
+  .dmm-body {
+    grid-template-columns: 1fr;
+    padding: 1.1rem;
+    gap: 1.1rem;
+  }
+  .dmm-header {
+    padding: 1rem 1.1rem;
+    gap: 0.75rem;
+  }
+  .dmm-header h2 { font-size: 1.2rem; }
+  .dmm-header p  { font-size: 0.8rem; max-width: none; }
+  .dmm-close { width: 34px; height: 34px; }
+
+  .dmm-preview-wrap { position: static; }
+  .dmm-preview-frame {
+    max-width: 460px;
+    margin: 0 auto;
+    max-height: 62vh;
+  }
+
+  .dmm-controls { gap: 1.1rem; }
+  .dmm-customize { gap: 1rem; }
+
+  .dmm-tabs { display: flex; width: 100%; }
+  .dmm-tab { flex: 1; justify-content: center; padding: 9px 10px; }
+
+  .dmm-templates {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.4rem;
+  }
+  .dmm-template { padding: 5px 4px 6px; }
+  .dmm-template-swatch { height: 28px; }
+  .dmm-template-name { font-size: 0.6rem; }
+}
+
+/* Phones: fullscreen modal, larger tap targets, perfectly centered rhythm */
+@media (max-width: 720px) {
+  .dmm-overlay { padding: 0; align-items: stretch; }
+  .dmm-modal {
+    width: 100%; height: 100%;
+    max-height: 100%;
+    border-radius: 0; border: none;
+  }
+  .dmm-header {
+    padding: 0.9rem 1rem;
+    align-items: center;
+  }
+  .dmm-header h2 { font-size: 1.1rem; }
+  .dmm-header p  { font-size: 0.76rem; margin-top: 4px; line-height: 1.45; }
+  .dmm-close { width: 36px; height: 36px; }
+
+  .dmm-body {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .dmm-preview-frame { max-height: 54vh; }
+
+  .dmm-ctrl-field > label {
+    font-size: 0.68rem;
+    margin-bottom: 0.7rem;
+    row-gap: 6px;
+  }
+
+  .dmm-ai-btn {
+    margin-left: auto;
+    padding: 6px 11px;
+    font-size: 0.66rem;
+  }
+  .dmm-count {
+    flex-basis: auto;
+    font-size: 0.66rem;
+  }
+
+  .dmm-textarea {
+    font-size: 0.9rem;
+    min-height: 80px;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .dmm-toggle {
+    padding: 11px 13px;
+    gap: 10px;
+  }
+  .dmm-toggle-label { font-size: 0.84rem; }
+  .dmm-toggle-hint  { font-size: 0.7rem; }
+
+  .dmm-templates {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.4rem;
+  }
+  .dmm-template-swatch { height: 30px; }
+  .dmm-template-name { font-size: 0.62rem; }
+
+  .dmm-reset { align-self: stretch; text-align: center; }
+
+  .dmm-btn-primary {
+    width: 100%;
+    padding: 0.95rem 1rem;
+    font-size: 0.98rem;
+    border-radius: 12px;
+  }
+
+  .dmm-tip {
+    font-size: 0.72rem;
+    padding: 0.7rem 0.85rem;
+    text-align: left;
+  }
+}
+
+/* Small phones: keep everything neat and symmetric at ~360–400px widths */
+@media (max-width: 420px) {
+  .dmm-header { padding: 0.85rem 0.9rem; }
+  .dmm-header h2 { font-size: 1.02rem; }
+  .dmm-header p  { font-size: 0.72rem; }
+  .dmm-close { width: 32px; height: 32px; font-size: 0.8rem; }
+
+  .dmm-body { padding: 0.85rem; gap: 0.9rem; }
+
+  .dmm-tab { font-size: 0.76rem; padding: 8px 6px; gap: 6px; }
+  .dmm-tab-count { font-size: 0.6rem; padding: 2px 6px; }
+
+  .dmm-templates {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.4rem;
+  }
+  .dmm-template { padding: 6px 5px 7px; }
+  .dmm-template-swatch { height: 34px; }
+  .dmm-template-name { font-size: 0.66rem; }
+
+  .dmm-ai-btn { font-size: 0.64rem; padding: 5px 10px; }
+  .dmm-count  { font-size: 0.64rem; padding: 2px 8px; }
+
+  .dmm-btn-primary {
+    padding: 0.9rem 1rem;
+    font-size: 0.94rem;
+  }
+}

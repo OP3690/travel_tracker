@@ -22,7 +22,7 @@
 .mem-add-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45); }
 
 .mem-stats-strip {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem; margin-bottom: 1.25rem;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.85rem; margin-bottom: 1.25rem;
 }
 .mss-item {
   background: var(--bg-card); border: 1px solid var(--border-default);
@@ -243,7 +243,7 @@
 }
 
 @media (max-width: 900px) {
-  .mem-stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .mem-stats-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 768px) {
   .memories-page { padding: 1rem; }

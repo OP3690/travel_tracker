@@ -175,45 +175,99 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
     if (!posterRef.current) return;
     setGenerating(true);
     setError('');
+
+    const node = posterRef.current;
+    const origTransform = node.style.transform;
+
+    // Light templates need dark fallback text; dark templates need white
+    const lightTemplates = ['polaroid', 'minimal', 'rosegold'];
+    const fallback = lightTemplates.includes(template) ? '#0f172a' : '#ffffff';
+
+    // Wait for every <img> inside the poster to finish loading. Unresolved
+    // images with naturalWidth === 0 are what trigger html2canvas's
+    // `createPattern` error on some browsers — decode() resolves the race.
+    const imgs = Array.from(node.querySelectorAll('img'));
+    await Promise.all(imgs.map(img => {
+      if (img.complete) return Promise.resolve();
+      return new Promise(resolve => {
+        img.addEventListener('load', resolve, { once: true });
+        img.addEventListener('error', resolve, { once: true });
+      });
+    }));
+
+    // Any image that still has zero dimensions will crash html2canvas —
+    // flag its src as broken so React re-renders without it, then continue.
+    const zeroSized = imgs.filter(img => !img.naturalWidth || !img.naturalHeight);
+    if (zeroSized.length) {
+      setBrokenSrcs(prev => {
+        const next = new Set(prev);
+        zeroSized.forEach(img => img.src && next.add(img.src));
+        return next;
+      });
+      // Give React one paint to drop the broken <img> nodes before capture
+      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+    }
+
+    const scrubClone = (doc) => {
+      // html2canvas doesn't support `background-clip: text` — it paints the
+      // gradient as a solid rectangle behind the text. Force solid text on
+      // the export clone so the downloaded PNG looks symmetrical.
+      doc.querySelectorAll('.smp-location-region').forEach(el => {
+        el.style.background = 'none';
+        el.style.webkitBackgroundClip = 'border-box';
+        el.style.backgroundClip = 'border-box';
+        el.style.webkitTextFillColor = fallback;
+        el.style.color = fallback;
+      });
+      // Drop backdrop-filter (also unsupported)
+      doc.querySelectorAll('.smp-message, .smp-social-chip, .smp-map-panel').forEach(el => {
+        el.style.backdropFilter = 'none';
+        el.style.webkitBackdropFilter = 'none';
+      });
+      // Last-ditch safety: remove any cloned <img> that has no decoded pixels.
+      // html2canvas's URL-background pattern path (createPattern) throws on
+      // zero-size images — this is the specific cause of
+      // "Failed to execute 'createPattern' on 'CanvasRenderingContext'".
+      doc.querySelectorAll('img').forEach(img => {
+        if (!img.naturalWidth || !img.naturalHeight) img.remove();
+      });
+    };
+
+    const runCapture = (opts = {}) => html2canvas(node, {
+      scale: 2,
+      backgroundColor: null,
+      useCORS: true,
+      allowTaint: true,
+      logging: false,
+      imageTimeout: 15000,
+      width: 1080,
+      height: 1350,
+      windowWidth: 1080,
+      windowHeight: 1350,
+      onclone: (doc) => {
+        scrubClone(doc);
+        if (opts.dropPhotos) {
+          doc.querySelectorAll('.smp-photos').forEach(el => el.remove());
+        }
+      },
+    });
+
     try {
-      // Temporarily unscale for capture
-      const node = posterRef.current;
-      const origTransform = node.style.transform;
       node.style.transform = 'none';
 
-      // Light templates need dark fallback text; dark templates need white
-      const lightTemplates = ['polaroid', 'minimal', 'rosegold'];
-      const fallback = lightTemplates.includes(template) ? '#0f172a' : '#ffffff';
-
-      const canvas = await html2canvas(node, {
-        scale: 2,
-        backgroundColor: null,
-        useCORS: true,
-        allowTaint: true,
-        logging: false,
-        width: 1080,
-        height: 1350,
-        windowWidth: 1080,
-        windowHeight: 1350,
-        onclone: (doc) => {
-          // html2canvas doesn't support `background-clip: text` — it paints the
-          // gradient as a solid rectangle behind the text. Force solid text on
-          // the export clone so the downloaded PNG looks symmetrical.
-          doc.querySelectorAll('.smp-location-region').forEach(el => {
-            el.style.background = 'none';
-            el.style.webkitBackgroundClip = 'border-box';
-            el.style.backgroundClip = 'border-box';
-            el.style.webkitTextFillColor = fallback;
-            el.style.color = fallback;
-          });
-          // Drop backdrop-filter (also unsupported)
-          doc.querySelectorAll('.smp-message, .smp-social-chip, .smp-map-panel').forEach(el => {
-            el.style.backdropFilter = 'none';
-            el.style.webkitBackdropFilter = 'none';
-          });
-        },
-      });
-      node.style.transform = origTransform;
+      let canvas;
+      try {
+        canvas = await runCapture();
+      } catch (e) {
+        // Known failure mode: html2canvas choked on a photo element.
+        // Retry once with photos removed so users still get their card.
+        if (/createPattern/i.test(String(e && e.message))) {
+          console.warn('html2canvas failed on photos, retrying without them', e);
+          canvas = await runCapture({ dropPhotos: true });
+        } else {
+          throw e;
+        }
+      }
 
       const url = canvas.toDataURL('image/png');
       const a = document.createElement('a');
@@ -226,6 +280,7 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
       console.error(e);
       setError('Could not generate the image. Try again.');
     } finally {
+      node.style.transform = origTransform;
       setGenerating(false);
     }
   };

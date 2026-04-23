@@ -1,7 +1,20 @@
 /* ===== Dark World Map View ===== */
 .worldmap-page { animation: fadeIn 0.4s ease; }
 .wm-header { padding: 1.5rem 1.75rem 0; }
+.wm-header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .wm-counter { display: flex; align-items: center; gap: 8px; background: var(--bg-active); color: var(--primary-400); padding: 7px 14px; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(99,102,241,0.2); }
+.wm-download-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: var(--radius-full);
+  font-size: 0.85rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-500, #6366f1), var(--accent-500, #8b5cf6));
+  color: #fff; border: none; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+.wm-download-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35); }
+.wm-download-btn:active:not(:disabled) { transform: translateY(0); }
+.wm-download-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .wm-map-card { margin: 1.25rem 0; position: relative; overflow: hidden; background: var(--bg-input); border-top: 1px solid var(--border-default); border-bottom: 1px solid var(--border-default); }
 
 .wm-stats-bar { display: flex; align-items: center; justify-content: center; gap: 2rem; padding: 1rem 1.75rem; margin: 0 1.75rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-default); margin-bottom: 1.25rem; }
@@ -50,8 +63,59 @@
 }
 
 @media (max-width: 400px) {
-  .wm-stats-bar { flex-direction: column; gap: 0.5rem; }
   .wm-stat-divider { width: 40px; height: 1px; }
+}
+
+/* ===== Mobile: stack table rows as cards (like an app list) ===== */
+@media (max-width: 720px) {
+  .wm-table-wrap { overflow-x: visible; }
+  .wm-table, .wm-table tbody, .wm-table tr, .wm-table td { display: block; width: 100%; }
+  .wm-table thead { display: none; }
+  .wm-table tr {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border-default);
+    background: transparent;
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    grid-template-areas:
+      "flag country actions"
+      "date date date"
+      "notes notes notes";
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 6px;
+  }
+  .wm-table tr:hover { background: transparent; }
+  .wm-table tr:last-child { border-bottom: none; }
+  .wm-table td {
+    padding: 0 !important;
+    border: none !important;
+    font-size: 0.85rem !important;
+    min-width: 0;
+  }
+  .wm-table td.flag-cell { grid-area: flag; font-size: 1.5rem; width: 44px; }
+  .wm-table td.country-cell { grid-area: country; font-size: 0.98rem !important; font-weight: 700; color: var(--text-primary); }
+  .wm-table td[data-label="Date Visited"] { grid-area: date; }
+  .wm-table td[data-label="Notes"] { grid-area: notes; }
+  .wm-table td[data-label="Actions"] { grid-area: actions; }
+  .wm-table td[data-label="Date Visited"]::before,
+  .wm-table td[data-label="Notes"]::before {
+    content: attr(data-label);
+    display: inline-block;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .wm-table td[data-label="Date Visited"]:has(.wm-edit-input),
+  .wm-table td[data-label="Notes"]:has(.wm-edit-input) {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .wm-actions { flex-direction: row !important; gap: 6px !important; }
+  .wm-action-btn { padding: 6px 10px !important; font-size: 0.78rem !important; }
 }
 
 /* Home country badge in Notes column */

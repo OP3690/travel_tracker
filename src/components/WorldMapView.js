@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Layout from './Layout';
 import WorldMap from './WorldMap';
 import API from '../api/api';
-import { FaEdit, FaTrash, FaSave, FaTimes, FaGlobeAmericas, FaHome } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaSave, FaTimes, FaGlobeAmericas, FaHome, FaDownload } from 'react-icons/fa';
+import DownloadMapModal from './DownloadMapModal';
 import './WorldMapView.css';
 
 function countryCodeToFlagEmoji(code) {
@@ -28,6 +29,8 @@ function WorldMapView() {
   const [editId, setEditId] = useState(null);
   const [editDate, setEditDate] = useState('');
   const [editComment, setEditComment] = useState('');
+  const [downloadOpts, setDownloadOpts] = useState(null);
+  const mapCardRef = useRef(null);
 
   useEffect(() => {
     async function fetchSelected() {
@@ -113,6 +116,43 @@ function WorldMapView() {
 
   const countries = selectedLocations.filter(loc => loc.type === 'country');
 
+  const handleDownloadMap = () => {
+    if (!mapCardRef.current) return;
+    const svgs = Array.from(mapCardRef.current.querySelectorAll('svg'));
+    if (!svgs.length) return;
+    const svg = svgs.reduce((best, el) => {
+      const r = el.getBoundingClientRect();
+      const area = r.width * r.height;
+      return area > (best.area || 0) ? { el, area } : best;
+    }, {}).el;
+    if (!svg) return;
+
+    let userName = '';
+    try { userName = JSON.parse(localStorage.getItem('user') || '{}').name || ''; } catch {}
+    const percent = Math.round((countries.length / 195) * 100);
+    const sortedVisited = countries
+      .map(c => c.name)
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b));
+
+    setDownloadOpts({
+      svgElement: svg,
+      title: 'World Map',
+      subtitle: `${countries.length} of 195 Countries stamped`,
+      userName,
+      stats: [
+        { label: 'Countries Visited', value: countries.length, accent: '#34d399' },
+        { label: 'World Explored', value: `${percent}%`, accent: '#a78bfa' },
+        { label: 'Remaining', value: 195 - countries.length, accent: '#fbbf24' },
+      ],
+      visitedNames: sortedVisited,
+      pendingFill: 'rgba(253, 186, 116, 0.55)',
+      pendingStroke: 'rgba(251, 191, 36, 0.8)',
+      eyebrow: 'MY INTERNATIONAL STAMPS',
+      filename: `stampyourmap-world-${userName || 'map'}`,
+    });
+  };
+
   return (
     <Layout>
       <div className="worldmap-page">
@@ -122,14 +162,28 @@ function WorldMapView() {
             <h1 className="page-title">World Map Explorer</h1>
             <p className="page-subtitle">The world is your canvas — click any country to paint it visited</p>
           </div>
-          <div className="wm-counter">
-            <FaGlobeAmericas />
-            <span>{countries.length} countries visited</span>
+          <div className="wm-header-actions">
+            <div className="wm-counter">
+              <FaGlobeAmericas />
+              <span>{countries.length} countries visited</span>
+            </div>
+            <button
+              type="button"
+              className="wm-download-btn"
+              onClick={handleDownloadMap}
+              disabled={countries.length === 0}
+              title={countries.length === 0 ? 'Stamp at least one country to download' : 'Preview & download your world map'}
+              data-ga-label="WorldMap: Open download modal"
+              data-ga-event="worldmap_download_open"
+              data-ga-category="download"
+            >
+              <FaDownload /> Download
+            </button>
           </div>
         </div>
 
         {/* Map */}
-        <div className="wm-map-card">
+        <div className="wm-map-card" ref={mapCardRef}>
           <WorldMap
             selectedLocations={selectedLocations}
             setSelectedLocations={setSelectedLocations}
@@ -184,9 +238,9 @@ function WorldMapView() {
                 <tbody>
                   {countries.map(location => (
                     <tr key={location.id}>
-                      <td className="flag-cell">{countryCodeToFlagEmoji(location.id?.slice(0, 2))}</td>
-                      <td className="country-cell">{location.name}</td>
-                      <td>
+                      <td className="flag-cell" data-label="Flag">{countryCodeToFlagEmoji(location.id?.slice(0, 2))}</td>
+                      <td className="country-cell" data-label="Country">{location.name}</td>
+                      <td data-label="Date Visited">
                         {editId === location.id ? (
                           <input
                             type="date"
@@ -200,7 +254,7 @@ function WorldMapView() {
                           </span>
                         )}
                       </td>
-                      <td>
+                      <td data-label="Notes">
                         {location.isHome ? (
                           <span className="wm-home-badge"><FaHome /> Home Country</span>
                         ) : editId === location.id ? (
@@ -217,7 +271,7 @@ function WorldMapView() {
                           </span>
                         )}
                       </td>
-                      <td>
+                      <td data-label="Actions">
                         <div className="wm-actions">
                           {editId === location.id ? (
                             <>
@@ -249,6 +303,13 @@ function WorldMapView() {
             </div>
           )}
         </div>
+
+        {downloadOpts && (
+          <DownloadMapModal
+            {...downloadOpts}
+            onClose={() => setDownloadOpts(null)}
+          />
+        )}
       </div>
     </Layout>
   );
