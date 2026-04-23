@@ -26,12 +26,14 @@
   /* Absolute horizontal-overflow guard: no page element should cause
      horizontal scroll on phones. Real horizontal scrollers (filter
      strips, tables) opt in via their own class and overflow-x: auto.
-     NOTE: avoid setting overflow-x on .main-content — on flex children
-     with min-height:100vh, the browser coerces overflow-y into a scroll
-     container with no room, which silently breaks page scroll. We rely
-     on `html { overflow-x: hidden }` from the base mobile rules above. */
+     IMPORTANT: the base Layout.css sets .main-content { overflow-x: hidden }
+     which forces the browser to coerce overflow-y to `auto`, creating an
+     internal scroll container that fights with the body scroll on touch
+     devices. We override with `overflow: visible` on phones — horizontal
+     overflow is still caught by `html { overflow-x: hidden }` above. */
   .main-content {
     max-width: 100vw;
+    overflow: visible !important;
   }
 
   /* -------- Hide scrollbars everywhere on mobile (app-like). The scroll
