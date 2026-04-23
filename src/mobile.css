@@ -2659,15 +2659,35 @@
     flex: 0 0 auto !important;
     transform: none !important;
   }
-  /* Keep the inner map container properly inset so the world map SVG
-     fills the visible area between the top/bottom chrome bars. */
+  /* Inner map container — on mobile we DO NOT fetch the 1 MB SVG (LCP
+     optimization). Show a CSS-drawn world-map illustration so the card
+     still tells the story but paints instantly on first render. */
   .hero-map-container {
     position: absolute !important;
     inset: 40px 16px 44px 16px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    /* Ellipse ring + radial dots suggesting a globe, zero network cost */
+    background:
+      radial-gradient(ellipse 85% 65% at 50% 50%,
+        rgba(99, 102, 241, 0.28) 0%,
+        rgba(99, 102, 241, 0.14) 35%,
+        transparent 70%),
+      radial-gradient(circle 3px at 30% 40%, rgba(52, 211, 153, 0.95) 50%, transparent 55%),
+      radial-gradient(circle 3px at 48% 52%, rgba(52, 211, 153, 0.95) 50%, transparent 55%),
+      radial-gradient(circle 3px at 62% 38%, rgba(52, 211, 153, 0.95) 50%, transparent 55%),
+      radial-gradient(circle 3px at 72% 58%, rgba(52, 211, 153, 0.95) 50%, transparent 55%),
+      radial-gradient(circle 3px at 22% 62%, rgba(129, 140, 248, 0.7) 50%, transparent 55%),
+      radial-gradient(circle 3px at 54% 70%, rgba(129, 140, 248, 0.7) 50%, transparent 55%),
+      radial-gradient(circle 2px at 38% 30%, rgba(244, 114, 182, 0.8) 50%, transparent 55%),
+      radial-gradient(circle 2px at 80% 46%, rgba(244, 114, 182, 0.8) 50%, transparent 55%);
+    border-radius: 50%;
+    box-shadow:
+      inset 0 0 0 1px rgba(129, 140, 248, 0.2),
+      inset 0 0 40px rgba(99, 102, 241, 0.12);
   }
+  /* Any SVG that sneaks in on mobile (edge cases) still fills correctly */
   .hero-map-container svg {
     width: 100% !important;
     height: 100% !important;

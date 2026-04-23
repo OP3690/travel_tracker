@@ -361,13 +361,22 @@ export default function LandingPage() {
     };
   }, []);
 
-  // Load interactive world map — DEFERRED. The SVG is ~1 MB (≈400 KB
-   // gzipped) and fetching/parsing it synchronously on mount was tanking
-   // LCP on mobile (8 s+). Wait until (a) the browser is idle AND (b) the
-   // map container is near the viewport, then fetch. Until then the card
-   // shows its gradient+starfield chrome only — still visually rich.
+  // Load interactive world map — DEFERRED + MOBILE-SKIPPED.
+  // The SVG is ~1 MB (≈400 KB gzipped) and the hero-map card is the LCP
+  // candidate on mobile, which was driving LCP to 12.9 s on throttled
+  // networks. Solution:
+  //   • Mobile (<900 px): do not fetch the SVG at all. CSS paints a
+  //     beautiful gradient/aurora card — that becomes the LCP element
+  //     and paints essentially at FCP. The map pin icons + "Visited /
+  //     Unstamped" legend + counter still tell the story.
+  //   • Desktop: defer the fetch via IntersectionObserver + idle
+  //     callback so it never blocks LCP even on slower hardware.
   useEffect(() => {
     if (!mapRef.current) return;
+    // Skip the SVG entirely on phones — the card still looks great via CSS.
+    if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 900px)').matches) {
+      return;
+    }
     const tooltip = tooltipRef.current;
     const container = mapRef.current;
     let cancelled = false;
