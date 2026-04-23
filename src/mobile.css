@@ -6,31 +6,34 @@
    ============================================================ */
 
 @media (max-width: 900px) {
-  /* -------- Smooth scrolling + safe areas everywhere -------- */
-  /* Note: keep vertical scroll firmly on the body. Avoid setting
-     overflow-x:hidden on body (combined with html overflow-x:hidden
-     it can break iOS Safari's main scroll container). */
-  html { overflow-x: hidden; }
-  body {
-    overflow-y: auto;
-    overflow-x: visible;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: contain;
+  /* -------- Natural page scroll ---------------------------------------
+     Critical: leave html and body at DEFAULT overflow. Any overflow rule
+     on html or body turns them into nested scroll containers, and on
+     touch devices those fight each other — the page stops scrolling.
+     The viewport scrolls naturally when content exceeds it. Horizontal
+     overflow is prevented on individual wrappers below, NOT on html. */
+  html, body {
+    /* no overflow rules — viewport scrolling is the natural behavior */
     font-size: 15px;
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
-  /* Absolute horizontal-overflow guard: no page element should cause
-     horizontal scroll on phones. Real horizontal scrollers (filter
-     strips, tables) opt in via their own class and overflow-x: auto.
-     IMPORTANT: the base Layout.css sets .main-content { overflow-x: hidden }
-     which forces the browser to coerce overflow-y to `auto`, creating an
-     internal scroll container that fights with the body scroll on touch
-     devices. We override with `overflow: visible` on phones — horizontal
-     overflow is still caught by `html { overflow-x: hidden }` above. */
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Horizontal-overflow guard on the app shell, NOT on html/body.
+     `overflow-x: clip` prevents horizontal scroll without creating a
+     scroll container (unlike `overflow-x: hidden` which coerces
+     overflow-y to auto and blocks touch scroll). */
+  .app-layout {
+    max-width: 100vw;
+    overflow-x: clip;
+  }
+  /* Undo the base Layout.css `overflow-x: hidden` on main-content —
+     it coerces overflow-y into auto, trapping touch scroll. */
   .main-content {
     max-width: 100vw;
     overflow: visible !important;
