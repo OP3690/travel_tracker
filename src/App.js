@@ -106,6 +106,12 @@ const BestVietnamDestinations   = lazy(() => import('./components/Blog/posts/Bes
 const VietnameseFoodGuide       = lazy(() => import('./components/Blog/posts/VietnameseFoodGuide2026'));
 const HalongBayHoiAnGuide       = lazy(() => import('./components/Blog/posts/HalongBayHoiAnGuide2026'));
 const VietnamBudgetTravel       = lazy(() => import('./components/Blog/posts/VietnamBudgetTravel2026'));
+const IranTravelGuide           = lazy(() => import('./components/Blog/posts/IranTravelGuide2026'));
+const TwoWeekIranItin           = lazy(() => import('./components/Blog/posts/TwoWeekIranItinerary2026'));
+const BestIranDestinations      = lazy(() => import('./components/Blog/posts/BestIranDestinations2026'));
+const IsraelTravelGuide         = lazy(() => import('./components/Blog/posts/IsraelTravelGuide2026'));
+const TwoWeekIsraelItin         = lazy(() => import('./components/Blog/posts/TwoWeekIsraelItinerary2026'));
+const BestIsraelDestinations    = lazy(() => import('./components/Blog/posts/BestIsraelDestinations2026'));
 const About                     = lazy(() => import('./components/About'));
 const Contact                   = lazy(() => import('./components/Contact'));
 
@@ -260,6 +266,12 @@ function App() {
           <Route path="/blog/vietnamese-food-guide-2026" element={<VietnameseFoodGuide />} />
           <Route path="/blog/halong-bay-hoi-an-guide-2026" element={<HalongBayHoiAnGuide />} />
           <Route path="/blog/vietnam-budget-travel-2026" element={<VietnamBudgetTravel />} />
+          <Route path="/blog/iran-travel-guide-2026" element={<IranTravelGuide />} />
+          <Route path="/blog/two-week-iran-itinerary-2026" element={<TwoWeekIranItin />} />
+          <Route path="/blog/best-iran-destinations-2026" element={<BestIranDestinations />} />
+          <Route path="/blog/israel-travel-guide-2026" element={<IsraelTravelGuide />} />
+          <Route path="/blog/two-week-israel-itinerary-2026" element={<TwoWeekIsraelItin />} />
+          <Route path="/blog/best-israel-destinations-2026" element={<BestIsraelDestinations />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

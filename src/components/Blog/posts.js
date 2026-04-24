@@ -2,6 +2,78 @@
 // and per-post pages all read from this list — keep it in sync when adding posts.
 export const POSTS = [
   {
+    slug: 'iran-travel-guide-2026',
+    title: 'Iran Travel Guide 2026: Complete Updates, Tips & Travel Advice',
+    description:
+      'The complete 2026 Iran travel guide — visa-free rules for 33 countries, best months, 7 regions, honest $35/day budget math, Persian food, 27 UNESCO sites, safety, and the 12 mistakes first-timers make. Tehran, Isfahan, Shiraz, Yazd, Kashan, Persepolis.',
+    ogImage: '/felix-rostig-UmV2wr-Vbq8-unsplash.jpg',
+    datePublished: '2026-04-24',
+    readMinutes: 13,
+    category: 'Iran Travel',
+    tags: ['Iran', 'Travel Guide', 'Middle East', 'Persia'],
+    heroEmoji: '🇮🇷',
+  },
+  {
+    slug: 'two-week-iran-itinerary-2026',
+    title: 'The Perfect 2-Week Iran Itinerary 2026: Tehran → Kashan → Isfahan → Yazd → Shiraz',
+    description:
+      'A tested, day-by-day 14-day Iran itinerary for 2026 — Tehran, Kashan, Isfahan, Yazd, Shiraz + Persepolis. VIP bus timings, domestic flight picks, $480 total mid-range cost, packing list, and the Silk Road Loop detail.',
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-24',
+    readMinutes: 12,
+    category: 'Iran Travel',
+    tags: ['Iran', 'Itinerary', 'Tehran', 'Isfahan', 'Shiraz'],
+    heroEmoji: '🏛️',
+  },
+  {
+    slug: 'best-iran-destinations-2026',
+    title: "Iran's 10 Best Destinations for Travelers in 2026 (Ranked)",
+    description:
+      'The 10 Iranian destinations worth your vacation time in 2026 — ranked across six dimensions. Deep-dives on Isfahan, Shiraz + Persepolis, Yazd, Tehran, Kashan, Kandovan/Tabriz, Masuleh, Qeshm, Alamut, Kish.',
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-24',
+    readMinutes: 12,
+    category: 'Iran Travel',
+    tags: ['Iran', 'Destinations', 'Ranked'],
+    heroEmoji: '🕌',
+  },
+  {
+    slug: 'israel-travel-guide-2026',
+    title: 'Israel Travel Guide 2026: Complete Updates, Tips & Travel Advice',
+    description:
+      'The complete 2026 Israel travel guide — ETA-IL rules, best months, 6 regions, $140/day budget, Israeli food, 9 UNESCO sites, Shabbat tips, safety, and the 12 mistakes first-timers make. Jerusalem, Tel Aviv, Dead Sea, Masada, Galilee, Eilat.',
+    ogImage: '/tom-barrett-M0AWNxnLaMw-unsplash.jpg',
+    datePublished: '2026-04-24',
+    readMinutes: 13,
+    category: 'Israel Travel',
+    tags: ['Israel', 'Travel Guide', 'Middle East', 'Holy Land'],
+    heroEmoji: '🇮🇱',
+  },
+  {
+    slug: 'two-week-israel-itinerary-2026',
+    title: 'The Perfect 2-Week Israel Itinerary 2026: Tel Aviv → Jerusalem → Dead Sea → Negev → Eilat → Galilee',
+    description:
+      'A tested, day-by-day 14-day Israel itinerary for 2026 — Tel Aviv, Jerusalem, Dead Sea / Masada sunrise, Mitzpe Ramon, Eilat, Galilee. Train vs rental-car math, 2026 high-speed rail, Shabbat workarounds, $1,960 total mid-range.',
+    ogImage: '/spencer-davis-0QcSnCM0aMc-unsplash.jpg',
+    datePublished: '2026-04-24',
+    readMinutes: 13,
+    category: 'Israel Travel',
+    tags: ['Israel', 'Itinerary', 'Jerusalem', 'Tel Aviv', 'Dead Sea'],
+    heroEmoji: '🕎',
+  },
+  {
+    slug: 'best-israel-destinations-2026',
+    title: "Israel's 10 Best Destinations for Travelers in 2026 (Ranked)",
+    description:
+      "The 10 Israeli destinations worth your vacation time in 2026 — ranked across six dimensions. Deep-dives on Jerusalem, Tel Aviv, Masada + Dead Sea, Caesarea, Safed, Eilat, Mitzpe Ramon, Nazareth, Akko, Haifa + Bahá'í Gardens.",
+    ogImage: '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
+    datePublished: '2026-04-24',
+    readMinutes: 12,
+    category: 'Israel Travel',
+    tags: ['Israel', 'Destinations', 'Ranked'],
+    heroEmoji: '🌅',
+  },
+  {
     slug: 'vietnam-travel-guide-2026',
     title: "The Ultimate Vietnam Travel Guide (2026): 63 Provinces, One Diverse Country",
     description:
