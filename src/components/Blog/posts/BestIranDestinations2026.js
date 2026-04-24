@@ -14,7 +14,7 @@ export default function BestIranDestinations2026() {
     url: `/blog/${SLUG}`,
     image: post.ogImage,
     datePublished: post.datePublished,
-    keywords: 'best iran destinations 2026, iran travel advice, iran ranked destinations, isfahan, shiraz, yazd, tehran, persepolis, kashan, qeshm, masuleh, iran travel tips',
+    keywords: 'best iran destinations 2026, top places to visit in iran, best cities in iran, must visit iran, iran bucket list, iran travel advice, iran ranked destinations, iran travel tips, iran travel news, iran travel updates, places to see in iran, things to do in iran, iran sightseeing, iran attractions, iran for first timers, iran in one week, underrated iran destinations, offbeat iran, hidden gems iran, iran for photographers, iran for history lovers, iran for couples, iran for solo travelers, iran for families, persia destinations, where to go in iran, where should i go in iran, iran must see cities, iran top 10, iran in 14 days, isfahan, shiraz, persepolis, yazd, tehran, kashan, tabriz, kandovan, masuleh, qeshm island, kish island, alamut valley, mashhad, naqsh-e jahan square, pink mosque, ramon crater iran, iran unesco sites, persian architecture, iran gardens, charbagh, iran deserts, iran mountains, iran caspian',
   });
   useRevealOnScroll();
 

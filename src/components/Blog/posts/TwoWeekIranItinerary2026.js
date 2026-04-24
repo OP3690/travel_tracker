@@ -14,7 +14,7 @@ export default function TwoWeekIranItinerary2026() {
     url: `/blog/${SLUG}`,
     image: post.ogImage,
     datePublished: post.datePublished,
-    keywords: 'iran itinerary 2026, 2 week iran trip, tehran to shiraz, iran travel news, iran travel updates, persia 14 days, isfahan yazd shiraz, iran travel route',
+    keywords: 'iran itinerary 2026, iran itinerary 14 days, 2 week iran trip, 10 day iran trip, 7 day iran trip, one week iran itinerary, iran itinerary first timer, iran tehran to shiraz, iran travel news, iran travel updates, iran travel tips, iran travel advice, iran travel plan, persia 14 days, golden triangle iran, isfahan yazd shiraz route, iran day by day itinerary, iran backpacking itinerary, iran budget itinerary, iran luxury itinerary, iran solo itinerary, iran family itinerary, iran honeymoon itinerary, iran bus travel, iran domestic flights, iran vip bus, iran train, iran silk road loop, iran nowruz itinerary, iran april itinerary, iran october itinerary, persepolis from shiraz, kashan day trip, masuleh trip, qeshm itinerary, iran cost breakdown, how much for 2 weeks in iran, iran expenses, iran packing list, tehran isfahan yazd shiraz persepolis',
   });
   useRevealOnScroll();
 

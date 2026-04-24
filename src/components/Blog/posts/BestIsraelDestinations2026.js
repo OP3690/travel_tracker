@@ -14,7 +14,7 @@ export default function BestIsraelDestinations2026() {
     url: `/blog/${SLUG}`,
     image: post.ogImage,
     datePublished: post.datePublished,
-    keywords: 'best israel destinations 2026, israel travel advice, israel ranked destinations, jerusalem, tel aviv, dead sea, masada, eilat, galilee, safed, caesarea, israel travel tips',
+    keywords: 'best israel destinations 2026, top places to visit in israel, best cities in israel, must visit israel, israel bucket list, israel travel advice, israel ranked destinations, israel travel tips, israel travel news, israel travel updates, places to see in israel, things to do in israel, israel sightseeing, israel attractions, israel for first timers, israel in one week, underrated israel destinations, offbeat israel, hidden gems israel, israel for photographers, israel for history lovers, israel for christian travelers, israel for jewish travelers, israel for couples, israel for solo travelers, israel for families, holy land top destinations, where to go in israel, israel must see cities, israel top 10, israel in 14 days, jerusalem old city, western wall, dome of the rock, church of the holy sepulchre, yad vashem, tel aviv beaches, bauhaus white city, dead sea, masada sunrise, ein gedi, eilat red sea, snorkeling eilat, galilee sea, sea of galilee, nazareth, bethlehem, safed tzfat, caesarea, haifa, bahai gardens, akko acre, mitzpe ramon, negev desert, israel unesco sites, holy sites israel, israel road trip destinations, israel beaches, israel deserts, israel mountains',
   });
   useRevealOnScroll();
 

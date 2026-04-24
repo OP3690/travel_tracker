@@ -14,7 +14,7 @@ export default function IranTravelGuide2026() {
     url: `/blog/${SLUG}`,
     image: post.ogImage,
     datePublished: post.datePublished,
-    keywords: 'iran travel 2026, iran travel tips, travel iran updates, iran travel advice, iran travel news, visit iran, iran visa, persia travel guide, tehran, isfahan, shiraz, persepolis, yazd, kashan',
+    keywords: 'iran travel 2026, iran travel tips, travel iran updates, iran travel advice, iran travel news, iran trip, visit iran, iran vacation, iran tourism, iran travel guide, how to travel to iran, is iran safe for tourists, is iran safe to visit, is it safe to travel to iran, iran travel restrictions, iran travel requirements, iran visa, iran visa on arrival, iran visa for indians, iran visa for uk, iran visa for us citizens, do i need a visa for iran, iran evisa, iran visa free countries, best time to visit iran, iran weather, iran in april, iran in october, iran in summer, iran in winter, iran backpacking, iran solo travel, iran solo female travel, iran for women, iran dress code, iran hijab rules, iran with kids, family travel iran, iran honeymoon, iran luxury travel, iran budget, how much does an iran trip cost, iran currency, iran cash only, iran sim card, iran internet, vpn iran, iran wifi, iran food, persian food, persian cuisine, iranian food to try, iran packing list, what to wear in iran, iran travel insurance, iran itinerary, 2 week iran trip, 10 day iran trip, iran things to do, top places in iran, tehran, isfahan, shiraz, persepolis, yazd, kashan, tabriz, mashhad, qeshm, kish, alamut, nowruz, persian new year, silk road, zoroastrian, ancient persia, middle east travel, iran vs turkey, iran vs uzbekistan',
   });
   useRevealOnScroll();
 

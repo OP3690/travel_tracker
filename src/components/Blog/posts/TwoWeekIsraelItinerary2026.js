@@ -14,7 +14,7 @@ export default function TwoWeekIsraelItinerary2026() {
     url: `/blog/${SLUG}`,
     image: post.ogImage,
     datePublished: post.datePublished,
-    keywords: 'israel itinerary 2026, 2 week israel trip, jerusalem to tel aviv, israel travel news, israel travel updates, dead sea masada eilat, israel 14 days, israel travel route',
+    keywords: 'israel itinerary 2026, israel itinerary 14 days, 2 week israel trip, 10 day israel trip, 7 day israel trip, one week israel itinerary, israel itinerary first timer, israel itinerary christian pilgrimage, israel itinerary jewish heritage, jerusalem to tel aviv, tel aviv to eilat, israel travel news, israel travel updates, israel travel tips, israel travel advice, israel travel plan, israel day by day itinerary, israel backpacking itinerary, israel budget itinerary, israel luxury itinerary, israel solo itinerary, israel family itinerary, israel honeymoon itinerary, israel rental car, driving in israel, israel public transport, israel train, tel aviv jerusalem high speed rail, masada sunrise, masada cable car, ein gedi hike, dead sea day trip from jerusalem, dead sea masada eilat, negev desert itinerary, mitzpe ramon itinerary, ramon crater, galilee road trip, nazareth itinerary, safed itinerary, caesarea day trip, israel cost breakdown, how much for 2 weeks in israel, israel expenses, israel packing list, israel eta before travel, shabbat itinerary, holy land tour, 14 days in israel, jerusalem to dead sea to galilee',
   });
   useRevealOnScroll();
 
