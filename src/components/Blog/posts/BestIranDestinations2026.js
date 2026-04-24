@@ -109,7 +109,7 @@ export default function BestIranDestinations2026() {
           quiet courtyard effect.
         </p>
 
-        <BlogCallout title="Iran travel news: the 2026 "Silk Road Loop" tourism push">
+        <BlogCallout title={'Iran travel news: the 2026 "Silk Road Loop" tourism push'}>
           Iran's Ministry of Tourism launched a 2026 "Silk Road Loop"
           initiative that consolidates Yazd, Kashan, Isfahan, and
           Nain (between Isfahan and Yazd) into a single 7-day
