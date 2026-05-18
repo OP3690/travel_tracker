@@ -87,11 +87,13 @@ function WorldMap({ selectedLocations = [], setSelectedLocations = () => {}, onL
     }
     if (!id || !name) return;
 
-    setSelectedLocations(prev => {
-      const exists = prev.find(s => s.name === name);
-      if (exists) return prev.filter(s => s.name !== name);
-      return [...prev, { id: name, name }];
-    });
+    // Only emit the event up — the parent (WorldMapView) is the single
+    // source of truth and handles toggling + persistence. We used to also
+    // mutate selectedLocations here, which caused a double-toggle: the
+    // local update added {id, name} without `type:"country"`, then the
+    // parent toggled again with `type:"country"` and the two entries
+    // didn't match. Net effect: clicks looked like no-ops for many
+    // countries.
     onLocationClick({ id: name, name });
   }
 
