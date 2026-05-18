@@ -114,6 +114,9 @@ const TwoWeekIsraelItin         = lazy(() => import('./components/Blog/posts/Two
 const BestIsraelDestinations    = lazy(() => import('./components/Blog/posts/BestIsraelDestinations2026'));
 const About                     = lazy(() => import('./components/About'));
 const Contact                   = lazy(() => import('./components/Contact'));
+const Privacy                   = lazy(() => import('./components/Privacy'));
+const Terms                     = lazy(() => import('./components/Terms'));
+const Cookies                   = lazy(() => import('./components/Cookies'));
 
 function RouteFallback() {
   return (
@@ -274,6 +277,9 @@ function App() {
           <Route path="/blog/best-israel-destinations-2026" element={<BestIsraelDestinations />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/cookies" element={<Cookies />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

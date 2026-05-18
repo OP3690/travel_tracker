@@ -959,6 +959,9 @@ export default function LandingPage() {
             <a href="/blog" data-ga-label="Footer: Blog">Blog</a>
             <a href="/about" data-ga-label="Footer: About">About</a>
             <a href="/contact" data-ga-label="Footer: Contact">Contact</a>
+            <a href="/privacy" data-ga-label="Footer: Privacy">Privacy</a>
+            <a href="/terms" data-ga-label="Footer: Terms">Terms</a>
+            <a href="/cookies" data-ga-label="Footer: Cookies">Cookies</a>
             <span onClick={() => navigate('/login')} role="button" tabIndex={0}
               data-ga-label="Footer: Log in">Log in</span>
           </div>
