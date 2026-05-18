@@ -129,21 +129,34 @@ export function useBlogSEO({
     keywords,
     jsonLd: {
       '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: title,
-      description,
-      url: absUrl,
-      image: [absImage],
-      datePublished,
-      dateModified: datePublished,
-      author: { '@type': 'Organization', name: author, url: SITE_ORIGIN },
-      publisher: {
-        '@type': 'Organization',
-        name: 'StampYourMap',
-        url: SITE_ORIGIN,
-        logo: { '@type': 'ImageObject', url: `${SITE_ORIGIN}/icon-512.png` },
-      },
-      mainEntityOfPage: { '@type': 'WebPage', '@id': absUrl },
+      '@graph': [
+        {
+          '@type': 'Article',
+          headline: title,
+          description,
+          url: absUrl,
+          image: [absImage],
+          datePublished,
+          dateModified: datePublished,
+          author: { '@type': 'Organization', name: author, url: SITE_ORIGIN },
+          publisher: {
+            '@type': 'Organization',
+            name: 'StampYourMap',
+            url: SITE_ORIGIN,
+            logo: { '@type': 'ImageObject', url: `${SITE_ORIGIN}/icon-512.png` },
+          },
+          mainEntityOfPage: { '@type': 'WebPage', '@id': absUrl },
+        },
+        // BreadcrumbList — gives Google rich-result breadcrumbs in SERP
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home',  item: `${SITE_ORIGIN}/` },
+            { '@type': 'ListItem', position: 2, name: 'Blog',  item: `${SITE_ORIGIN}/blog` },
+            { '@type': 'ListItem', position: 3, name: title,   item: absUrl },
+          ],
+        },
+      ],
     },
   });
   // Fire `blog_post_view` + scroll-depth milestones (25 / 50 / 75 / 100).

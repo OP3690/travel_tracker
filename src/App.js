@@ -133,6 +133,94 @@ function RouteFallback() {
   );
 }
 
+// 404 page — soft, SEO-friendly, links to popular destinations
+function NotFound() {
+  useEffect(() => {
+    document.title = '404 — Page Not Found · StampYourMap';
+    // Tell crawlers explicitly that this is a soft 404 so they don't
+    // index it as a real page.
+    let m = document.querySelector('meta[name="robots"]');
+    const prev = m?.content;
+    if (!m) {
+      m = document.createElement('meta');
+      m.setAttribute('name', 'robots');
+      document.head.appendChild(m);
+    }
+    m.setAttribute('content', 'noindex, nofollow');
+    return () => { if (m && prev) m.setAttribute('content', prev); };
+  }, []);
+  return (
+    <div style={{
+      minHeight: '70vh', padding: '4rem 1.5rem', maxWidth: 720, margin: '0 auto',
+      textAlign: 'center', color: 'var(--text-primary)',
+    }}>
+      <div style={{ fontSize: '4rem', fontWeight: 800, letterSpacing: '-0.04em', marginBottom: '0.5rem' }}>404</div>
+      <h1 style={{ fontSize: '1.6rem', margin: '0 0 0.75rem' }}>This page is off the map</h1>
+      <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: 1.55, marginBottom: '1.5rem' }}>
+        We couldn&apos;t find what you were looking for. Try one of these
+        instead:
+      </p>
+      <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.5rem' }}>
+        {[
+          ['/', 'Home'],
+          ['/blog', 'Travel blog'],
+          ['/about', 'About'],
+          ['/contact', 'Contact'],
+          ['/signup', 'Create free map'],
+        ].map(([href, label]) => (
+          <li key={href}>
+            <a href={href} style={{
+              padding: '8px 16px', borderRadius: 999,
+              background: 'rgba(99,102,241,0.1)', color: 'var(--primary-500, #6366f1)',
+              textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem',
+            }}>{label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+// ErrorBoundary — wraps the Suspense tree so a chunk-load failure or
+// runtime crash inside any lazy component falls back to a graceful
+// "something went wrong" with a reload prompt, instead of a white screen.
+class ErrorBoundary extends React.Component {
+  state = { hasError: false };
+  static getDerivedStateFromError() { return { hasError: true }; }
+  componentDidCatch(err, info) {
+    try {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'exception', { description: String(err), fatal: true });
+      }
+      // eslint-disable-next-line no-console
+      console.error('App ErrorBoundary caught:', err, info);
+    } catch (_) { /* never let the error reporter itself throw */ }
+  }
+  render() {
+    if (!this.state.hasError) return this.props.children;
+    return (
+      <div style={{
+        minHeight: '70vh', padding: '4rem 1.5rem', maxWidth: 560, margin: '0 auto',
+        textAlign: 'center', color: 'var(--text-primary)',
+      }}>
+        <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>⚠️</div>
+        <h1 style={{ fontSize: '1.4rem', margin: '0 0 0.75rem' }}>Something went wrong</h1>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.55, marginBottom: '1.5rem' }}>
+          A small piece of the app failed to load. A refresh almost always fixes it.
+        </p>
+        <button
+          onClick={() => window.location.reload()}
+          style={{
+            padding: '12px 22px', borderRadius: 12, border: 'none',
+            background: 'linear-gradient(135deg, #6366f1, #8b5cf6 50%, #ec4899)',
+            color: '#fff', fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer',
+          }}
+        >Reload</button>
+      </div>
+    );
+  }
+}
+
 function App() {
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -148,6 +236,7 @@ function App() {
         <LazySpeedInsights />
         <InstallAppButton />
       </Suspense>
+      <ErrorBoundary>
       <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -280,8 +369,12 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/cookies" element={<Cookies />} />
+          {/* Catch-all 404 — keeps Google from indexing mistyped URLs as
+              real pages and gives users a useful soft-404 with helpful links. */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
+      </ErrorBoundary>
     </BrowserRouter>
   );
 }
