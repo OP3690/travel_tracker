@@ -1,5 +1,29 @@
-/* ===== Traveler's Dashboard ===== */
-.dashboard-page { padding: 1.5rem 1.5rem 3rem; max-width: 1320px; margin: 0 auto; animation: fadeIn 0.4s ease; }
+/* ===== Traveler's Dashboard =====
+   Faint compass-rose + dotted-trail background pattern so the whole
+   page reads as "your travel atlas, opened on a desk". The pattern
+   is barely visible (3% opacity on light, 4% on dark) — never
+   competes with content but always whispers "travel" in the back. */
+.dashboard-page {
+  padding: 1.5rem 1.5rem 3rem;
+  max-width: 1320px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease;
+  position: relative;
+}
+.dashboard-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image:
+    /* dotted grid that suggests latitude / longitude */
+    radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.9) 1px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+[data-theme="dark"] .dashboard-page::before { opacity: 0.045; }
+.dashboard-page > * { position: relative; z-index: 1; }
 
 /* Quote bar — elevated to a soft frosted card with brand accent stripe */
 .quote-bar {
@@ -40,25 +64,114 @@
   letter-spacing: -0.005em;
 }
 
-/* Welcome */
+/* Welcome banner — styled like an open passport: vintage gradient,
+   decorative aircraft trails, plus a flight-path animation across
+   the top. */
 .welcome-banner {
-  background: linear-gradient(135deg, var(--primary-600) 0%, #7c3aed 50%, var(--primary-700) 100%);
-  border-radius: var(--radius-xl); padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
-  color: #fff; position: relative; animation: fadeInDown 0.5s ease; overflow: hidden;
+  position: relative;
+  background:
+    /* dashed compass-rose vignette top-right */
+    radial-gradient(circle at 100% 0%, rgba(255,255,255,0.12), transparent 38%),
+    /* aurora green bottom-left */
+    radial-gradient(circle at 0% 100%, rgba(52,211,153,0.20), transparent 50%),
+    /* base passport-blue → violet → pink */
+    linear-gradient(135deg, #1e1b4b 0%, var(--primary-600) 30%, #7c3aed 65%, #ec4899 100%);
+  border-radius: 22px;
+  padding: 1.75rem 1.85rem 1.6rem;
+  margin-bottom: 1.4rem;
+  color: #fff;
+  animation: fadeInDown 0.5s ease;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(99,102,241,0.32), 0 4px 12px rgba(236,72,153,0.18);
 }
-.welcome-banner::before { content: ''; position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+/* Decorative aircraft trail dashed line across the top edge — animates
+   right to mimic a flight path */
+.welcome-banner::before {
+  content: '';
+  position: absolute;
+  top: 22px; left: 0; right: 0;
+  height: 2px;
+  background-image: linear-gradient(90deg,
+    transparent 0%,
+    transparent 2%,
+    rgba(255,255,255,0.55) 2%,
+    rgba(255,255,255,0.55) 5%,
+    transparent 5%,
+    transparent 100%);
+  background-size: 28px 100%;
+  background-repeat: repeat-x;
+  opacity: 0.55;
+  animation: flightTrail 18s linear infinite;
+  pointer-events: none;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+}
+@keyframes flightTrail {
+  0%   { background-position: 0 0; }
+  100% { background-position: 560px 0; }
+}
+/* Subtle decorative ring in top-right */
+.welcome-banner::after {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
 .welcome-left { position: relative; z-index: 1; }
-.welcome-banner h2 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.3rem; }
-.welcome-banner p { font-size: 0.85rem; opacity: 0.75; max-width: 500px; line-height: 1.5; margin-bottom: 1rem; }
-.welcome-dismiss { position: absolute; top: 12px; right: 12px; color: rgba(255,255,255,0.4); font-size: 0.85rem; padding: 6px; border-radius: var(--radius-sm); z-index: 2; }
-.welcome-dismiss:hover { color: #fff; background: rgba(255,255,255,0.12); }
-.welcome-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-.welcome-link {
-  display: flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: var(--radius-full);
-  background: rgba(255,255,255,0.1); color: #fff; font-size: 0.78rem; font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.1); transition: all var(--transition-base);
+.welcome-banner h2 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.2);
 }
-.welcome-link:hover { background: rgba(255,255,255,0.2); transform: translateY(-1px); }
+.welcome-banner p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  max-width: 540px;
+  line-height: 1.55;
+  margin-bottom: 1.1rem;
+}
+.welcome-dismiss {
+  position: absolute;
+  top: 14px; right: 14px;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.9rem;
+  padding: 7px;
+  border-radius: 999px;
+  z-index: 2;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+.welcome-dismiss:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.16);
+  transform: rotate(90deg);
+}
+.welcome-actions { display: flex; gap: 9px; flex-wrap: wrap; position: relative; z-index: 1; }
+.welcome-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  border: 1px solid rgba(255,255,255,0.18);
+  text-decoration: none;
+  transition: background 180ms ease, transform 140ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.welcome-link:hover {
+  background: rgba(255,255,255,0.26);
+  border-color: rgba(255,255,255,0.36);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+.welcome-link:active { transform: scale(0.97); }
 
 /* 2-Column Layout */
 .dash-columns { display: flex; gap: 1.25rem; align-items: flex-start; }
@@ -99,19 +212,47 @@
   box-shadow: 0 14px 32px rgba(15,23,42,0.08), 0 4px 10px rgba(99,102,241,0.06);
   transform: translateY(-3px);
 }
+/* Stat card icon — built like a postage stamp:
+   - perforated dashed border around the rounded square
+   - subtle inner highlight (paper finish)
+   - the number itself sits dead-center with a small "STAMP" mark
+     reading along the bottom edge (created via ::after) */
 .stat-card-icon {
-  width: 56px; height: 56px;
-  border-radius: 16px;
+  width: 64px; height: 64px;
+  border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
   position: relative;
   z-index: 1;
+  border: 1.5px dashed currentColor;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.45),
+    0 4px 10px rgba(15,23,42,0.06);
+}
+[data-theme="dark"] .stat-card-icon {
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    0 4px 10px rgba(0,0,0,0.3);
+}
+.stat-card-icon::after {
+  content: 'STAMPED';
+  position: absolute;
+  bottom: -2px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.45rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: inherit;
+  opacity: 0.55;
+  white-space: nowrap;
+  background: var(--bg-card);
+  padding: 0 4px;
+  border-radius: 4px;
 }
 .stat-card-number {
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   line-height: 1;
 }
 .stat-card-content { flex: 1; min-width: 0; position: relative; z-index: 1; }
@@ -337,7 +478,11 @@
 
 /* ---- RIGHT PANEL ---- */
 
-/* Progress Card — richer gradient + decorative aurora */
+/* Progress Card — designed like an actual passport page:
+   - aurora background
+   - perforated edge along the top
+   - faint "STAMPED" wordmark watermark
+   - rotating compass needle micro-illustration on the left */
 .progress-card {
   position: relative;
   background:
@@ -351,6 +496,7 @@
   overflow: hidden;
   box-shadow: 0 14px 32px rgba(99,102,241,0.32);
 }
+/* Aurora light blob */
 .progress-card::before {
   content: '';
   position: absolute;
@@ -358,6 +504,24 @@
   width: 240px; height: 240px;
   background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
   pointer-events: none;
+}
+/* Faint "STAMPED" stamp wordmark in the corner — gives the card real
+   passport-page feel. Uses the country code via JS isn't needed; this
+   is a generic decoration that reads as a travel artifact. */
+.progress-card::after {
+  content: '✦ EXPLORER ✦';
+  position: absolute;
+  bottom: 12px; right: 16px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.16);
+  pointer-events: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  padding: 4px 10px;
+  border-radius: 999px;
+  transform: rotate(-4deg);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.05);
 }
 .pc-ring {
   width: 78px; height: 78px;
@@ -439,81 +603,120 @@
   line-height: 1.5;
 }
 
-/* Recent Visits — list rows with hover slide */
-.recent-list { display: flex; flex-direction: column; gap: 2px; }
+/* Recent Visits — each row is a mini passport stamp.
+   The pin icon becomes a circular date-stamp visual; on hover the
+   row tilts 1° and the stamp pulses to feel like a fresh imprint. */
+.recent-list { display: flex; flex-direction: column; gap: 4px; }
 .recent-item {
-  display: flex; align-items: center; gap: 10px;
-  padding: 9px 11px;
-  border-radius: 10px;
-  transition: background 180ms ease, transform 180ms ease;
-  animation: fadeInUp 0.3s ease both;
-  animation-delay: calc(var(--i, 0) * 50ms);
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  position: relative;
+  transition: background 200ms ease, transform 200ms ease;
+  animation: stampDrop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
   cursor: default;
 }
 .recent-item:hover {
   background: var(--bg-hover);
-  transform: translateX(3px);
+  transform: translateX(4px) rotate(-0.4deg);
+}
+.recent-item:hover .recent-icon {
+  animation: stampPulse 0.6s ease;
 }
 .recent-icon {
-  width: 22px; height: 22px;
-  border-radius: 7px;
-  background: rgba(52,211,153,0.12);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), transparent 50%),
+    linear-gradient(135deg, rgba(52,211,153,0.22), rgba(16,185,129,0.14));
   color: var(--accent-500, #10b981) !important;
-  font-size: 0.72rem !important;
+  font-size: 0.75rem !important;
   display: inline-flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  border: 1.5px dashed rgba(16,185,129,0.45);
+  position: relative;
+}
+.recent-icon::after {
+  /* faint "✓" ring around the pin to read as a stamp */
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px dashed rgba(16,185,129,0.18);
 }
 .recent-name {
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: -0.005em;
-}
-
-/* Suggestions — rich rows with sliding arrow on hover */
-.suggest-list { display: flex; flex-direction: column; gap: 2px; }
-.suggest-item {
-  display: flex; align-items: center; gap: 12px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  transition: background 180ms ease, transform 180ms ease;
-  cursor: pointer;
-  animation: fadeInUp 0.3s ease both;
-  animation-delay: calc(var(--i, 0) * 60ms);
-}
-.suggest-item:hover {
-  background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(236,72,153,0.04));
-  transform: translateX(3px);
-}
-.suggest-item:hover .suggest-arrow {
-  transform: translateX(3px);
-  color: var(--primary-500);
-}
-.suggest-emoji {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
-}
-.suggest-info { flex: 1; min-width: 0; }
-.suggest-name {
-  display: block;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.005em;
-  margin-bottom: 1px;
+}
+@keyframes stampDrop {
+  from { opacity: 0; transform: translateY(-6px) scale(0.9) rotate(-3deg); }
+  to   { opacity: 1; transform: translateY(0)   scale(1)   rotate(0); }
+}
+@keyframes stampPulse {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.12) rotate(-6deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* Suggestions — postcard-row pattern.
+   Emoji sits inside a soft "stamp" disc, the row tilts slightly on
+   hover, the right-side arrow slides + turns into an aircraft
+   character. */
+.suggest-list { display: flex; flex-direction: column; gap: 3px; }
+.suggest-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 11px 13px;
+  border-radius: 13px;
+  border: 1px dashed transparent;
+  transition: background 200ms ease, transform 200ms ease, border-color 200ms ease;
+  cursor: pointer;
+  animation: fadeInUp 0.3s ease both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+.suggest-item:hover {
+  background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(236,72,153,0.05));
+  border-color: rgba(99,102,241,0.18);
+  transform: translateX(4px) rotate(-0.5deg);
+}
+.suggest-item:hover .suggest-arrow {
+  transform: translateX(6px) rotate(-12deg);
+  color: var(--primary-500);
+}
+.suggest-emoji {
+  width: 40px; height: 40px;
+  flex-shrink: 0;
+  font-size: 1.45rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), transparent 60%),
+    linear-gradient(135deg, rgba(99,102,241,0.12), rgba(236,72,153,0.08));
+  border-radius: 50%;
+  border: 1px dashed rgba(99,102,241,0.32);
+  filter: drop-shadow(0 2px 6px rgba(99,102,241,0.18));
+}
+.suggest-info { flex: 1; min-width: 0; }
+.suggest-name {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
 }
 .suggest-why {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   color: var(--text-muted);
-  line-height: 1.35;
+  line-height: 1.4;
 }
 .suggest-arrow {
   color: var(--text-tertiary);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   flex-shrink: 0;
-  transition: transform 200ms ease, color 200ms ease;
+  transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1), color 200ms ease;
 }
 
 /* Quick Links */
