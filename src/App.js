@@ -6,6 +6,7 @@ import { initGlobalClickTracking, initRouteTracking } from './utils/analytics';
 import { warmupApi } from './api/api';
 import './App.css';
 import './mobile.css';
+import './polish.css';
 
 // Code-split every non-critical route so the initial bundle is just landing.
 // (Login, InstallApp, SpeedInsights all lazy-loaded — they aren't needed

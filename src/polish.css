@@ -1,0 +1,310 @@
+/* ============================================================
+   StampYourMap — global UI/UX polish layer
+   Loaded LAST in App.js so these rules win against any
+   component-level style. Focuses on the small details that
+   separate "ok" from "this feels like a real product":
+     · accessible focus rings everywhere
+     · card hover lift
+     · button microinteractions
+     · loading skeletons + shimmer
+     · smoother scroll + transitions
+     · respect prefers-reduced-motion
+   ============================================================ */
+
+/* ============================================================
+   ACCESSIBLE FOCUS RINGS — replace the default browser outline
+   with our brand purple ring. Only shows on keyboard focus
+   (focus-visible) so mouse clicks don't get a ring around them.
+   ============================================================ */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--primary-500, #6366f1);
+  outline-offset: 3px;
+  border-radius: 10px;
+  transition: outline-offset 0.12s ease;
+}
+/* Inputs / textareas get a soft ring + glow instead of an outline */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.18),
+    inset 0 0 0 1px var(--primary-500, #6366f1);
+}
+/* Buttons keep their outline but offset further so it doesn't clip the rounded edge */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline-offset: 4px;
+}
+
+/* ============================================================
+   CARD HOVER LIFT — every clickable card across the app gets
+   a subtle 2 px lift + shadow grow + 250 ms transition. Cheap
+   visual feedback that makes the whole product feel responsive.
+   Opt-in via classes that consistently mean "this is clickable".
+   ============================================================ */
+@media (hover: hover) {
+  .map-card, .info-card, .stat-card, .progress-card,
+  .mem-card, .mss-item, .planner-card, .pst-card,
+  .sp-hero-card, .sp-card, .fr-card, .fr-stat,
+  .feature-card, .pillar-card, .step-card, .testimonial-card,
+  .pc-card, .journal-state-row, .blog-card,
+  .dmm-template {
+    transition:
+      transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 220ms ease,
+      border-color 180ms ease;
+    will-change: transform;
+  }
+  .map-card:hover, .info-card:hover, .stat-card:hover,
+  .mem-card:hover, .planner-card:hover, .pst-card:hover,
+  .sp-hero-card:hover, .fr-card:hover, .fr-stat:hover,
+  .feature-card:hover, .pillar-card:hover, .step-card:hover,
+  .testimonial-card:hover, .journal-state-row:hover,
+  .blog-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 18px 38px rgba(15, 23, 42, 0.08),
+      0 4px 10px rgba(99, 102, 241, 0.08);
+  }
+  [data-theme="dark"] .map-card:hover,
+  [data-theme="dark"] .info-card:hover,
+  [data-theme="dark"] .stat-card:hover,
+  [data-theme="dark"] .mem-card:hover,
+  [data-theme="dark"] .planner-card:hover,
+  [data-theme="dark"] .pst-card:hover,
+  [data-theme="dark"] .sp-hero-card:hover,
+  [data-theme="dark"] .fr-card:hover,
+  [data-theme="dark"] .feature-card:hover,
+  [data-theme="dark"] .pillar-card:hover,
+  [data-theme="dark"] .step-card:hover,
+  [data-theme="dark"] .testimonial-card:hover,
+  [data-theme="dark"] .journal-state-row:hover,
+  [data-theme="dark"] .blog-card:hover {
+    box-shadow:
+      0 18px 38px rgba(0, 0, 0, 0.4),
+      0 4px 10px rgba(99, 102, 241, 0.18);
+  }
+}
+
+/* ============================================================
+   BUTTON MICROINTERACTIONS — every primary/secondary button
+   compresses slightly on press for tactile feedback.
+   ============================================================ */
+button, a[role="button"] {
+  transition:
+    transform 100ms ease,
+    background 180ms ease,
+    background-position 400ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
+}
+button:not(:disabled):active,
+a[role="button"]:not([aria-disabled="true"]):active {
+  transform: scale(0.97);
+}
+
+/* ============================================================
+   LINKS — smooth underline reveal on hover for content links
+   (skip links inside buttons / chips / nav by being specific
+   to common content containers).
+   ============================================================ */
+.blog-section a:not(.blog-card):not(.no-style),
+.about-page a:not(.no-style),
+.dmm-tip a,
+.fr-modal-body a,
+.mem-modal-body a {
+  position: relative;
+  text-decoration: none;
+  color: var(--primary-500, #6366f1);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 220ms ease, color 180ms ease;
+}
+.blog-section a:hover:not(.blog-card):not(.no-style),
+.about-page a:hover,
+.dmm-tip a:hover,
+.fr-modal-body a:hover,
+.mem-modal-body a:hover {
+  background-size: 100% 1.5px;
+}
+
+/* ============================================================
+   LOADING SKELETONS — drop-in shimmer that any component can
+   use by adding `class="skeleton"`. Used by the new skeleton
+   variants below for memories / blog / friend lists.
+   ============================================================ */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    var(--bg-input, #f1f5f9) 0%,
+    var(--bg-hover, #e2e8f0) 50%,
+    var(--bg-input, #f1f5f9) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.4s ease-in-out infinite;
+  border-radius: 12px;
+  color: transparent !important;
+  -webkit-user-select: none;
+          user-select: none;
+}
+[data-theme="dark"] .skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  background-size: 200% 100%;
+}
+@keyframes skeletonShimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ============================================================
+   IMAGE LOADING — lazy images fade in once decoded instead of
+   popping. Apply via class="img-fade" on <img>.
+   ============================================================ */
+.img-fade {
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+.img-fade.loaded,
+.img-fade[data-loaded="true"] {
+  opacity: 1;
+}
+
+/* ============================================================
+   SCROLLBARS (desktop only) — slim, branded scrollbars that
+   match the surface they sit on. Mobile already hides them.
+   ============================================================ */
+@media (hover: hover) and (min-width: 901px) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-default, rgba(15, 23, 42, 0.12)) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-track { background: transparent; }
+  *::-webkit-scrollbar-thumb {
+    background: var(--border-default, rgba(15, 23, 42, 0.12));
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-300, #a5b4fc);
+    background-clip: content-box;
+  }
+}
+
+/* ============================================================
+   GLOBAL SMOOTH SCROLL — except when reducing motion.
+   ============================================================ */
+html { scroll-behavior: smooth; }
+
+/* ============================================================
+   PAGE-LEVEL ENTRANCE — every routed page eases in.
+   The .main-content already has this via mobile.css; here we
+   add a desktop version that also gives a subtle vertical drift.
+   ============================================================ */
+@media (min-width: 901px) {
+  .main-content > * {
+    animation: pageEnterDesktop 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes pageEnterDesktop {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ============================================================
+   DISABLED STATES — uniform, accessible "not now" affordance.
+   ============================================================ */
+button:disabled,
+[aria-disabled="true"],
+input:disabled,
+textarea:disabled,
+select:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  filter: saturate(0.85);
+}
+
+/* ============================================================
+   PLACEHOLDER COLOR — uniform across all inputs.
+   ============================================================ */
+::placeholder {
+  color: var(--text-tertiary, #94a3b8);
+  opacity: 1;
+}
+
+/* ============================================================
+   TEXT SELECTION — branded, consistent.
+   (Base already in index.css; reinforce in case a component
+   overrode it.)
+   ============================================================ */
+::selection {
+  background: rgba(99, 102, 241, 0.22);
+  color: var(--text-primary, #0f172a);
+}
+[data-theme="dark"] ::selection {
+  background: rgba(99, 102, 241, 0.34);
+  color: #fff;
+}
+
+/* ============================================================
+   PROMINENT INPUTS — improve the perceived quality of every
+   text input/textarea by giving them a soft outer ring on focus
+   instead of a clipped browser outline.
+   ============================================================ */
+input[type="text"], input[type="email"], input[type="password"],
+input[type="tel"], input[type="number"], input[type="date"],
+input[type="search"], input[type="url"], textarea, select {
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+/* ============================================================
+   REDUCED MOTION — respect users who set this preference.
+   Override all the animations above to be instantaneous.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ============================================================
+   PRINT — collapse the app chrome so printed pages look like
+   articles, not screenshots. Mainly useful for blog posts.
+   ============================================================ */
+@media print {
+  .sidebar, .m-topbar, .m-tabbar, .landing-nav,
+  .blog-toc, .blog-end-cta, .mem-modal-overlay,
+  .tp-modal-overlay, .dmm-overlay {
+    display: none !important;
+  }
+  body, .main-content, .blog-shell {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  a { color: #0a3 !important; text-decoration: underline !important; }
+}
