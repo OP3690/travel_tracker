@@ -28,31 +28,54 @@ function WorldMap({ selectedLocations = [], setSelectedLocations = () => {}, onL
       });
   }, []);
 
-  // Highlight selected countries
+  // Highlight selected countries — uses the SAME multi-strategy
+  // label matching as the click resolver (title text, OR aria-label,
+  // OR data-country / data-name / name attribute), otherwise countries
+  // saved via attribute-based labels (Libya, Sudan, Ethiopia in the
+  // world SVG) get recorded as visited but never turn green.
   useEffect(() => {
     const svgEl = svgContainerRef.current?.querySelector('svg');
     if (!svgEl) return;
     svgEl.querySelectorAll('path.selected, circle.selected').forEach(p => p.classList.remove('selected'));
 
-    selectedLocations.forEach(loc => {
-      Array.from(svgEl.querySelectorAll('g')).forEach(g => {
-        const title = g.querySelector('title');
-        if (title && title.textContent === loc.name) {
-          g.querySelectorAll('path').forEach(path => path.classList.add('selected'));
+    if (!selectedLocations.length) return;
+    // Index selected names once for O(1) match per element walk
+    const targetNames = new Set(selectedLocations.map(l => l.name));
+
+    // Strategy A — match by attribute on the path/g itself
+    const labelOf = (el) => {
+      const aria  = el.getAttribute?.('aria-label');
+      const dataC = el.getAttribute?.('data-country');
+      const dataN = el.getAttribute?.('data-name');
+      const nm    = el.getAttribute?.('name');
+      return (aria && aria.trim()) || (dataC && dataC.trim()) ||
+             (dataN && dataN.trim()) || (nm && nm.trim()) || null;
+    };
+    svgEl.querySelectorAll('path, g').forEach(el => {
+      const lbl = labelOf(el);
+      if (lbl && targetNames.has(lbl)) {
+        if (el.tagName.toLowerCase() === 'path') {
+          el.classList.add('selected');
+        } else {
+          el.querySelectorAll('path').forEach(p => p.classList.add('selected'));
         }
-      });
-      Array.from(svgEl.querySelectorAll('title')).forEach(title => {
-        if (title.textContent === loc.name) {
-          const parent = title.parentElement;
-          if (parent?.tagName === 'g') {
-            parent.querySelectorAll('path').forEach(p => p.classList.add('selected'));
-          }
-          const prev = title.previousElementSibling;
-          const next = title.nextElementSibling;
-          if (prev?.tagName === 'path') prev.classList.add('selected');
-          if (next?.tagName === 'path') next.classList.add('selected');
-        }
-      });
+      }
+    });
+
+    // Strategy B — match by <title> child / sibling (original behaviour)
+    Array.from(svgEl.querySelectorAll('title')).forEach(title => {
+      const t = title.textContent?.trim();
+      if (!t || !targetNames.has(t)) return;
+      const parent = title.parentElement;
+      if (parent?.tagName === 'g') {
+        parent.querySelectorAll('path').forEach(p => p.classList.add('selected'));
+      } else if (parent?.tagName?.toLowerCase() === 'path') {
+        parent.classList.add('selected');
+      }
+      const prev = title.previousElementSibling;
+      const next = title.nextElementSibling;
+      if (prev?.tagName === 'path') prev.classList.add('selected');
+      if (next?.tagName === 'path') next.classList.add('selected');
     });
   }, [selectedLocations]);
 
