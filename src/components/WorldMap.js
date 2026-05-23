@@ -147,7 +147,12 @@ function WorldMap({ selectedLocations = [], setSelectedLocations = () => {}, onL
       if (name) {
         e.target.title = '';
         setHoveredName(name);
-        setMousePos({ x: e.clientX, y: e.clientY });
+        // Container-relative coords so the tooltip can use position:absolute
+        // and stay glued to the cursor even if an ancestor has a transform.
+        const rect = svgContainerRef.current?.getBoundingClientRect();
+        const x = rect ? e.clientX - rect.left : e.clientX;
+        const y = rect ? e.clientY - rect.top  : e.clientY;
+        setMousePos({ x, y });
       } else {
         setHoveredName('');
       }

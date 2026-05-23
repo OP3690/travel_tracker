@@ -216,16 +216,18 @@ html { scroll-behavior: smooth; }
 
 /* ============================================================
    PAGE-LEVEL ENTRANCE — every routed page eases in.
-   The .main-content already has this via mobile.css; here we
-   add a desktop version that also gives a subtle vertical drift.
+   IMPORTANT: opacity-only. A transform on the page wrapper creates
+   a new CSS containing block, which breaks position:fixed for
+   descendants like the country-map tooltip and FABs (they would
+   position relative to the page wrapper instead of the viewport).
    ============================================================ */
 @media (min-width: 901px) {
   .main-content > * {
-    animation: pageEnterDesktop 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: pageEnterDesktop 0.32s ease both;
   }
   @keyframes pageEnterDesktop {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 }
 

@@ -93,7 +93,14 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
   }
 
   function onMouseMove(event) {
-    setMousePos({ x: event.clientX, y: event.clientY });
+    // Use container-relative coordinates so the tooltip works correctly
+    // even when an ancestor (e.g. a route-enter animation) has a
+    // transform that would otherwise re-anchor `position: fixed`
+    // away from the viewport.
+    const rect = svgRef.current?.getBoundingClientRect();
+    const x = rect ? event.clientX - rect.left : event.clientX;
+    const y = rect ? event.clientY - rect.top  : event.clientY;
+    setMousePos({ x, y });
   }
 
   function getLocationClass({ id }) {
@@ -190,9 +197,11 @@ function CountryMap({ country = 'India', selectedLocations = [], setSelectedLoca
         <div
           className="country-map-tooltip"
           style={{
-            position: "fixed",
+            position: "absolute",
             left: mousePos.x + 14,
             top: mousePos.y - 32,
+            pointerEvents: "none",
+            zIndex: 1001,
           }}
         >
           {hoveredName}
