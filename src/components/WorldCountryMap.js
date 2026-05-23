@@ -122,14 +122,29 @@ export default function WorldCountryMap({ country }) {
       });
   }, [country]);
 
+  const handleMouseMove = (e) => {
+    // Container-relative coords for position:absolute tooltip
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
   return (
     <div
       className="country-map-container world-country-map"
-      onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
+      onMouseMove={handleMouseMove}
     >
       <div ref={svgContainerRef} style={{ width: '100%', height: '100%' }} />
       {hoveredName && (
-        <div className="country-map-tooltip" style={{ position: 'fixed', left: mousePos.x + 14, top: mousePos.y - 32 }}>
+        <div
+          className="country-map-tooltip"
+          style={{
+            position: 'absolute',
+            left: mousePos.x + 14,
+            top: mousePos.y - 32,
+            pointerEvents: 'none',
+            zIndex: 1001,
+          }}
+        >
           {hoveredName}
         </div>
       )}

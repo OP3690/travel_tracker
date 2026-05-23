@@ -59,32 +59,56 @@ function WorldMap({ selectedLocations = [], setSelectedLocations = () => {}, onL
   function handleLocationClick(event) {
     if (dragRef.current.moved > 4) return;
     let el = event.target;
-    let name = null;
-    let id = null;
 
-    function findTitle(element) {
-      if (!element) return null;
-      if (element.tagName === 'title') return element.textContent;
-      if (element.querySelector?.('title')) return element.querySelector('title').textContent;
-      if (element.previousElementSibling?.tagName === 'title') return element.previousElementSibling.textContent;
-      if (element.nextElementSibling?.tagName === 'title') return element.nextElementSibling.textContent;
+    // Multi-strategy country resolver: the World SVG has inconsistent
+    // markup — some countries are `<g><title>X</title><path/></g>`,
+    // others are `<path><title>X</title></path>`, others have NO title
+    // at all but use a `name`, `data-name`, `data-country`, `id`, or
+    // `aria-label` attribute. Walking up only looking for <title>
+    // missed every country that uses an attribute-based label, which
+    // is why some countries didn't respond to clicks.
+    function resolve(element) {
+      if (!element || element.tagName === 'svg') return null;
+      // 1. Direct <title> element
+      if (element.tagName === 'title') {
+        return { name: element.textContent.trim(), id: element.parentElement?.getAttribute('id') || element.textContent.trim() };
+      }
+      // 2. Child <title>
+      const childTitle = element.querySelector?.(':scope > title') || element.querySelector?.('title');
+      if (childTitle?.textContent?.trim()) {
+        const t = childTitle.textContent.trim();
+        return { name: t, id: element.getAttribute('id') || t };
+      }
+      // 3. Sibling <title> (before or after)
+      const prev = element.previousElementSibling;
+      const next = element.nextElementSibling;
+      if (prev?.tagName === 'title' && prev.textContent?.trim()) {
+        return { name: prev.textContent.trim(), id: element.getAttribute('id') || prev.textContent.trim() };
+      }
+      if (next?.tagName === 'title' && next.textContent?.trim()) {
+        return { name: next.textContent.trim(), id: element.getAttribute('id') || next.textContent.trim() };
+      }
+      // 4. Attribute-based labels — covers countries that don't have a
+      //    <title> child at all (the common cause of unresponsive clicks).
+      const aria  = element.getAttribute?.('aria-label');
+      const dataC = element.getAttribute?.('data-country');
+      const dataN = element.getAttribute?.('data-name');
+      const nm    = element.getAttribute?.('name');
+      if (aria  && aria.trim())  return { name: aria.trim(),  id: element.getAttribute('id') || aria.trim() };
+      if (dataC && dataC.trim()) return { name: dataC.trim(), id: element.getAttribute('id') || dataC.trim() };
+      if (dataN && dataN.trim()) return { name: dataN.trim(), id: element.getAttribute('id') || dataN.trim() };
+      if (nm    && nm.trim())    return { name: nm.trim(),    id: element.getAttribute('id') || nm.trim() };
       return null;
     }
 
-    let found = false;
+    let resolved = null;
     while (el && el.tagName !== 'svg') {
-      name = findTitle(el);
-      if (name) {
-        id = el.getAttribute('id') || (el.getAttribute('class') ? el.getAttribute('class').split(' ')[0] : name);
-        found = true;
-        break;
-      }
+      resolved = resolve(el);
+      if (resolved) break;
       el = el.parentNode;
     }
-    if (!found && el) {
-      id = el.getAttribute('id') || (el.getAttribute('class') ? el.getAttribute('class').split(' ')[0] : null);
-      name = id;
-    }
+    if (!resolved) return;
+    const { name, id } = resolved;
     if (!id || !name) return;
 
     // Only emit the event up — the parent (WorldMapView) is the single

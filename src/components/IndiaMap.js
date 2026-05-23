@@ -31,7 +31,12 @@ function IndiaMap({ selectedLocations = [], setSelectedLocations = () => {} }) {
   }
 
   function onMouseMove(event) {
-    setMousePos({ x: event.clientX, y: event.clientY });
+    // Container-relative coords so position:absolute tooltip can never
+    // drift if an ancestor introduces a transform.
+    const rect = svgRef.current?.getBoundingClientRect();
+    const x = rect ? event.clientX - rect.left : event.clientX;
+    const y = rect ? event.clientY - rect.top  : event.clientY;
+    setMousePos({ x, y });
   }
 
   function getLocationClass({ id }) {
@@ -56,9 +61,11 @@ function IndiaMap({ selectedLocations = [], setSelectedLocations = () => {} }) {
         <div
           className="india-map-tooltip"
           style={{
-            position: "fixed",
+            position: "absolute",
             left: mousePos.x + 14,
             top: mousePos.y - 32,
+            pointerEvents: "none",
+            zIndex: 1001,
           }}
         >
           {hoveredName}

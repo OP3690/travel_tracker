@@ -62,8 +62,17 @@ export default function DynamicCountryMap({ country, selectedLocations = [], set
     return "svg-map__location pending";
   }
 
+  function handleMouseMove(e) {
+    // Container-relative coords so the tooltip anchors correctly even
+    // if an ancestor has a transform (containing-block trap).
+    const rect = svgRef.current?.getBoundingClientRect();
+    const x = rect ? e.clientX - rect.left : e.clientX;
+    const y = rect ? e.clientY - rect.top  : e.clientY;
+    setMousePos({ x, y });
+  }
+
   return (
-    <div className="country-map-container" ref={svgRef} onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}>
+    <div className="country-map-container" ref={svgRef} onMouseMove={handleMouseMove}>
       <SVGMap
         map={mapData}
         onLocationClick={handleLocationClick}
@@ -72,7 +81,16 @@ export default function DynamicCountryMap({ country, selectedLocations = [], set
         locationClassName={getLocationClass}
       />
       {hoveredName && (
-        <div className="country-map-tooltip" style={{ position: "fixed", left: mousePos.x + 14, top: mousePos.y - 32 }}>
+        <div
+          className="country-map-tooltip"
+          style={{
+            position: "absolute",
+            left: mousePos.x + 14,
+            top: mousePos.y - 32,
+            pointerEvents: "none",
+            zIndex: 1001,
+          }}
+        >
           {hoveredName}
         </div>
       )}
