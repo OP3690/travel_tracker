@@ -682,3 +682,419 @@ input[type="search"], input[type="url"], textarea, select {
 .settings-page > *:first-child {
   margin-top: 0 !important;
 }
+
+/* ============================================================
+   =============  "VERY COOL" DESIGN LAYER  ==================
+   The post-login layout layer above makes every page share
+   one shell. This layer gives the entire product a premium
+   visual quality — subtle animated gradient auroras, a
+   unified elevation scale, a tighter typography rhythm, and
+   scroll-reveal entrances — without going "designer-portfolio"
+   over-the-top. The theme is still travel; this just makes
+   it feel like you're using a product people pay for.
+   ============================================================ */
+
+/* ---- COMMON ELEVATION SCALE ----
+   Three card tiers across the app. Every card picks one; no
+   component invents its own shadow stack. */
+:root {
+  --sym-elev-1: 0 1px 2px rgba(15, 23, 42, 0.04), 0 2px 6px rgba(15, 23, 42, 0.04);
+  --sym-elev-2: 0 2px 4px rgba(15, 23, 42, 0.04), 0 8px 20px rgba(15, 23, 42, 0.06);
+  --sym-elev-3: 0 10px 30px rgba(15, 23, 42, 0.08), 0 20px 60px rgba(99, 102, 241, 0.10);
+  --sym-ring-primary: 0 0 0 1px rgba(99, 102, 241, 0.18);
+  --sym-grad-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  --sym-grad-aurora: radial-gradient(1200px 500px at 10% -10%, rgba(99,102,241,0.14), transparent 60%),
+                     radial-gradient(900px 450px at 110% 10%, rgba(236,72,153,0.10), transparent 55%),
+                     radial-gradient(700px 400px at 50% 120%, rgba(16,185,129,0.08), transparent 60%);
+}
+[data-theme="dark"] {
+  --sym-elev-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
+  --sym-elev-2: 0 2px 6px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --sym-elev-3: 0 12px 32px rgba(0, 0, 0, 0.5), 0 24px 60px rgba(99, 102, 241, 0.18);
+  --sym-grad-aurora: radial-gradient(1200px 500px at 10% -10%, rgba(99,102,241,0.22), transparent 60%),
+                     radial-gradient(900px 450px at 110% 10%, rgba(236,72,153,0.14), transparent 55%),
+                     radial-gradient(700px 400px at 50% 120%, rgba(16,185,129,0.10), transparent 60%);
+}
+
+/* ---- GLOBAL BODY AURORA ----
+   One tasteful aurora backdrop behind every page, pinned to the
+   viewport. Barely-there — never fights with content, always
+   whispers "this product has a point of view". */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--sym-grad-aurora);
+  opacity: 0.9;
+}
+
+/* ---- GLOBAL CARD UPGRADES ---- */
+/* Every card across the app picks up the consistent shadow,
+   border, and radius without touching individual components. */
+.sp-hero-card,
+.mss-item,
+.pst-card,
+.fr-card,
+.fr-stat,
+.sp-section-card,
+.wm-stats-bar,
+.wm-table-card,
+.map-card,
+.journal-card,
+.planner-card,
+.pc-card,
+.mem-card {
+  box-shadow: var(--sym-elev-1);
+  border: 1px solid var(--border-default, #e2e8f0);
+  background: var(--bg-card, #fff);
+  transition:
+    transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 240ms ease,
+    border-color 180ms ease;
+}
+@media (hover: hover) {
+  .sp-hero-card:hover,
+  .mss-item:hover,
+  .pst-card:hover,
+  .fr-card:hover,
+  .fr-stat:hover,
+  .map-card:hover,
+  .journal-card:hover,
+  .planner-card:hover,
+  .pc-card:hover,
+  .mem-card:hover {
+    box-shadow: var(--sym-elev-2);
+    border-color: rgba(99, 102, 241, 0.22);
+    transform: translateY(-2px);
+  }
+}
+
+/* ---- GRADIENT TITLE SYSTEM ----
+   Every page title that uses a gradient shares one gradient
+   (indigo → violet → pink), making the brand voice coherent
+   across routes instead of each page picking its own two-stop
+   gradient. */
+.mem-page-title,
+.sp-title,
+.planner-title,
+.fr-page-title,
+.journal-hdr h1,
+.wm-header h1,
+.hero-title-grad,
+.about-hero-title .accent,
+.landing-hero .hero-title-accent {
+  background: var(--sym-grad-primary) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* ---- SECTION DIVIDER ----
+   A tiny animated indigo dot + line pattern separating major
+   sections. Use via `<hr class="sym-divider">` or let any
+   component with `.sym-divider` auto-pick it up. */
+.sym-divider {
+  border: 0;
+  height: 1px;
+  margin: 2.5rem auto;
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(90deg, transparent, var(--border-default) 20%, var(--border-default) 80%, transparent);
+  position: relative;
+}
+.sym-divider::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--sym-grad-primary);
+  box-shadow: 0 0 0 4px var(--bg-root, #f6f7fb);
+}
+
+/* ---- PREMIUM CTA ----
+   One primary CTA style used everywhere a "sign up / start
+   now / add thing" button is shown. Replaces per-page button
+   styles. Component files already use .btn-primary-xl /
+   .nav-btn-primary / .hero-cta so we target all of them. */
+.btn-primary-xl,
+.nav-btn-primary,
+.hero-cta,
+.landing-cta-primary {
+  position: relative;
+  overflow: hidden;
+  background: var(--sym-grad-primary) !important;
+  box-shadow:
+    0 10px 24px rgba(99, 102, 241, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+.btn-primary-xl::before,
+.nav-btn-primary::before,
+.hero-cta::before,
+.landing-cta-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 650ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.btn-primary-xl:hover::before,
+.nav-btn-primary:hover::before,
+.hero-cta:hover::before,
+.landing-cta-primary:hover::before {
+  transform: translateX(120%);
+}
+
+/* ---- SCROLL-REVEAL ANIMATION ----
+   Add `data-reveal` to any element to make it fade+rise into
+   view when it enters the viewport. CSS-only using the modern
+   `animation-timeline: view()` where supported; a simple
+   immediate state is the fallback. */
+@supports (animation-timeline: view()) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    animation: symReveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+  @keyframes symReveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ---- TYPOGRAPHY SCALE (public pages) ----
+   One hero scale across every public page — Landing, About,
+   Contact, Blog, Privacy, Terms. */
+@media (min-width: 901px) {
+  .landing-hero .hero-title,
+  .about-hero-title,
+  .contact-hero h1,
+  .blog-hero h1,
+  .privacy-hero h1,
+  .terms-hero h1,
+  .cookies-hero h1 {
+    font-size: 3.4rem !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.03em !important;
+    font-weight: 800 !important;
+  }
+  .landing-hero .hero-subtitle,
+  .about-hero-subtitle,
+  .contact-hero p,
+  .blog-hero p,
+  .privacy-hero p,
+  .terms-hero p,
+  .cookies-hero p {
+    font-size: 1.08rem !important;
+    line-height: 1.65 !important;
+    color: var(--text-secondary, #475569);
+    max-width: 640px;
+  }
+}
+@media (max-width: 900px) {
+  .landing-hero .hero-title,
+  .about-hero-title,
+  .contact-hero h1,
+  .blog-hero h1 {
+    font-size: 2.3rem !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.025em !important;
+  }
+}
+
+/* ---- BLOG CARD UPGRADES ----
+   Blog is the SEO funnel. Make each card feel premium so the
+   first impression on an organic landing is strong. */
+.blog-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px !important;
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border-default, #e2e8f0);
+  box-shadow: var(--sym-elev-1);
+}
+.blog-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(99,102,241,0) 0%, rgba(236,72,153,0) 100%);
+  transition: background 320ms ease;
+}
+.blog-card:hover::after {
+  background: linear-gradient(135deg, rgba(99,102,241,0.04) 0%, rgba(236,72,153,0.03) 100%);
+}
+
+/* ---- SIDEBAR BRAND MICRO-ANIMATION ----
+   Logo icon gets a subtle hover glow — makes the brand feel
+   alive each time you look at the sidebar. */
+.sidebar-logo:hover .sidebar-logo-icon {
+  filter: drop-shadow(0 2px 14px rgba(99,102,241,0.7));
+  transform: rotate(-4deg) scale(1.08);
+}
+.sidebar-logo-icon {
+  transition: filter 240ms ease, transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ---- STAT NUMBER TREATMENT ----
+   Large numbers on stat cards use a slight gradient so they
+   feel more like dashboard data visualization. */
+.mss-num,
+.pst-num,
+.sp-hero-value,
+.fr-stat-value,
+.wm-stat-value {
+  background: linear-gradient(135deg, var(--text-primary, #0f172a) 0%, var(--primary-600, #4f46e5) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+[data-theme="dark"] .mss-num,
+[data-theme="dark"] .pst-num,
+[data-theme="dark"] .sp-hero-value,
+[data-theme="dark"] .fr-stat-value,
+[data-theme="dark"] .wm-stat-value {
+  background: linear-gradient(135deg, #e6edf3 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---- LANDING PAGE SECTION RHYTHM ----
+   Public landing sections (hero / features / pillars / steps /
+   testimonials / FAQ / final CTA) share one vertical gutter
+   and one horizontal max-width, so the page scrolls as one
+   composition instead of a stack of widgets. */
+@media (min-width: 901px) {
+  .landing-features,
+  .landing-pillars,
+  .landing-steps,
+  .landing-testimonials,
+  .landing-faq,
+  .landing-cta-section,
+  .landing-maps,
+  .landing-countries,
+  .landing-stats {
+    padding: 5rem 2rem !important;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Alternating section backgrounds so the eye reads them as
+     a rhythm, not a wall of white. */
+  .landing-features,
+  .landing-steps,
+  .landing-faq {
+    background: var(--bg-card, #fff);
+    border-radius: 32px;
+    box-shadow: var(--sym-elev-1);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+@media (max-width: 900px) {
+  .landing-features,
+  .landing-pillars,
+  .landing-steps,
+  .landing-testimonials,
+  .landing-faq,
+  .landing-cta-section {
+    padding: 3rem 1rem !important;
+  }
+}
+
+/* ---- SECTION HEADER (public pages) ----
+   One pattern across landing/about/blog section headers:
+   small eyebrow label + big title + subtitle. */
+.section-eyebrow,
+.landing-section-eyebrow,
+.pillars-eyebrow,
+.features-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary-600, #4f46e5);
+  background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(236,72,153,0.07));
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(99,102,241,0.18);
+  margin-bottom: 1rem;
+}
+
+/* ---- FORM INPUTS — PREMIUM FEEL ----
+   Every input across the app gets consistent padding, border,
+   and focus state. */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="search"],
+input[type="url"],
+textarea,
+select {
+  border: 1.5px solid var(--border-default, #e2e8f0) !important;
+  background: var(--bg-card, #fff);
+  padding: 11px 14px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  color: var(--text-primary, #0f172a);
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-500, #6366f1) !important;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.14) !important;
+  outline: none !important;
+}
+
+/* ---- SMOOTH GLOBAL SCROLL + SCROLLBAR ----
+   Already set in base polish.css, but reinforce for Safari
+   where the color picker can override it. */
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+[data-theme="dark"] html,
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* ---- MOTION PREFERENCE OVERRIDE ----
+   For users who DO want motion, make it buttery. Already have
+   a reduced-motion guard; this just makes the default feel
+   premium. */
+@media (prefers-reduced-motion: no-preference) {
+  .nav-item,
+  .m-tab,
+  button,
+  a[role="button"],
+  .map-card,
+  .sp-hero-card,
+  .mss-item,
+  .pst-card,
+  .fr-card {
+    will-change: transform;
+  }
+}

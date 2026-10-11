@@ -48,6 +48,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "node scripts/prerender.js || echo 'prerender: failed; serving CSR build (not blocking deploy)'",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "react-scripts start"
@@ -69,5 +70,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "puppeteer": "^24.43.1"
   }
 }
