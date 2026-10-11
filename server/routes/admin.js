@@ -151,4 +151,110 @@ router.get('/users/:id', auth, adminOnly, async (req, res) => {
   }
 });
 
+// ============================================
+// PHOTOS — flat gallery across every user's memories
+//
+// Memories are embedded on the User doc and each memory has
+// `photos: [String]` of base64 data-URLs. For the operator
+// console we flatten all of them into one paginated list so
+// an admin can audit uploads in one place.
+//
+// Filters: userId, country, dateFrom, dateTo, search (title/story).
+// Pagination keeps response size bounded: default 24 photos/page
+// (base64 is heavy — ~500 KB each is common), hard cap 60.
+// ============================================
+router.get('/photos', auth, adminOnly, async (req, res) => {
+  try {
+    const page   = Math.max(1, parseInt(req.query.page, 10) || 1);
+    const limit  = Math.min(parseInt(req.query.limit, 10) || 24, 60);
+    const userId = (req.query.userId || '').trim();
+    const country= (req.query.country || '').trim();
+    const search = (req.query.search || '').trim().toLowerCase();
+    const from   = req.query.from ? new Date(req.query.from) : null;
+    const to     = req.query.to   ? new Date(req.query.to)   : null;
+
+    const filter = { isDeleted: { $ne: true } };
+    if (userId) filter._id = userId;
+    if (country) filter.country = country;
+
+    // Only pull fields we need. memories carry heavy base64 so we
+    // still have to load them, but we strip visitedCountries/plans/etc.
+    const users = await User.find(filter)
+      .select('name email avatar country memories')
+      .lean();
+
+    // Flatten every photo into one row carrying the context an
+    // admin needs to decide "download / contact user / investigate".
+    const all = [];
+    users.forEach(u => {
+      (u.memories || []).forEach(m => {
+        if (!m.photos || !m.photos.length) return;
+        if (from && m.createdAt && new Date(m.createdAt) < from) return;
+        if (to   && m.createdAt && new Date(m.createdAt) > to)   return;
+        if (search) {
+          const hay = `${m.title || ''} ${m.story || ''} ${m.country || ''} ${m.region || ''}`.toLowerCase();
+          if (!hay.includes(search)) return;
+        }
+        m.photos.forEach((photo, idx) => {
+          if (!photo) return;
+          all.push({
+            userId:         u._id,
+            userName:       u.name,
+            userEmail:      u.email,
+            userCountry:    u.country,
+            userAvatar:     u.avatar || null,
+            memoryId:       m._id,
+            memoryTitle:    m.title,
+            memoryCountry:  m.country,
+            memoryRegion:   m.region,
+            dateVisited:    m.dateVisited,
+            visibility:     m.visibility,
+            isDemo:         !!m.isDemo,
+            uploadedAt:     m.createdAt,
+            photoIndex:     idx,
+            // The actual base64 data URL. Lives in the response so the
+            // admin UI can render + "Download" the file client-side
+            // without a second roundtrip. Each payload is per-photo.
+            photo,
+          });
+        });
+      });
+    });
+
+    // Newest uploads first — most useful default for audit.
+    all.sort((a, b) => new Date(b.uploadedAt || 0) - new Date(a.uploadedAt || 0));
+
+    const total = all.length;
+    const totalPages = Math.max(1, Math.ceil(total / limit));
+    const start = (page - 1) * limit;
+    const slice = all.slice(start, start + limit);
+
+    res.json({
+      photos: slice,
+      total,
+      page,
+      limit,
+      totalPages,
+      // Lightweight distribution so the console can show filter chips
+      // without a second request.
+      byUser: aggregateCount(all, 'userName'),
+      byCountry: aggregateCount(all, 'memoryCountry'),
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+function aggregateCount(arr, key) {
+  const map = new Map();
+  arr.forEach(x => {
+    const k = x[key] || 'Unknown';
+    map.set(k, (map.get(k) || 0) + 1);
+  });
+  return Array.from(map.entries())
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 20);
+}
+
 module.exports = router;

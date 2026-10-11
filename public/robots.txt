@@ -13,7 +13,6 @@ Disallow: /discover
 Disallow: /planner
 Disallow: /statistics
 Disallow: /settings
-Disallow: /admin
 Disallow: /passport
 Disallow: /journal
 

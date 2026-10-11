@@ -262,7 +262,10 @@ function App() {
             <PrivateRoute><FriendProfile /></PrivateRoute>
           } />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/admin" element={
+          {/* Operations console — accessible by direct URL only.
+              Deliberately underscore-prefixed so it reads as an internal
+              path and doesn't collide with anything a user might type. */}
+          <Route path="/_console" element={
             <PrivateRoute><Admin /></PrivateRoute>
           } />
           <Route path="/worldmap" element={

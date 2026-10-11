@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   FaMapMarkedAlt, FaGlobeAsia, FaCalendarAlt, FaCompass, FaChartBar, FaCog,
-  FaSignOutAlt, FaMountain, FaTimes, FaHeart, FaUserFriends, FaCrown,
+  FaSignOutAlt, FaMountain, FaTimes, FaHeart, FaUserFriends,
   FaEllipsisH,
 } from 'react-icons/fa';
 import API from '../api/api';
@@ -50,9 +50,7 @@ const bottomTabs = [
   { path: '/memories',    icon: <FaHeart />,        label: 'Memories' },
   { path: '/friends',     icon: <FaUserFriends />,  label: 'Friends' },
 ];
-const morePaths = new Set(['/discover', '/planner', '/statistics', '/settings', '/admin']);
-
-const ADMIN_EMAIL = 'global5665@gmail.com';
+const morePaths = new Set(['/discover', '/planner', '/statistics', '/settings']);
 
 export default function Layout({ children }) {
   const location = useLocation();
@@ -100,8 +98,6 @@ export default function Layout({ children }) {
     setMoreOpen(false);
   }, [location.pathname]);
 
-  const isAdmin = (user.email || '').toLowerCase() === ADMIN_EMAIL;
-
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -111,7 +107,7 @@ export default function Layout({ children }) {
   const initials = (user.name || '?').split(' ').map(n => n[0]).filter(Boolean).join('').toUpperCase().slice(0, 2);
 
   // Current page label (for mobile top bar)
-  const currentNav = [...navItems, { path: '/admin', label: 'Admin' }].find(n => n.path === location.pathname);
+  const currentNav = navItems.find(n => n.path === location.pathname);
   const pageTitle = currentNav?.label || 'StampYourMap';
 
   // Is "More" considered the active tab?
@@ -177,22 +173,6 @@ export default function Layout({ children }) {
                 })}
               </div>
             ))}
-            {isAdmin && (
-              <div className="nav-group">
-                <div className="nav-group-heading">Admin</div>
-                <Link
-                  to="/admin"
-                  className={`nav-item nav-item-admin ${location.pathname === '/admin' ? 'active' : ''}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                  data-ga-label="Sidebar: Admin"
-                  data-ga-category="nav"
-                >
-                  <span className="nav-icon"><FaCrown /></span>
-                  <span className="nav-label">Admin Console</span>
-                  <span className="nav-admin-chip">ADMIN</span>
-                </Link>
-              </div>
-            )}
           </nav>
 
           <div className="sidebar-bottom">
@@ -278,12 +258,11 @@ export default function Layout({ children }) {
                 { path: '/planner',    icon: <FaCalendarAlt />, label: 'Trip Planner' },
                 { path: '/statistics', icon: <FaChartBar />,    label: 'Statistics' },
                 { path: '/settings',   icon: <FaCog />,         label: 'Settings' },
-                ...(isAdmin ? [{ path: '/admin', icon: <FaCrown />, label: 'Admin', admin: true }] : []),
               ].map(item => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`m-sheet-tile ${item.admin ? 'admin' : ''}`}
+                  className="m-sheet-tile"
                   onClick={() => setMoreOpen(false)}
                   data-ga-label={`More sheet: ${item.label}`}
                   data-ga-category="nav"
