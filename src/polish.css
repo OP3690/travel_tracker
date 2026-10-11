@@ -310,3 +310,375 @@ input[type="search"], input[type="url"], textarea, select {
   }
   a { color: #0a3 !important; text-decoration: underline !important; }
 }
+
+/* ============================================================
+   =========  POST-LOGIN LAYOUT SYMMETRY LAYER  ===============
+   Every page in the app previously picked its own max-width
+   (960 / 1200 / 1240 / 1320 / 1400 / none) and its own gutter
+   padding (1.5rem / 2rem / none / mixed). On wide monitors this
+   made the shell feel incoherent — Dashboard narrower than
+   Statistics, Settings way narrower than both, WorldMap flush
+   to the viewport edge.
+   This layer converges every page onto one container contract:
+     · max-width  : 1280px
+     · desktop pad: 1.75rem gutter, 1.5rem top, 3rem bottom
+     · tablet pad : 1.25rem gutter
+     · mobile pad : 1rem gutter
+     · consistent header bottom-margin + title scale
+     · one card gutter + one card radius across the whole app
+   ============================================================ */
+
+/* ---- UNIFIED PAGE CONTAINER (desktop) ---- */
+@media (min-width: 901px) {
+  .dashboard-page,
+  .memories-page,
+  .stats-page,
+  .planner-page,
+  .friends-page,
+  .journal-page,
+  .worldmap-page {
+    max-width: 1280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  /* Settings is a form-heavy page — a 1280px shell leaves form
+     fields too far from the tabs rail and feels sparse. Cap it
+     narrower (same proportion as a well-tuned preferences page). */
+  .settings-page {
+    max-width: 1080px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  /* Let Settings' content panel grow to fill its narrower shell
+     so the Profile card doesn't hug the left side. */
+  .settings-content {
+    flex: 1 1 auto !important;
+    min-width: 0;
+  }
+  .settings-card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .dashboard-page,
+  .memories-page,
+  .stats-page,
+  .planner-page,
+  .friends-page,
+  .journal-page,
+  .settings-page {
+    padding: 1.5rem 1.75rem 3rem !important;
+    box-sizing: border-box;
+  }
+  /* WorldMap already uses inner gutters on its sub-sections
+     (.wm-header, .wm-stats-bar, .wm-table-card), so the outer
+     page only needs the max-width constraint + top/bottom pad. */
+  .worldmap-page {
+    padding: 0.25rem 0 2.5rem !important;
+    box-sizing: border-box;
+  }
+}
+
+/* Tablet / small desktop — tighter gutter so cards don't
+   collide with the sidebar edge. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .dashboard-page,
+  .memories-page,
+  .stats-page,
+  .planner-page,
+  .friends-page,
+  .journal-page,
+  .settings-page {
+    padding: 1.25rem 1.25rem 2.5rem !important;
+  }
+}
+
+/* Mobile — single tighter gutter across every page. */
+@media (max-width: 900px) {
+  .dashboard-page,
+  .memories-page,
+  .stats-page,
+  .planner-page,
+  .friends-page,
+  .journal-page,
+  .settings-page {
+    padding: 1rem 1rem 2rem !important;
+  }
+}
+
+/* ---- UNIFIED PAGE HEADER RHYTHM ---- */
+/* Every page title block ends with the same whitespace before
+   the first content card, and every H1 shares the same scale
+   so the eye lands in the same spot on every route. */
+.mem-page-header,
+.sp-header,
+.planner-hdr,
+.journal-hdr,
+.fr-page-header,
+.wm-header,
+.friend-profile-header {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 901px) {
+  .mem-page-title,
+  .sp-title,
+  .planner-title,
+  .fr-page-title,
+  .journal-hdr h1,
+  .wm-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+    margin: 0 0 0.3rem;
+  }
+  .mem-page-subtitle,
+  .sp-subtitle,
+  .planner-subtitle,
+  .fr-page-subtitle,
+  .journal-hdr p,
+  .wm-header p {
+    font-size: 0.92rem;
+    color: var(--text-secondary, #64748b);
+    margin: 0;
+    letter-spacing: 0;
+    line-height: 1.45;
+  }
+}
+
+/* ---- UNIFIED STAT STRIPS ---- */
+/* The three "stat strip" patterns across the app
+   (.mem-stats-strip, .planner-stats, .sp-hero-grid) use three
+   different gaps (0.85, 0.85, 1rem). Normalize to one. */
+@media (min-width: 901px) {
+  .mem-stats-strip,
+  .planner-stats,
+  .sp-hero-grid {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ---- UNIFIED CARD RADIUS ---- */
+/* Several page cards use var(--radius-lg) but a few pages
+   hard-coded 14px / 16px / 18px. Force the standard radius
+   so the eye reads the same corner curve everywhere. */
+.mss-item,
+.pst-card,
+.sp-hero-card,
+.fr-card,
+.fr-stat,
+.planner-card,
+.pc-card,
+.journal-card,
+.wm-table-card,
+.sp-section-card {
+  border-radius: 16px;
+}
+
+/* ---- WORLDMAP INTERNAL SPACING NORMALIZATION ---- */
+/* The world map page had its sub-sections hanging off hard
+   margins (0 1.75rem) that didn't track the new container.
+   Convert those to padding so they align with every other page. */
+.wm-header {
+  padding: 0.5rem 1.75rem 0 !important;
+}
+.wm-stats-bar {
+  margin: 0 1.75rem 1.25rem !important;
+  padding: 0.9rem 1.5rem !important;
+}
+.wm-table-card {
+  margin: 0 1.75rem 1.5rem !important;
+}
+.wm-map-card {
+  margin: 1.25rem 0 !important;
+  border-radius: 0; /* edge-to-edge is intentional for the map */
+}
+
+@media (max-width: 900px) {
+  .wm-header,
+  .wm-stats-bar,
+  .wm-table-card {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+  .wm-header { padding: 0.5rem 0 0 !important; }
+}
+
+/* ---- PUBLIC PAGES (pre-login) CONTAINER UNIFICATION ---- */
+/* Landing, About, Contact, Blog pages each had their own
+   container width. Converge on the same 1280px with a slight
+   wider breathing allowance for the hero-driven landing. */
+@media (min-width: 901px) {
+  .about-page,
+  .contact-page,
+  .privacy-page,
+  .terms-page,
+  .cookies-page {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 1.75rem 4rem;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 900px) {
+  .about-page,
+  .contact-page,
+  .privacy-page,
+  .terms-page,
+  .cookies-page {
+    padding: 1.5rem 1rem 2.5rem;
+    box-sizing: border-box;
+  }
+}
+
+/* ---- GRID GUTTER NORMALIZATION ---- */
+/* Dashboard uses "map-grid" and memory grids with different
+   gaps per breakpoint. Settle on one gap rhythm so pages feel
+   like siblings. */
+@media (min-width: 1181px) {
+  .mem-grid,
+  .journal-grid,
+  .fr-grid,
+  .pc-grid,
+  .planner-grid {
+    gap: 1.1rem !important;
+  }
+}
+@media (min-width: 901px) and (max-width: 1180px) {
+  .mem-grid,
+  .journal-grid,
+  .fr-grid,
+  .pc-grid,
+  .planner-grid {
+    gap: 0.85rem !important;
+  }
+}
+
+/* ---- SECTION HEADER PATTERN ---- */
+/* Many pages have "section title + action" rows with varying
+   margins. Normalize so the vertical rhythm between sections
+   is identical across the app. */
+.sp-section-title,
+.planner-section-title,
+.mem-section-title,
+.fr-section-title,
+.journal-section-title {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+  margin: 1.5rem 0 0.85rem !important;
+  color: var(--text-primary, #0f172a);
+}
+
+/* ---- PRIMARY CTA BUTTONS (page-header actions) ---- */
+/* The "add memory / add plan / download map" buttons sit in
+   different page headers with slightly different paddings and
+   shadows. Normalize so the primary action feels consistent. */
+.mem-add-btn,
+.planner-new-btn,
+.wm-download-btn,
+.fr-cta-primary {
+  padding: 0.7rem 1.15rem !important;
+  border-radius: 999px !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.005em;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.28) !important;
+}
+.mem-add-btn:hover,
+.planner-new-btn:hover,
+.wm-download-btn:hover:not(:disabled),
+.fr-cta-primary:hover {
+  box-shadow: 0 8px 22px rgba(99, 102, 241, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* ---- SIDEBAR POLISH (post-login desktop nav) ---- */
+/* Tighten the vertical rhythm of nav items and let the active
+   indicator breathe. Layout.css already handles most of this;
+   this layer only adds the micro-adjustments that make the
+   nav feel professionally finished. */
+@media (min-width: 901px) {
+  .nav-item {
+    padding: 10px 12px !important;
+    font-size: 0.885rem !important;
+  }
+  .nav-group {
+    gap: 2px !important;
+  }
+  .nav-group-heading {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.16em !important;
+    margin: 0 0 6px !important;
+    padding: 0 12px !important;
+  }
+  .sidebar-logo {
+    padding: 2px 10px 14px !important;
+    margin-bottom: 14px !important;
+  }
+}
+
+/* ---- EMPTY STATE UNIFICATION ---- */
+/* Each page's "nothing here yet" block had its own pad/color.
+   One pattern across the app. */
+.mem-empty,
+.planner-empty,
+.fr-empty,
+.journal-empty,
+.wm-empty {
+  text-align: center;
+  padding: 3rem 1.5rem !important;
+  background: var(--bg-card, #fff);
+  border: 1px dashed var(--border-default, rgba(15, 23, 42, 0.12));
+  border-radius: 18px;
+  margin: 1rem 0 !important;
+}
+.mem-empty svg,
+.planner-empty svg,
+.fr-empty svg,
+.journal-empty svg,
+.wm-empty svg {
+  font-size: 2.4rem;
+  color: var(--primary-400, #818cf8);
+  margin-bottom: 0.75rem;
+}
+.mem-empty h3,
+.planner-empty h3,
+.fr-empty h3,
+.journal-empty h3,
+.wm-empty h3 {
+  font-size: 1.05rem !important;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--text-primary, #0f172a);
+}
+.mem-empty p,
+.planner-empty p,
+.fr-empty p,
+.journal-empty p,
+.wm-empty p {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #64748b);
+  margin: 0 0 1rem;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- GLOBAL "FIRST CARD BREATHING ROOM" ---- */
+/* The first element after the page header had varying margins
+   because every page's header had different bottom-margin.
+   Now the header rhythm is unified above; this just removes
+   any accidental extra top margin from the first child so the
+   whole page starts from a consistent y-position. */
+.dashboard-page > *:first-child,
+.memories-page > *:first-child,
+.stats-page > *:first-child,
+.planner-page > *:first-child,
+.friends-page > *:first-child,
+.journal-page > *:first-child,
+.settings-page > *:first-child {
+  margin-top: 0 !important;
+}
