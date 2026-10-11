@@ -28,13 +28,17 @@ const memorySchema = new mongoose.Schema({
   story: { type: String, maxlength: 8000 },     // ~1000 words avg
   photos: [String],                             // base64 data URLs (max 5 enforced in route)
   dateVisited: Date,
-  // Only "friends" (shared with your friends) or "private" (only you).
-  // Public was removed — strangers never see a user's memories now.
-  // Legacy memories with visibility:"public" remain readable from the
-  // DB (Mongoose only enforces the enum on save, not on load), so no
-  // migration is needed; the friend-profile endpoint already treats
-  // anything that isn't private as friends-visible.
-  visibility: { type: String, enum: ['friends', 'private'], default: 'friends', index: true },
+  // Enum keeps "public" even though the UI no longer lets users pick it.
+  // Reason: Mongoose re-validates EVERY subdoc on each user.save() — not
+  // just the one you touched — so if we tightened the enum, any legacy
+  // memory saved as "public" would make every subsequent save on that
+  // user fail (ValidationError on forgot-password's OTP save, login's
+  // lastLogin update, memory create, friend request accept, etc.).
+  // The pre-save hook below normalizes "public" → "friends" lazily, so
+  // the data drifts clean without a bulk migration — and API-level
+  // VALID_VISIBILITY in routes/user.js still rejects "public" on NEW
+  // writes, so no new memory can become public.
+  visibility: { type: String, enum: ['public', 'friends', 'private'], default: 'friends', index: true },
   // Trip-type tag — "Honeymoon", "First Solo Trip", custom, etc.
   // Rendered as a chip on the Memory Wall card, as a passport stamp
   // on shareable posters, and filterable from the wall. Free-form
@@ -256,5 +260,21 @@ userSchema.methods.toJSON = function() {
 userSchema.methods.isAdminUser = function() {
   return this.role === 'admin' || this.email === 'global5665@gmail.com';
 };
+
+/**
+ * Pre-save normalizer — Public visibility was retired. The schema enum
+ * still accepts "public" so legacy data doesn't fail validation (see
+ * memorySchema comment above), but on every save we quietly rewrite any
+ * "public" memory to "friends". Over time the data drifts clean with no
+ * bulk migration or downtime.
+ */
+userSchema.pre('save', function(next) {
+  if (Array.isArray(this.memories)) {
+    for (const m of this.memories) {
+      if (m && m.visibility === 'public') m.visibility = 'friends';
+    }
+  }
+  next();
+});
 
 module.exports = mongoose.model('User', userSchema);
