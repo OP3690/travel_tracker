@@ -697,8 +697,28 @@ export default function LandingPage() {
                 data-ga-label="Hero: Stamp my first country" data-ga-category="cta">
                 <FaSuitcaseRolling /> Stamp my first country
               </button>
-              <a href="#features" className="hero-btn-secondary"
-                data-ga-label="Hero: See a sample map" data-ga-category="cta">
+              <a
+                href="#sample-map"
+                className="hero-btn-secondary"
+                onClick={(e) => {
+                  // Smooth-scroll + a brief pulse highlight on the sample
+                  // map. Without this, on desktop (where the map is
+                  // already in viewport) clicking the button looks dead
+                  // — the browser scrolls 0px and nothing visibly happens.
+                  const target = document.getElementById('sample-map');
+                  if (!target) return;
+                  e.preventDefault();
+                  target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  target.classList.remove('is-pulsing');
+                  // force reflow so the class re-triggers the animation
+                  // when the button is clicked twice in a row.
+                  void target.offsetWidth;
+                  target.classList.add('is-pulsing');
+                  setTimeout(() => target.classList.remove('is-pulsing'), 1600);
+                }}
+                data-ga-label="Hero: See a sample map"
+                data-ga-category="cta"
+              >
                 See a sample map <FaArrowRight />
               </a>
             </div>
@@ -733,7 +753,7 @@ export default function LandingPage() {
               </li>
             </ul>
           </div>
-          <div className="hero-visual" role="region" aria-label="Interactive world map — click any country to start your map">
+          <div id="sample-map" className="hero-visual" role="region" aria-label="Interactive world map — click any country to start your map">
             <div
               className="hero-map-real"
               role="button"

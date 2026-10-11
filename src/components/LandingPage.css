@@ -213,6 +213,22 @@
   display: flex; align-items: center;
   justify-content: center; position: relative;
   animation: fadeInUp 1s ease 0.2s both;
+  /* Keep the pulse ring from being clipped on the sticky nav side. */
+  scroll-margin-top: 100px;
+  border-radius: 20px;
+}
+/* Pulse highlight when the "See a sample map" CTA scrolls here.
+   Added by the onClick handler for 1.6s; removes itself after. */
+.hero-visual.is-pulsing {
+  animation: heroVisualPulse 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes heroVisualPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6); }
+  40%  { box-shadow: 0 0 0 18px rgba(99, 102, 241, 0.0); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual.is-pulsing { animation: none; outline: 3px solid rgba(99, 102, 241, 0.5); outline-offset: 4px; }
 }
 
 .hero-map-real {
