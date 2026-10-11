@@ -688,8 +688,9 @@ export default function LandingPage() {
               <span className="hero-gradient-text">have you been?</span>
             </h1>
             <p className="hero-subtitle">
-              Stamp <strong>195 countries</strong>, pin <strong>5,000+ regions</strong>, and build
-              the travel map you've always meant to make.
+              Pin <strong>countries you've visited abroad</strong> — and every
+              {' '}<strong>state, province or region back home</strong>. One
+              beautiful map. 195 countries · 5,000+ regions.
               {' '}<strong>30 seconds.</strong> Free forever.
             </p>
             <div className="hero-actions" data-ga-section="hero">
