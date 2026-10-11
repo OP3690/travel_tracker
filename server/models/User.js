@@ -29,6 +29,11 @@ const memorySchema = new mongoose.Schema({
   photos: [String],                             // base64 data URLs (max 5 enforced in route)
   dateVisited: Date,
   visibility: { type: String, enum: ['public', 'friends', 'private'], default: 'friends', index: true },
+  // Trip-type tag — "Honeymoon", "First Solo Trip", custom, etc.
+  // Rendered as a chip on the Memory Wall card, as a passport stamp
+  // on shareable posters, and filterable from the wall. Free-form
+  // string (capped) rather than an enum so users can type their own.
+  tripTag: { type: String, maxlength: 48 },
   isDemo: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },

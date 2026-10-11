@@ -187,7 +187,7 @@ const VALID_VISIBILITY = ['public', 'friends', 'private'];
 
 router.post('/memories', auth, async (req, res) => {
   try {
-    const { title, country, region, story, photos, dateVisited, visibility } = req.body;
+    const { title, country, region, story, photos, dateVisited, visibility, tripTag } = req.body;
     if (!title || !title.trim()) return res.status(400).json({ error: 'Title is required' });
     if (countWords(story) > MAX_STORY_WORDS) {
       return res.status(400).json({ error: `Story exceeds ${MAX_STORY_WORDS} words` });
@@ -204,6 +204,7 @@ router.post('/memories', auth, async (req, res) => {
       photos: safePhotos,
       dateVisited: dateVisited || null,
       visibility: vis,
+      tripTag: typeof tripTag === 'string' ? tripTag.trim().slice(0, 48) : '',
     });
     await user.save();
     const created = user.memories[user.memories.length - 1];
@@ -219,7 +220,7 @@ router.put('/memories/:id', auth, async (req, res) => {
     if (!user) return res.status(404).json({ error: 'User not found' });
     const mem = user.memories.id(req.params.id);
     if (!mem) return res.status(404).json({ error: 'Memory not found' });
-    const { title, country, region, story, photos, dateVisited, visibility } = req.body;
+    const { title, country, region, story, photos, dateVisited, visibility, tripTag } = req.body;
     if (title !== undefined) mem.title = String(title).trim();
     if (country !== undefined) mem.country = country;
     if (region !== undefined) mem.region = region;
@@ -232,6 +233,9 @@ router.put('/memories/:id', auth, async (req, res) => {
     if (Array.isArray(photos)) mem.photos = photos.slice(0, MAX_PHOTOS);
     if (dateVisited !== undefined) mem.dateVisited = dateVisited;
     if (visibility !== undefined && VALID_VISIBILITY.includes(visibility)) mem.visibility = visibility;
+    if (tripTag !== undefined) {
+      mem.tripTag = typeof tripTag === 'string' ? tripTag.trim().slice(0, 48) : '';
+    }
     mem.updatedAt = new Date();
     await user.save();
     res.json({ memory: mem });

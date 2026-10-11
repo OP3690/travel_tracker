@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaTimes, FaCamera, FaTrash, FaMapMarkerAlt, FaCalendar, FaPen, FaCheck, FaGlobe, FaUserFriends, FaLock, FaCity } from 'react-icons/fa';
+import { FaTimes, FaCamera, FaTrash, FaMapMarkerAlt, FaCalendar, FaPen, FaCheck, FaGlobe, FaUserFriends, FaLock, FaCity, FaTag } from 'react-icons/fa';
 import API from '../api/api';
 import allCountries from '../utils/countries';
 import { getCountryRegions } from '../utils/getCountryRegions';
+import { TRIP_TAGS, isPresetTag } from '../utils/tripTags';
 import './AddMemoryModal.css';
 
 const MAX_PHOTOS = 4;
@@ -59,6 +60,9 @@ export default function AddMemoryModal({ onClose, onSaved, editMemory }) {
   const [dateVisited, setDateVisited] = useState('');
   const [photos, setPhotos] = useState([]);
   const [visibility, setVisibility] = useState('friends');
+  const [tripTag, setTripTag] = useState('');
+  const [customTagInput, setCustomTagInput] = useState('');
+  const [showCustomTag, setShowCustomTag] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [availableRegions, setAvailableRegions] = useState([]);
@@ -82,6 +86,13 @@ export default function AddMemoryModal({ onClose, onSaved, editMemory }) {
       setDateVisited(editMemory.dateVisited ? editMemory.dateVisited.split('T')[0] : '');
       setPhotos(editMemory.photos || []);
       setVisibility(editMemory.visibility || 'friends');
+      setTripTag(editMemory.tripTag || '');
+      // If the memory's tag isn't one of our presets, open the custom
+      // input so the user can see + edit the free-form text.
+      if (editMemory.tripTag && !isPresetTag(editMemory.tripTag)) {
+        setCustomTagInput(editMemory.tripTag);
+        setShowCustomTag(true);
+      }
     } else {
       try {
         const stored = JSON.parse(localStorage.getItem('user'));
@@ -143,6 +154,7 @@ export default function AddMemoryModal({ onClose, onSaved, editMemory }) {
         photos,
         dateVisited: dateVisited || undefined,
         visibility,
+        tripTag: tripTag || '',
       };
       if (editMemory?._id) {
         await API.put(`/api/user/memories/${editMemory._id}`, payload);
@@ -247,6 +259,69 @@ export default function AddMemoryModal({ onClose, onSaved, editMemory }) {
                   onChange={e => setTitle(e.target.value)}
                 />
               </div>
+
+              {/* Trip tag — categorizes the memory ("Honeymoon", "First
+                  Solo Trip", custom). Renders as a chip on the wall card,
+                  a passport stamp on the shareable poster, and powers
+                  the "show only Honeymoon memories" filter chips. */}
+              <div className="mem-field">
+                <label><FaTag /> Trip tag <span className="mem-count">(optional)</span></label>
+                <div className="mem-trip-tags">
+                  <button
+                    type="button"
+                    className={`mem-trip-tag ${!tripTag ? 'active' : ''}`}
+                    onClick={() => { setTripTag(''); setShowCustomTag(false); setCustomTagInput(''); }}
+                  >None</button>
+                  {TRIP_TAGS.map(t => {
+                    const active = (tripTag || '').toLowerCase() === t.label.toLowerCase();
+                    return (
+                      <button
+                        key={t.id}
+                        type="button"
+                        className={`mem-trip-tag ${active ? 'active' : ''}`}
+                        onClick={() => { setTripTag(t.label); setShowCustomTag(false); }}
+                      >
+                        <span className="mem-trip-tag-emoji">{t.emoji}</span>
+                        {t.label}
+                      </button>
+                    );
+                  })}
+                  <button
+                    type="button"
+                    className={`mem-trip-tag mem-trip-tag-custom ${showCustomTag || (tripTag && !isPresetTag(tripTag)) ? 'active' : ''}`}
+                    onClick={() => setShowCustomTag(v => !v)}
+                  >✍️ Custom</button>
+                </div>
+                {showCustomTag && (
+                  <div className="mem-trip-custom">
+                    <input
+                      type="text"
+                      maxLength={32}
+                      placeholder="e.g. Girls Trip to Bali"
+                      value={customTagInput}
+                      onChange={e => setCustomTagInput(e.target.value)}
+                      onKeyDown={e => {
+                        if (e.key === 'Enter' && customTagInput.trim()) {
+                          e.preventDefault();
+                          setTripTag(customTagInput.trim());
+                          setShowCustomTag(false);
+                        }
+                      }}
+                      autoFocus
+                    />
+                    <button
+                      type="button"
+                      className="mem-trip-custom-apply"
+                      disabled={!customTagInput.trim()}
+                      onClick={() => {
+                        setTripTag(customTagInput.trim());
+                        setShowCustomTag(false);
+                      }}
+                    >Use this tag</button>
+                  </div>
+                )}
+              </div>
+
               <div className="mem-field">
                 <label>
                   Your Story

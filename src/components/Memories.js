@@ -4,6 +4,7 @@ import API from '../api/api';
 import AddMemoryModal from './AddMemoryModal';
 import { FaPlus, FaMapMarkerAlt, FaCalendar, FaCamera, FaEdit, FaTrash, FaTimes, FaChevronLeft, FaChevronRight, FaHeart, FaShareAlt, FaHome, FaPlane, FaBookOpen, FaImages, FaSearch, FaSortAmountDown } from 'react-icons/fa';
 import allCountries from '../utils/countries';
+import { emojiForTag } from '../utils/tripTags';
 import ShareMemoryPost from './ShareMemoryPost';
 import './Memories.css';
 
@@ -176,9 +177,16 @@ export default function Memories() {
   const domesticMemories = memories.filter(isDomestic);
   const internationalMemories = memories.filter(m => m.country && !isDomestic(m));
 
+  // Tag filter uses a `tag:<label>` prefix to coexist with the existing
+  // single-filter model (all / domestic / international / country name).
+  // Tag label is intentionally case-sensitive — matches the stored value.
   let filtered = memories;
   if (filter === 'domestic') filtered = domesticMemories;
   else if (filter === 'international') filtered = internationalMemories;
+  else if (filter.startsWith('tag:')) {
+    const want = filter.slice(4);
+    filtered = memories.filter(m => (m.tripTag || '') === want);
+  }
   else if (filter !== 'all') filtered = memories.filter(m => m.country === filter);
 
   // Text search across title / story / country / region. Lives alongside
@@ -204,6 +212,17 @@ export default function Memories() {
 
   const totalPhotos = memories.reduce((sum, m) => sum + (m.photos?.length || 0), 0);
   const totalWords = memories.reduce((sum, m) => sum + (m.story || '').trim().split(/\s+/).filter(Boolean).length, 0);
+
+  // Distinct trip-tag chips with counts, sorted by frequency so the most
+  // common tags surface first. "Honeymoon (3)" / "Business Trip (2)".
+  const tagCounts = memories.reduce((acc, m) => {
+    const tag = (m.tripTag || '').trim();
+    if (tag) acc[tag] = (acc[tag] || 0) + 1;
+    return acc;
+  }, {});
+  const tagsInUse = Object.entries(tagCounts)
+    .sort((a, b) => b[1] - a[1])
+    .map(([label, count]) => ({ label, count }));
 
   return (
     <Layout>
@@ -337,6 +356,19 @@ export default function Memories() {
                 {flagFor(c)} {c}
               </button>
             ))}
+            {tagsInUse.length > 0 && <span className="mem-filter-divider" aria-hidden="true" />}
+            {tagsInUse.map(t => (
+              <button
+                key={`tag:${t.label}`}
+                className={`mem-filter-chip mem-filter-chip-tag ${filter === `tag:${t.label}` ? 'active' : ''}`}
+                onClick={() => setFilter(`tag:${t.label}`)}
+                data-ga-label={`Memory filter tag: ${t.label}`}
+                data-ga-category="filter"
+                title={`Show only ${t.label} memories`}
+              >
+                {emojiForTag(t.label)} {t.label} <span className="mfc-count">{t.count}</span>
+              </button>
+            ))}
           </div>
         )}
 
@@ -374,6 +406,13 @@ export default function Memories() {
                   <div className="mem-card-meta">
                     {mem.country && <span className="mcm-chip">{flagFor(mem.country)} {mem.country}</span>}
                     {mem.region && <span className="mcm-chip-light">{mem.region}</span>}
+                    {mem.tripTag && (
+                      <span className="mcm-chip-tag" title={`${mem.tripTag} — click to filter`}
+                        onClick={(e) => { e.stopPropagation(); setFilter(`tag:${mem.tripTag}`); }}
+                      >
+                        {emojiForTag(mem.tripTag)} {mem.tripTag}
+                      </span>
+                    )}
                   </div>
                   <h3 className="mem-card-title" onClick={() => setViewing(mem)}>{mem.title}</h3>
                   {mem.dateVisited && <p className="mem-card-date"><FaCalendar /> {formatDate(mem.dateVisited)}</p>}

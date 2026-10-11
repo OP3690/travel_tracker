@@ -4,6 +4,7 @@ import { FaTimes, FaDownload, FaInstagram, FaFacebook, FaPinterest, FaSnapchat, 
 import API from '../api/api';
 import allCountries from '../utils/countries';
 import countryToCode from '../utils/countryCodeMap';
+import { TRIP_TAGS } from '../utils/tripTags';
 import './ShareMemoryPost.css';
 
 // Re-use the same static maps CountryMap does — needed for path rendering inside the post
@@ -83,34 +84,6 @@ function getRegionCentroid(mapData, regionName) {
   return count > 0 ? { x: sumX / count, y: sumY / count } : null;
 }
 
-// Trip-type tags — one-tap categorization that renders as a stamp on
-// the poster ("HONEYMOON · ROME 2026"). Covers the common life moments
-// people share from (first solo trip, honeymoon, bucket-list hit, work
-// travel, etc.). A "Custom" option lets the user write their own, so
-// the list stays short + opinionated instead of a sprawling dropdown.
-const TRIP_TAGS = [
-  { id: 'first_solo',   label: 'My First Solo Trip', emoji: '🎒' },
-  { id: 'solo',         label: 'Solo Trip',          emoji: '🧳' },
-  { id: 'honeymoon',    label: 'Honeymoon',          emoji: '💍' },
-  { id: 'anniversary',  label: 'Anniversary',        emoji: '🥂' },
-  { id: 'family',       label: 'Family Trip',        emoji: '👨‍👩‍👧' },
-  { id: 'friends',      label: 'With Friends',       emoji: '👯' },
-  { id: 'summer',       label: 'Summer Vacation',    emoji: '☀️' },
-  { id: 'winter',       label: 'Winter Escape',      emoji: '❄️' },
-  { id: 'business',     label: 'Business Trip',      emoji: '💼' },
-  { id: 'school',       label: 'School Trip',        emoji: '🎓' },
-  { id: 'reunion',      label: 'Reunion',            emoji: '🤝' },
-  { id: 'birthday',     label: 'Birthday Trip',      emoji: '🎂' },
-  { id: 'bucket',       label: 'Bucket List',        emoji: '✨' },
-  { id: 'roadtrip',     label: 'Road Trip',          emoji: '🚗' },
-  { id: 'adventure',    label: 'Adventure',          emoji: '⛰️' },
-  { id: 'backpacking',  label: 'Backpacking',        emoji: '🥾' },
-  { id: 'wellness',     label: 'Wellness Retreat',   emoji: '🧘' },
-  { id: 'festival',     label: 'Festival',           emoji: '🎉' },
-  { id: 'pilgrimage',   label: 'Pilgrimage',         emoji: '🙏' },
-  { id: 'weekend',      label: 'Weekend Getaway',    emoji: '🌴' },
-];
-
 // Caption vibes — curated 1-click message presets. Keeps the user from
 // staring at a blank textarea; most people pick one and lightly edit.
 // Each preset uses {{title}} / {{place}} tokens so the vibe stays specific.
@@ -188,10 +161,11 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
   const [error, setError] = useState('');
   const [template, setTemplate] = useState('polaroid');
   const [brokenSrcs, setBrokenSrcs] = useState(() => new Set());
-  // Trip tag ("Honeymoon", "First Solo Trip", custom text). Persists per
-  // memory in localStorage so a user who picks a tag, closes the modal,
-  // and reopens later still sees their choice.
-  const [tripTag, setTripTag] = useState('');
+  // Trip tag ("Honeymoon", "First Solo Trip", custom text). Loads from
+  // the memory itself (persisted in the DB), with a debounced write-back
+  // whenever the user changes it. Falls back to a localStorage snapshot
+  // so a transient network failure doesn't lose the user's choice.
+  const [tripTag, setTripTag] = useState(memory?.tripTag || '');
   const [customTagInput, setCustomTagInput] = useState('');
   const [showCustomInput, setShowCustomInput] = useState(false);
   const posterRef = useRef(null);
@@ -241,23 +215,24 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
     setMessage(DEFAULT_MESSAGE.slice(0, MAX_MESSAGE));
   }, [memory]);
 
-  // Load the previously picked trip tag for this memory, if any.
+  // Pick up the latest tripTag from the memory prop whenever it changes
+  // (e.g. the share modal is reopened on a different memory, or a parent
+  // just refetched after an edit).
   useEffect(() => {
-    if (!memory?._id) return;
-    try {
-      const saved = localStorage.getItem(`smp-trip-tag:${memory._id}`);
-      if (saved) setTripTag(saved);
-      else setTripTag('');
-    } catch { /* localStorage denied — fall through */ }
+    setTripTag(memory?.tripTag || '');
   }, [memory]);
 
-  // Persist on change (and clear the key when the tag is cleared).
+  // Debounced write-back of the trip tag to the memory on the server.
+  // 500ms is enough to coalesce a click-through-presets exploration into
+  // a single PUT. Local snapshot kept as a resilience fallback.
   useEffect(() => {
     if (!memory?._id) return;
-    try {
-      if (tripTag) localStorage.setItem(`smp-trip-tag:${memory._id}`, tripTag);
-      else         localStorage.removeItem(`smp-trip-tag:${memory._id}`);
-    } catch { /* localStorage denied */ }
+    if ((memory.tripTag || '') === tripTag) return;
+    try { localStorage.setItem(`smp-trip-tag:${memory._id}`, tripTag); } catch { /* ignore */ }
+    const t = setTimeout(() => {
+      API.put(`/api/user/memories/${memory._id}`, { tripTag }).catch(() => {});
+    }, 500);
+    return () => clearTimeout(t);
   }, [tripTag, memory]);
 
   useEffect(() => {

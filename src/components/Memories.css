@@ -530,3 +530,53 @@
   font-weight: 800;
   letter-spacing: -0.02em;
 }
+
+/* ============================================
+   TRIP TAG CHIPS — on memory card + filter row
+   ============================================ */
+.mcm-chip-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(245, 158, 11, 0.1));
+  color: #b91c1c;
+  border: 1px solid rgba(239, 68, 68, 0.22);
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+[data-theme="dark"] .mcm-chip-tag {
+  background: linear-gradient(135deg, rgba(248, 113, 113, 0.18), rgba(251, 191, 36, 0.14));
+  color: #fca5a5;
+  border-color: rgba(248, 113, 113, 0.35);
+}
+.mcm-chip-tag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.22);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+/* Filter-row variant — reuses chip layout but visually indicates it's
+   a trip-type filter (red/amber accent instead of neutral). */
+.mem-filter-chip-tag {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(245, 158, 11, 0.08));
+  border-color: rgba(239, 68, 68, 0.22);
+  color: #b91c1c;
+}
+.mem-filter-chip-tag:hover {
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #991b1b;
+}
+.mem-filter-chip-tag.active {
+  background: linear-gradient(135deg, #ef4444, #f59e0b) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+[data-theme="dark"] .mem-filter-chip-tag {
+  background: linear-gradient(135deg, rgba(248, 113, 113, 0.16), rgba(251, 191, 36, 0.12));
+  color: #fca5a5;
+  border-color: rgba(248, 113, 113, 0.3);
+}
