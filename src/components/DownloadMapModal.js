@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { FaTimes, FaDownload, FaPalette, FaCheck, FaSlidersH, FaQuoteLeft, FaMagic, FaFolderOpen, FaShareAlt } from 'react-icons/fa';
 import API from '../api/api';
 import {
@@ -49,6 +50,17 @@ export default function DownloadMapModal({
   const [downloading, setDownloading] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
   const [error, setError] = useState('');
+
+  // Lock the page under the modal while it's open — otherwise the user
+  // can still wheel/pinch-scroll the dashboard behind the overlay, which
+  // reads as the modal "scrolling". Restore the original overflow on
+  // unmount so we don't strand the body in a hidden state if the modal
+  // closes unexpectedly.
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prev; };
+  }, []);
   // Cache prepared map images keyed by "fill|stroke" so switching between
   // templates that share a palette doesn't re-rasterize the SVG every time.
   const mapImageCacheRef = useRef(new Map());
@@ -162,7 +174,11 @@ export default function DownloadMapModal({
     }
   };
 
-  return (
+  // Portal into <body> so the modal's position:fixed can't be hijacked
+  // by any ancestor transform / filter / contain property (which would
+  // turn it into a position:absolute inside the parent and strand it
+  // below the fold inside .dashboard-page instead of over the viewport).
+  return ReactDOM.createPortal((
     <div className="dmm-overlay" onClick={onClose}>
       <div className="dmm-modal" onClick={e => e.stopPropagation()}>
         <div className="dmm-header">
@@ -347,7 +363,7 @@ export default function DownloadMapModal({
         )}
       </div>
     </div>
-  );
+  ), document.body);
 }
 
 /* Visible "your card is ready" confirmation. Sits over the modal so the

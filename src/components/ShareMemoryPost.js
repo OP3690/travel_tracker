@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 import html2canvas from 'html2canvas';
 import { FaTimes, FaDownload, FaInstagram, FaFacebook, FaPinterest, FaSnapchat, FaCopy, FaMapPin, FaPalette } from 'react-icons/fa';
 import API from '../api/api';
@@ -169,6 +170,13 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
   const [tripTag, setTripTag] = useState(memory?.tripTag || '');
   const [customTagInput, setCustomTagInput] = useState('');
   const [showCustomInput, setShowCustomInput] = useState(false);
+
+  // Lock page scroll while the share modal is open.
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prev; };
+  }, []);
   const posterRef = useRef(null);
   const scalerRef = useRef(null);
 
@@ -405,7 +413,10 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
     }
   };
 
-  return (
+  // Portal + body-scroll lock — same reason as DownloadMapModal: ancestor
+  // transform/filter can turn a position:fixed overlay into an absolute
+  // panel stuck below the dashboard fold.
+  return ReactDOM.createPortal((
     <div className="smp-overlay" onClick={onClose}>
       <div className="smp-modal" onClick={e => e.stopPropagation()}>
         <div className="smp-header">
@@ -789,5 +800,5 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
         </div>
       </div>
     </div>
-  );
+  ), document.body);
 }
