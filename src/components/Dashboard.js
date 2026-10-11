@@ -125,7 +125,22 @@ export default function Dashboard() {
   // Dynamic country stats
   const userCountry = user.country || 'India';
   const countryInfo = getCountryMapInfo(userCountry);
-  const countryLocations = selectedLocations.filter(loc => !loc.type || loc.type !== 'country');
+
+  // Only count stamps that match a KNOWN region of the home country.
+  // The previous filter `!loc.type || loc.type !== 'country'` was fragile:
+  // any orphan entry without a type field (legacy data, a stray write
+  // from a non-canonical source) was silently counted as an Indian state,
+  // which is how "Toliara" (a Madagascar city) was showing up as "1 of 36
+  // states stamped" on a fresh account. Whitelisting against regionNames
+  // makes the stat impossible to spoof — only entries whose name matches
+  // a real location on the home country's map can increment the counter.
+  const regionNameSet = new Set((countryInfo.regionNames || []).map(n => n.toLowerCase()));
+  const countryLocations = selectedLocations.filter(loc => {
+    if (loc.type === 'country') return false;              // world-map stamps
+    if (!loc.name) return false;                           // malformed
+    if (!regionNameSet.size) return !loc.type;             // map not loaded → fall back to legacy filter
+    return regionNameSet.has(loc.name.toLowerCase());      // strict whitelist
+  });
   const visitedCount = countryLocations.length;
   const totalRegions = countryInfo.totalRegions;
   const pendingCount = totalRegions - visitedCount;

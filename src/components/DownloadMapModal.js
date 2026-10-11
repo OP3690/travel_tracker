@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { FaTimes, FaDownload, FaPalette, FaCheck, FaSlidersH, FaQuoteLeft, FaMagic } from 'react-icons/fa';
+import { FaTimes, FaDownload, FaPalette, FaCheck, FaSlidersH, FaQuoteLeft, FaMagic, FaFolderOpen, FaShareAlt } from 'react-icons/fa';
 import API from '../api/api';
 import {
   TEMPLATES,
@@ -47,6 +47,7 @@ export default function DownloadMapModal({
   const [previewUrl, setPreviewUrl] = useState('');
   const [rendering, setRendering] = useState(true);
   const [downloading, setDownloading] = useState(false);
+  const [downloadSuccess, setDownloadSuccess] = useState(false);
   const [error, setError] = useState('');
   // Cache prepared map images keyed by "fill|stroke" so switching between
   // templates that share a palette doesn't re-rasterize the SVG every time.
@@ -136,6 +137,8 @@ export default function DownloadMapModal({
   const handleDownload = async () => {
     if (downloading) return;
     setDownloading(true);
+    setDownloadSuccess(false);
+    setError('');
     try {
       await downloadMapCard({
         svgElement,
@@ -147,6 +150,11 @@ export default function DownloadMapModal({
         showUserName, showStats, showVisitedList,
         filename: `${filename || 'stampyourmap-map'}-${templateId}`,
       });
+      // Show the success celebration popup so the user has an obvious
+      // "it worked" moment + a nudge to share. Chrome on macOS auto-saves
+      // to Downloads with no system dialog, so without this the download
+      // click feels like it did nothing.
+      setDownloadSuccess(true);
     } catch (e) {
       setError('Download failed. Try again.');
     } finally {
@@ -323,6 +331,77 @@ export default function DownloadMapModal({
               Your template choice is saved to your profile automatically.
             </p>
           </div>
+        </div>
+
+        {/* Download success celebration — appears on top of the modal
+            after a successful save. Chrome auto-saves to Downloads with
+            no OS dialog, so without this the user often can't tell the
+            click did anything. The sheet acknowledges the save and nudges
+            toward a share so the download converts to reach. */}
+        {downloadSuccess && (
+          <DownloadSuccessSheet
+            filename={`${(filename || 'stampyourmap-map').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60)}-${templateId}.png`}
+            onDismiss={() => setDownloadSuccess(false)}
+            onDone={onClose}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* Visible "your card is ready" confirmation. Sits over the modal so the
+   user doesn't need to open their Downloads folder to confirm the save
+   worked. Share buttons are copy-and-open helpers — the OS/web share
+   sheet still handles actual delivery. */
+function DownloadSuccessSheet({ filename, onDismiss, onDone }) {
+  const [copied, setCopied] = useState(false);
+
+  const copyShareText = async () => {
+    const text = `Just stamped my travel map on StampYourMap! https://stampyourmap.com`;
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch { /* clipboard denied — fall through */ }
+  };
+
+  const useNativeShare = async () => {
+    if (!navigator.share) { copyShareText(); return; }
+    try {
+      await navigator.share({
+        title: 'My travel map — StampYourMap',
+        text: 'Just stamped my travel map on StampYourMap!',
+        url: 'https://stampyourmap.com',
+      });
+    } catch { /* user cancelled */ }
+  };
+
+  return (
+    <div className="dmm-success-sheet" role="dialog" aria-modal="true" aria-labelledby="dmm-success-title">
+      <div className="dmm-success-card">
+        <button className="dmm-success-close" onClick={onDismiss} aria-label="Dismiss"><FaTimes /></button>
+        <div className="dmm-success-icon"><FaCheck /></div>
+        <h3 id="dmm-success-title" className="dmm-success-title">Your travel card is ready!</h3>
+        <p className="dmm-success-sub">
+          Saved as <code>{filename}</code> to your Downloads folder.
+        </p>
+        <div className="dmm-success-actions">
+          <button className="dmm-success-primary" onClick={useNativeShare}>
+            <FaShareAlt /> Share it
+          </button>
+          <button className="dmm-success-secondary" onClick={copyShareText}>
+            {copied ? <><FaCheck /> Copied!</> : <>Copy share link</>}
+          </button>
+        </div>
+        <div className="dmm-success-row">
+          <span className="dmm-success-hint">
+            <FaFolderOpen /> Can't find it? Check <strong>~/Downloads</strong> or your browser's download bar.
+          </span>
+        </div>
+        <div className="dmm-success-footer">
+          <button className="dmm-success-link" onClick={onDismiss}>Pick another template</button>
+          <button className="dmm-success-link primary" onClick={onDone}>Done</button>
         </div>
       </div>
     </div>

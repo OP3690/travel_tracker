@@ -11,6 +11,7 @@
 @keyframes dmm-fade { from { opacity: 0; } to { opacity: 1; } }
 
 .dmm-modal {
+  position: relative; /* anchor for the success sheet overlay */
   /* Always render the modal in a dark canvas so every template — light or
      dark — preserves its contrast and punch. Do not inherit site theme vars. */
   --dmm-bg: #0c0a1e;
@@ -666,4 +667,192 @@
     padding: 0.9rem 1rem;
     font-size: 0.94rem;
   }
+}
+
+/* ============================================
+   DOWNLOAD SUCCESS SHEET
+   Overlays the modal after a successful save so the user has an
+   obvious "saved!" moment without opening Finder.
+   ============================================ */
+.dmm-success-sheet {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: dmmSuccessFade 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes dmmSuccessFade {
+  from { opacity: 0; backdrop-filter: blur(0); }
+  to   { opacity: 1; backdrop-filter: blur(10px); }
+}
+.dmm-success-card {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  background: var(--bg-card, #fff);
+  border-radius: 24px;
+  padding: 2.25rem 1.75rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.4);
+  animation: dmmSuccessPop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes dmmSuccessPop {
+  from { transform: translateY(14px) scale(0.94); opacity: 0; }
+  to   { transform: translateY(0)    scale(1);    opacity: 1; }
+}
+.dmm-success-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--text-muted, #94a3b8);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 160ms ease, color 160ms ease;
+}
+.dmm-success-close:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+.dmm-success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1rem;
+  box-shadow:
+    0 10px 32px rgba(16, 185, 129, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: dmmCheckPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes dmmCheckPop {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.14); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.dmm-success-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary, #0f172a);
+}
+.dmm-success-sub {
+  margin: 0 0 1.4rem;
+  color: var(--text-secondary, #475569);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.dmm-success-sub code {
+  background: var(--bg-input, #f1f5f9);
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  color: var(--primary-600, #4f46e5);
+  word-break: break-all;
+}
+
+.dmm-success-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.dmm-success-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 22px;
+  background: linear-gradient(135deg, var(--primary-500, #6366f1), var(--violet-500, #8b5cf6));
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(99, 102, 241, 0.4);
+  transition: transform 150ms ease, box-shadow 180ms ease;
+}
+.dmm-success-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(99, 102, 241, 0.5); }
+.dmm-success-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 20px;
+  background: var(--bg-input, #f1f5f9);
+  color: var(--text-primary, #0f172a);
+  border: 1px solid var(--border-default, #e2e8f0);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+.dmm-success-secondary:hover {
+  background: var(--bg-hover, rgba(99, 102, 241, 0.06));
+  border-color: var(--primary-300, #a5b4fc);
+}
+
+.dmm-success-row {
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 1rem;
+}
+.dmm-success-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary, #475569);
+  line-height: 1.45;
+}
+.dmm-success-hint svg { color: var(--primary-500, #6366f1); flex-shrink: 0; }
+.dmm-success-hint strong { color: var(--text-primary, #0f172a); }
+
+.dmm-success-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-default, #e2e8f0);
+}
+.dmm-success-link {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary, #475569);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: color 160ms ease, background 160ms ease;
+}
+.dmm-success-link:hover { color: var(--primary-600, #4f46e5); background: var(--bg-hover); }
+.dmm-success-link.primary { color: var(--primary-600, #4f46e5); font-weight: 700; }
+
+@media (max-width: 640px) {
+  .dmm-success-sheet { padding: 1rem; }
+  .dmm-success-card { padding: 1.75rem 1.25rem 1.25rem; border-radius: 20px; }
+  .dmm-success-title { font-size: 1.2rem; }
+  .dmm-success-actions { flex-direction: column; }
+  .dmm-success-primary, .dmm-success-secondary { width: 100%; justify-content: center; }
 }
