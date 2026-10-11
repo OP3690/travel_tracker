@@ -681,29 +681,25 @@ export default function LandingPage() {
           </div>
           <div className="hero-content">
             <div className="hero-badge">
-              <FaPlane className="hero-badge-icon" /> The free travel tracker for 195 countries
+              <FaPlane className="hero-badge-icon" /> Free forever · Loved by 10,000+ travelers
             </div>
             <h1 className="hero-title" id="hero-heading">
-              Stamp every country you've visited<br />
-              <span className="hero-gradient-text">on an Interactive World Map.</span>
+              Where in the world<br />
+              <span className="hero-gradient-text">have you been?</span>
             </h1>
             <p className="hero-subtitle">
-              Your <strong>free travel tracker</strong> for all 195 countries and
-              {' '}<strong>5,000+ states, regions &amp; cities</strong>.
-              Pin places you've visited — <strong>domestically or internationally</strong> —
-              on a beautiful interactive map, capture
-              {' '}<strong>travel memories</strong> with photos and stories,
-              plan trips with friends, and download
-              {' '}<strong>Instagram-ready travel cards</strong> in one tap.
+              Stamp <strong>195 countries</strong>, pin <strong>5,000+ regions</strong>, and build
+              the travel map you've always meant to make.
+              {' '}<strong>30 seconds.</strong> Free forever.
             </p>
             <div className="hero-actions" data-ga-section="hero">
               <button className="hero-btn-primary" onClick={() => navigate('/signup')}
-                data-ga-label="Hero: Create my free travel map" data-ga-category="cta">
-                <FaSuitcaseRolling /> Create my free travel map
+                data-ga-label="Hero: Stamp my first country" data-ga-category="cta">
+                <FaSuitcaseRolling /> Stamp my first country
               </button>
               <a href="#features" className="hero-btn-secondary"
-                data-ga-label="Hero: See how it works" data-ga-category="cta">
-                See how it works <FaArrowRight />
+                data-ga-label="Hero: See a sample map" data-ga-category="cta">
+                See a sample map <FaArrowRight />
               </a>
             </div>
             <ul className="hero-trust" aria-label="Why travelers love StampYourMap">
