@@ -3,6 +3,7 @@ import API, { warmupApi } from '../api/api';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaMountain, FaEnvelope, FaLock, FaArrowRight, FaEye, FaEyeSlash } from 'react-icons/fa';
 import loginBg from '../assets/login-travel-map.jpg';
+import { usePageMeta } from './Blog/BlogLayout';
 import './Auth.css';
 
 export default function Login() {
@@ -11,6 +12,15 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+
+  usePageMeta({
+    title: 'Log in to StampYourMap — Your Travel Map, Right Where You Left It',
+    description:
+      "Welcome back. Log in to open your interactive travel map, your pinned countries, your memory wall and your trip plans — all in one place. Free forever.",
+    url: '/login',
+    image: '/og-image.svg',
+    keywords: 'stampyourmap login, travel tracker login, sign in travel map, access travel journal',
+  });
 
   useEffect(() => { warmupApi(); }, []);
 

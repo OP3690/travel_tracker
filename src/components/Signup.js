@@ -6,6 +6,7 @@ import allCountries from '../utils/countries';
 import countryCodes from '../utils/countryCodes';
 import { trackEvent } from '../utils/analytics';
 import signupBg from '../assets/signup-travel-map.jpg';
+import { usePageMeta } from './Blog/BlogLayout';
 import './Auth.css';
 
 export default function Signup() {
@@ -18,6 +19,15 @@ export default function Signup() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const invitedBy = searchParams.get('ref') || '';
+
+  usePageMeta({
+    title: 'Sign up free — StampYourMap · Stamp 195 Countries in Under 30 Seconds',
+    description:
+      "Create your free StampYourMap account in under 30 seconds. No credit card. Pin every country, state and city you've visited, capture travel memories, plan trips, and share Instagram-ready travel cards.",
+    url: '/signup',
+    image: '/og-image.svg',
+    keywords: 'stampyourmap signup, create travel map account, free travel tracker signup, start travel journal',
+  });
 
   useEffect(() => {
     warmupApi();

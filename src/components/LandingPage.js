@@ -6,6 +6,7 @@ import {
   FaStar, FaHeart, FaShareAlt, FaUserFriends, FaDownload, FaLock, FaBolt,
   FaChartLine, FaImages, FaQuestionCircle, FaGlobeAmericas, FaPalette, FaInfinity,
 } from 'react-icons/fa';
+import { usePageMeta } from './Blog/BlogLayout';
 import './LandingPage.css';
 
 /* ========================================================================
@@ -311,6 +312,37 @@ export default function LandingPage() {
   const [scrollY, setScrollY] = useState(0);
   const mapRef = useRef(null);
   const tooltipRef = useRef(null);
+
+  // Catchy, keyword-dense meta that overrides index.html defaults during
+  // hydration. The prerendered snapshot already carries the same content,
+  // so Google/Ads crawlers see this on first fetch and SPA users see it
+  // after client-side navigation back to /.
+  usePageMeta({
+    title: "StampYourMap — Free Interactive World Map · Track Every Country You've Visited",
+    description:
+      "Pin every country, state and city you've ever visited on a free interactive travel map. " +
+      "195 countries · 5,000+ regions · memory wall · trip planner · shareable travel cards. Forever free.",
+    url: '/',
+    image: '/og-image.svg',
+    keywords:
+      'free travel tracker, interactive world map, countries visited map, travel bucket list, ' +
+      'travel memory wall, trip planner, travel card maker, travel journal app, places visited tracker, ' +
+      'digital passport, stampyourmap',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'StampYourMap',
+      url: 'https://stampyourmap.com',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://stampyourmap.com/blog?q={search_term_string}',
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+  });
 
   useEffect(() => {
     const token = localStorage.getItem('token');

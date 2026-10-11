@@ -2,10 +2,21 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import API from '../api/api';
 import { FaEnvelope, FaKey, FaLock, FaArrowLeft, FaCheckCircle, FaMountain } from 'react-icons/fa';
+import { usePageMeta } from './Blog/BlogLayout';
 import './ForgotPassword.css';
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
+
+  usePageMeta({
+    title: 'Reset your password — StampYourMap',
+    description:
+      "Forgot your StampYourMap password? Enter your email and we'll send a one-time code so you can get back to your travel map in seconds.",
+    url: '/forgot-password',
+    image: '/og-image.svg',
+    keywords: 'stampyourmap password reset, forgot password, travel tracker reset password',
+  });
+
   const [step, setStep] = useState(1); // 1=email, 2=OTP, 3=new pw, 4=success
   const [emailAddr, setEmailAddr] = useState('');
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
