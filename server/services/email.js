@@ -2,47 +2,70 @@ const nodemailer = require('nodemailer');
 const templates = require('./templates');
 
 /**
- * Email service — nodemailer-based SMTP.
+ * Email service — two-provider setup:
  *
- * Required env:
+ *   1. RESEND (HTTPS, preferred). Set RESEND_API_KEY and we send via
+ *      api.resend.com. This is the only reliable path from a stock
+ *      DigitalOcean droplet, where outbound SMTP (ports 25/465/587) is
+ *      blocked by default. Resend's API is HTTPS so DO's SMTP filter
+ *      doesn't see it.
+ *
+ *   2. SMTP (nodemailer, fallback). Used when RESEND_API_KEY is not set
+ *      and SMTP_PASS IS set. Fine from any host that doesn't block
+ *      outbound SMTP (local dev, non-restricted VPSes).
+ *
+ * Required env (pick one path):
+ *   RESEND_API_KEY — Resend API key (preferred; needs a verified sender
+ *                    domain OR an on-brand onboarding@resend.dev sandbox
+ *                    sender to the account owner)
+ *   SMTP_PASS      — SMTP app password (fallback, only works where
+ *                    outbound SMTP is open)
+ *
+ * SMTP sub-env (only when using the SMTP path):
  *   SMTP_HOST (default: smtp.gmail.com)
  *   SMTP_PORT (default: 465)
  *   SMTP_USER (default: support@stampyourmap.com)
- *   SMTP_PASS (required at runtime to actually send)
  *
- * Optional env:
- *   EMAIL_FROM_NAME (default: StampYourMap)
- *   EMAIL_REDIRECT_TO — if set, ALL outbound emails go to this address
- *                      instead of the real recipient (original recipient is
- *                      prepended to the subject for visibility). Use this in
- *                      dev to have every email land in the admin inbox for review.
+ * Optional env (both paths):
+ *   EMAIL_FROM        — visible "From:" address (defaults to SMTP_USER)
+ *   EMAIL_FROM_NAME   — visible "From:" display name (default: StampYourMap)
+ *   EMAIL_REDIRECT_TO — if set, every outbound email goes here instead
+ *                       of the real recipient. Dev-only. Must be empty
+ *                       in production or users won't get their mail.
  */
 
+const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
 const SMTP_HOST = process.env.SMTP_HOST || 'smtp.gmail.com';
 const SMTP_PORT = parseInt(process.env.SMTP_PORT || '465', 10);
 const SMTP_USER = process.env.SMTP_USER || 'support@stampyourmap.com';
 const SMTP_PASS = process.env.SMTP_PASS || '';
 const FROM_NAME = process.env.EMAIL_FROM_NAME || 'StampYourMap';
-// The visible From: address. Defaults to SMTP_USER for simple mailbox
-// SMTP (Titan/GoDaddy), but MUST be set explicitly when you use a relay
-// like Resend/SendGrid where SMTP_USER is their literal username
-// (e.g. "resend") and the From: address is your own domain.
 const FROM_EMAIL = process.env.EMAIL_FROM || SMTP_USER;
-// In production this MUST stay empty so real users receive their OTPs / welcome mails.
-// Only set EMAIL_REDIRECT_TO in a dev/staging env to funnel every outbound mail to one inbox.
 const EMAIL_REDIRECT_TO = process.env.EMAIL_REDIRECT_TO || '';
+
+function providerLabel() {
+  if (RESEND_API_KEY) return 'resend';
+  if (SMTP_PASS)      return 'smtp';
+  return 'mock';
+}
 
 let transporter = null;
 let bootLogged = false;
-function getTransporter() {
-  if (!bootLogged) {
-    bootLogged = true;
-    if (!SMTP_PASS) {
-      console.warn(`[EMAIL] SMTP_PASS is NOT set — every outbound email will be mocked. Set SMTP_PASS env on your host to send real mail. host=${SMTP_HOST} port=${SMTP_PORT} user=${SMTP_USER}`);
-    } else {
-      console.log(`[EMAIL] SMTP configured: host=${SMTP_HOST} port=${SMTP_PORT} user=${SMTP_USER}${EMAIL_REDIRECT_TO ? ` REDIRECT_TO=${EMAIL_REDIRECT_TO}` : ''}`);
-    }
+function logBoot() {
+  if (bootLogged) return;
+  bootLogged = true;
+  const provider = providerLabel();
+  if (provider === 'resend') {
+    console.log(`[EMAIL] provider=resend from="${FROM_NAME} <${FROM_EMAIL}>"${EMAIL_REDIRECT_TO ? ` REDIRECT_TO=${EMAIL_REDIRECT_TO}` : ''}`);
+  } else if (provider === 'smtp') {
+    console.log(`[EMAIL] provider=smtp host=${SMTP_HOST} port=${SMTP_PORT} user=${SMTP_USER}${EMAIL_REDIRECT_TO ? ` REDIRECT_TO=${EMAIL_REDIRECT_TO}` : ''}`);
+  } else {
+    console.warn(`[EMAIL] NO provider configured — set RESEND_API_KEY (preferred) or SMTP_PASS. Every email will be mocked.`);
   }
+}
+
+function getTransporter() {
+  logBoot();
   if (transporter) return transporter;
   if (!SMTP_PASS) return null;
   transporter = nodemailer.createTransport({
@@ -54,6 +77,30 @@ function getTransporter() {
   return transporter;
 }
 
+/**
+ * Resend's HTTPS endpoint — the only path that works from a stock DO
+ * droplet (SMTP ports are blocked by DO's spam filter). Node 18+ has
+ * native fetch; no SDK needed.
+ */
+async function sendViaResend({ from, to, subject, html, text }) {
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${RESEND_API_KEY}`,
+    },
+    body: JSON.stringify({ from, to, subject, html, text }),
+  });
+  const body = await res.text();
+  if (!res.ok) {
+    // Resend returns a JSON error body; keep it bounded so logs stay sane.
+    throw new Error(`Resend ${res.status}: ${body.slice(0, 300)}`);
+  }
+  let parsed = {};
+  try { parsed = JSON.parse(body); } catch { /* body might be empty on 200 */ }
+  return { sent: true, id: parsed.id || null, to };
+}
+
 function devBanner(realRecipient) {
   return `<div style="background:#0f172a;border:1px solid #334155;color:#94a3b8;padding:10px 16px;font-size:12px;font-family:monospace;text-align:center;border-radius:8px;margin:0 0 16px;">
     🛠️ Dev preview · original recipient: <strong style="color:#f1f5f9;">${realRecipient}</strong>
@@ -61,19 +108,38 @@ function devBanner(realRecipient) {
 }
 
 async function sendMail({ to, subject, html, text }) {
+  logBoot();
   const realRecipient = to;
   const isRedirecting = EMAIL_REDIRECT_TO && EMAIL_REDIRECT_TO !== to;
   const finalTo = EMAIL_REDIRECT_TO || to;
-  // Clean subject — no more [→ email] prefix; original recipient is shown in an in-email dev banner
   const finalSubject = subject;
   const finalHtml = isRedirecting ? devBanner(realRecipient) + html : html;
+  const finalText = text || html.replace(/<[^>]+>/g, '');
+  const from = `${FROM_NAME} <${FROM_EMAIL}>`;
 
+  // Preferred path: Resend over HTTPS. Works from DO droplets even when
+  // every SMTP port is blocked.
+  if (RESEND_API_KEY) {
+    try {
+      const result = await sendViaResend({
+        from, to: finalTo, subject: finalSubject, html: finalHtml, text: finalText,
+      });
+      console.log(`[EMAIL SENT via resend] to=${finalTo} (original ${realRecipient}) subject="${finalSubject}" id=${result.id}`);
+      return result;
+    } catch (err) {
+      console.error('[EMAIL FAILED via resend]', err.message);
+      return { error: err.message };
+    }
+  }
+
+  // Fallback path: nodemailer SMTP. Used in local dev or on hosts that
+  // don't block outbound SMTP.
   const t = getTransporter();
   if (!t) {
-    console.log('\n[EMAIL MOCK — no SMTP_PASS set]');
+    console.log('\n[EMAIL MOCK — no provider configured]');
     console.log(`  To: ${finalTo} (original: ${realRecipient})`);
     console.log(`  Subject: ${finalSubject}`);
-    console.log('  (set SMTP_PASS env to actually send)\n');
+    console.log('  (set RESEND_API_KEY or SMTP_PASS to actually send)\n');
     return { mocked: true, to: finalTo, subject: finalSubject };
   }
 
@@ -83,12 +149,12 @@ async function sendMail({ to, subject, html, text }) {
       to: finalTo,
       subject: finalSubject,
       html: finalHtml,
-      text: text || html.replace(/<[^>]+>/g, ''),
+      text: finalText,
     });
-    console.log(`[EMAIL SENT] to=${finalTo} (original ${realRecipient}) subject="${finalSubject}" id=${info.messageId}`);
+    console.log(`[EMAIL SENT via smtp] to=${finalTo} (original ${realRecipient}) subject="${finalSubject}" id=${info.messageId}`);
     return { sent: true, id: info.messageId, to: finalTo };
   } catch (err) {
-    console.error('[EMAIL FAILED]', err.message);
+    console.error('[EMAIL FAILED via smtp]', err.message);
     return { error: err.message };
   }
 }
@@ -127,29 +193,50 @@ async function sendFriendRequestEmail({ toUser, fromUser }) {
 // outcome so you can see exactly why an email didn't go out.
 // ======================================================================
 async function diagnose(testTo) {
+  const provider = providerLabel();
   const config = {
-    SMTP_HOST, SMTP_PORT,
-    SMTP_USER,
+    provider,
+    FROM_EMAIL, FROM_NAME,
+    RESEND_API_KEY_set: !!RESEND_API_KEY,
+    RESEND_API_KEY_length: RESEND_API_KEY ? RESEND_API_KEY.length : 0,
+    SMTP_HOST, SMTP_PORT, SMTP_USER,
     SMTP_PASS_set: !!SMTP_PASS,
     SMTP_PASS_length: SMTP_PASS ? SMTP_PASS.length : 0,
     EMAIL_REDIRECT_TO: EMAIL_REDIRECT_TO || null,
     NODE_ENV: process.env.NODE_ENV || 'development',
   };
-  if (!SMTP_PASS) {
-    return { ok: false, config, reason: 'SMTP_PASS not set — emails are mocked.' };
+  const to = testTo || FROM_EMAIL;
+
+  if (provider === 'mock') {
+    return { ok: false, config, reason: 'No provider configured — set RESEND_API_KEY (preferred) or SMTP_PASS.' };
   }
+
+  if (provider === 'resend') {
+    try {
+      const result = await sendViaResend({
+        from: `${FROM_NAME} <${FROM_EMAIL}>`,
+        to,
+        subject: 'StampYourMap email test (via Resend)',
+        html: '<p>If you see this, Resend is wired up correctly.</p>',
+        text: 'If you see this, Resend is wired up correctly.',
+      });
+      return { ok: true, config, messageId: result.id, to };
+    } catch (err) {
+      return { ok: false, config, error: { message: err.message } };
+    }
+  }
+
+  // provider === 'smtp'
   try {
     const t = getTransporter();
-    // verify() does a real SMTP handshake + auth without sending anything
     await t.verify();
-    // Send a tiny test mail
     const info = await t.sendMail({
       from: `"${FROM_NAME}" <${FROM_EMAIL}>`,
-      to: testTo || FROM_EMAIL,
+      to,
       subject: 'StampYourMap SMTP test',
       text: 'If you see this, SMTP is wired up correctly.',
     });
-    return { ok: true, config, verified: true, messageId: info.messageId, to: testTo || SMTP_USER };
+    return { ok: true, config, verified: true, messageId: info.messageId, to };
   } catch (err) {
     return {
       ok: false,
