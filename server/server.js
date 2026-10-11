@@ -55,8 +55,15 @@ app.use(cors({
 
 app.use(express.json({ limit: '25mb' }));
 
-const MONGODB_URI = process.env.MONGODB_URI ||
-  'mongodb+srv://global5665:test123@cluster0.wigbba7.mongodb.net/travel_dashboard?retryWrites=true&w=majority&appName=Cluster0';
+// MONGODB_URI must come from the environment — the previous hardcoded
+// fallback leaked the password into the public git history. Fail loudly
+// on boot rather than silently falling back to a known-compromised cred.
+const MONGODB_URI = process.env.MONGODB_URI;
+if (!MONGODB_URI) {
+  console.error('[fatal] MONGODB_URI environment variable is not set.');
+  console.error('        Set it in your deployment env (Render, droplet .env, etc.) and restart.');
+  process.exit(1);
+}
 mongoose.connect(MONGODB_URI, {
   // Tighter timeouts + larger pool so Atlas connects faster on boot and
   // concurrent auth requests don't block waiting for a socket.
