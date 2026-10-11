@@ -3,7 +3,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const compression = require('compression');
 
-require('dotenv').config();
+// `override: true` is critical for `pm2 restart --update-env` to work:
+// dotenv's default is to NOT overwrite env vars that already exist in
+// process.env, so a stale cached MONGODB_URI from PM2's previous launch
+// would silently stick around and the app would connect to the wrong
+// (or no) database. Forcing override makes the on-disk .env the single
+// source of truth on every restart — no "pm2 delete + pm2 start" dance.
+require('dotenv').config({ override: true });
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const destinationsRoutes = require('./routes/destinations');
