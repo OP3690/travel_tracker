@@ -23,7 +23,7 @@ const DEMO_MEMORY = {
     '/diego-jimenez-A-NVHPka9Rk-unsplash.jpg',
   ],
   dateVisited: new Date('2025-10-15'),
-  visibility: 'public',
+  visibility: 'friends',
   isDemo: true,
 };
 

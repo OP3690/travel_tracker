@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaTimes, FaCamera, FaTrash, FaMapMarkerAlt, FaCalendar, FaPen, FaCheck, FaGlobe, FaUserFriends, FaLock, FaCity, FaTag } from 'react-icons/fa';
+import { FaTimes, FaCamera, FaTrash, FaMapMarkerAlt, FaCalendar, FaPen, FaCheck, FaUserFriends, FaLock, FaCity, FaTag } from 'react-icons/fa';
 import API from '../api/api';
 import allCountries from '../utils/countries';
 import { getCountryRegions } from '../utils/getCountryRegions';
@@ -396,7 +396,6 @@ export default function AddMemoryModal({ onClose, onSaved, editMemory }) {
             <div className="mem-section-body">
               <div className="mem-visibility-row">
                 {[
-                  { value: 'public', icon: <FaGlobe />, title: 'Public', desc: 'Anyone on StampYourMap' },
                   { value: 'friends', icon: <FaUserFriends />, title: 'Friends', desc: 'Only your friends' },
                   { value: 'private', icon: <FaLock />, title: 'Private', desc: 'Only you' },
                 ].map(opt => (

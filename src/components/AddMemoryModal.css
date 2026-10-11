@@ -156,7 +156,7 @@
 
 /* Visibility selector */
 .mem-visibility-row {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;
 }
 .mem-vis-opt {
   display: flex; flex-direction: column; align-items: center; gap: 0.25rem;

@@ -183,7 +183,7 @@ router.get('/memories', auth, async (req, res) => {
   }
 });
 
-const VALID_VISIBILITY = ['public', 'friends', 'private'];
+const VALID_VISIBILITY = ['friends', 'private'];
 
 router.post('/memories', auth, async (req, res) => {
   try {

@@ -28,7 +28,13 @@ const memorySchema = new mongoose.Schema({
   story: { type: String, maxlength: 8000 },     // ~1000 words avg
   photos: [String],                             // base64 data URLs (max 5 enforced in route)
   dateVisited: Date,
-  visibility: { type: String, enum: ['public', 'friends', 'private'], default: 'friends', index: true },
+  // Only "friends" (shared with your friends) or "private" (only you).
+  // Public was removed — strangers never see a user's memories now.
+  // Legacy memories with visibility:"public" remain readable from the
+  // DB (Mongoose only enforces the enum on save, not on load), so no
+  // migration is needed; the friend-profile endpoint already treats
+  // anything that isn't private as friends-visible.
+  visibility: { type: String, enum: ['friends', 'private'], default: 'friends', index: true },
   // Trip-type tag — "Honeymoon", "First Solo Trip", custom, etc.
   // Rendered as a chip on the Memory Wall card, as a passport stamp
   // on shareable posters, and filterable from the wall. Free-form

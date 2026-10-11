@@ -23,11 +23,13 @@ function formatDate(d) {
 function initialsOf(name) {
   return (name || '?').split(/\s+/).map(n => n[0]).filter(Boolean).join('').toUpperCase().slice(0, 2) || '?';
 }
+// `public` icon kept only for legacy memories whose visibility was set
+// before Public was removed. New memories can only be `friends` or `private`.
 const visIcon = { public: <FaGlobe />, friends: <FaUserFriends />, private: <FaLock /> };
 const relationLabel = {
-  self:   { label: 'You',         emoji: '👤', tone: 'self' },
-  friend: { label: 'Friend',      emoji: '🤝', tone: 'friend' },
-  none:   { label: 'Public only', emoji: '🌍', tone: 'public' },
+  self:   { label: 'You',           emoji: '👤', tone: 'self' },
+  friend: { label: 'Friend',        emoji: '🤝', tone: 'friend' },
+  none:   { label: 'Not connected', emoji: '🔒', tone: 'public' },
 };
 
 export default function FriendProfile() {
@@ -180,7 +182,7 @@ export default function FriendProfile() {
                 ? 'Head to your Memory Wall to capture your first trip.'
                 : relation === 'friend'
                 ? `${user.name.split(' ')[0]} hasn't shared any memories yet — hang tight!`
-                : `Only public memories are visible. Become friends with ${user.name.split(' ')[0]} to see more.`}
+                : `${user.name.split(' ')[0]}'s memories are shared with friends only. Send a friend request to see what they've been up to.`}
             </p>
           </div>
         ) : (

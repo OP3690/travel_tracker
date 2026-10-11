@@ -282,13 +282,19 @@ router.get('/:userId/profile', auth, async (req, res) => {
     const isSelf = userId === req.userId;
     const isFriend = me && me.friends.some(id => id.toString() === userId);
 
+    // Memory visibility rules:
+    //   · self    → see everything, including private
+    //   · friend  → see everything that isn't private
+    //   · stranger → see nothing (no public tier anymore — users only
+    //     share with friends they've accepted). Legacy memories with
+    //     visibility:"public" are now treated as friends-only.
     let visibleMemories = [];
     if (isSelf) {
       visibleMemories = other.memories;
     } else if (isFriend) {
       visibleMemories = (other.memories || []).filter(m => m.visibility !== 'private');
     } else {
-      visibleMemories = (other.memories || []).filter(m => m.visibility === 'public');
+      visibleMemories = [];
     }
 
     // Newest first
