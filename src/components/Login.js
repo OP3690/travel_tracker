@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FaMountain, FaEnvelope, FaLock, FaArrowRight, FaEye, FaEyeSlash } from 'react-icons/fa';
 import loginBg from '../assets/login-travel-map.jpg';
 import { usePageMeta } from './Blog/BlogLayout';
+import { setUser, trackEvent } from '../utils/analytics';
 import './Auth.css';
 
 export default function Login() {
@@ -34,6 +35,14 @@ export default function Login() {
       const res = await API.post('/api/auth/login', form);
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
+      // Identify to GA so audience cohorts (country / memories count)
+      // apply from the next event onward. Fire login success as its own
+      // event so the funnel from signup_page_view → login is visible.
+      setUser(res.data.user);
+      trackEvent('login_success', {
+        method: 'email',
+        user_country: res.data.user?.country || null,
+      });
       navigate('/dashboard');
     } catch (err) {
       setError(err.response?.data?.error || 'Login failed. Please try again.');

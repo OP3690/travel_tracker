@@ -6,6 +6,7 @@ import {
   FaEllipsisH,
 } from 'react-icons/fa';
 import API from '../api/api';
+import { clearUser, trackEvent } from '../utils/analytics';
 import './Layout.css';
 
 /** Render "9+" once the count goes over 9 — matches the Facebook/iOS style. */
@@ -99,6 +100,8 @@ export default function Layout({ children }) {
   }, [location.pathname]);
 
   const handleLogout = () => {
+    trackEvent('logout', {});
+    clearUser();
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     navigate('/login');

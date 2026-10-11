@@ -5,6 +5,7 @@ import API from '../api/api';
 import allCountries from '../utils/countries';
 import countryToCode from '../utils/countryCodeMap';
 import { TRIP_TAGS } from '../utils/tripTags';
+import { trackEvent, trackMilestone } from '../utils/analytics';
 import './ShareMemoryPost.css';
 
 // Re-use the same static maps CountryMap does — needed for path rendering inside the post
@@ -359,6 +360,15 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+      // Downloads = shares in disguise — this is a prime conversion event.
+      trackEvent('share_card_downloaded', {
+        template,
+        has_trip_tag: !!tripTag,
+        trip_tag: tripTag || '',
+        country: memory?.country || '',
+        caption_length: message.length,
+      });
+      trackMilestone('first_card_downloaded', { template });
     } catch (e) {
       console.error(e);
       setError('Could not generate the image. Try again.');

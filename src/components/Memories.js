@@ -5,6 +5,7 @@ import AddMemoryModal from './AddMemoryModal';
 import { FaPlus, FaMapMarkerAlt, FaCalendar, FaCamera, FaEdit, FaTrash, FaTimes, FaChevronLeft, FaChevronRight, FaHeart, FaShareAlt, FaHome, FaPlane, FaBookOpen, FaImages, FaSearch, FaSortAmountDown } from 'react-icons/fa';
 import allCountries from '../utils/countries';
 import { emojiForTag } from '../utils/tripTags';
+import { trackSearch, trackEvent } from '../utils/analytics';
 import ShareMemoryPost from './ShareMemoryPost';
 import './Memories.css';
 
@@ -201,6 +202,16 @@ export default function Memories() {
     });
   }
 
+  // Debounced search tracking — fires after the user stops typing so a
+  // 10-char query becomes 1 event, not 10. GA param is lower-cased +
+  // truncated for consistent cardinality in the UI.
+  useEffect(() => {
+    if (!search.trim()) return;
+    const t = setTimeout(() => trackSearch('memory_wall', search, filtered.length), 650);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
+
   // Non-mutating sort — new array each render so React notices.
   const timeOf = (m) => new Date(m.dateVisited || m.createdAt || 0).getTime();
   filtered = [...filtered].sort((a, b) => {
@@ -312,7 +323,10 @@ export default function Memories() {
               <select
                 className="mem-sort-select"
                 value={sort}
-                onChange={e => setSort(e.target.value)}
+                onChange={e => {
+                  setSort(e.target.value);
+                  trackEvent('memory_sort_changed', { sort_by: e.target.value });
+                }}
                 aria-label="Sort memories"
                 data-ga-label={`Memories: Sort ${sort}`}
               >

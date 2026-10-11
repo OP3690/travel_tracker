@@ -6,6 +6,7 @@ import { FaBook, FaGlobeAsia, FaChartBar, FaTimes, FaMapMarkerAlt, FaRoute, FaCo
 import { Link, useNavigate } from 'react-router-dom';
 import AddMemoryModal from './AddMemoryModal';
 import DownloadMapModal from './DownloadMapModal';
+import { trackMilestone } from '../utils/analytics';
 import './Dashboard.css';
 
 // Country-specific suggestions
@@ -116,6 +117,15 @@ export default function Dashboard() {
     }, 400);
     return () => clearTimeout(t);
   }, [selectedLocations]);
+
+  // First-stamp milestone — the clearest "activation" signal we have.
+  // Fires once per user per device on the very first time their selected
+  // list has > 0 entries. trackMilestone handles the dedupe for us.
+  useEffect(() => {
+    if (selectedLocations.length > 0) {
+      trackMilestone('first_stamp', { stamps_count: selectedLocations.length });
+    }
+  }, [selectedLocations.length]);
 
   const dismissWelcome = () => {
     setShowWelcome(false);

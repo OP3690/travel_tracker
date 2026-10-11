@@ -2,7 +2,7 @@ import React, { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import PrivateRoute from './components/PrivateRoute';
-import { initGlobalClickTracking, initRouteTracking } from './utils/analytics';
+import { initAnalytics, setUser } from './utils/analytics';
 import { warmupApi } from './api/api';
 import './App.css';
 import './mobile.css';
@@ -226,9 +226,16 @@ function App() {
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
-    initGlobalClickTracking();
-    initRouteTracking();
-    // Warm Render free-tier dyno + Mongo pool early so auth feels instant
+    // Full analytics stack: clicks, page_view, scroll depth, engagement
+    // beacons, error reporting, and Core Web Vitals.
+    initAnalytics();
+    // Re-identify the user on hard refresh so cohorts stay accurate even
+    // when the user never re-runs login.
+    try {
+      const u = JSON.parse(localStorage.getItem('user') || 'null');
+      if (u) setUser(u);
+    } catch { /* ignore */ }
+    // Warm the backend dyno + Mongo pool early so auth feels instant
     warmupApi();
   }, []);
   return (

@@ -4,6 +4,7 @@ import API from '../api/api';
 import allCountries from '../utils/countries';
 import { getCountryRegions } from '../utils/getCountryRegions';
 import { TRIP_TAGS, isPresetTag } from '../utils/tripTags';
+import { trackEvent, trackMilestone } from '../utils/analytics';
 import './AddMemoryModal.css';
 
 const MAX_PHOTOS = 4;
@@ -158,8 +159,30 @@ export default function AddMemoryModal({ onClose, onSaved, editMemory }) {
       };
       if (editMemory?._id) {
         await API.put(`/api/user/memories/${editMemory._id}`, payload);
+        trackEvent('memory_updated', {
+          has_photos: photos.length > 0,
+          photo_count: photos.length,
+          word_count: wordCount,
+          trip_tag: tripTag || '',
+          country: country || '',
+        });
       } else {
         await API.post('/api/user/memories', payload);
+        trackEvent('memory_created', {
+          has_photos: photos.length > 0,
+          photo_count: photos.length,
+          word_count: wordCount,
+          trip_tag: tripTag || '',
+          country: country || '',
+        });
+        // One-time "AHA" milestones — these drive the activation funnel.
+        trackMilestone('first_memory_created', { country: country || '' });
+        if (photos.length > 0) {
+          trackMilestone('first_memory_with_photo', { photo_count: photos.length });
+        }
+        if (wordCount >= 50) {
+          trackMilestone('first_memory_with_story', { word_count: wordCount });
+        }
       }
       onSaved && onSaved();
       onClose();
