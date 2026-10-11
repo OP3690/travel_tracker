@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Layout from './Layout';
 import API from '../api/api';
 import AddMemoryModal from './AddMemoryModal';
-import { FaPlus, FaMapMarkerAlt, FaCalendar, FaCamera, FaEdit, FaTrash, FaTimes, FaChevronLeft, FaChevronRight, FaHeart, FaShareAlt, FaHome, FaPlane, FaBookOpen, FaImages } from 'react-icons/fa';
+import { FaPlus, FaMapMarkerAlt, FaCalendar, FaCamera, FaEdit, FaTrash, FaTimes, FaChevronLeft, FaChevronRight, FaHeart, FaShareAlt, FaHome, FaPlane, FaBookOpen, FaImages, FaSearch, FaSortAmountDown } from 'react-icons/fa';
 import allCountries from '../utils/countries';
 import ShareMemoryPost from './ShareMemoryPost';
 import './Memories.css';
@@ -123,6 +123,8 @@ export default function Memories() {
   const [sharing, setSharing] = useState(null);
   const [deleting, setDeleting] = useState(null);
   const [filter, setFilter] = useState('all');        // 'all' | 'domestic' | 'international' | <country name>
+  const [search, setSearch] = useState('');
+  const [sort, setSort] = useState('newest');         // 'newest' | 'oldest' | 'photos' | 'az'
   const [userName, setUserName] = useState('Explorer');
   const [userCountry, setUserCountry] = useState('');
 
@@ -178,6 +180,27 @@ export default function Memories() {
   if (filter === 'domestic') filtered = domesticMemories;
   else if (filter === 'international') filtered = internationalMemories;
   else if (filter !== 'all') filtered = memories.filter(m => m.country === filter);
+
+  // Text search across title / story / country / region. Lives alongside
+  // the chip filters so the user can "find rome in italian memories".
+  if (search.trim()) {
+    const q = search.trim().toLowerCase();
+    filtered = filtered.filter(m => {
+      return (m.title   || '').toLowerCase().includes(q) ||
+             (m.story   || '').toLowerCase().includes(q) ||
+             (m.country || '').toLowerCase().includes(q) ||
+             (m.region  || '').toLowerCase().includes(q);
+    });
+  }
+
+  // Non-mutating sort — new array each render so React notices.
+  const timeOf = (m) => new Date(m.dateVisited || m.createdAt || 0).getTime();
+  filtered = [...filtered].sort((a, b) => {
+    if (sort === 'oldest') return timeOf(a) - timeOf(b);
+    if (sort === 'photos') return (b.photos?.length || 0) - (a.photos?.length || 0);
+    if (sort === 'az')     return (a.title || '').localeCompare(b.title || '');
+    return timeOf(b) - timeOf(a); // 'newest' default
+  });
 
   const totalPhotos = memories.reduce((sum, m) => sum + (m.photos?.length || 0), 0);
   const totalWords = memories.reduce((sum, m) => sum + (m.story || '').trim().split(/\s+/).filter(Boolean).length, 0);
@@ -238,6 +261,50 @@ export default function Memories() {
             </div>
           </div>
         </div>
+
+        {/* Search + sort toolbar — above the filter chips so a user can
+            quickly narrow by text, then refine by category. */}
+        {memories.length > 0 && (
+          <div className="mem-toolbar" data-ga-section="memory-toolbar">
+            <div className="mem-search">
+              <FaSearch className="mem-search-icon" />
+              <input
+                type="search"
+                className="mem-search-input"
+                placeholder={`Search ${memories.length} memor${memories.length === 1 ? 'y' : 'ies'}…`}
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                aria-label="Search memories"
+                data-ga-label="Memories: Search"
+              />
+              {search && (
+                <button
+                  className="mem-search-clear"
+                  onClick={() => setSearch('')}
+                  aria-label="Clear search"
+                  type="button"
+                >
+                  <FaTimes />
+                </button>
+              )}
+            </div>
+            <div className="mem-sort">
+              <FaSortAmountDown className="mem-sort-icon" />
+              <select
+                className="mem-sort-select"
+                value={sort}
+                onChange={e => setSort(e.target.value)}
+                aria-label="Sort memories"
+                data-ga-label={`Memories: Sort ${sort}`}
+              >
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+                <option value="photos">Most photos</option>
+                <option value="az">A → Z</option>
+              </select>
+            </div>
+          </div>
+        )}
 
         {/* Filter chips — All / Domestic / International + country-specific */}
         {memories.length > 0 && (

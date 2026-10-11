@@ -83,6 +83,89 @@ function getRegionCentroid(mapData, regionName) {
   return count > 0 ? { x: sumX / count, y: sumY / count } : null;
 }
 
+// Trip-type tags — one-tap categorization that renders as a stamp on
+// the poster ("HONEYMOON · ROME 2026"). Covers the common life moments
+// people share from (first solo trip, honeymoon, bucket-list hit, work
+// travel, etc.). A "Custom" option lets the user write their own, so
+// the list stays short + opinionated instead of a sprawling dropdown.
+const TRIP_TAGS = [
+  { id: 'first_solo',   label: 'My First Solo Trip', emoji: '🎒' },
+  { id: 'solo',         label: 'Solo Trip',          emoji: '🧳' },
+  { id: 'honeymoon',    label: 'Honeymoon',          emoji: '💍' },
+  { id: 'anniversary',  label: 'Anniversary',        emoji: '🥂' },
+  { id: 'family',       label: 'Family Trip',        emoji: '👨‍👩‍👧' },
+  { id: 'friends',      label: 'With Friends',       emoji: '👯' },
+  { id: 'summer',       label: 'Summer Vacation',    emoji: '☀️' },
+  { id: 'winter',       label: 'Winter Escape',      emoji: '❄️' },
+  { id: 'business',     label: 'Business Trip',      emoji: '💼' },
+  { id: 'school',       label: 'School Trip',        emoji: '🎓' },
+  { id: 'reunion',      label: 'Reunion',            emoji: '🤝' },
+  { id: 'birthday',     label: 'Birthday Trip',      emoji: '🎂' },
+  { id: 'bucket',       label: 'Bucket List',        emoji: '✨' },
+  { id: 'roadtrip',     label: 'Road Trip',          emoji: '🚗' },
+  { id: 'adventure',    label: 'Adventure',          emoji: '⛰️' },
+  { id: 'backpacking',  label: 'Backpacking',        emoji: '🥾' },
+  { id: 'wellness',     label: 'Wellness Retreat',   emoji: '🧘' },
+  { id: 'festival',     label: 'Festival',           emoji: '🎉' },
+  { id: 'pilgrimage',   label: 'Pilgrimage',         emoji: '🙏' },
+  { id: 'weekend',      label: 'Weekend Getaway',    emoji: '🌴' },
+];
+
+// Caption vibes — curated 1-click message presets. Keeps the user from
+// staring at a blank textarea; most people pick one and lightly edit.
+// Each preset uses {{title}} / {{place}} tokens so the vibe stays specific.
+const CAPTION_PRESETS = [
+  {
+    id: 'wander',
+    label: '✈️ Wanderer',
+    text: "Chasing stories {{place}} will never stop telling. {{title}} stays with me — the smells, the strangers who became friends, the detours that turned into the trip. 🌍",
+  },
+  {
+    id: 'reflect',
+    label: '🌙 Reflective',
+    text: "Some places change the way you see yourself. {{title}} — a chapter I didn't know I was writing until the plane was taking off again. Grateful for every detour.",
+  },
+  {
+    id: 'hype',
+    label: '🔥 Hype',
+    text: "Okay {{place}}, you understood the assignment. {{title}} = unreal. Bags still packed in spirit. Who's coming next time? 🚀",
+  },
+  {
+    id: 'minimal',
+    label: '🤍 Minimal',
+    text: "{{title}}. {{place}}. Enough said. 📍",
+  },
+  {
+    id: 'poetic',
+    label: '📖 Poetic',
+    text: "{{place}} doesn't shout. It hums. It stays. {{title}} is one of those memories I'll walk past on a Tuesday and feel again, warm and whole.",
+  },
+];
+
+// Hashtag suggestions — click to append to the caption. Mix of broad reach
+// (#travel #travelgram), the place itself, and intent (#bucketlist).
+function buildHashtagChips(memory) {
+  const base = ['#travel', '#travelgram', '#wanderlust', '#stampyourmap', '#bucketlist', '#traveldiaries'];
+  const place = (memory?.country || '').replace(/\s+/g, '');
+  const region = (memory?.region  || '').replace(/\s+/g, '');
+  const extras = [place && `#${place}`, region && `#${region}`, place && `#visit${place}`].filter(Boolean);
+  return [...extras, ...base].slice(0, 10);
+}
+
+// Human-friendly "days ago" badge shown on the poster so viewers get a
+// sense of recency without reading the date.
+function daysAgoBadge(d) {
+  if (!d) return null;
+  const diff = Math.floor((Date.now() - new Date(d).getTime()) / 86400000);
+  if (isNaN(diff) || diff < 0) return null;
+  if (diff === 0)   return 'TODAY';
+  if (diff === 1)   return '1 DAY AGO';
+  if (diff < 30)    return `${diff} DAYS AGO`;
+  if (diff < 365)   return `${Math.round(diff / 30)} MONTHS AGO`;
+  const years = (diff / 365).toFixed(diff < 730 ? 1 : 0);
+  return `${years} ${years === '1' || years === '1.0' ? 'YEAR' : 'YEARS'} AGO`;
+}
+
 const TEMPLATES = [
   { id: 'midnight',   name: 'Midnight',   palette: ['#1e1b4b', '#0a0820', '#fbbf24'] },
   { id: 'sunset',     name: 'Sunset',     palette: ['#fb923c', '#db2777', '#fef3c7'] },
@@ -105,6 +188,12 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
   const [error, setError] = useState('');
   const [template, setTemplate] = useState('polaroid');
   const [brokenSrcs, setBrokenSrcs] = useState(() => new Set());
+  // Trip tag ("Honeymoon", "First Solo Trip", custom text). Persists per
+  // memory in localStorage so a user who picks a tag, closes the modal,
+  // and reopens later still sees their choice.
+  const [tripTag, setTripTag] = useState('');
+  const [customTagInput, setCustomTagInput] = useState('');
+  const [showCustomInput, setShowCustomInput] = useState(false);
   const posterRef = useRef(null);
   const scalerRef = useRef(null);
 
@@ -151,6 +240,25 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
   useEffect(() => {
     setMessage(DEFAULT_MESSAGE.slice(0, MAX_MESSAGE));
   }, [memory]);
+
+  // Load the previously picked trip tag for this memory, if any.
+  useEffect(() => {
+    if (!memory?._id) return;
+    try {
+      const saved = localStorage.getItem(`smp-trip-tag:${memory._id}`);
+      if (saved) setTripTag(saved);
+      else setTripTag('');
+    } catch { /* localStorage denied — fall through */ }
+  }, [memory]);
+
+  // Persist on change (and clear the key when the tag is cleared).
+  useEffect(() => {
+    if (!memory?._id) return;
+    try {
+      if (tripTag) localStorage.setItem(`smp-trip-tag:${memory._id}`, tripTag);
+      else         localStorage.removeItem(`smp-trip-tag:${memory._id}`);
+    } catch { /* localStorage denied */ }
+  }, [tripTag, memory]);
 
   useEffect(() => {
     if (!memory?.country) { setMapData(null); return; }
@@ -337,15 +445,23 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
               <div className="smp-poster" data-template={template} ref={posterRef}>
                 <div className="smp-poster-grain" />
 
-                {/* Brand header */}
+                {/* Brand header — now also carries a "recency" badge
+                    ("12 DAYS AGO" / "3 YEARS AGO") so the viewer gets
+                    a sense of when this moment happened without
+                    reading the date. */}
                 <div className="smp-poster-header">
                   <div className="smp-brand">
                     <span className="smp-brand-mark">🗺️</span>
                     <span className="smp-brand-text">StampYourMap</span>
                   </div>
-                  {memory?.dateVisited && (
-                    <div className="smp-date">{formatDate(memory.dateVisited)}</div>
-                  )}
+                  <div className="smp-header-right">
+                    {daysAgoBadge(memory?.dateVisited) && (
+                      <span className="smp-recency-badge">{daysAgoBadge(memory.dateVisited)}</span>
+                    )}
+                    {memory?.dateVisited && (
+                      <div className="smp-date">{formatDate(memory.dateVisited)}</div>
+                    )}
+                  </div>
                 </div>
 
                 {/* User row */}
@@ -362,6 +478,22 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
                     <div className="smp-user-sub">just stamped {flagFor(memory?.country)} {memory?.country}</div>
                   </div>
                 </div>
+
+                {/* Trip-tag stamp — rendered as a passport-style stamp,
+                    rotated slightly so it reads as "stamped on" the card
+                    rather than drawn on later. Only shows when the user
+                    has picked a tag. */}
+                {tripTag && (
+                  <div className="smp-trip-stamp" aria-hidden="true">
+                    <div className="smp-trip-stamp-inner">
+                      <span className="smp-trip-stamp-top">★ ★ ★</span>
+                      <span className="smp-trip-stamp-label">{tripTag}</span>
+                      <span className="smp-trip-stamp-bot">
+                        {memory?.dateVisited ? new Date(memory.dateVisited).getFullYear() : new Date().getFullYear()}
+                      </span>
+                    </div>
+                  </div>
+                )}
 
                 {/* Map panel with photos */}
                 <div className="smp-map-panel">
@@ -485,6 +617,81 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
               </div>
             </div>
 
+            {/* TRIP TAG — a one-tap category that renders on the poster
+                as a stamp. Covers the common "why" of the trip (first
+                solo trip, honeymoon, business, bucket list) and lets
+                the user go off-script with a custom tag. */}
+            <div className="smp-ctrl-field">
+              <label>
+                Trip tag <span className="smp-count">(optional — appears on card)</span>
+              </label>
+              <div className="smp-trip-tags" role="group" aria-label="Trip tag">
+                <button
+                  type="button"
+                  className={`smp-trip-tag ${!tripTag ? 'active' : ''}`}
+                  onClick={() => { setTripTag(''); setShowCustomInput(false); }}
+                  data-ga-label="Trip tag: none" data-ga-category="share"
+                >None</button>
+                {TRIP_TAGS.map(t => {
+                  const active = tripTag.toUpperCase() === t.label.toUpperCase();
+                  return (
+                    <button
+                      key={t.id}
+                      type="button"
+                      className={`smp-trip-tag ${active ? 'active' : ''}`}
+                      onClick={() => { setTripTag(t.label); setShowCustomInput(false); }}
+                      data-ga-label={`Trip tag: ${t.id}`}
+                      data-ga-category="share"
+                    >
+                      <span className="smp-trip-tag-emoji">{t.emoji}</span>
+                      {t.label}
+                    </button>
+                  );
+                })}
+                <button
+                  type="button"
+                  className={`smp-trip-tag smp-trip-tag-custom ${showCustomInput || (tripTag && !TRIP_TAGS.find(t => t.label.toUpperCase() === tripTag.toUpperCase())) ? 'active' : ''}`}
+                  onClick={() => setShowCustomInput(v => !v)}
+                  data-ga-label="Trip tag: custom" data-ga-category="share"
+                >✍️ Custom</button>
+              </div>
+              {showCustomInput && (
+                <div className="smp-trip-custom">
+                  <input
+                    type="text"
+                    maxLength={32}
+                    placeholder="e.g. Girls Trip to Bali"
+                    value={customTagInput}
+                    onChange={e => setCustomTagInput(e.target.value)}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' && customTagInput.trim()) {
+                        setTripTag(customTagInput.trim());
+                        setShowCustomInput(false);
+                      }
+                    }}
+                    autoFocus
+                  />
+                  <button
+                    type="button"
+                    className="smp-trip-custom-apply"
+                    disabled={!customTagInput.trim()}
+                    onClick={() => {
+                      setTripTag(customTagInput.trim());
+                      setShowCustomInput(false);
+                    }}
+                  >Apply</button>
+                </div>
+              )}
+              {tripTag && !TRIP_TAGS.find(t => t.label.toUpperCase() === tripTag.toUpperCase()) && !showCustomInput && (
+                <div className="smp-trip-custom-active">
+                  Using custom tag: <strong>{tripTag}</strong>
+                  <button type="button" onClick={() => setTripTag('')} aria-label="Remove custom tag">
+                    <FaTimes />
+                  </button>
+                </div>
+              )}
+            </div>
+
             <div className="smp-ctrl-field">
               <label>
                 Message to print on card
@@ -492,6 +699,29 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
                   {message.length} / {MAX_MESSAGE}
                 </span>
               </label>
+              {/* One-tap caption vibes — tokens are swapped for this
+                  memory's title + place so the preset lands specific,
+                  not generic. */}
+              <div className="smp-presets" role="group" aria-label="Caption vibes">
+                {CAPTION_PRESETS.map(p => {
+                  const resolved = p.text
+                    .replace(/\{\{title\}\}/g, memory?.title || 'this moment')
+                    .replace(/\{\{place\}\}/g, memory?.region || memory?.country || 'this place');
+                  const active = message.trim() === resolved.trim();
+                  return (
+                    <button
+                      key={p.id}
+                      type="button"
+                      className={`smp-preset-chip ${active ? 'active' : ''}`}
+                      onClick={() => setMessage(resolved.slice(0, MAX_MESSAGE))}
+                      data-ga-label={`Share preset: ${p.id}`}
+                      data-ga-category="share"
+                    >
+                      {p.label}
+                    </button>
+                  );
+                })}
+              </div>
               <textarea
                 rows={5}
                 maxLength={MAX_MESSAGE}
@@ -499,6 +729,30 @@ export default function ShareMemoryPost({ memory, userName, onClose }) {
                 onChange={e => setMessage(e.target.value)}
                 placeholder="A short line you want printed on the card — the view, the food, the moment."
               />
+              {/* Hashtag chips — click to append. Instagram caps at 30
+                  tags; we show 10 highly relevant ones. */}
+              <div className="smp-hashtags" aria-label="Suggested hashtags">
+                <span className="smp-hashtags-label"># Add tags</span>
+                {buildHashtagChips(memory).map(tag => (
+                  <button
+                    key={tag}
+                    type="button"
+                    className="smp-hashtag-chip"
+                    onClick={() => {
+                      const next = message.trim();
+                      const already = new RegExp(`(^|\\s)${tag.replace(/#/, '#')}(\\s|$)`, 'i').test(next);
+                      if (already) return;
+                      const sep = next.length === 0 ? '' : (next.endsWith(' ') ? '' : ' ');
+                      const combined = `${next}${sep}${tag}`;
+                      setMessage(combined.slice(0, MAX_MESSAGE));
+                    }}
+                    data-ga-label={`Share hashtag: ${tag}`}
+                    data-ga-category="share"
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <button

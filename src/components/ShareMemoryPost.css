@@ -1280,3 +1280,307 @@
   font-weight: 800;
   letter-spacing: -0.02em;
 }
+
+/* ============================================
+   CAPTION VIBES (one-tap presets)
+   ============================================ */
+.smp-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0.5rem 0 0.65rem;
+}
+.smp-preset-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--bg-input, #f1f5f9);
+  border: 1px solid var(--border-default, #e2e8f0);
+  color: var(--text-primary, #0f172a);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 160ms ease;
+  font-family: inherit;
+}
+.smp-preset-chip:hover {
+  background: var(--bg-card, #fff);
+  border-color: var(--primary-400, #818cf8);
+  transform: translateY(-1px);
+}
+.smp-preset-chip.active {
+  background: linear-gradient(135deg, var(--primary-500, #6366f1), var(--violet-500, #8b5cf6));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* ============================================
+   HASHTAG CHIPS (click to append)
+   ============================================ */
+.smp-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border-default, #e2e8f0);
+}
+.smp-hashtags-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted, #94a3b8);
+  margin-right: 4px;
+}
+.smp-hashtag-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  color: var(--primary-600, #4f46e5);
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 140ms ease;
+  font-family: inherit;
+}
+.smp-hashtag-chip:hover {
+  background: rgba(99, 102, 241, 0.14);
+  border-color: rgba(99, 102, 241, 0.35);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   POSTER: DAYS-AGO BADGE
+   Sits next to the date in the header, so the viewer sees
+   "12 DAYS AGO · Apr 23 2026" and gets both freshness and precision.
+   ============================================ */
+.smp-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.smp-recency-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+/* Light templates need dark badge chrome, not white */
+.smp-poster[data-template="polaroid"] .smp-recency-badge,
+.smp-poster[data-template="minimal"]  .smp-recency-badge,
+.smp-poster[data-template="rosegold"] .smp-recency-badge,
+.smp-poster[data-template="retro"]    .smp-recency-badge {
+  background: rgba(15, 23, 42, 0.08);
+  border-color: rgba(15, 23, 42, 0.14);
+  color: #0f172a;
+}
+
+@media (max-width: 640px) {
+  .smp-presets { gap: 5px; }
+  .smp-preset-chip { font-size: 0.72rem; padding: 5px 10px; }
+  .smp-hashtag-chip { font-size: 0.68rem; padding: 3px 8px; }
+}
+
+/* ============================================
+   TRIP TAG SELECTOR — chips in the controls panel
+   ============================================ */
+.smp-trip-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0.5rem 0 0;
+  max-height: 170px;
+  overflow-y: auto;
+  padding: 4px 2px;
+}
+.smp-trip-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: var(--bg-input, #f1f5f9);
+  border: 1px solid var(--border-default, #e2e8f0);
+  color: var(--text-primary, #0f172a);
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 150ms ease;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.smp-trip-tag:hover {
+  background: var(--bg-card, #fff);
+  border-color: var(--primary-400, #818cf8);
+  transform: translateY(-1px);
+}
+.smp-trip-tag.active {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+.smp-trip-tag-emoji { font-size: 0.95em; line-height: 1; }
+.smp-trip-tag-custom {
+  background: var(--bg-card, #fff);
+  border-style: dashed;
+  color: var(--primary-600, #4f46e5);
+  border-color: var(--primary-300, #a5b4fc);
+}
+.smp-trip-tag-custom.active {
+  background: linear-gradient(135deg, var(--primary-500, #6366f1), var(--violet-500, #8b5cf6));
+  color: #fff;
+  border-style: solid;
+}
+.smp-trip-custom {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+.smp-trip-custom input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1.5px solid var(--primary-400, #818cf8) !important;
+  border-radius: 999px !important;
+  font-size: 0.84rem;
+  background: var(--bg-card, #fff);
+  color: var(--text-primary, #0f172a);
+}
+.smp-trip-custom input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18) !important;
+}
+.smp-trip-custom-apply {
+  padding: 8px 16px;
+  background: var(--primary-500, #6366f1);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 150ms ease, transform 100ms ease;
+}
+.smp-trip-custom-apply:hover:not(:disabled) { background: var(--primary-600, #4f46e5); }
+.smp-trip-custom-apply:disabled { opacity: 0.5; cursor: not-allowed; }
+.smp-trip-custom-active {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px dashed rgba(99, 102, 241, 0.3);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: var(--text-secondary, #475569);
+}
+.smp-trip-custom-active strong { color: var(--primary-600, #4f46e5); }
+.smp-trip-custom-active button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-card, #fff);
+  border: none;
+  color: var(--text-secondary, #475569);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+}
+.smp-trip-custom-active button:hover { background: var(--primary-100, #e0e7ff); color: var(--primary-700, #4338ca); }
+
+/* ============================================
+   TRIP STAMP ON THE POSTER
+   Passport-style circular stamp, rotated for authenticity.
+   Sits absolutely-positioned on the top-right so it doesn't
+   push other elements around.
+   ============================================ */
+.smp-trip-stamp {
+  position: absolute;
+  top: 180px;
+  right: 60px;
+  width: 200px;
+  height: 200px;
+  z-index: 5;
+  pointer-events: none;
+  transform: rotate(-14deg);
+  animation: smpStampDrop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes smpStampDrop {
+  0%   { transform: rotate(-14deg) scale(2.4); opacity: 0; }
+  60%  { opacity: 1; }
+  100% { transform: rotate(-14deg) scale(1); opacity: 1; }
+}
+.smp-trip-stamp-inner {
+  width: 100%;
+  height: 100%;
+  border: 6px solid rgba(239, 68, 68, 0.78);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(239, 68, 68, 0.9);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  text-align: center;
+  padding: 10px;
+  box-shadow: inset 0 0 0 2px rgba(239, 68, 68, 0.35);
+  position: relative;
+}
+.smp-trip-stamp-inner::before,
+.smp-trip-stamp-inner::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: rgba(239, 68, 68, 0.5);
+}
+.smp-trip-stamp-inner::before { top: 24px; }
+.smp-trip-stamp-inner::after  { bottom: 24px; }
+.smp-trip-stamp-top { font-size: 14px; letter-spacing: 0.4em; }
+.smp-trip-stamp-label {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  max-width: 160px;
+  padding: 2px 4px;
+}
+.smp-trip-stamp-bot { font-size: 22px; font-weight: 800; letter-spacing: 0.15em; }
+
+/* Light templates need a darker stamp palette or it washes out */
+.smp-poster[data-template="polaroid"] .smp-trip-stamp-inner,
+.smp-poster[data-template="minimal"]  .smp-trip-stamp-inner,
+.smp-poster[data-template="rosegold"] .smp-trip-stamp-inner,
+.smp-poster[data-template="retro"]    .smp-trip-stamp-inner {
+  border-color: rgba(185, 28, 28, 0.78);
+  color: rgba(185, 28, 28, 0.92);
+  box-shadow: inset 0 0 0 2px rgba(185, 28, 28, 0.35);
+}
+
+@media (max-width: 640px) {
+  .smp-trip-tags { max-height: 140px; }
+  .smp-trip-tag { font-size: 0.72rem; padding: 5px 9px; }
+}
